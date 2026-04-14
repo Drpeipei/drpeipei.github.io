@@ -3,105 +3,432 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>佩佩老師的會計魔法教室｜永續會計・ESG教學・Accounting for Sustainability</title>
-
-  <meta name="description" content="佩佩老師的會計魔法教室，專注於永續會計、ESG教學與企業決策思維，帶你用會計改變世界。">
-
-  <meta name="keywords" content="佩佩老師, 會計魔法教室, 永續會計, ESG, IFRS S2, accounting, sustainability">
-
-  <meta name="author" content="佩佩老師">
-
-  <meta property="og:title" content="佩佩老師的會計魔法教室">
-  <meta property="og:description" content="用會計看世界，從ESG到永續決策">
-  <meta property="og:url" content="https://drpeipei.com">
-  <meta property="og:type" content="website">
-
+  <meta name="description" content="佩佩老師的會計魔法教室，專注於永續會計、ESG教學與企業決策思維，帶你用會計改變世界。" />
+  <meta name="keywords" content="佩佩老師, 會計魔法教室, 永續會計, ESG, IFRS S2, accounting, sustainability" />
+  <meta name="author" content="佩佩老師" />
+  <meta property="og:title" content="佩佩老師的會計魔法教室" />
+  <meta property="og:description" content="用會計看世界，從ESG到永續決策" />
+  <meta property="og:url" content="https://drpeipei.com" />
+  <meta property="og:type" content="website" />
   <style>
+    :root {
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --text: #2d2d2d;
+      --muted: #6b7280;
+      --primary: #496a57;
+      --primary-dark: #385243;
+      --accent: #d7e3da;
+      --line: #e7e3da;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius: 22px;
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Noto Sans TC", sans-serif;
       margin: 0;
-      background-color: #f6f4ef;
-      color: #2d2d2d;
-      line-height: 1.6;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(180deg, #f8f7f2 0%, #f3f1eb 100%);
+      color: var(--text);
+      line-height: 1.75;
     }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(92%, var(--maxw)); margin: 0 auto; }
 
-    header {
-      background: linear-gradient(135deg, #6b9f7a, #9bc5a3);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 247, 242, 0.82);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
+    .nav-inner {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--primary-dark);
+      font-size: 1.05rem;
+    }
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .menu a:hover { color: var(--primary-dark); }
 
+    .hero { padding: 84px 0 56px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .hero-card, .card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 42px; }
+    .tag {
+      display: inline-block;
+      padding: 7px 14px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
     h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+    .hero-en {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .hero-desc {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 58ch;
+      margin-bottom: 26px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn.secondary {
+      color: var(--primary-dark);
+      background: white;
+    }
+    .btn.secondary:hover {
+      background: #f7faf8;
+      transform: translateY(-1px);
     }
 
-    .subtitle {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      color: #4f7c65;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
+    .hero-visual {
       padding: 20px;
-      background: #eee;
-      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top right, #dde9e0 0%, transparent 32%),
+        linear-gradient(180deg, #fdfdfc 0%, #f8f6f1 100%);
+    }
+    .hero-visual img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 18px;
+    }
+
+    section { padding: 26px 0 34px; }
+    .section-head { margin-bottom: 20px; }
+    .eyebrow {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.25;
+    }
+    .section-text {
+      margin-top: 10px;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    .about-grid,
+    .course-grid,
+    .article-grid,
+    .contact-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .about-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .course-grid,
+    .article-grid,
+    .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .mini-card,
+    .about-card {
+      padding: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+    }
+    .mini-card h3,
+    .about-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+    }
+    .mini-card p,
+    .about-card p { margin: 0; color: var(--muted); }
+    .about-card h3 + p { margin-bottom: 14px; }
+
+    .list {
+      padding-left: 1.2em;
+      margin: 0;
+      color: var(--muted);
+    }
+    .list li + li { margin-top: 8px; }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: #eef5f0;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 1px solid #d9e6dd;
+    }
+    .social-pill:hover { background: #e7f0ea; }
+
+    .footer {
+      padding: 46px 0 60px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .footer strong { color: var(--primary-dark); }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .about-grid,
+      .course-grid,
+      .article-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-card, .hero-visual { padding: 28px; }
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">佩佩老師的世界</a>
+      <div class="menu">
+        <a href="#about">關於我</a>
+        <a href="#courses">課程教學</a>
+        <a href="#articles">文章分享</a>
+        <a href="#contact">聯絡我</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <h1>佩佩老師的會計魔法教室</h1>
-  <div class="subtitle">會計可以拯救地球 Accounting Can Save the Earth</div>
-</header>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="tag">會計 × 永續 × 教學</div>
+          <h1>佩佩老師的會計魔法教室</h1>
+          <div class="hero-en">會計可以拯救地球 Accounting Can Save the Earth</div>
+          <div class="hero-desc">
+            我相信，當會計不只是記錄，而是成為一種讓永續資訊被看見、被理解、被納入決策的語言，
+            組織就有機會走向更清楚、更有責任感的未來。
+          </div>
+          <div class="btn-row">
+            <a class="btn primary" href="#courses">查看課程</a>
+            <a class="btn secondary" href="#articles">閱讀分享</a>
+            <a class="btn secondary" href="#contact">聯絡我</a>
+          </div>
+        </div>
 
-<div class="container">
+        <div class="hero-card hero-visual">
+          <img src="https://files.catbox.moe/0i5b2k.png" alt="佩佩老師Q版樹下插畫" />
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>關於我</h2>
-    <p>我是佩佩老師，長期投入永續會計與ESG教育，致力於讓會計成為企業決策與社會轉型的重要語言。</p>
-  </section>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+          <h2>關於我</h2>
+          <div class="section-text">
+            我是佩佩老師，關注會計、永續、教學與實務之間的連結。
+            我希望把原本看起來有距離的專業語言，轉化成人人都能理解、也能採取行動的知識。
+          </div>
+        </div>
 
-  <section>
-    <h2>教學與課程</h2>
-    <p>涵蓋永續會計、ESG、IFRS S2、碳管理與企業決策分析，結合理論與實務，培養學生與企業的轉型能力。</p>
-  </section>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>我想做的事</h3>
+            <p>用溫暖但清楚的方式，分享會計與永續的觀念，陪更多人看懂資訊、理解責任、走進決策。</p>
+            <h3>我相信</h3>
+            <p>專業不一定要冷，知識也可以有溫度。當語言被說清楚，理解就會發生，行動也才會發生。</p>
+          </div>
 
-  <section>
-    <h2>文章分享</h2>
-    <p>透過日常故事與教學觀點，讓複雜的會計與永續概念變得貼近生活與人心。</p>
-  </section>
+          <div class="mini-card">
+            <h3>我的教學風格</h3>
+            <ul class="list">
+              <li>溫暖療癒，但不失結構與邏輯</li>
+              <li>用生活感比喻，把抽象概念講清楚</li>
+              <li>把永續、會計、教育與實務自然連起來</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>聯絡我</h2>
-    <p>歡迎透過 Facebook 與我交流：</p>
-    <p><a href="https://www.facebook.com/p/佩佩老師的會計魔法教室-100063655793258/" target="_blank">佩佩老師的會計魔法教室 FB</a></p>
-  </section>
+    <section id="courses">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Courses</div>
+          <h2>課程／教學</h2>
+          <div class="section-text">
+            這裡先放你的主要教學方向。之後你想加上正式購課功能，我們再往下接。
+          </div>
+        </div>
 
-</div>
+        <div class="course-grid">
+          <div class="mini-card">
+            <h3>永續會計與 ESG</h3>
+            <p>從永續資訊、揭露邏輯到決策應用，幫助學習者看懂 ESG 不是口號，而是一種管理語言。</p>
+          </div>
 
-<footer>
-  © 2026 佩佩老師的會計魔法教室
-</footer>
+          <div class="mini-card">
+            <h3>碳管理與實務教學</h3>
+            <p>以白話方式整理碳盤查、碳治理、碳策略與企業面對永續要求時的實務思維。</p>
+          </div>
 
+          <div class="mini-card">
+            <h3>教學講座與工作坊</h3>
+            <p>適合校園、企業與專業社群，結合理論與案例，陪大家把複雜概念聽懂、帶回去用。</p>
+          </div>
+
+          <div class="mini-card">
+            <h3>AI × 教學應用</h3>
+            <p>逐步整理 AI 與教學、內容整理、知識轉譯之間的可能性，讓工具真正服務理解與傳遞。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Sharing</div>
+          <h2>文章分享</h2>
+          <div class="section-text">
+            目前先用精選分享的方式呈現。之後你想把 Facebook 貼文整理成網站文章，我們可以再做第二版。
+          </div>
+        </div>
+
+        <div class="article-grid">
+          <div class="mini-card">
+            <h3>Facebook 粉專</h3>
+            <p>佩佩老師的會計魔法教室。日常觀點、教學片段、生活感想與專業內容，都會在這裡持續更新。</p>
+            <div class="social-links">
+              <a class="social-pill" href="https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/" target="_blank" rel="noopener noreferrer">前往 Facebook</a>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <h3>YouTube 影音</h3>
+            <p>目前先連到你的 YouTube 內容入口。等你之後給我頻道或播放清單網址，我就能幫你換成真正的影片嵌入區塊。</p>
+            <div class="social-links">
+              <a class="social-pill" href="https://www.youtube.com/results?search_query=%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4" target="_blank" rel="noopener noreferrer">前往 YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Contact</div>
+          <h2>聯絡我</h2>
+          <div class="section-text">
+            如果你想邀課、合作、演講，或只是想和我打聲招呼，都可以從這裡找到我。
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="mini-card">
+            <h3>Facebook 聯絡</h3>
+            <p>歡迎透過粉專私訊聯繫，我會在方便的時間回覆你。</p>
+            <div class="social-links">
+              <a class="social-pill" href="https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/" target="_blank" rel="noopener noreferrer">私訊粉專</a>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <h3>YouTube 影音入口</h3>
+            <p>如果你喜歡用影片學習，也可以先從這裡進入你的影音內容整理入口。</p>
+            <div class="social-links">
+              <a class="social-pill" href="https://www.youtube.com/results?search_query=%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4" target="_blank" rel="noopener noreferrer">看影片</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>佩佩老師的會計魔法教室</strong><br />
+      會計可以拯救地球 · Accounting Can Save the Earth
+    </div>
+  </footer>
 </body>
 </html>
