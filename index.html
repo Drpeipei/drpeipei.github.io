@@ -1,440 +1,421 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>佩佩老師的會計魔法教室｜永續會計・ESG教學・Accounting for Sustainability</title>
-  <meta name="description" content="佩佩老師的會計魔法教室，專注於永續會計、ESG教學與企業決策思維，帶你用會計改變世界。" />
-  <meta name="keywords" content="佩佩老師, 會計魔法教室, 永續會計, ESG, IFRS S2, accounting, sustainability" />
-  <meta name="author" content="佩佩老師" />
-  <meta property="og:title" content="佩佩老師的會計魔法教室" />
-  <meta property="og:description" content="用會計看世界，從ESG到永續決策" />
-  <meta property="og:url" content="https://drpeipei.com" />
-  <meta property="og:type" content="website" />
+  <title>佩佩老師的會計魔法教室</title>
+  <meta
+    name="description"
+    content="從基礎學習、實作訓練到企業顧問，建立可落地的永續與決策能力。"
+  />
   <style>
     :root {
       --bg: #f6f4ef;
-      --paper: #ffffff;
-      --text: #2d2d2d;
-      --muted: #6b7280;
-      --primary: #496a57;
-      --primary-dark: #385243;
-      --accent: #d7e3da;
-      --line: #e7e3da;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      --radius: 22px;
-      --maxw: 1120px;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --yellow: #f1e45c;
+      --blue: #b7d8f3;
+      --orange: #f3c89a;
+      --lavender: #d9dced;
+      --button-bg: #111827;
+      --button-text: #ffffff;
+      --card-max: 1200px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background: linear-gradient(180deg, #f8f7f2 0%, #f3f1eb 100%);
       color: var(--text);
-      line-height: 1.75;
+      background: var(--bg);
+      line-height: 1.7;
     }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { width: min(92%, var(--maxw)); margin: 0 auto; }
 
-    .nav {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(248, 247, 242, 0.82);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      background: rgba(246, 244, 239, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.08);
     }
-    .nav-inner {
-      width: min(92%, var(--maxw));
+
+    .nav-wrap {
+      max-width: var(--card-max);
       margin: 0 auto;
+      padding: 14px 20px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      gap: 16px;
+      gap: 20px;
     }
+
     .brand {
-      font-weight: 800;
+      font-size: 1rem;
+      font-weight: 700;
       letter-spacing: 0.02em;
-      color: var(--primary-dark);
-      font-size: 1.05rem;
+      white-space: nowrap;
     }
-    .menu {
+
+    .nav {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
-      align-items: center;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .nav a {
       font-size: 0.95rem;
       color: var(--muted);
-    }
-    .menu a:hover { color: var(--primary-dark); }
-
-    .hero { padding: 84px 0 56px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-    .hero-card, .card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-card { padding: 42px; }
-    .tag {
-      display: inline-block;
-      padding: 7px 14px;
-      background: var(--accent);
-      color: var(--primary-dark);
+      padding: 8px 12px;
       border-radius: 999px;
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+      transition: background 0.2s ease, color 0.2s ease;
     }
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+
+    .nav a:hover {
+      background: rgba(31, 41, 55, 0.06);
+      color: var(--text);
     }
-    .hero-en {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      color: var(--primary-dark);
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-    .hero-desc {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 58ch;
-      margin-bottom: 26px;
-    }
-    .btn-row {
+
+    .hero {
+      min-height: 72vh;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .hero-kicker {
+      font-size: 0.95rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-subtitle {
+      margin-top: 18px;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      color: #4b5563;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 28px auto 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
     }
+
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--primary);
+      display: inline-block;
+      padding: 14px 24px;
+      background: var(--button-bg);
+      color: var(--button-text);
       font-weight: 700;
-      transition: 0.2s ease;
+      border-radius: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .btn.primary {
-      background: var(--primary);
-      color: white;
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
     }
-    .btn.primary:hover {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
-      transform: translateY(-1px);
-    }
+
     .btn.secondary {
-      color: var(--primary-dark);
-      background: white;
-    }
-    .btn.secondary:hover {
-      background: #f7faf8;
-      transform: translateY(-1px);
+      background: transparent;
+      color: var(--text);
+      border: 2px solid rgba(31, 41, 55, 0.15);
     }
 
-    .hero-visual {
-      padding: 20px;
+    .service-section {
+      min-height: 82vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at top right, #dde9e0 0%, transparent 32%),
-        linear-gradient(180deg, #fdfdfc 0%, #f8f6f1 100%);
+      padding: 56px 20px;
     }
-    .hero-visual img {
+
+    .service-inner {
+      max-width: var(--card-max);
+      margin: 0 auto;
       width: 100%;
-      max-width: 520px;
-      height: auto;
-      border-radius: 18px;
-    }
-
-    section { padding: 26px 0 34px; }
-    .section-head { margin-bottom: 20px; }
-    .eyebrow {
-      color: var(--primary);
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    h2 {
-      margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1.25;
-    }
-    .section-text {
-      margin-top: 10px;
-      color: var(--muted);
-      max-width: 64ch;
-    }
-
-    .about-grid,
-    .course-grid,
-    .article-grid,
-    .contact-grid {
       display: grid;
-      gap: 20px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: end;
     }
-    .about-grid { grid-template-columns: 1.1fr 0.9fr; }
-    .course-grid,
-    .article-grid,
-    .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-    .mini-card,
-    .about-card {
-      padding: 24px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-    }
-    .mini-card h3,
-    .about-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      color: var(--primary-dark);
-    }
-    .mini-card p,
-    .about-card p { margin: 0; color: var(--muted); }
-    .about-card h3 + p { margin-bottom: 14px; }
-
-    .list {
-      padding-left: 1.2em;
-      margin: 0;
-      color: var(--muted);
-    }
-    .list li + li { margin-top: 8px; }
-
-    .social-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-    .social-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 16px;
-      border-radius: 999px;
-      background: #eef5f0;
-      color: var(--primary-dark);
+    .service-label {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: rgba(17, 24, 39, 0.72);
       font-weight: 700;
-      border: 1px solid #d9e6dd;
     }
-    .social-pill:hover { background: #e7f0ea; }
+
+    .service-title {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      font-weight: 900;
+    }
+
+    .service-desc {
+      margin-top: 24px;
+      max-width: 700px;
+      font-size: 1.15rem;
+      color: rgba(17, 24, 39, 0.82);
+    }
+
+    .service-meta {
+      justify-self: end;
+      max-width: 320px;
+      font-size: 1rem;
+      color: rgba(17, 24, 39, 0.78);
+    }
+
+    .service-meta p {
+      margin: 0 0 20px 0;
+    }
+
+    .service-note {
+      font-size: 0.95rem;
+      color: rgba(17, 24, 39, 0.68);
+    }
+
+    .bg-yellow {
+      background: var(--yellow);
+    }
+
+    .bg-blue {
+      background: var(--blue);
+    }
+
+    .bg-orange {
+      background: var(--orange);
+    }
+
+    .bg-lavender {
+      background: var(--lavender);
+    }
 
     .footer {
-      padding: 46px 0 60px;
-      color: var(--muted);
-      text-align: center;
+      background: #111827;
+      color: rgba(255, 255, 255, 0.88);
+      padding: 36px 20px 48px;
+    }
+
+    .footer-inner {
+      max-width: var(--card-max);
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.72);
       font-size: 0.95rem;
     }
-    .footer strong { color: var(--primary-dark); }
 
-    @media (max-width: 860px) {
-      .hero-grid,
-      .about-grid,
-      .course-grid,
-      .article-grid,
-      .contact-grid { grid-template-columns: 1fr; }
-      .hero-card, .hero-visual { padding: 28px; }
-      .nav-inner {
+    @media (max-width: 900px) {
+      .service-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .service-meta {
+        justify-self: start;
+        max-width: 100%;
+      }
+
+      .hero {
+        min-height: 66vh;
+      }
+
+      .service-section {
+        min-height: auto;
+        padding: 72px 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .service-title {
+        line-height: 1.05;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top">佩佩老師的世界</a>
-      <div class="menu">
-        <a href="#about">關於我</a>
-        <a href="#courses">課程教學</a>
-        <a href="#articles">文章分享</a>
-        <a href="#contact">聯絡我</a>
-      </div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <div class="brand">佩佩老師的會計魔法教室</div>
+      <nav class="nav">
+        <a href="#foundation">初階課程</a>
+        <a href="#workshop">實作工作坊</a>
+        <a href="#consulting">顧問輔導</a>
+        <a href="#insight">觀點文章</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main id="top">
+  <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card">
-          <div class="tag">會計 × 永續 × 教學</div>
-          <h1>佩佩老師的會計魔法教室</h1>
-          <div class="hero-en">會計可以拯救地球 Accounting Can Save the Earth</div>
-          <div class="hero-desc">
-            我相信，當會計不只是記錄，而是成為一種讓永續資訊被看見、被理解、被納入決策的語言，
-            組織就有機會走向更清楚、更有責任感的未來。
-          </div>
-          <div class="btn-row">
-            <a class="btn primary" href="#courses">查看課程</a>
-            <a class="btn secondary" href="#articles">閱讀分享</a>
-            <a class="btn secondary" href="#contact">聯絡我</a>
-          </div>
-        </div>
-
-        <div class="hero-card hero-visual">
-          <img src="tree.png" alt="佩佩老師樹下">
+      <div class="hero-inner">
+        <div class="hero-kicker">Accounting Can Save the Earth</div>
+        <h1>會計可以拯救地球</h1>
+        <div class="hero-subtitle">從基礎學習、實作訓練到企業顧問</div>
+        <p class="hero-description">
+          我相信，會計不只是記錄數字，而是一種幫助組織看見價值、理解風險、
+          做出更好決策的語言。這裡整理了我的課程、工作坊、顧問服務與觀點文章，
+          陪你把理解，慢慢走成行動。
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#foundation">開始探索</a>
+          <a class="btn secondary" href="#insight">閱讀文章</a>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">About</div>
-          <h2>關於我</h2>
-          <div class="section-text">
-            我是佩佩老師，關注會計、永續、教學與實務之間的連結。
-            我希望把原本看起來有距離的專業語言，轉化成人人都能理解、也能採取行動的知識。
-          </div>
+    <section id="foundation" class="service-section bg-yellow">
+      <div class="service-inner">
+        <div>
+          <div class="service-label">Service 01</div>
+          <h2 class="service-title">初階課程</h2>
+          <p class="service-desc">
+            建立基礎理解，從零開始認識會計、永續與 AI，
+            適合剛接觸相關主題，想先看懂核心概念的人。
+          </p>
         </div>
-
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>我想做的事</h3>
-            <p>用溫暖但清楚的方式，分享會計與永續的觀念，陪更多人看懂資訊、理解責任、走進決策。</p>
-            <h3>我相信</h3>
-            <p>專業不一定要冷，知識也可以有溫度。當語言被說清楚，理解就會發生，行動也才會發生。</p>
-          </div>
-
-          <div class="mini-card">
-            <h3>我的教學風格</h3>
-            <ul class="list">
-              <li>溫暖療癒，但不失結構與邏輯</li>
-              <li>用生活感比喻，把抽象概念講清楚</li>
-              <li>把永續、會計、教育與實務自然連起來</li>
-            </ul>
-          </div>
+        <div class="service-meta">
+          <p>適合對象：初學者、學生、想建立基礎觀念的學習者</p>
+          <a class="btn" href="#">查看課程</a>
+          <p class="service-note">之後你可以把這個按鈕換成課程頁連結。</p>
         </div>
       </div>
     </section>
 
-    <section id="courses">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Courses</div>
-          <h2>課程／教學</h2>
-          <div class="section-text">
-            
-          </div>
+    <section id="workshop" class="service-section bg-blue">
+      <div class="service-inner">
+        <div>
+          <div class="service-label">Service 02</div>
+          <h2 class="service-title">實作工作坊</h2>
+          <p class="service-desc">
+            將概念轉化為工具與方法，透過案例、演練與操作，
+            強化實際應用能力，讓知識不只停留在理解。
+          </p>
         </div>
-
-        <div class="course-grid">
-          <div class="mini-card">
-            <h3>永續會計與 ESG</h3>
-            <p>從永續資訊、揭露邏輯到決策應用，幫助學習者看懂 ESG 不是口號，而是一種管理語言。</p>
-          </div>
-
-          <div class="mini-card">
-            <h3>碳管理與實務教學</h3>
-            <p>以白話方式整理碳盤查、碳治理、碳策略與企業面對永續要求時的實務思維。</p>
-          </div>
-
-          <div class="mini-card">
-            <h3>教學講座與工作坊</h3>
-            <p>適合校園、企業與專業社群，結合理論與案例，陪大家把複雜概念聽懂、帶回去用。</p>
-          </div>
-
-          <div class="mini-card">
-            <h3>AI × 教學應用</h3>
-            <p>逐步整理 AI 與教學、內容整理、知識轉譯之間的可能性，讓工具真正服務理解與傳遞。</p>
-          </div>
+        <div class="service-meta">
+          <p>適合對象：教師、企業團隊、想把概念真正落地的實務工作者</p>
+          <a class="btn" href="#">了解課程</a>
+          <p class="service-note">這裡之後可以接你的培訓課程或工作坊資訊。</p>
         </div>
       </div>
     </section>
 
-    <section id="articles">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Sharing</div>
-          <h2>文章分享</h2>
-          <div class="section-text">
-            
-          </div>
+    <section id="consulting" class="service-section bg-orange">
+      <div class="service-inner">
+        <div>
+          <div class="service-label">Service 03</div>
+          <h2 class="service-title">顧問輔導</h2>
+          <p class="service-desc">
+            進入企業與組織現場，協助制度建置、永續揭露、
+            碳管理與轉型落地，讓專業成為真正可執行的方案。
+          </p>
         </div>
-
-        <div class="article-grid">
-          <div class="mini-card">
-            <h3>Facebook 粉專</h3>
-            <p>佩佩老師的會計魔法教室。日常觀點、教學片段、生活感想與專業內容，都會在這裡持續更新。</p>
-            <div class="social-links">
-              <a class="social-pill" href="https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/" target="_blank" rel="noopener noreferrer">前往 Facebook</a>
-            </div>
-          </div>
-
-          <div class="mini-card">
-            <h3>YouTube 影音</h3>
-            <p></p>
-            <div class="social-links">
-              <a class="social-pill" href="https://www.youtube.com/results?search_query=%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4" target="_blank" rel="noopener noreferrer">前往 YouTube</a>
-            </div>
-          </div>
+        <div class="service-meta">
+          <p>適合對象：企業、學校、協會、公部門與跨域合作專案</p>
+          <a class="btn" href="#">洽詢合作</a>
+          <p class="service-note">之後可放聯絡表單、Email，或合作服務說明頁。</p>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Contact</div>
-          <h2>聯絡我</h2>
-          <div class="section-text">
-            如果你想邀課、合作、演講，或只是想和我打聲招呼，都可以從這裡找到我。
-          </div>
+    <section id="insight" class="service-section bg-lavender">
+      <div class="service-inner">
+        <div>
+          <div class="service-label">Service 04</div>
+          <h2 class="service-title">觀點文章</h2>
+          <p class="service-desc">
+            從會計出發，理解決策、價值與世界的運作方式。
+            這裡放的不只是知識，也是我看待教學、永續與人生的方法。
+          </p>
         </div>
-
-        <div class="contact-grid">
-          <div class="mini-card">
-            <h3>Facebook 聯絡</h3>
-            <p>歡迎透過粉專私訊聯繫，我會在方便的時間回覆你。</p>
-            <div class="social-links">
-              <a class="social-pill" href="https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/" target="_blank" rel="noopener noreferrer">私訊粉專</a>
-            </div>
-          </div>
-
-          <div class="mini-card">
-            <h3>YouTube 影音入口</h3>
-            <p>如果你喜歡用影片學習，也可以先從這裡進入你的影音內容整理入口。</p>
-            <div class="social-links">
-              <a class="social-pill" href="https://www.youtube.com/results?search_query=%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4" target="_blank" rel="noopener noreferrer">看影片</a>
-            </div>
-          </div>
+        <div class="service-meta">
+          <p>適合對象：想先認識我、理解理念，或持續閱讀內容的朋友</p>
+          <a class="btn" href="#">閱讀文章</a>
+          <p class="service-note">之後可接你的 Facebook、部落格或文章頁面。</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <strong>佩佩老師的會計魔法教室</strong><br />
-      會計可以拯救地球 · Accounting Can Save the Earth
+    <div class="footer-inner">
+      <div class="footer-title">佩佩老師的會計魔法教室</div>
+      <div class="footer-text">
+        會計可以拯救地球，Accounting Can Save the Earth
+      </div>
     </div>
   </footer>
 </body>
 </html>
-<div style="display:grid; grid-template-columns:1fr 1fr;">
-  <a href="#spring" style="background:#dff5e1; padding:80px; text-align:center;">春｜開始</a>
-  <a href="#summer" style="background:#d6ecff; padding:80px; text-align:center;">夏｜行動</a>
-  <a href="#autumn" style="background:#ffe5cc; padding:80px; text-align:center;">秋｜思考</a>
-  <a href="#winter" style="background:#e6e6e6; padding:80px; text-align:center;">冬｜內在</a>
-</div>
