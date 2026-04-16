@@ -37,9 +37,26 @@
       display: flex; align-items: stretch; justify-content: space-between;
     }
     .brand {
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      display: flex; align-items: center; padding: 18px 0;
+      display: flex; align-items: center; gap: 12px; padding: 14px 0;
+      text-decoration: none; color: inherit;
+    }
+    .brand-stripe {
+      width: 4px; height: 36px; flex-shrink: 0;
+      display: flex; flex-direction: column;
+    }
+    .brand-stripe span { flex: 1; }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .brand-name {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text); line-height: 1;
+    }
+    .brand-tagline {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 7.5px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); line-height: 1;
     }
     .nav { display: flex; }
     .nav a {
@@ -51,31 +68,72 @@
     }
     .nav a:hover { color: var(--text); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 86vh;
+    /* ── HERO SLIDER ── */
+    .hero-slider {
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .slides-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.77,0,0.175,1);
+    }
+    .slide {
+      min-width: 100%; min-height: 88vh;
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 80px 32px 64px;
-      max-width: var(--max); margin: 0 auto;
-      border-bottom: 1px solid var(--border);
+      position: relative;
     }
-    .hero-kicker {
-      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 20px;
+    .slide-num {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
     }
-    .hero h1 {
-      font-size: clamp(3.6rem, 8.5vw, 9.5rem);
+    .slide-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; margin-bottom: 20px;
+    }
+    .slide h2 {
+      font-size: clamp(2.8rem, 7vw, 8rem);
       font-weight: 900; line-height: 0.92; letter-spacing: -0.02em;
-      color: var(--text);
+      max-width: 900px; margin-bottom: 0;
     }
-    .hero h1 em { font-style: normal; color: var(--muted); }
-    .hero-bottom {
-      margin-top: 52px; padding-top: 32px; border-top: 1px solid var(--border);
+    .slide h2 em { font-style: normal; color: var(--muted); }
+    .slide-bottom {
+      margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: flex-end;
-      flex-wrap: wrap; gap: 24px;
+      flex-wrap: wrap; gap: 20px;
     }
-    .hero-desc { max-width: 500px; font-size: 1rem; color: var(--muted); line-height: 1.8; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .slide-desc { max-width: 480px; font-size: 0.95rem; color: var(--muted); line-height: 1.8; }
+
+    /* slider controls */
+    .slider-controls {
+      position: absolute; bottom: 64px; right: 32px;
+      display: flex; align-items: center; gap: 0; z-index: 10;
+    }
+    .slider-btn {
+      width: 48px; height: 48px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; transition: background 0.2s;
+      font-family: inherit;
+    }
+    .slider-btn:hover { background: var(--text); color: var(--bg); }
+    .slider-dots {
+      position: absolute; bottom: 28px; left: 32px;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .dot {
+      width: 6px; height: 6px; background: var(--border);
+      cursor: pointer; transition: all 0.3s;
+    }
+    .dot.active { width: 24px; background: var(--text); }
+    .slide-counter {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.1em; color: var(--muted);
+      position: absolute; bottom: 32px; right: 32px;
+    }
     .btn {
       display: inline-block; padding: 13px 24px;
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
@@ -233,7 +291,7 @@
     @media (max-width: 640px) {
       .nav-wrap { flex-direction: column; }
       .nav a { border-left: none; padding: 12px 14px; }
-      .hero h1 { font-size: 3rem; }
+      .slide h2 { font-size: 2.8rem; }
       .overlay-body { padding: 48px 20px 80px; }
       .overlay-nav { padding: 0 20px; }
     }
@@ -244,34 +302,86 @@
 <!-- HEADER -->
 <header class="site-header">
   <div class="nav-wrap">
-    <div class="brand">佩佩老師的會計魔法教室</div>
+    <a href="#" class="brand">
+      <div class="brand-stripe">
+        <span style="background:#f1e45c"></span>
+        <span style="background:#b7d8f3"></span>
+        <span style="background:#f3c89a"></span>
+        <span style="background:#d9dced"></span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Dr. Peipei</span>
+        <span class="brand-tagline">Accounting Can Save the Earth</span>
+      </div>
+    </a>
     <nav class="nav">
-      <a href="#services">服務</a>
-      <a href="#articles">文章</a>
-      <a href="#foundation">初階課程</a>
-      <a href="#workshop">工作坊</a>
-      <a href="#consulting">顧問</a>
+      <a href="#services">Services</a>
+      <a href="#articles">Articles</a>
+      <a href="#foundation">Courses</a>
+      <a href="#consulting">Consulting</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
-<div style="border-bottom: 1px solid var(--border);">
-<section class="hero">
-  <div class="hero-kicker">Accounting Can Save the Earth</div>
-  <h1>會計<br>可以<br><em>拯救地球</em></h1>
-  <div class="hero-bottom">
-    <p class="hero-desc">
-      我相信，會計不只是記錄數字，而是一種幫助組織看見價值、理解風險、
-      做出更好決策的語言。這裡整理了我的課程、工作坊、顧問服務與觀點文章，
-      陪你把理解，慢慢走成行動。
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-dark" href="#services">探索服務</a>
-      <a class="btn btn-outline" href="#articles">閱讀文章</a>
+<!-- HERO SLIDER -->
+<div class="hero-slider" id="heroSlider">
+  <div class="slides-track" id="slidesTrack">
+
+    <div class="slide">
+      <div class="slide-num">001 — 004</div>
+      <h2>Accounting<br>Can Save<br><em>the Earth</em></h2>
+      <div class="slide-bottom">
+        <p class="slide-desc">從基礎學習、實作訓練到企業顧問，建立可落地的永續與決策能力。我相信，會計不只是記錄數字，而是讓世界變得更好的語言。</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-dark" href="#services">Explore Services</a>
+          <a class="btn btn-outline" href="#articles">Read Articles</a>
+        </div>
+      </div>
     </div>
+
+    <div class="slide" style="background:var(--yellow)">
+      <div class="slide-num">002 — 004</div>
+      <span class="slide-tag" style="background:var(--text);color:var(--yellow)">Latest News</span>
+      <h2>永續會計<br>工作坊<br><em>開放報名</em></h2>
+      <div class="slide-bottom">
+        <p class="slide-desc">2026 年 ESG 工作坊正式開放報名，帶你從永續報告書讀到碳管理工具，適合教師、會計師與企業團隊。</p>
+        <a class="btn btn-dark" href="#">了解詳情 →</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background:var(--blue)">
+      <div class="slide-num">003 — 004</div>
+      <span class="slide-tag" style="background:var(--text);color:var(--blue)">New Article</span>
+      <h2>IFRS S2<br>氣候揭露<br><em>全解析</em></h2>
+      <div class="slide-bottom">
+        <p class="slide-desc">最新文章整理 IFRS S2 氣候相關財務揭露準則的核心要求，帶你看懂企業要怎麼報告氣候風險。</p>
+        <a class="btn btn-dark" href="#articles">閱讀全文 →</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background:var(--lavender)">
+      <div class="slide-num">004 — 004</div>
+      <span class="slide-tag" style="background:var(--text);color:var(--lavender)">Course</span>
+      <h2>初階課程<br>全新改版<br><em>上線</em></h2>
+      <div class="slide-bottom">
+        <p class="slide-desc">初階課程全面更新，加入 AI 輔助學習單元，從財務報表到永續報告，一步一步打好基礎。</p>
+        <a class="btn btn-dark" href="#foundation">查看課程 →</a>
+      </div>
+    </div>
+
   </div>
-</section>
+
+  <div class="slider-dots" id="sliderDots">
+    <div class="dot active" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
+  </div>
+
+  <div class="slider-controls">
+    <button class="slider-btn" onclick="prevSlide()">←</button>
+    <button class="slider-btn" onclick="nextSlide()" style="border-left:none">→</button>
+  </div>
 </div>
 
 <!-- SERVICES -->
@@ -368,6 +478,34 @@
     <div class="overlay-text" id="overlayText"></div>
   </div>
 </div>
+
+<script>
+// ── SLIDER ──
+let currentSlide = 0;
+const totalSlides = 4;
+let autoTimer;
+
+function goSlide(n) {
+  currentSlide = (n + totalSlides) % totalSlides;
+  document.getElementById('slidesTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i === currentSlide));
+  resetAuto();
+}
+function nextSlide() { goSlide(currentSlide + 1); }
+function prevSlide() { goSlide(currentSlide - 1); }
+function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(nextSlide, 6000); }
+
+// swipe support
+let touchX = 0;
+const slider = document.getElementById('heroSlider');
+slider.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
+slider.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) dx < 0 ? nextSlide() : prevSlide();
+});
+
+resetAuto();
+</script>
 
 <script src="posts_data.js"></script>
 <script>
