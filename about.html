@@ -12,8 +12,9 @@
   <meta property="og:title" content="關於佩佩老師｜劉沂佩・永續會計與治理專家" />
   <meta property="og:description" content="靜宜大學會計學系教授、全球永續雙軌教育學會理事長。永續會計、永續報告書、內控、TCFD 與碳管理。" />
   <meta property="og:url" content="https://drpeipei.com/about.html" />
-  <meta property="og:image" content="https://drpeipei.com/tree.png" />
+  <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
   <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,7 +29,11 @@
         { "@type": "Organization", "name": "全球永續雙軌教育學會", "description": "理事長" },
         { "@type": "Organization", "name": "台灣舞弊防治與鑑識協會", "description": "理事" }
       ],
-      "alumniOf": { "@type": "CollegeOrUniversity", "name": "國立臺北大學會計學系（博士）" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "國立臺北大學會計學系（博士）" },
+        { "@type": "EducationalOrganization", "name": "台灣人工智慧學校（第一期經理人班）" }
+      ],
+      "image": "https://drpeipei.com/peipei-photo.jpg",
       "knowsAbout": ["永續會計", "永續報告書", "IFRS S1", "IFRS S2", "SASB", "GRI", "內部控制", "財務預測", "TCFD", "ISO 14064-1", "ISO 14067", "CBAM", "ESG"],
       "email": "mailto:drpei.tw@gmail.com",
       "url": "https://drpeipei.com/about.html",
@@ -97,9 +102,31 @@
     .hero-inner {
       max-width: var(--max); margin: 0 auto;
       min-height: 70vh;
-      padding: 80px 32px 64px;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 80px 32px 72px;
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px; align-items: end;
     }
+    .hero-left { display: flex; flex-direction: column; justify-content: flex-end; }
+    .hero-photo { position: relative; max-width: 400px; justify-self: end; margin-right: 16px; }
+    .hero-photo::before {
+      content: ""; position: absolute;
+      top: 20px; left: 20px; right: -16px; bottom: -16px;
+      background: var(--yellow); z-index: 0;
+    }
+    .hero-photo img {
+      position: relative; z-index: 1;
+      width: 100%; display: block;
+      border: 1px solid rgba(31,41,55,0.25);
+    }
+    .photo-caption {
+      position: relative; z-index: 1;
+      background: var(--text); color: var(--bg);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 10px 14px;
+      display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+    }
+    .photo-caption span:last-child { color: rgba(246,244,239,0.55); }
     .hero-num {
       font-family: "Helvetica Neue", Arial, sans-serif;
       font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
@@ -128,7 +155,7 @@
     .promise-inner {
       max-width: var(--max); margin: 0 auto;
       padding: 0 32px;
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(4, 1fr);
     }
     .promise-item { padding: 28px 24px 28px 0; }
     .promise-item + .promise-item { border-left: 1px solid var(--border); padding-left: 24px; }
@@ -203,6 +230,8 @@
 
     @media (max-width: 900px) {
       .unit-inner, .cta-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo { justify-self: start; max-width: 300px; margin-right: 16px; }
       .promise-inner { grid-template-columns: 1fr; }
       .promise-item { padding: 20px 0; }
       .promise-item + .promise-item { border-left: none; border-top: 1px solid var(--border); padding-left: 0; }
@@ -243,16 +272,22 @@
 <!-- HERO -->
 <div class="page-hero">
   <div class="hero-inner">
-    <div class="hero-num">About Dr. Peipei</div>
-    <span class="hero-tag">劉沂佩・佩佩老師</span>
-    <h1>用會計的語言，<br>讓企業看懂<em>永續的未來</em></h1>
-    <div class="hero-bottom">
-      <p class="hero-desc">
-        我是佩佩老師，靜宜大學會計學系教授，國立臺北大學會計學博士。
-        我相信會計不只是記錄數字，而是認定、衡量、溝通的語言——
-        這些年我用這套語言，陪企業編永續報告書、陪非營利組織把帳理清楚、
-        陪學生看懂數字背後的決策。因為每一筆帳，都是對未來的一次投票。
-      </p>
+    <div class="hero-left">
+      <div class="hero-num">About Dr. Peipei</div>
+      <span class="hero-tag">劉沂佩・佩佩老師</span>
+      <h1>用會計的語言，<br>讓企業看懂<em>永續的未來</em></h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          我是佩佩老師，靜宜大學會計學系教授，國立臺北大學會計學博士。
+          我相信會計不只是記錄數字，而是認定、衡量、溝通的語言——
+          這些年我用這套語言，陪企業編永續報告書、陪非營利組織把帳理清楚、
+          陪學生看懂數字背後的決策。因為每一筆帳，都是對未來的一次投票。
+        </p>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="peipei-photo.jpg" alt="佩佩老師 劉沂佩" />
+      <div class="photo-caption"><span>Liu Yipei</span><span>Sustainability × Accounting</span></div>
     </div>
   </div>
 </div>
@@ -263,6 +298,7 @@
     <div class="promise-item"><div class="num">Now 01</div><div class="lbl">靜宜大學會計學系 教授</div></div>
     <div class="promise-item"><div class="num">Now 02</div><div class="lbl">全球永續雙軌教育學會 理事長</div></div>
     <div class="promise-item"><div class="num">Now 03</div><div class="lbl">台灣舞弊防治與鑑識協會 理事</div></div>
+    <div class="promise-item"><div class="num">AI</div><div class="lbl">台灣人工智慧學校 第一期經理人班</div></div>
   </div>
 </div>
 
