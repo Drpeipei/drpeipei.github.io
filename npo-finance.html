@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NPO 財務教室｜佩佩老師的會計魔法教室</title>
+  <meta name="description" content="給勞動部多元就業開發方案與培力就業計畫夥伴的財務知識專區：記帳、核銷、報表、預算，用聽得懂的話一次說清楚。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: rgba(31,41,55,0.1);
+      --yellow: #f1e45c;
+      --blue: #b7d8f3;
+      --orange: #f3c89a;
+      --lavender: #d9dced;
+      --green: #c9e8c5;
+      --max: 1320px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Noto Sans TC", "PingFang TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(246,244,239,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wrap {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: stretch; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px; padding: 14px 0;
+      text-decoration: none; color: inherit;
+    }
+    .brand-stripe {
+      width: 4px; height: 36px; flex-shrink: 0;
+      display: flex; flex-direction: column;
+    }
+    .brand-stripe span { flex: 1; }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .brand-name {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text); line-height: 1;
+    }
+    .brand-tagline {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 7.5px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); line-height: 1;
+    }
+    .nav { display: flex; }
+    .nav a {
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); padding: 18px 20px;
+      border-left: 1px solid var(--border);
+      display: flex; align-items: center;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--text); }
+    .nav a.active { color: var(--text); font-weight: 700; }
+
+    /* ── HERO ── */
+    .page-hero {
+      border-bottom: 1px solid var(--border);
+      background: var(--green);
+    }
+    .hero-inner {
+      max-width: var(--max); margin: 0 auto;
+      min-height: 70vh;
+      padding: 80px 32px 64px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .hero-num {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .hero-tag {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; margin-bottom: 20px;
+      background: var(--text); color: var(--green);
+    }
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 7vw, 7rem);
+      font-weight: 900; line-height: 0.98; letter-spacing: -0.02em;
+      max-width: 900px;
+    }
+    .page-hero h1 em { font-style: normal; color: rgba(31,41,55,0.45); }
+    .hero-bottom {
+      margin-top: 48px; padding-top: 28px; border-top: 1px solid rgba(31,41,55,0.18);
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .hero-desc { max-width: 520px; font-size: 0.95rem; color: rgba(31,41,55,0.75); line-height: 1.9; }
+
+    /* ── 三個約定 ── */
+    .promise-strip { border-bottom: 1px solid var(--border); }
+    .promise-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 32px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+    }
+    .promise-item { padding: 28px 24px 28px 0; }
+    .promise-item + .promise-item { border-left: 1px solid var(--border); padding-left: 24px; }
+    .promise-item .num { font-size: 1.8rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .promise-item .lbl { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── UNITS ── */
+    .unit-section { border-bottom: 1px solid var(--border); }
+    .unit-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 72px 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+    }
+    .unit-num {
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .unit-title {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
+    }
+    .unit-right { padding-top: 4px; }
+    .unit-desc { font-size: 1rem; color: rgba(31,41,55,0.75); line-height: 1.9; margin-bottom: 24px; }
+    .unit-topics { border-top: 1px solid rgba(31,41,55,0.18); }
+    .unit-topics li {
+      list-style: none;
+      padding: 13px 0; border-bottom: 1px solid rgba(31,41,55,0.18);
+      font-size: 0.92rem; font-weight: 500;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .unit-topics li::after { content: "→"; color: rgba(31,41,55,0.4); font-size: 0.85rem; }
+    .unit-status {
+      margin-top: 20px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      display: inline-block; padding: 4px 10px;
+      background: var(--text); color: var(--bg);
+    }
+    .unit-status.soon { background: transparent; color: var(--muted); border: 1px solid rgba(31,41,55,0.3); }
+
+    .bg-yellow { background: var(--yellow); }
+    .bg-blue   { background: var(--blue); }
+    .bg-orange { background: var(--orange); }
+    .bg-lavender { background: var(--lavender); }
+    .bg-green  { background: var(--green); }
+
+    /* ── ARTICLE ── */
+    .article-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 32px 96px; }
+    .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 32px; flex-wrap: wrap; }
+    .article-cat {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; background: var(--yellow); color: #444;
+    }
+    .article-date { font-size: 0.85rem; color: var(--muted); }
+    .article-title {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 900; line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+    .article-text { font-size: 1.05rem; line-height: 2.1; color: rgba(31,41,55,0.85); }
+    .article-text p { margin-bottom: 26px; }
+    .article-text .dialog { font-weight: 700; }
+    .keyline {
+      border-top: 1px solid var(--text); border-bottom: 1px solid var(--text);
+      padding: 22px 0; margin: 36px 0;
+      font-size: 1.1rem; font-weight: 700; line-height: 1.9;
+    }
+    .article-text table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 32px 0; line-height: 1.7; }
+    .article-text th, .article-text td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .article-text th {
+      background: var(--lavender); font-weight: 700;
+      font-size: 0.78rem; letter-spacing: 0.06em;
+    }
+    .article-text .footnote { font-size: 0.85rem; color: var(--muted); margin-top: 36px; }
+
+    /* ── DOWNLOADS ── */
+    .dl-section { border-bottom: 1px solid var(--border); }
+    .dl-wrap { max-width: var(--max); margin: 0 auto; padding: 72px 32px 88px; }
+    .dl-heading {
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 900; letter-spacing: -0.02em;
+      padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 8px;
+    }
+    .dl-sub { font-size: 0.9rem; color: var(--muted); padding: 16px 0 24px; }
+    .dl-row {
+      display: grid; grid-template-columns: 60px 1fr auto;
+      gap: 20px; align-items: center;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .dl-row-icon { font-size: 1.4rem; }
+    .dl-row-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
+    .dl-row-sub { font-size: 0.82rem; color: var(--muted); }
+    .dl-row-badge {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 10px; background: var(--lavender); color: #444; white-space: nowrap;
+    }
+
+    /* ── CTA ── */
+    .cta-section { background: var(--text); color: rgba(246,244,239,0.9); }
+    .cta-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 88px 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+    }
+    .cta-inner h2 {
+      font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+      font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
+      color: var(--bg);
+    }
+    .cta-right p { font-size: 0.95rem; line-height: 1.9; color: rgba(246,244,239,0.65); margin-bottom: 28px; }
+    .btn {
+      display: inline-block; padding: 13px 24px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.2s; cursor: pointer; font-family: inherit; border: none;
+    }
+    .btn-light { background: var(--bg); color: var(--text); }
+    .btn-light:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); color: rgba(246,244,239,0.85);
+      padding: 36px 32px;
+      border-top: 1px solid rgba(246,244,239,0.15);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-brand { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+    .footer-sub { font-size: 0.78rem; color: rgba(246,244,239,0.5); }
+
+    @media (max-width: 900px) {
+      .unit-inner, .cta-inner { grid-template-columns: 1fr; gap: 28px; }
+      .promise-inner { grid-template-columns: 1fr; }
+      .promise-item { padding: 20px 0; }
+      .promise-item + .promise-item { border-left: none; border-top: 1px solid var(--border); padding-left: 0; }
+      .dl-row { grid-template-columns: 40px 1fr; }
+      .dl-row-badge { display: none; }
+    }
+    @media (max-width: 640px) {
+      .nav-wrap { flex-direction: column; }
+      .nav a { border-left: none; padding: 12px 14px; }
+      .page-hero h1 { font-size: 2.6rem; }
+      .article-wrap { padding: 48px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-stripe">
+        <span style="background:#f1e45c"></span>
+        <span style="background:#b7d8f3"></span>
+        <span style="background:#f3c89a"></span>
+        <span style="background:#d9dced"></span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Dr. Peipei</span>
+        <span class="brand-tagline">Accounting Can Save the Earth</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#articles">Articles</a>
+      <a href="index.html#foundation">Courses</a>
+      <a href="npo-finance.html" class="active">NPO 財務教室</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-num">NPO Finance Classroom</div>
+    <span class="hero-tag">勞動部多元就業開發方案 × 培力就業計畫</span>
+    <h1>錢的事，<br>其實<em>不難懂</em></h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">這一區是為多元培力計畫的單位夥伴開的。這些年在各分署上財務課，我發現大家卡住的從來不是不夠認真，而是沒有人用日常的話，把記帳、核銷、報表這些事說清楚。這裡就是要把它們說清楚。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 三個約定 -->
+<div class="promise-strip">
+  <div class="promise-inner">
+    <div class="promise-item"><div class="num">01</div><div class="lbl">不用會計背景，看得懂</div></div>
+    <div class="promise-item"><div class="num">02</div><div class="lbl">十分鐘之內，讀得完</div></div>
+    <div class="promise-item"><div class="num">03</div><div class="lbl">讀完就有一件明天能做的事</div></div>
+  </div>
+</div>
+
+<!-- UNIT 01 -->
+<div class="unit-section bg-yellow">
+  <div class="unit-inner">
+    <div>
+      <div class="unit-num">Unit 01</div>
+      <h2 class="unit-title">財務觀念<br>打底</h2>
+    </div>
+    <div class="unit-right">
+      <p class="unit-desc">會計是單位裡大家共同的語言。先把三個詞搞懂，很多事就通了。</p>
+      <ul class="unit-topics">
+        <li>收入、支出、餘絀：三個詞看懂單位的一年</li>
+        <li>戶頭有錢，不代表今年沒賠</li>
+        <li>財務透明，是對夥伴和捐款人的承諾</li>
+      </ul>
+      <span class="unit-status">首篇已上線 ↓</span>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT 02 -->
+<div class="unit-section bg-blue">
+  <div class="unit-inner">
+    <div>
+      <div class="unit-num">Unit 02</div>
+      <h2 class="unit-title">帳務與<br>憑證</h2>
+    </div>
+    <div class="unit-right">
+      <p class="unit-desc">每天十分鐘，帳就不會亂。憑證整理好，核銷就不怕。</p>
+      <ul class="unit-topics">
+        <li>一本流水帳怎麼記：簡易記帳的最低標準</li>
+        <li>發票、收據、領據，到底差在哪</li>
+        <li>計畫經費核銷的五個常見地雷</li>
+      </ul>
+      <span class="unit-status soon">即將上線</span>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT 03 -->
+<div class="unit-section bg-orange">
+  <div class="unit-inner">
+    <div>
+      <div class="unit-num">Unit 03</div>
+      <h2 class="unit-title">看懂<br>財務報表</h2>
+    </div>
+    <div class="unit-right">
+      <p class="unit-desc">報表不是給會計師看的，是給你自己看的。三分鐘看出單位的體質。</p>
+      <ul class="unit-topics">
+        <li>收支餘絀表：今年的力氣都花去哪了</li>
+        <li>白話版資產負債：單位的家底，和欠人家的</li>
+        <li>理事會開會，財務到底該報什麼</li>
+      </ul>
+      <span class="unit-status soon">即將上線</span>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT 04 -->
+<div class="unit-section bg-lavender">
+  <div class="unit-inner">
+    <div>
+      <div class="unit-num">Unit 04</div>
+      <h2 class="unit-title">預算與<br>財務規劃</h2>
+    </div>
+    <div class="unit-right">
+      <p class="unit-desc">計畫總有結束的一天。預算不是交作業，是替單位想下一步。</p>
+      <ul class="unit-topics">
+        <li>年度預算怎麼編，才不會變成交作業</li>
+        <li>計畫經費和自主財源：兩本帳的思考</li>
+        <li>邁向自主營運的財務路線圖</li>
+      </ul>
+      <span class="unit-status soon">即將上線</span>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT 05 -->
+<div class="unit-section bg-green">
+  <div class="unit-inner">
+    <div>
+      <div class="unit-num">Unit 05</div>
+      <h2 class="unit-title">小組織的<br>內控與誠信</h2>
+    </div>
+    <div class="unit-right">
+      <p class="unit-desc">不是防小人，是保護做事的人。兩個人的單位，也做得到。</p>
+      <ul class="unit-topics">
+        <li>專款專用：說起來簡單，做起來的三個關卡</li>
+        <li>管錢的和記帳的分開：最小可行的內控</li>
+        <li>誠信不是口號，是留得住補助的能力</li>
+      </ul>
+      <span class="unit-status soon">即將上線</span>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT 06 -->
+<div class="unit-section">
+  <div class="unit-inner">
+    <div>
+      <div class="unit-num">Unit 06</div>
+      <h2 class="unit-title">夥伴<br>常見問答</h2>
+    </div>
+    <div class="unit-right">
+      <p class="unit-desc">課堂上最常被舉手問的問題，一題一題慢慢整理上來。</p>
+      <ul class="unit-topics">
+        <li>核銷被退件，最常見的原因是什麼？</li>
+        <li>單位的勞健保、二代健保怎麼算？</li>
+        <li>收到捐款要開什麼收據？要繳稅嗎？</li>
+      </ul>
+      <span class="unit-status soon">陸續整理中</span>
+    </div>
+  </div>
+</div>
+
+<!-- 本期文章 -->
+<section class="article-section">
+  <div class="article-wrap">
+    <div class="article-meta">
+      <span class="article-cat">Unit 01 · 財務觀念打底</span>
+      <span class="article-date">本期文章</span>
+    </div>
+    <h1 class="article-title">戶頭有錢，<br>不代表今年沒賠</h1>
+    <div class="article-text">
+      <p><span class="dialog">「老師，我們戶頭裡還有錢欸，今年應該還好吧？」</span></p>
+      <p>這句話，我在課堂上聽過好多好多次。每次聽到，我都會請大家想一個畫面。</p>
+      <p>月底了，你打開皮夾，還有三千塊。很開心對不對？可是啊——信用卡帳單，下個月五號才來。那你這個月到底是有存到錢，還是偷偷透支了？光看皮夾，看不出來。</p>
+      <p>單位也是一模一樣。戶頭裡的錢，有一部分可能是「答應人家要做事、還沒開始花」的計畫款；也可能還沒扣掉「已經欠廠商、下個月就要付」的錢。所以戶頭的數字漂亮，不代表今年過得好。</p>
+      <div class="keyline">
+        現金回答的是「付不付得出來」，<br>
+        餘絀回答的是「撐不撐得下去」。<br>
+        健康的單位，兩題都要能大聲說「可以」。
+      </div>
+      <p>那平常要看什麼？就看這三件事：</p>
+      <table>
+        <tr><th>你想知道的事</th><th>去看哪個數字</th><th>什麼時候該緊張</th></tr>
+        <tr><td>下個月薪水發不發得出來</td><td>戶頭現金</td><td>剩不到一個月的人事費</td></tr>
+        <tr><td>今年是進步還是退步</td><td>餘絀（收入減支出）</td><td>連續兩年都是負的</td></tr>
+        <tr><td>計畫結束後，單位還剩什麼</td><td>自主財源的比例</td><td>九成以上收入靠同一筆補助</td></tr>
+      </table>
+      <p><strong>明天可以做的一件事：</strong>把存摺和上個月的收支表拿出來，上面三題，一題一題問自己。有答不出來的？沒關係，把那一題圈起來——它就是你們單位最該先補的功課。下次上課，帶著這一題來找我。</p>
+      <p class="footnote">＊「三個月現金預估表」的做法，會整理成可下載的講義放在下面的工具區。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 工具下載 -->
+<div class="dl-section">
+  <div class="dl-wrap">
+    <h2 class="dl-heading">拿去就能用</h2>
+    <p class="dl-sub">課堂上用過的工具，整理成空白範本，帶回單位直接用。陸續上架中。</p>
+    <div class="dl-row">
+      <div class="dl-row-icon">📒</div>
+      <div><div class="dl-row-title">簡易收支流水帳（Excel）</div><div class="dl-row-sub">一本帳搞定日常記錄，附填寫範例</div></div>
+      <span class="dl-row-badge">準備中</span>
+    </div>
+    <div class="dl-row">
+      <div class="dl-row-icon">🧾</div>
+      <div><div class="dl-row-title">憑證整理檢核表（PDF）</div><div class="dl-row-sub">核銷送件前自己先檢查一遍，減少退件</div></div>
+      <span class="dl-row-badge">準備中</span>
+    </div>
+    <div class="dl-row">
+      <div class="dl-row-icon">📅</div>
+      <div><div class="dl-row-title">年度預算編列範本（Excel）</div><div class="dl-row-sub">計畫經費、自主財源分欄，理事會直接能看</div></div>
+      <span class="dl-row-badge">準備中</span>
+    </div>
+    <div class="dl-row">
+      <div class="dl-row-icon">💧</div>
+      <div><div class="dl-row-title">三個月現金預估表（Excel）</div><div class="dl-row-sub">提前看見「付不出錢的那一天」，來得及想辦法</div></div>
+      <span class="dl-row-badge">準備中</span>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>想邀請<br>佩佩老師<br>來上課嗎？</h2>
+    <div class="cta-right">
+      <p>財務基礎、ESG 與永續發展、組織治理與內控——課程可以依單位規模和夥伴背景調整深度，也提供工作坊與陪伴式輔導。分署與單位邀課，歡迎來信聊聊。</p>
+      <a class="btn btn-light" href="mailto:lyipei@gmail.com">來信洽詢 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">佩佩老師的會計魔法教室</div>
+  <div class="footer-sub">Accounting Can Save the Earth</div>
+</footer>
+
+</body>
+</html>
