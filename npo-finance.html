@@ -333,7 +333,7 @@
         <li>戶頭有錢，不代表今年沒賠</li>
         <li>財務透明，是對夥伴和捐款人的承諾</li>
       </ul>
-      <span class="unit-status">首篇已上線 ↓</span>
+      <span class="unit-status">已上線 3 篇 ↓</span>
     </div>
   </div>
 </div>
@@ -433,12 +433,66 @@
   </div>
 </div>
 
-<!-- 本期文章 -->
+<!-- 每週文章列表 -->
+<section class="article-section">
+  <div class="article-wrap" style="padding-bottom:24px;">
+    <div class="article-meta">
+      <span class="article-cat" style="background:var(--green);">每週一更新</span>
+      <span class="article-date">最新文章（點標題閱讀全文）</span>
+    </div>
+    <div id="npoList"></div>
+  </div>
+</section>
+
+<!-- 閱讀彈窗 -->
+<div id="npoOverlay" style="display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto;">
+  <div style="position:sticky;top:0;background:rgba(246,244,239,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 32px;">
+    <button onclick="npoClose()" style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;font-family:inherit;padding:18px 0;cursor:pointer;">← 返回 NPO 財務教室</button>
+  </div>
+  <div style="max-width:720px;margin:0 auto;padding:72px 32px 120px;">
+    <div class="article-meta">
+      <span class="article-cat" id="npoOvUnit"></span>
+      <span class="article-date" id="npoOvDate"></span>
+    </div>
+    <h1 class="article-title" id="npoOvTitle"></h1>
+    <div class="article-text" id="npoOvText" style="white-space:pre-wrap;word-break:break-word;"></div>
+  </div>
+</div>
+
+<script src="npo_data.js"></script>
+<script>
+const npoSorted = [...NPO_DATA].sort((a,b) => b.timestamp - a.timestamp);
+document.getElementById('npoList').innerHTML = npoSorted.map((p, i) => {
+  const excerpt = p.text.replace(/\n/g,' ').substring(0, 62);
+  return `<div onclick="npoOpen(${i})" style="padding:20px 0;border-bottom:1px solid var(--border);cursor:pointer;">
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:4px;">${p.date}｜${p.unit}</div>
+    <div style="font-size:1.05rem;font-weight:700;line-height:1.5;">${p.title} <span style="color:var(--muted);font-weight:400;">→</span></div>
+    <div style="font-size:0.83rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${excerpt}…</div>
+  </div>`;
+}).join('');
+function npoOpen(i) {
+  const p = npoSorted[i];
+  document.getElementById('npoOvUnit').textContent = p.unit;
+  document.getElementById('npoOvDate').textContent = p.date;
+  document.getElementById('npoOvTitle').textContent = p.title;
+  document.getElementById('npoOvText').textContent = p.text;
+  const ov = document.getElementById('npoOverlay');
+  ov.style.display = 'block'; ov.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function npoClose() {
+  document.getElementById('npoOverlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') npoClose(); });
+</script>
+
+<!-- 開版精選 -->
 <section class="article-section">
   <div class="article-wrap">
     <div class="article-meta">
       <span class="article-cat">Unit 01 · 財務觀念打底</span>
-      <span class="article-date">本期文章</span>
+      <span class="article-date">開版精選</span>
     </div>
     <h1 class="article-title">戶頭有錢，<br>不代表今年沒賠</h1>
     <div class="article-text">
