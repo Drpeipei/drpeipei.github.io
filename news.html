@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>永續新知｜每週二更新的永續會計新知識｜佩佩老師的會計魔法教室</title>
+  <meta name="description" content="永續新知專區：每週二一篇永續會計新知，追蹤 IFRS S1 S2、金管會接軌時程、碳管理與永續揭露的最新動態，佩佩老師用聽得懂的話解讀給你聽。" />
+  <link rel="canonical" href="https://drpeipei.com/news.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="佩佩老師的會計魔法教室" />
+  <meta property="og:title" content="永續新知｜每週二更新的永續會計新知識" />
+  <meta property="og:description" content="IFRS S1 S2、金管會接軌時程、碳管理與永續揭露最新動態，每週二更新。" />
+  <meta property="og:url" content="https://drpeipei.com/news.html" />
+  <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: rgba(31,41,55,0.1);
+      --yellow: #f1e45c;
+      --blue: #b7d8f3;
+      --orange: #f3c89a;
+      --lavender: #d9dced;
+      --green: #c9e8c5;
+      --max: 1320px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Noto Sans TC", "PingFang TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(246,244,239,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wrap {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: stretch; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; color: inherit; }
+    .brand-stripe { width: 4px; height: 36px; flex-shrink: 0; display: flex; flex-direction: column; }
+    .brand-stripe span { flex: 1; }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .brand-name {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text); line-height: 1;
+    }
+    .brand-tagline {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 7.5px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); line-height: 1;
+    }
+    .nav { display: flex; }
+    .nav a {
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); padding: 18px 20px;
+      border-left: 1px solid var(--border);
+      display: flex; align-items: center;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--text); }
+    .nav a.active { color: var(--text); font-weight: 700; }
+
+    .page-hero { border-bottom: 1px solid var(--border); background: var(--lavender); }
+    .hero-inner {
+      max-width: var(--max); margin: 0 auto;
+      min-height: 46vh;
+      padding: 72px 32px 56px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .hero-num {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .hero-tag {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; margin-bottom: 20px;
+      background: var(--text); color: var(--lavender);
+    }
+    .page-hero h1 {
+      font-size: clamp(2.6rem, 6vw, 6rem);
+      font-weight: 900; line-height: 0.98; letter-spacing: -0.02em;
+      max-width: 980px;
+    }
+    .page-hero h1 em { font-style: normal; color: rgba(31,41,55,0.45); }
+    .hero-bottom {
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(31,41,55,0.18);
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .hero-desc { max-width: 560px; font-size: 0.95rem; color: rgba(31,41,55,0.75); line-height: 1.9; }
+
+    .news-wrap { max-width: var(--max); margin: 0 auto; padding: 56px 32px 120px; }
+    .news-top {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding-bottom: 20px; border-bottom: 1px solid var(--border);
+      margin-bottom: 8px; flex-wrap: wrap; gap: 16px;
+    }
+    .news-heading { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; letter-spacing: -0.02em; }
+    .news-count { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .post-row {
+      display: grid; grid-template-columns: 110px 1fr 28px;
+      gap: 20px; align-items: center;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      cursor: pointer; transition: background 0.15s;
+    }
+    .post-row:hover { background: rgba(31,41,55,0.025); }
+    .post-row-date { font-size: 0.78rem; color: var(--muted); }
+    .post-row-title { font-size: 1rem; font-weight: 700; margin-bottom: 3px; line-height: 1.5; }
+    .post-row-excerpt { font-size: 0.82rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .post-row-arrow { font-size: 0.9rem; color: var(--muted); text-align: right; transition: transform 0.2s; }
+    .post-row:hover .post-row-arrow { transform: translateX(3px); color: var(--text); }
+
+    /* overlay */
+    .post-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: var(--bg); overflow-y: auto;
+    }
+    .post-overlay.open { display: block; }
+    .overlay-nav {
+      position: sticky; top: 0; background: rgba(246,244,239,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .overlay-back {
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); background: none; border: none;
+      font-family: inherit; padding: 18px 0; cursor: pointer; transition: color 0.2s;
+    }
+    .overlay-back:hover { color: var(--text); }
+    .overlay-body { max-width: 720px; margin: 0 auto; padding: 72px 32px 120px; }
+    .overlay-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 32px; flex-wrap: wrap; }
+    .overlay-cat {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; background: var(--lavender); color: #444;
+    }
+    .overlay-date { font-size: 0.85rem; color: var(--muted); }
+    .overlay-title {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 900; line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+    .overlay-text {
+      font-size: 1.05rem; line-height: 2.1; color: rgba(31,41,55,0.85);
+      white-space: pre-wrap; word-break: break-word;
+    }
+    .overlay-source {
+      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .overlay-source a { text-decoration: underline; }
+
+    footer {
+      background: var(--text); color: rgba(246,244,239,0.85);
+      padding: 36px 32px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-brand { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+    .footer-sub { font-size: 0.78rem; color: rgba(246,244,239,0.5); }
+
+    @media (max-width: 640px) {
+      .nav-wrap { flex-direction: column; }
+      .nav a { border-left: none; padding: 12px 14px; }
+      .post-row { grid-template-columns: 1fr 28px; }
+      .post-row-date { display: none; }
+      .overlay-body { padding: 48px 20px 80px; }
+      .overlay-nav { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-stripe">
+        <span style="background:#f1e45c"></span>
+        <span style="background:#b7d8f3"></span>
+        <span style="background:#f3c89a"></span>
+        <span style="background:#d9dced"></span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Dr. Peipei</span>
+        <span class="brand-tagline">Accounting Can Save the Earth</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">服務項目</a>
+      <a href="index.html#articles">觀點文章</a>
+      <a href="about.html">關於佩佩</a>
+      <a href="npo-finance.html">NPO 財務教室</a>
+      <a href="news.html" class="active">永續新知</a>
+      <a href="s2-workshop.html">7/31 工作坊</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-num">Sustainability Weekly</div>
+    <span class="hero-tag">每週二更新</span>
+    <h1>永續新知<br><em>比法規快一步</em></h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        IFRS S1・S2、金管會接軌時程、碳管理、揭露規範——永續會計的世界每週都在變。
+        這裡每週二整理一則最值得注意的新知，用聽得懂的話講給你聽，
+        最後告訴你：這則消息，跟你有什麼關係。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 文章列表 -->
+<div class="news-wrap">
+  <div class="news-top">
+    <h2 class="news-heading">最新文章</h2>
+    <span class="news-count"><span id="newsTotal">—</span> Articles</span>
+  </div>
+  <div id="newsList"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">佩佩老師的會計魔法教室</div>
+  <div class="footer-sub">課程與輔導邀約 — <a href="mailto:drpei.tw@gmail.com" style="text-decoration:underline">drpei.tw@gmail.com</a></div>
+  <div class="footer-sub">Accounting Can Save the Earth</div>
+</footer>
+
+<!-- 閱讀彈窗 -->
+<div class="post-overlay" id="postOverlay">
+  <div class="overlay-nav">
+    <button class="overlay-back" onclick="closePost()">← 返回文章列表</button>
+  </div>
+  <div class="overlay-body">
+    <div class="overlay-meta">
+      <span class="overlay-cat">永續新知</span>
+      <span class="overlay-date" id="overlayDate"></span>
+    </div>
+    <h1 class="overlay-title" id="overlayTitle"></h1>
+    <div class="overlay-text" id="overlayText"></div>
+    <div class="overlay-source" id="overlaySource"></div>
+  </div>
+</div>
+
+<script src="news_data.js"></script>
+<script>
+const sorted = [...NEWS_DATA].sort((a,b) => b.timestamp - a.timestamp);
+document.getElementById('newsTotal').textContent = sorted.length;
+
+document.getElementById('newsList').innerHTML = sorted.map((post, i) => {
+  const excerpt = post.text.replace(/\n/g,' ').substring(0, 80);
+  return `<div class="post-row" onclick="openPost(${i})">
+    <div class="post-row-date">${post.date}</div>
+    <div>
+      <div class="post-row-title">${post.title}</div>
+      <div class="post-row-excerpt">${excerpt}…</div>
+    </div>
+    <div class="post-row-arrow">→</div>
+  </div>`;
+}).join('');
+
+function openPost(i) {
+  const post = sorted[i];
+  document.getElementById('overlayDate').textContent = post.date;
+  document.getElementById('overlayTitle').textContent = post.title;
+  document.getElementById('overlayText').textContent = post.text;
+  document.getElementById('overlaySource').innerHTML = post.source
+    ? `資料來源：<a href="${post.sourceUrl}" rel="noopener">${post.source}</a>`
+    : '';
+  const overlay = document.getElementById('postOverlay');
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closePost() {
+  document.getElementById('postOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePost(); });
+</script>
+
+</body>
+</html>
