@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>證照圖書館｜大學四年考照書單｜佩佩老師的會計魔法教室</title>
+  <meta name="description" content="給會計系、財金系、企管系大學生的證照學習地圖：會計、財金、永續、稽核、AI 五大書區，每張證照做成一本可翻閱的書，附四年借書計畫、考試時間、費用與館員小提醒。" />
+  <link rel="canonical" href="https://drpeipei.com/cert-library.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="佩佩老師的會計魔法教室" />
+  <meta property="og:title" content="證照圖書館｜大學四年考照書單" />
+  <meta property="og:description" content="會計、財金、永續、稽核、AI 五大書區，47 張證照做成一本本可翻閱的書，附四年借書計畫與館員公告。" />
+  <meta property="og:url" content="https://drpeipei.com/cert-library.html" />
+  <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef; --text: #1f2937; --muted: #6b7280; --border: rgba(31,41,55,0.1); --max: 1320px;
+      --paper:#EFF1E9; --card:#FBFAF3; --ink:#24332A; --ink-soft:#5C6B5E;
+      --wood:#7A5936; --wood-dark:#5C4128; --wood-hi:#96744C;
+      --stamp:#A8402C; --line:#D8DACC;
+      --c-acc:#9A4A38; --c-fin:#33567D; --c-esg:#4A7A52; --c-aud:#9A7326; --c-ai:#6B4F8C;
+      --shelf-bg:#E6E8DD;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink);
+      font-family:"Microsoft JhengHei","Noto Sans TC","PingFang TC",sans-serif; line-height:1.75; }
+    a { color: inherit; text-decoration: none; }
+
+    /* 官網共用頁首 */
+    .site-header { position: sticky; top: 0; z-index: 100;
+      background: rgba(246,244,239,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: stretch; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; color: var(--text); }
+    .brand-stripe { width: 4px; height: 36px; flex-shrink: 0; display: flex; flex-direction: column; }
+    .brand-stripe span { flex: 1; }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .brand-name { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 15px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); line-height: 1; }
+    .brand-tagline { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9px; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); line-height: 1; }
+    .nav { display: flex; }
+    .nav a { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); padding: 18px 20px; border-left: 1px solid var(--border);
+      display: flex; align-items: center; transition: color 0.2s; }
+    .nav a:hover { color: var(--text); }
+    .nav a.active { color: var(--text); font-weight: 700; }
+
+    main{max-width:1080px;margin:auto;padding:0 20px 72px}
+
+    /* 入口 */
+    header.gate{max-width:1080px;margin:auto;padding:56px 20px 8px;text-align:center}
+    .gate .plaque{display:inline-block;border:2px solid var(--wood);border-radius:6px;
+      padding:6px 22px;font-size:13px;letter-spacing:.35em;color:var(--wood);font-weight:700}
+    .gate h1{font-size:clamp(30px,5.5vw,46px);margin:18px 0 6px;letter-spacing:.06em;text-wrap:balance}
+    .gate p.sub{color:var(--ink-soft);max-width:34em;margin:8px auto 0;font-size:15.5px}
+    .gate .rule3{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 10px}
+    .gate .rule3 span{background:var(--card);border:1px solid var(--line);border-radius:999px;
+      padding:7px 16px;font-size:13.5px;font-weight:700}
+    .gate .rule3 b{color:var(--stamp)}
+
+    /* 區段標題：圖書館分區牌 */
+    section{margin-top:64px}
+    .zone-head{display:flex;align-items:baseline;gap:14px;border-bottom:3px double var(--line);padding-bottom:10px;margin-bottom:6px}
+    .zone-head .code{font-size:15px;font-weight:900;color:var(--paper);background:var(--zc,var(--wood));
+      padding:3px 12px;border-radius:3px;letter-spacing:.1em}
+    .zone-head h2{font-size:clamp(21px,3vw,27px);margin:0;letter-spacing:.04em}
+    .zone-head .hint{color:var(--ink-soft);font-size:13.5px;margin-left:auto;text-align:right}
+
+    /* 四年借書計畫 */
+    .plan{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
+    .plan .yr{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px;position:relative}
+    .plan .yr h3{margin:0 0 4px;font-size:17px}
+    .plan .yr .theme{font-size:12.5px;color:var(--stamp);font-weight:800;letter-spacing:.06em;margin-bottom:8px}
+    .plan .yr ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink)}
+    .plan .yr li{margin:5px 0}
+    .plan .yr li b{font-weight:800}
+    @media(max-width:900px){.plan{grid-template-columns:repeat(2,1fr)}.plan .yr:last-child{grid-column:span 2}}
+
+    /* 書架 */
+    .shelf-wrap{background:var(--shelf-bg);border:1px solid var(--line);border-bottom:none;border-radius:10px 10px 0 0;
+      padding:26px 18px 0;overflow-x:auto}
+    .shelf-row{display:flex;align-items:flex-end;gap:7px;min-height:196px;padding:0 6px}
+    .shelf-board{height:14px;background:linear-gradient(180deg,var(--wood-hi),var(--wood) 40%,var(--wood-dark));
+      border-radius:0 0 10px 10px;box-shadow:0 6px 14px rgba(40,25,10,.25);margin-bottom:0}
+    .book{appearance:none;border:none;cursor:pointer;position:relative;flex:0 0 auto;
+      width:46px;height:172px;border-radius:4px 6px 2px 2px;padding:10px 4px;
+      display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+      background:linear-gradient(90deg,rgba(255,255,255,.22),rgba(255,255,255,0) 22%,rgba(0,0,0,.14) 94%),var(--bc,var(--wood));
+      color:#F7F3E8;box-shadow:2px 0 0 rgba(0,0,0,.18),0 8px 12px rgba(30,20,10,.22);
+      transition:transform .18s ease,box-shadow .18s ease}
+    .book.short{height:140px}
+    .book.tall{height:186px;width:52px}
+    .book:hover,.book:focus-visible{transform:translateY(-10px) rotate(-2deg);box-shadow:2px 0 0 rgba(0,0,0,.18),0 16px 18px rgba(30,20,10,.3)}
+    .book:focus-visible{outline:3px solid var(--stamp);outline-offset:3px}
+    .book .spine{writing-mode:vertical-rl;font-size:13px;font-weight:800;letter-spacing:.12em;max-height:128px;overflow:hidden}
+    .book .lv{font-size:9.5px;letter-spacing:.08em;opacity:.9;writing-mode:horizontal-tb}
+    .book .band{position:absolute;left:0;right:0;top:12px;height:5px;background:rgba(255,255,255,.35)}
+    .zone-note{font-size:13px;color:var(--ink-soft);margin:10px 2px 0}
+    .zone-note b{color:var(--stamp)}
+
+    /* 藏書卡（彈窗） */
+    dialog#card{border:none;border-radius:12px;padding:0;max-width:560px;width:calc(100vw - 40px);
+      background:var(--card);color:var(--ink);box-shadow:0 30px 70px rgba(15,25,15,.45)}
+    dialog#card::backdrop{background:rgba(18,26,20,.55);backdrop-filter:blur(2px)}
+    .card-head{padding:22px 26px 14px;border-bottom:2px solid var(--line);position:relative;
+      background:repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(120,130,110,.16) 31px)}
+    .card-head .callno{font-size:12px;font-weight:900;letter-spacing:.18em;color:var(--paper);
+      background:var(--bc2,var(--wood));display:inline-block;padding:2px 10px;border-radius:3px}
+    .card-head h3{margin:10px 0 2px;font-size:23px;line-height:1.35;text-wrap:balance}
+    .card-head .pub{color:var(--ink-soft);font-size:13.5px}
+    .card-head .stars{position:absolute;right:26px;top:22px;color:var(--stamp);font-size:14px;letter-spacing:.1em}
+    .card-body{padding:16px 26px 20px}
+    .card-body table{width:100%;border-collapse:collapse;font-size:14px}
+    .card-body th{width:96px;text-align:left;vertical-align:top;padding:7px 8px 7px 0;color:var(--ink-soft);
+      font-weight:700;font-size:13px;letter-spacing:.05em;white-space:nowrap;border-bottom:1px dashed var(--line)}
+    .card-body td{padding:7px 0;border-bottom:1px dashed var(--line)}
+    .card-say{margin:16px 0 0;padding:12px 14px;border:1.5px solid var(--stamp);border-radius:8px;
+      color:var(--stamp);font-weight:700;font-size:14px;position:relative;transform:rotate(-.6deg)}
+    .card-say::before{content:"館員蓋章";position:absolute;top:-11px;left:12px;background:var(--card);
+      padding:0 8px;font-size:11.5px;letter-spacing:.2em}
+    .card-close{position:sticky;bottom:0;display:block;width:100%;border:none;cursor:pointer;
+      background:var(--wood);color:#F7F3E8;font-size:14.5px;font-weight:800;padding:12px;letter-spacing:.3em;font-family:inherit}
+    .card-close:hover{background:var(--wood-dark)}
+    .card-close:focus-visible{outline:3px solid var(--stamp);outline-offset:-4px}
+
+    /* 櫃台公告 */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+    @media(max-width:820px){.two-col{grid-template-columns:1fr}}
+    .notice{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+    .notice h3{margin:0 0 10px;font-size:18px}
+    .notice ul{margin:0;padding-left:20px;font-size:14px}
+    .notice li{margin:7px 0}
+    .notice h4{margin:14px 0 4px;font-size:14.5px;letter-spacing:.03em}
+    .notice .eg{margin:4px 0 2px;padding-left:14px;border-left:3px solid var(--line);color:var(--ink-soft);font-size:13px}
+    .notice-intro{color:var(--ink-soft);font-size:14px;margin:14px 2px 0}
+    .mind{margin:18px 0 0;padding:14px 16px;border:1.5px solid var(--wood);border-radius:8px;
+      font-size:13.5px;position:relative;background:rgba(122,89,54,.06)}
+    .mind::before{content:attr(data-label);position:absolute;top:-11px;left:12px;background:var(--card);
+      padding:0 8px;font-size:11.5px;letter-spacing:.2em;color:var(--wood);font-weight:800}
+    .mind ol{margin:8px 0;padding-left:22px}
+    .mind li{margin:4px 0}
+
+    /* 頁尾 */
+    footer.lib-foot{border-top:3px double var(--line);margin-top:70px;padding:26px 20px 60px;text-align:center;color:var(--ink-soft);font-size:13px}
+    footer.lib-foot .colophon{letter-spacing:.25em;color:var(--wood);font-weight:700;margin-bottom:8px}
+
+    @media (max-width: 640px) {
+      .nav-wrap { flex-direction: column; }
+      .nav a { border-left: none; padding: 12px 14px; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .book,.book:hover{transition:none;transform:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-stripe">
+        <span style="background:#f1e45c"></span>
+        <span style="background:#b7d8f3"></span>
+        <span style="background:#f3c89a"></span>
+        <span style="background:#d9dced"></span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Dr. Peipei</span>
+        <span class="brand-tagline">會計能夠救地球 Accounting Can Save the Earth</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">服務項目</a>
+      <a href="index.html#articles">觀點文章</a>
+      <a href="about.html">關於佩佩</a>
+      <a href="npo-finance.html">NPO 財務教室</a>
+      <a href="news.html">永續新知</a>
+      <a href="cert-library.html" class="active">證照圖書館</a>
+      <a href="books.html">著作</a>
+      <a href="s2-workshop.html">7/31 工作坊</a>
+    </nav>
+  </div>
+</header>
+
+<header class="gate">
+  <div class="plaque">自 修 專 區</div>
+  <h1>證照圖書館</h1>
+  <p class="sub">給會計系、財金系、企管系的你：大學四年，每一年該借哪幾本「書」。<br>每本書都是一張證照，點開看借閱卡：什麼時候考、考什麼、要花多少錢。</p>
+  <div class="rule3">
+    <span><b>①</b> 先看樓層導覽，找到自己年級的書單</span>
+    <span><b>②</b> 走到書架，點開有興趣的書</span>
+    <span><b>③</b> 考過之後，記得回系辦領證照獎勵金</span>
+  </div>
+</header>
+
+<main>
+
+<section id="plan">
+  <div class="zone-head" style="--zc:var(--wood)">
+    <span class="code">導覽</span>
+    <h2>四年借書計畫</h2>
+    <span class="hint">原則：先便宜後昂貴、證照跟著修課走</span>
+  </div>
+  <div class="plan">
+    <div class="yr"><h3>大一</h3><div class="theme">辦借書證：先拿最便宜的</div>
+      <ul><li><b>金融常識與職業道德</b>（250 元，考起來放，5 年有效）</li><li>丙級會計事務技術士</li><li>TQC 生成式 AI 或資策會生成式 AI（暖身）</li><li>保險業務員</li></ul></div>
+    <div class="yr"><h3>大二</h3><div class="theme">開始借正書：國家級入門</div>
+      <ul><li><b>iPAS 淨零碳初級</b>（800 元，綠領第一章）</li><li><b>iPAS AI 應用規劃師初級</b>（兩科 800 元）</li><li>證券商業務員、銀行內控</li><li>乙級會計事務、IAP 內部稽核實務家</li></ul></div>
+    <div class="yr"><h3>大三</h3><div class="theme">主戰場：修完課就上</div>
+      <ul><li><b>記帳士</b>（11 月，修完中會與稅法）</li><li>證券商高級業務員 → 投信投顧加考一科</li><li>FSA Level I（永續會計首推）</li><li>Azure AI-901 或 AWS AI Practitioner</li></ul></div>
+    <div class="yr"><h3>大四</h3><div class="theme">攻頂：應屆生的特權</div>
+      <ul><li><b>會計師首戰 2 至 3 科</b>（8 月，應屆可考）</li><li>高考三級會計（7 月）</li><li>CIA（大四在校生條款）、CISA</li><li>CFA Level 1、AFP（學生半價）</li></ul></div>
+    <div class="yr"><h3>畢業後</h3><div class="theme">進階閱覽室</div>
+      <ul><li>會計師收尾（單科效力 3 年）、USCPA</li><li>CFE（畢業即達應考點數）</li><li>TAISE 永續管理師（畢業才能領證）</li><li>AI 稽核線：CISA/CPA 之後接 ISACA AAIA</li></ul></div>
+  </div>
+</section>
+
+<section id="zone-acc">
+  <div class="zone-head" style="--zc:var(--c-acc)">
+    <span class="code">A 區</span><h2>會計書區</h2>
+    <span class="hint">本命區：從技術士一路讀到會計師</span>
+  </div>
+  <div class="shelf-wrap"><div class="shelf-row" data-zone="acc"></div><div class="shelf-board"></div></div>
+  <p class="zone-note">書背越高越難。<b>記帳士</b>是大二大三的主戰場，<b>會計師</b>留給大四應屆首戰。</p>
+</section>
+
+<section id="zone-fin">
+  <div class="zone-head" style="--zc:var(--c-fin)">
+    <span class="code">B 區</span><h2>財金書區</h2>
+    <span class="hint">薄書多、翻得快：金融業的入場券</span>
+  </div>
+  <div class="shelf-wrap"><div class="shelf-row" data-zone="fin"></div><div class="shelf-board"></div></div>
+  <p class="zone-note">聰明借法：先拿<b>高業</b>，之後投信投顧、信託都只要加考一科。</p>
+</section>
+
+<section id="zone-esg">
+  <div class="zone-head" style="--zc:var(--c-esg)">
+    <span class="code">C 區</span><h2>永續書區</h2>
+    <span class="hint">綠領新書架：這一區未來十年都缺人</span>
+  </div>
+  <div class="shelf-wrap"><div class="shelf-row" data-zone="esg"></div><div class="shelf-board"></div></div>
+  <p class="zone-note">先讀國家推動的 <b>iPAS 淨零碳</b>，會計系再加一本國際版 <b>FSA</b>；進階培訓課程，可以等方向確定後再評估。</p>
+</section>
+
+<section id="zone-aud">
+  <div class="zone-head" style="--zc:var(--c-aud)">
+    <span class="code">D 區</span><h2>稽核書區</h2>
+    <span class="hint">冷門但值錢：台灣 CISA 持照者只有三百多人</span>
+  </div>
+  <div class="shelf-wrap"><div class="shelf-row" data-zone="aud"></div><div class="shelf-board"></div></div>
+  <p class="zone-note">學生限定：<b>IAP</b> 學生價約 210 美元、繁體中文應試，還能折抵 CIA 第一科。</p>
+</section>
+
+<section id="zone-ai">
+  <div class="zone-head" style="--zc:var(--c-ai)">
+    <span class="code">E 區</span><h2>AI 書區</h2>
+    <span class="hint">最新進館：商管學生不用會寫程式</span>
+  </div>
+  <div class="shelf-wrap"><div class="shelf-row" data-zone="ai"></div><div class="shelf-board"></div></div>
+  <p class="zone-note">三條讀法：素養（iPAS AI）、國際章（Azure、AWS）、治理稽核（會計系的隱藏路線，畢業後接 <b>AAIA</b>）。</p>
+</section>
+
+<section id="notice">
+  <div class="zone-head" style="--zc:var(--wood)">
+    <span class="code">櫃台</span><h2>借書之前，館員有話說</h2>
+    <span class="hint">選擇證照前，先了解它的性質</span>
+  </div>
+  <p class="notice-intro">這一區不是告訴你哪個好，而是陪你學會怎麼判斷。</p>
+  <div class="two-col">
+    <div class="notice">
+      <h3>公告一：證照、認證與培訓有什麼不同？</h3>
+      <h4>一、政府考試／政府推動之能力認證</h4>
+      <ul>
+        <li>具有明確考試或評量機制。</li>
+        <li>適合有長期專業規劃的同學。</li>
+      </ul>
+      <p class="eg">例如：iPAS、記帳士、會計師等。</p>
+      <h4>二、國際專業組織認證</h4>
+      <ul>
+        <li>多由國際機構辦理。</li>
+        <li>是否適用，需視產業與職務需求而定。</li>
+      </ul>
+      <p class="eg">例如：FSA、GRI、ISO、CFA、ISACA、Microsoft、AWS 等。</p>
+      <h4>三、法人或產業機構認證</h4>
+      <ul>
+        <li>由法人、協會或產業機構辦理。</li>
+        <li>建議了解考核方式與產業採認情形。</li>
+      </ul>
+      <p class="eg">例如：TAISE 永續管理師等。</p>
+      <h4>四、民間培訓課程與結業證明</h4>
+      <ul>
+        <li>可作為自主學習與進修紀錄。</li>
+        <li>報名前，可先確認發證單位、課程內容及適用範圍。</li>
+      </ul>
+      <div class="mind" data-label="館員小提醒">證照、認證與結業證明，各有不同的用途與定位。建議同學在報名前，先了解：
+        <ol>
+          <li>發證單位是誰？</li>
+          <li>是否有正式考試或評量？</li>
+          <li>哪些產業或公司會採認？</li>
+          <li>是否符合自己的職涯規劃？</li>
+        </ol>
+        多花十分鐘查資料，往往能少走許多彎路。</div>
+    </div>
+    <div class="notice">
+      <h3>公告二：學生限定的學習資源</h3>
+      <h4>常見學生優惠</h4>
+      <ul>
+        <li>iPAS：政府補助方案（依年度公告為準）</li>
+        <li>IIA IAP：學生優惠方案</li>
+        <li>ISACA：學生會員價</li>
+        <li>AFP：學生體驗價</li>
+        <li>ISO 14064-1：部分年度有補助班</li>
+        <li>校內證照獎勵：請向系辦或學務單位確認</li>
+      </ul>
+      <div class="mind" data-label="最後提醒">有些證照適合「現在」，有些適合「未來」；有些是為了求職，有些是為了累積能力。最重要的，不是考了幾張證照，而是找到適合自己的方向。</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<dialog id="card" aria-labelledby="card-title">
+  <div class="card-head">
+    <span class="callno" id="card-no"></span>
+    <span class="stars" id="card-stars" aria-label="難度"></span>
+    <h3 id="card-title"></h3>
+    <div class="pub" id="card-pub"></div>
+  </div>
+  <div class="card-body">
+    <table>
+      <tr><th>適合年級</th><td id="card-when"></td></tr>
+      <tr><th>考試時間</th><td id="card-time"></td></tr>
+      <tr><th>考什麼</th><td id="card-what"></td></tr>
+      <tr><th>怎麼考</th><td id="card-how"></td></tr>
+      <tr><th>報名費</th><td id="card-price"></td></tr>
+      <tr><th>搭配的書</th><td id="card-book"></td></tr>
+    </table>
+    <div class="card-say" id="card-say"></div>
+  </div>
+  <button class="card-close" id="card-close">蓋 上 這 本 書</button>
+</dialog>
+
+<footer class="lib-foot">
+  <div class="colophon">佩 佩 老 師 研 究 室 ・ 選 書</div>
+  ※ 各項考試、補助及認證資訊可能因年度調整，請以主辦單位及官方公告為準（本頁資料查證日 2026-07-10）。<br>
+  費用幣別：未標示者為新台幣；美元、英鎊、歐元均已標明。祝你四年借好借滿。
+</footer>
+
+<script>
+const Z = {
+  acc:{code:"A", color:"var(--c-acc)", books:[
+    {t:"會計事務技術士 丙級/乙級", pub:"勞動部（國家技術士）", lv:1, size:"short",
+     when:"大一考丙級、大二考乙級", time:"一年三梯次（2026 第三梯次 11/8 檢定）",
+     what:"學科測驗＋術科帳務實作（編傳票、記帳、編表）", how:"學科筆試或電測＋術科實作，各 60 分及格",
+     price:"學科 190 元＋術科費（依簡章）", book:"台科大圖書學術科題庫系列",
+     say:"高職生的基本款，大學生當練手感，練完直接瞄準記帳士。"},
+    {t:"TQC 電腦會計 / 初級會計 IFRS", pub:"電腦技能基金會（CSF）", lv:1, size:"short",
+     when:"大一大二", time:"全年授權考場隨時考",
+     what:"會計軟體操作與 IFRS 基礎觀念（官方題庫 400 題抽題）", how:"電腦測驗",
+     price:"依 CSF 公告", book:"官方《電腦會計 IFRS 實力養成暨評量》",
+     say:"搭配會計資訊系統課程順手考，學習歷程好看。"},
+    {t:"記帳士", pub:"考選部（專技普考）", lv:2, size:"",
+     when:"大二至大三（修完中會與稅法）", time:"每年一次：2026 報名 8/4 至 8/13、考試 11/14 至 11/15",
+     what:"國文、會計學概要、租稅申報實務、稅務法規概要、記帳法規概要（5 科）", how:"紙筆，申論＋測驗混合；平均 60 分及格",
+     price:"依當年簡章（2026 國考費用調漲中）", book:"高點、志光、三民輔考套書＋考選部歷屆試題（免費下載）",
+     say:"會計系第一張國家證照首選，一半考稅：修完稅法那年就是你的年。錄取率約一到兩成，投入 400 小時起。"},
+    {t:"會計師（台灣 CPA）", pub:"考選部（專技高考）", lv:3, size:"tall",
+     when:"大三分科準備、大四應屆首戰", time:"每年一次：2026 報名 5/12 至 5/21、考試 8/15 至 8/17",
+     what:"國文＋中會、高會、成管會、審計、公司法證交法商會法、稅務法規（7 科）", how:"紙筆申論為主；滾動式科別及格，單科 60 分、效力保留 3 年",
+     price:"依當年簡章", book:"高點會計師系列、志光函授＋歷屆試題",
+     say:"這區的鎮館之寶。應屆畢業當年 8 月就能上場：大四先打 2 至 3 科，畢業一兩年內收尾，是最省力的走法。"},
+    {t:"高考三級 會計", pub:"考選部（公務人員）", lv:3, size:"",
+     when:"大四應屆或畢業後", time:"每年 7 月（2026 為 7/5 至 7/7）",
+     what:"國文、法學知識與英文＋財政學、會計審計法規、中級會計學、政府會計", how:"紙筆，申論＋測驗；依缺額擇優錄取",
+     price:"調漲草案約 1,800 元，依簡章", book:"志光、三民輔考高普考會計套書",
+     say:"想過安穩日子的路線：起薪約 55,160 元，科目和記帳士、會計師高度重疊，常一起準備。"},
+    {t:"USCPA 美國會計師", pub:"AICPA / NASBA", lv:3, size:"tall",
+     when:"大三規劃學分、大四至畢業後應考", time:"全年皆可預約（台灣無考場，多赴關島、日本、韓國）",
+     what:"FAR、AUD、REG 三科必考＋BAR/ISC/TCP 三選一", how:"電腦測驗，每科 4 小時，75 分及格，18 個月內考完",
+     price:"每科約 268.59 美元，含雜費全程約 1,400 美元起", book:"Becker（台灣代理捷進）、Wiley、UWorld",
+     say:"想進外商或四大國際部的門票，先確認 150 學分怎麼補，再決定要不要出國考。"},
+    {t:"ACCA 英國特許公認會計師", pub:"ACCA（英國）", lv:3, size:"",
+     when:"大一可註冊，大二起分級考", time:"每年 3、6、9、12 月考季；台北英國文化協會考場",
+     what:"13 科三級制：Knowledge 3 科、Skills 6 科、Strategic 4 科", how:"電腦測驗，每科 50 分及格",
+     price:"註冊 89 英鎊＋年費約 140 英鎊＋每科 123 至 274 英鎊（全程常見估算 3 萬至 65,000 元）", book:"Kaplan、BPP 官方授權教材",
+     say:"戰線最長但可以分段收穫的一套書，部分學校有科目豁免方案，先查自己系上有沒有。"},
+    {t:"ICAEW IFRS Certificate", pub:"英格蘭及威爾斯特許會計師公會", lv:2, size:"short",
+     when:"大四或研究所", time:"線上隨時",
+     what:"IFRS 準則綜合觀念", how:"線上 60 題、120 分鐘，通過即發證",
+     price:"約 285 英鎊（依官網）", book:"官方線上教材（報名含）",
+     say:"想在履歷寫「懂 IFRS」的最快路徑，全英文，適合準備出國或外商的你。"}
+  ]},
+  fin:{code:"B", color:"var(--c-fin)", books:[
+    {t:"金融市場常識與職業道德", pub:"證基會等共同辦理", lv:1, size:"short",
+     when:"大一先考起來放", time:"每月都有場次",
+     what:"金融常識 50 題＋職業道德 50 題（題庫全公開）", how:"單選題，70 分及格，成績 5 年有效",
+     price:"250 元", book:"官方公開題庫（免費）",
+     say:"全館最便宜的一本，之後考任何金融從業資格都要用到它，大一花一個週末解決。"},
+    {t:"人身/財產保險業務員", pub:"壽險公會 / 產險公會", lv:1, size:"short",
+     when:"大一大二", time:"每月多場",
+     what:"保險實務＋保險法規", how:"單選題，人身專業科 70 分及格",
+     price:"600 元＋共同科目 250 元", book:"公會指定教材＋題庫",
+     say:"最容易入手的金融證照，30 到 50 小時搞定。"},
+    {t:"證券商業務員（普業）", pub:"證基會", lv:1, size:"",
+     when:"大一下至大二", time:"2026 筆試 4/12、8/2、12/6，另有每月電腦應試",
+     what:"證券交易法規與實務、證券投資與財務分析", how:"單選題，兩科總分 140 且單科不低於 50",
+     price:"筆試 680 元", book:"證基會官方參考書＋宏典題庫",
+     say:"財金系的第一本書，也是券商的入場券。"},
+    {t:"期貨商業務員", pub:"期貨公會（證基會辦理）", lv:1, size:"short",
+     when:"大二至大三", time:"與證基會場次相同",
+     what:"期貨交易法規＋期貨交易理論與實務", how:"單選題，總分 140 且單科不低於 60",
+     price:"筆試 730 元", book:"證基會教材＋宏典套書",
+     say:"計算題多，修過期貨與選擇權再來借。"},
+    {t:"銀行內部控制與內部稽核", pub:"台灣金融研訓院", lv:1, size:"short",
+     when:"大二", time:"研訓院年度梯次＋每月電腦應試",
+     what:"內控內稽法規 50 題＋實務 80 題", how:"單選題；及格標準與費用依當期簡章",
+     price:"依研訓院費用表", book:"研訓院官方教材＋宏典速成",
+     say:"銀行新人幾乎人手一本，40 到 60 小時可解決，和會計系的內控課超搭。"},
+    {t:"信託業業務人員", pub:"信託公會（研訓院辦理）", lv:1, size:"short",
+     when:"大二至大三", time:"研訓院梯次＋每月電腦應試",
+     what:"信託法規＋信託實務", how:"單選題，總分 140 且單科不低於 60",
+     price:"兩科筆試 565 元", book:"研訓院官方教材",
+     say:"進銀行的標配之一；大四如果已有高業，只要加考法規一科（70 分）就換到這張。"},
+    {t:"理財規劃人員", pub:"台灣金融研訓院", lv:1, size:"short",
+     when:"大二至大三", time:"2026 筆試 3/14、11/21＋電腦應試",
+     what:"理財工具＋理財規劃實務", how:"單選題，總分 140 且單科不低於 60",
+     price:"筆試 585 元", book:"研訓院經典講義與試題＋宏典",
+     say:"想走理專路線的先修書。"},
+    {t:"證券商高級業務員（高業）", pub:"證基會", lv:2, size:"",
+     when:"大三（先有普業）", time:"與證基會場次相同",
+     what:"投資學、財務分析、證券交易法規與實務", how:"單選題，三科總分 210 且單科不低於 50",
+     price:"筆試 680 元", book:"證基會官方三本＋題庫",
+     say:"CP 值最高的一本：拿到之後，投信投顧、信託都只要再加考一科，一本抵三本。"},
+    {t:"投信投顧業務員", pub:"投信投顧公會（證基會辦理）", lv:2, size:"short",
+     when:"大三", time:"與證基會場次相同",
+     what:"三科制；已有高業只考法規一科", how:"單選題；一科制 70 分及格",
+     price:"三科 730 元、一科 530 元", book:"證基會教材",
+     say:"標準走法：先高業、再加考這一科，30 到 50 小時。"},
+    {t:"外匯測驗（初階/專業）", pub:"台灣金融研訓院", lv:2, size:"short",
+     when:"大三大四（修過國際金融）", time:"初階常態辦理；專業級一年 1 至 2 次筆試",
+     what:"外匯市場知識＋外匯商品交易實務", how:"單選題，計算題比重高",
+     price:"初階 585 元；專業級 855 元", book:"研訓院官方教材＋歷屆試題",
+     say:"銀行外匯櫃台職缺常指定，先考初階就夠用。"},
+    {t:"CFA 特許金融分析師", pub:"CFA Institute", lv:3, size:"tall",
+     when:"大三可報名（畢業前 23 個月內），大四考 Level 1", time:"L1 每年 2、5、8、11 月窗口；台北有考場",
+     what:"倫理、計量、經濟、財報分析、投資組合等十大領域，全英文", how:"電腦測驗，L1 共 180 題約 4.5 小時",
+     price:"2026 年 2 月起免入會費；L1 早鳥 1,140 美元、標準 1,490 美元", book:"官方教材（報名含）＋Kaplan Schweser",
+     say:"投資圈的精裝典藏版：一級就值錢，但每級要 300 小時，想清楚再借。"},
+    {t:"FRM 金融風險管理師", pub:"GARP", lv:3, size:"tall",
+     when:"大三大四考 Part I", time:"每年 5、8、11 月窗口",
+     what:"Part I 風管基礎四科；Part II 六大風險領域，全英文", how:"電腦測驗，Part I 100 題 4 小時",
+     price:"首次註冊 400 美元＋每部分早鳥 600 美元", book:"GARP 官方教材＋Kaplan Schweser",
+     say:"統計和財工底子好的人來借，銀行風控部門的敲門磚。"},
+    {t:"AFP / CFP 理財規劃顧問", pub:"臺灣理財顧問認證協會（FPAT）", lv:2, size:"",
+     when:"大三大四修課後考 AFP，CFP 畢業後續攻", time:"每年 3、9 月",
+     what:"先修 240 小時課程再應考；AFP 為 180 題中文綜合題", how:"中文筆試 6 小時",
+     price:"AFP 測驗 6,000 元，在學學生半價 3,000 元（課程學費另計）", book:"FPAT 授權機構官方講義",
+     say:"少數用中文考的國際體系證照，學生半價是隱藏福利，有些財金系開課可以抵訓練時數。"}
+  ]},
+  esg:{code:"C", color:"var(--c-esg)", books:[
+    {t:"iPAS 淨零碳規劃管理師（初級）", pub:"經濟部（國家能力鑑定）", lv:1, size:"",
+     when:"大二至大三", time:"2026 三場：5/16、8/15、11/7",
+     what:"淨零碳規劃管理基礎概論＋碳盤查規範與程序概要", how:"電腦測驗單選題，平均 70 且單科不低於 60",
+     price:"新生約 800 元（團報 600 元）", book:"官方考前指引＋樣題集＋「淨零永續學校」免費課程",
+     say:"綠領第一章、全區 CP 值之王：國家發的、幾百塊、大二就能考。通過率三到六成且逐年變難，早考早好。"},
+    {t:"iPAS 淨零碳規劃管理師（中級）", pub:"經濟部（國家能力鑑定）", lv:2, size:"",
+     when:"大四或研究所", time:"2026 兩場：4/11、8/22",
+     what:"節能減碳技術實務＋碳管理制度實務", how:"電腦測驗，兩科各 70 分及格",
+     price:"新生一科 1,000 元", book:"官方教材＋考前指引",
+     say:"首場獲證率約三成的硬書，拿到就是綠領正職等級。"},
+    {t:"ISO 14064-1 主任查證員（訓練）", pub:"BSI、SGS 等驗證機構", lv:2, size:"",
+     when:"大三至大四", time:"全年滾動開班（3 日課程）",
+     what:"組織碳盤查、排放係數計算、查證程序與演練", how:"上課＋課後測驗，發訓練合格證書",
+     price:"市價約 30,000 元；部分年度有教育部補助班（約 13,125 元，限教職員生）", book:"機構講義＋ISO 14064-1 標準本文",
+     say:"企業碳盤查的入門磚。學生可以留意教育部補助班的開課消息。"},
+    {t:"ISO 14067 產品碳足跡（訓練）", pub:"BSI、SGS 等驗證機構", lv:2, size:"short",
+     when:"大四之後，接在 14064-1 後面", time:"全年滾動開班",
+     what:"生命週期評估（LCA）、產品類別規則、碳足跡計算", how:"3 日課程＋測驗",
+     price:"市價約 24,000 至 47,000 元；部分年度有補助班", book:"機構講義",
+     say:"比 14064-1 難一階，先讀完上一本再來。"},
+    {t:"FSA Credential（IFRS 永續揭露）", pub:"IFRS 基金會（原 SASB）", lv:2, size:"tall",
+     when:"大三至大四考 Level I", time:"一年三檔期：1 至 2 月、5 至 6 月、9 至 10 月",
+     what:"SASB/ISSB 準則架構、永續資訊與企業價值的連結", how:"電腦選擇題（線上或考場），英文",
+     price:"Level I 會員 400 美元、非會員 450 美元", book:"官方 Study Guide（報名含電子版）",
+     say:"永續「會計」最對口的國際證照，IFRS S1/S2 時代的核心書目：會計系想走 ESG，這本是首選。"},
+    {t:"CFA 永續投資證書", pub:"CFA Institute", lv:2, size:"",
+     when:"大四", time:"全年開放，報名後 6 個月內考",
+     what:"ESG 因子、永續投資策略、盡職治理，100 題", how:"電腦測驗 2 小時 20 分，英文",
+     price:"首次 890 美元", book:"官方 curriculum（報名含）",
+     say:"想進投信投顧做永續金融的人再借，價格不便宜，投報自己算。"},
+    {t:"GARP SCR 氣候風險證書", pub:"GARP（FRM 同門）", lv:3, size:"",
+     when:"大四或研究所", time:"每年 4、10 月窗口（2026/10 為 10/17 至 10/25）",
+     what:"氣候科學、政策法規、TCFD、氣候風險衡量", how:"電腦測驗 4 小時，80 題＋案例，英文",
+     price:"約 650 至 750 美元（依官網）", book:"GARP 官方教材",
+     say:"金融業氣候風控的專門書，FRM 家族的綠色版。"},
+    {t:"GRI 認證永續專業人員", pub:"GRI（全球永續報導協會）", lv:3, size:"short",
+     when:"大四或研究所，寫過報告書再考", time:"GRI Academy 線上隨時",
+     what:"四門課＋線上測驗；台灣代訓 2 日課發的是出席證書，兩者不同", how:"線上自學＋測驗，效期 1 年需持續進修",
+     price:"全套約 1,250 歐元", book:"GRI Academy 官方課程",
+     say:"寫永續報告書的人遲早會翻到它；有持續進修的規劃再入手，效益最大。"},
+    {t:"TAISE 企業永續管理師", pub:"台灣永續能源研究基金會", lv:2, size:"",
+     when:"在學可上課，畢業才能領證", time:"每年多期（2026 線上班 6 至 8 月、實體班 7 至 9 月）",
+     what:"64 小時五大模組：趨勢、準則、實務、永續金融、案例", how:"修畢後測驗，證照效期 5 年",
+     price:"約 40,000 元", book:"基金會教材",
+     say:"企業界熟悉度高的法人認證；領證需大學畢業，大四下再規劃剛剛好。"},
+    {t:"環境教育人員認證", pub:"環境部", lv:1, size:"short",
+     when:"在學就開始修學分，畢業即申請", time:"隨時申請",
+     what:"學歷管道：環境相關 24 學分；考試管道：14 學分可報考", how:"送審或考試",
+     price:"審查費 1,020 元", book:"依修課學分",
+     say:"用「選課」換證照的一本：現在開始排課表，畢業直接領。"}
+  ]},
+  aud:{code:"D", color:"var(--c-aud)", books:[
+    {t:"IAP 內部稽核實務家", pub:"IIA（國際內部稽核協會）", lv:2, size:"",
+     when:"大二大三，修過內控或審計就能挑戰", time:"全年電腦測驗（Pearson VUE）",
+     what:"內部稽核基礎，與 CIA 第一科同一份考卷", how:"125 題 150 分鐘，繁體中文可選",
+     price:"學生價：申請 45 美元＋考試 165 美元（合計約 210 美元）", book:"IIA 官方全球內部稽核準則（繁中）＋官方題庫",
+     say:"本區給學生的隱藏版：學生價、中文考、永久有效，之後直接折抵 CIA 第一科，先借先贏。"},
+    {t:"ICCP 電腦稽核軟體應用師", pub:"ICAEA（國際電腦稽核教育協會）", lv:2, size:"short",
+     when:"大二大三，搭配電腦稽核課", time:"配合開班辦理",
+     what:"CAATs 稽核軟體：選擇題 60%＋上機實作 40%", how:"120 分鐘，70 分及格",
+     price:"依開課單位公告", book:"JCAATs 實務手冊＋輔導班教材",
+     say:"少數「會操作軟體」就能拿的稽核證照，系上有開課就順手考。"},
+    {t:"CIA 國際內部稽核師", pub:"IIA（國際內部稽核協會）", lv:3, size:"tall",
+     when:"大四（在校生條款：憑大四上成績單先報考）", time:"全年電腦測驗，繁體中文可選",
+     what:"三科：稽核基礎、稽核實務、稽核職能", how:"每科 100 至 125 題，量尺 600/750 及格",
+     price:"會員每科 280 至 310 美元；學生會員免會費", book:"Gleim CIA 繁中版（三民經銷）＋IIA 官方題庫",
+     say:"內部稽核的鎮館之寶，全球通用。大四就能先考，經驗畢業後再補。"},
+    {t:"CISA 國際電腦稽核師", pub:"ISACA", lv:3, size:"tall",
+     when:"大四或研究所（先考後補經歷）", time:"全年電腦測驗",
+     what:"五大領域：稽核流程、IT 治理、系統開發、營運韌性、資產保護", how:"150 題 240 分鐘（無繁中）",
+     price:"會員 575 美元、非會員 760 美元", book:"ISACA 官方 Review Manual＋QAE 題庫",
+     say:"台灣持照者只有三百多人的稀有書：先考起來，5 年內補經歷就能換證，學歷還能抵 3 年。"},
+    {t:"CFE 舞弊稽核師", pub:"ACFE（舞弊稽核師協會）", lv:3, size:"",
+     when:"畢業那年（大學畢業剛好達應考點數）", time:"全年線上監考",
+     what:"三節：舞弊手法與金融犯罪、調查與法律、預防與嚇阻", how:"共 310 題，每節 75% 及格，全英文",
+     price:"會員年費 75 美元＋考試約 450 美元＋官方題庫課程", book:"ACFE Fraud Examiners Manual＋Prep Course",
+     say:"鑑識會計與查弊路線的專門書，英文好的人畢業就能上。"},
+    {t:"ISO 9001 主導稽核員（IRCA）", pub:"SGS、BSI 等（CQI-IRCA 認可）", lv:3, size:"short",
+     when:"大四或畢業後", time:"全年開班，5 天 40 小時",
+     what:"管理系統稽核方法論＋課末筆試", how:"上課＋筆試，發國際登錄課程證書",
+     price:"依機構報價", book:"機構講義＋ISO 19011 稽核指引",
+     say:"想走第三方驗證與供應商稽核的人再借，先累積一點實務更划算。"},
+    {t:"CISM / CISSP 資安雙書", pub:"ISACA / ISC2", lv:3, size:"short",
+     when:"畢業 3 至 5 年後", time:"全年電腦測驗",
+     what:"資安管理（CISM）與資安技術管理（CISSP）", how:"先考後補經歷 5 年",
+     price:"依官網", book:"官方教材",
+     say:"進階閱覽室的預告書：IT 稽核走到後面自然會遇到，在學先知道就好。"}
+  ]},
+  ai:{code:"E", color:"var(--c-ai)", books:[
+    {t:"TQC 生成式 AI 應用與技術", pub:"電腦技能基金會（產發署採認）", lv:1, size:"short",
+     when:"大一暖身", time:"全年授權考場隨時考",
+     what:"生成式 AI 觀念與應用，單選 50 題", how:"電腦測驗，70 分及格",
+     price:"每科每級 1,200 元", book:"《TQC 生成式 AI 應用與技術實力養成暨評量》（碁峰）",
+     say:"AI 書區的第一本小書，20 到 40 小時搞定，與資策會那本二擇一即可。"},
+    {t:"資策會 生成式 AI 能力認證", pub:"資訊工業策進會", lv:1, size:"short",
+     when:"大一大二", time:"全年多場（常配合大學辦理）",
+     what:"AI 基礎知識、應用技能、倫理與法律", how:"選擇題，當場知道通過與否",
+     price:"1,300 元", book:"官方簡章指定範圍",
+     say:"和 TQC 定位重疊，選一本讀就好。"},
+    {t:"iPAS AI 應用規劃師（初級）", pub:"經濟部（國家能力鑑定）", lv:1, size:"",
+     when:"大一至大二", time:"2026 四場：3/21、5/16、8/15、11/7",
+     what:"人工智慧基礎概論＋生成式 AI 應用與規劃", how:"電腦測驗中文單選，平均 70 且單科不低於 60；不用寫程式",
+     price:"補助價每科 400 元（兩科 800 元；117 年起恢復原價）", book:"官網免費學習指引＋《講義與仿真試題》",
+     say:"台灣公信力最高的 AI 入門書：國家發的、兩科 800 元、教育部證照名錄有收。第一科概論較難，通過率三到六成。"},
+    {t:"iPAS AI 應用規劃師（中級）", pub:"經濟部（國家能力鑑定）", lv:2, size:"",
+     when:"大三大四（修過統計與程式）", time:"2026 兩場：5/23、11/14",
+     what:"AI 技術應用與規劃＋數據分析或機器學習擇一", how:"電腦測驗，每科 70 分；含 Python 程式碼閱讀",
+     price:"補助價每科 500 元", book:"官方學習指引",
+     say:"初級的續集，會依選科發「數據分析」或「機器學習」版證書。"},
+    {t:"Azure AI Fundamentals（AI-901）", pub:"Microsoft", lv:1, size:"short",
+     when:"大二大三", time:"全年（考場或線上監考）",
+     what:"AI 概念與責任＋Microsoft AI 工具實作", how:"45 分鐘，1000 分制 700 分及格",
+     price:"約 50 至 55 美元", book:"Microsoft Learn 官方免費學習路徑",
+     say:"外商和四大都認得的入門章。注意：舊代號 AI-900 已於 2026 年 6 月底停辦，現在考的是 AI-901，證照是同一張。"},
+    {t:"AWS Certified AI Practitioner", pub:"Amazon Web Services", lv:1, size:"short",
+     when:"大二至大四", time:"全年",
+     what:"AI 與生成式 AI 基礎、負責任 AI、安全與治理", how:"65 題 90 分鐘，繁體中文可選，700 分及格",
+     price:"100 美元", book:"AWS Skill Builder 官方免費課程",
+     say:"有「負責任 AI 與治理」章節，是雲端入門證裡跟稽核內控最有話聊的一本，還能用中文考。"},
+    {t:"Google Generative AI Leader", pub:"Google Cloud", lv:2, size:"short",
+     when:"大三大四（英文可）", time:"全年",
+     what:"生成式 AI 商業應用與導入策略", how:"90 分鐘選擇題，僅英文等外語",
+     price:"99 美元", book:"Google Skills 官方免費路徑",
+     say:"教你「用商業語言談 AI」的一本，想走顧問路線的加分項。"},
+    {t:"ISACA AI Fundamentals 證書", pub:"ISACA", lv:2, size:"short",
+     when:"大三大四（稽核路線）", time:"全年線上監考",
+     what:"AI 基礎與風險觀念", how:"2 小時選擇題，65% 及格，英文",
+     price:"會員 120 美元、非會員 150 美元（學生會員年費僅 25 美元）", book:"ISACA 官方線上課程",
+     say:"讓履歷提早掛上 ISACA 名字的入門書，是後面那本 AAIA 的前哨站。"},
+    {t:"IAPP AIGP（AI 治理專業人員）", pub:"IAPP（國際隱私專業人員協會）", lv:3, size:"",
+     when:"大四或研究所（修過公司治理、英文佳）", time:"全年，購買後一年內應考",
+     what:"AI 法規（含 EU AI Act）、治理框架、風險管理", how:"100 題 2.75 小時，英文",
+     price:"會員 649 美元、非會員 799 美元", book:"IAPP 官方 Body of Knowledge",
+     say:"AI 治理領域最有名的一本，和 ESG 的「G」直接接軌。"},
+    {t:"ISACA AAIA（AI 稽核）", pub:"ISACA（2025 全球首發）", lv:3, size:"tall",
+     when:"畢業後（須先有 CISA，或 CIA、美國 CPA、ACCA 等＋經歷）", time:"全年，報名後 6 個月內應考",
+     what:"AI 治理與風險、AI 營運、AI 稽核工具與技術", how:"90 題 150 分鐘，英文或簡中",
+     price:"會員 459 美元、非會員 599 美元", book:"ISACA 官方 Review Manual＋QAE",
+     say:"全球第一張 AI 稽核進階證：會計＋稽核＋AI 三個書區一起讀到最後，就是為了這本壓軸。"},
+    {t:"ISO/IEC 42001 主導稽核員（訓練）", pub:"BSI、SGS 等", lv:3, size:"short",
+     when:"畢業後（有 ISO 稽核底再轉入）", time:"全年開班（BSI 5 天中文班）",
+     what:"AI 管理系統稽核", how:"上課＋課後考試",
+     price:"民間班約 34,000 至 55,000 元", book:"機構講義＋ISO 42001 標準",
+     say:"企業開始導入 AI 管理系統驗證後的新需求，放在職涯書單裡先認識。"}
+  ]}
+};
+
+const dlg=document.getElementById('card');
+const el=id=>document.getElementById(id);
+function stars(n){return '難度 '+'★'.repeat(n)+'☆'.repeat(3-n)}
+Object.entries(Z).forEach(([key,zone])=>{
+  const row=document.querySelector('.shelf-row[data-zone="'+key+'"]');
+  zone.books.forEach((b,i)=>{
+    const btn=document.createElement('button');
+    btn.className='book'+(b.size?' '+b.size:'');
+    btn.style.setProperty('--bc',zone.color);
+    btn.setAttribute('aria-haspopup','dialog');
+    btn.innerHTML='<span class="band"></span><span class="spine">'+b.t+'</span><span class="lv">'+('★'.repeat(b.lv))+'</span>';
+    btn.addEventListener('click',()=>{
+      el('card-no').textContent=zone.code+'-'+String(i+1).padStart(2,'0');
+      el('card-no').style.setProperty('--bc2',zone.color);
+      el('card-stars').textContent=stars(b.lv);
+      el('card-title').textContent=b.t;
+      el('card-pub').textContent='發證單位：'+b.pub;
+      el('card-when').textContent=b.when;
+      el('card-time').textContent=b.time;
+      el('card-what').textContent=b.what;
+      el('card-how').textContent=b.how;
+      el('card-price').textContent=b.price;
+      el('card-book').textContent=b.book;
+      el('card-say').textContent=b.say;
+      dlg.showModal();
+    });
+    row.appendChild(btn);
+  });
+});
+document.getElementById('card-close').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+</script>
+</body>
+</html>
