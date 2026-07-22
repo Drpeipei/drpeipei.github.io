@@ -2,7 +2,7 @@
 // 格式：{ title, date, timestamp, source, sourceUrl, text }
 const NEWS_DATA = [
   {
-    title: "碳費開徵倒數：財會主管的下半年新科目",
+    title: "碳費上路元年：財會主管的下半年新科目",
     date: "2026-07-22",
     timestamp: 1784764800,
     source: "環境部氣候變遷署",
