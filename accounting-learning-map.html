@@ -4,96 +4,299 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>會計人的學習地圖｜佩佩老師的會計魔法教室</title>
-  <meta name="description" content="給會計系與想走會計路的大學生：先用學習風格小測驗認識自己怎麼學，再看懂大一到大四的路線圖，最後到證照圖書館挑你的證照。三站一條路。" />
+  <meta name="description" content="四大專業打底、兩大工具放大能力，再用永續把不同資訊串起來。點開七張能力卡，看看每一項能力未來可以做什麼，再接學習風格小測驗與證照圖書館。" />
   <link rel="canonical" href="https://drpeipei.com/accounting-learning-map.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_TW" />
   <meta property="og:site_name" content="佩佩老師的會計魔法教室" />
-  <meta property="og:title" content="會計人的學習地圖｜三站一條路" />
-  <meta property="og:description" content="先認識自己怎麼學，再看懂四年的路，最後挑你的證照。" />
+  <meta property="og:title" content="會計人的學習地圖｜4＋2＋1 七種能力" />
+  <meta property="og:description" content="四大專業 × 兩大工具 × 一個整合＝會計人的七種能力。點卡翻面，看每一扇門後面的路。" />
   <meta property="og:url" content="https://drpeipei.com/accounting-learning-map.html" />
   <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=LXGW+WenKai+TC:wght@700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#f6f4ef; --surface:#FFFFFF; --ink:#1f2937; --muted:#6b7280;
-  --accent:#2F6B3A; --accent-ink:#FFFFFF; --accent-soft:#E7F0E5;
-  --gold:#8A6D1B; --gold-soft:#F5EDD6; --line:#e2ddd2;
-}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.8;font-size:16px;}
-.topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:10px 18px;font-size:14px;}
-.topbar a{color:var(--accent);text-decoration:none;font-weight:700;}
-.topbar a:hover{text-decoration:underline;}
-.wrap{max-width:860px;margin:0 auto;padding:34px 20px 80px;}
-h1{font-family:"LXGW WenKai TC","Noto Sans TC",serif;font-size:38px;margin:4px 0 6px;color:var(--accent);text-wrap:balance;}
-.sub{font-size:17px;color:var(--muted);margin-bottom:30px;}
-h2{font-family:"LXGW WenKai TC","Noto Sans TC",serif;font-size:24px;color:var(--accent);margin:38px 0 14px;}
-.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
-.st{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:18px 18px 16px;display:flex;flex-direction:column;}
-.st .no{display:inline-block;background:var(--accent);color:var(--accent-ink);border-radius:8px;font-size:13px;font-weight:700;padding:1px 10px;margin-bottom:8px;align-self:flex-start;}
-.st h3{margin:0 0 6px;font-size:19px;}
-.st p{margin:0 0 14px;font-size:14.5px;color:var(--muted);flex:1;}
-.st a.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;border-radius:10px;padding:8px 18px;font-size:14.5px;align-self:flex-start;}
-.st a.btn.o{background:none;border:1.5px solid var(--accent);color:var(--accent);}
-.plan{display:grid;gap:12px;}
-.yr{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 18px;}
-.yr h3{margin:0;font-size:18px;color:var(--accent);display:inline;}
-.yr .theme{display:inline-block;margin-left:10px;background:var(--gold-soft);color:var(--gold);border-radius:8px;font-size:13.5px;font-weight:700;padding:1px 10px;}
-.yr ul{margin:8px 0 0;padding-left:20px;font-size:15px;}
-.yr li{margin:3px 0;}
-.principle{background:var(--accent-soft);border-radius:12px;padding:12px 18px;font-size:15px;margin:14px 0 0;}
-.principle b{color:var(--accent);}
-.foot{font-size:13px;color:var(--muted);margin-top:40px;border-top:1px solid var(--line);padding-top:14px;}
-.foot a{color:var(--accent);}
+:root{
+  --ink:#17324d; --muted:#718395; --line:#dbe6ee;
+  --site-text:#1f2937; --site-border:rgba(31,41,55,0.1);
+  --yellow:#f1e45c; --blue:#b7d8f3; --orange:#f3c89a; --lavender:#d9dced; --sgreen:#c9e8c5;
+  --max:1320px;
+}
+body{
+  margin:0;
+  font-family:"Microsoft JhengHei","Noto Sans TC","PingFang TC",sans-serif;
+  background:linear-gradient(180deg,#eef7fd 0%,#f7fbfe 52%,#f8f5ef 100%);
+  color:var(--ink);
+}
+a{color:inherit;text-decoration:none}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(246,244,239,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--site-border);}
+.nav-wrap{max-width:var(--max);margin:0 auto;padding:0 32px;display:flex;align-items:stretch;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0;color:var(--site-text);}
+.brand-stripe{width:4px;height:36px;flex-shrink:0;display:flex;flex-direction:column;}
+.brand-stripe span{flex:1;}
+.brand-text{display:flex;flex-direction:column;gap:2px;}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;line-height:1;}
+.brand-tagline{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#6b7280;line-height:1;}
+.nav{display:flex;}
+.nav a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#6b7280;padding:18px 20px;border-left:1px solid var(--site-border);display:flex;align-items:center;transition:color 0.2s;}
+.nav a:hover{color:var(--site-text);}
+.nav a.active{color:var(--site-text);font-weight:700;}
+
+.wrap{max-width:1220px;margin:auto;padding:44px 22px 58px}
+.hero{text-align:center;margin-bottom:34px}
+.hero h1{margin:0;font-size:clamp(34px,5vw,58px);letter-spacing:.05em;font-weight:900}
+.hero p{font-size:19px;line-height:1.75;color:#587087;margin:14px auto 0;max-width:820px}
+.badge{display:inline-block;background:var(--ink);color:#fff;padding:7px 18px;border-radius:999px;font-weight:800;margin-bottom:14px;letter-spacing:.2em}
+
+.section-title{display:flex;align-items:center;gap:12px;margin:40px 0 8px;font-size:25px;font-weight:900}
+.section-title span{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;font-size:19px}
+.section-sub{margin:0 0 20px 50px;color:var(--muted);font-weight:700;letter-spacing:.06em}
+
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.grid1{display:grid;grid-template-columns:1fr}
+.integrate{max-width:820px;margin:auto}
+
+.flip-card{perspective:1400px;height:470px;cursor:pointer}
+.big .flip-card{height:430px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .65s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-card:hover .flip-inner{filter:brightness(1.02)}
+.flip-card:not(.flipped):hover{transform:translateY(-6px)}
+.flip-card{transition:transform .25s ease}
+.face{
+  position:absolute;inset:0;border-radius:26px;padding:26px;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-shadow:0 18px 40px rgba(26,58,88,.13);
+  border:1px solid rgba(23,50,77,.08);overflow:hidden;
+}
+.front{display:flex;flex-direction:column;justify-content:space-between}
+.back{transform:rotateY(180deg);background:#fff;padding:22px}
+
+.n{font-size:13px;font-weight:800;opacity:.7;letter-spacing:.1em}
+.icon{font-size:46px;margin-top:8px}
+.name{font-size:30px;font-weight:900;margin-top:8px;letter-spacing:.03em}
+.ability{font-size:18px;font-weight:800;margin-top:6px;color:#2c4b68}
+.tagline{font-size:17px;line-height:1.6;margin-top:14px;font-weight:700}
+.hint{font-size:13px;opacity:.72;font-weight:700}
+
+.back h3{margin:0 0 14px;font-size:22px;line-height:1.25}
+.back-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.block{border-radius:16px;padding:14px 16px}
+.block.skill{background:#eef7ff}
+.block.jobs{background:#eef8ef}
+.block.certs{background:#fff7dc}
+.block.note{background:#fff0f0}
+.label{font-size:14px;font-weight:900;color:#5f7387;margin:0 0 7px;letter-spacing:.05em}
+.back p{margin:0;font-size:15px;line-height:1.6;color:#29455f}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip,.cert{padding:6px 11px;border-radius:999px;font-size:12.5px;font-weight:800;line-height:1.25}
+.chip{background:#fff;color:#24435f;border:1px solid #cfe0d4}
+.cert{background:#fffdf2;color:#24435f;border:1px solid #efd17d}
+.note p{font-weight:800;color:#7b2e3b}
+
+.c1 .front{background:linear-gradient(145deg,#dff4ea,#bfead9)}
+.c2 .front{background:linear-gradient(145deg,#fff0d8,#ffd9a5)}
+.c3 .front{background:linear-gradient(145deg,#ffe2e4,#ffc3c7)}
+.c4 .front{background:linear-gradient(145deg,#dff3f5,#b9e4e8)}
+.c5 .front{background:linear-gradient(145deg,#dfeaff,#bed3ff)}
+.c6 .front{background:linear-gradient(145deg,#eee4ff,#d2bfff)}
+.c7 .front{background:linear-gradient(145deg,#e3f2d7,#c4e7ae)}
+
+.formula{margin:46px auto 0;max-width:940px;background:var(--ink);color:#fff;border-radius:24px;padding:26px 28px;text-align:center;box-shadow:0 16px 32px rgba(23,50,77,.18)}
+.formula .main{font-size:24px;font-weight:900;letter-spacing:.02em}
+.formula .small{margin-top:10px;font-size:15px;opacity:.9;line-height:1.75}
+.formula button{border:0;background:#fff;color:var(--ink);font-family:inherit;font-weight:800;border-radius:999px;padding:10px 18px;margin-top:14px;cursor:pointer;font-size:14px}
+.formula button:hover{background:#eef6fb}
+.foot{text-align:center;margin-top:22px;font-size:15px;color:#748797}
+
+.next-steps{max-width:940px;margin:46px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ns{display:block;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px;box-shadow:0 10px 24px rgba(26,58,88,.08);transition:transform .2s}
+.ns:hover{transform:translateY(-4px)}
+.ns .nk{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:#5f7387;margin-bottom:8px}
+.ns h3{margin:0 0 6px;font-size:20px;font-weight:900}
+.ns p{margin:0 0 12px;font-size:14.5px;color:#587087;line-height:1.7}
+.ns .go{font-size:13.5px;font-weight:800;color:var(--ink)}
+
+footer{background:#1f2937;color:rgba(246,244,239,0.85);padding:36px 32px;text-align:center;margin-top:56px}
+.footer-brand{font-weight:900;letter-spacing:0.04em;margin-bottom:6px;}
+.footer-sub{font-size:0.85rem;color:rgba(246,244,239,0.6);}
+.footer-sub a{text-decoration:underline;color:inherit}
+
+@media(max-width:1000px){
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .flip-card{height:430px}
+}
+@media(max-width:650px){
+  .grid4,.grid2,.next-steps{grid-template-columns:1fr}
+  .flip-card,.big .flip-card{height:420px}
+  .hero p{font-size:17px}
+}
 </style>
 </head>
 <body>
-<div class="topbar"><a href="index.html">← 回首頁</a></div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-stripe"><span style="background:var(--yellow)"></span><span style="background:var(--blue)"></span><span style="background:var(--orange)"></span><span style="background:var(--lavender)"></span></div>
+      <div class="brand-text"><span class="brand-name">Dr. Peipei</span><span class="brand-tagline">會計能夠救地球 Accounting Can Save the Earth</span></div>
+    </a>
+    <nav class="nav">
+      <a href="about.html">關於佩佩</a>
+      <a href="articles.html">觀點文章</a>
+      <a href="npo-finance.html">NPO 財務教室</a>
+      <a href="news.html">永續新知</a>
+      <a href="accounting-learning-map.html" class="active">會計人的學習地圖</a>
+      <a href="cert-library.html">證照圖書館</a>
+      <a href="books.html">著作</a>
+    </nav>
+  </div>
+</header>
+
 <div class="wrap">
-  <h1>會計人的學習地圖</h1>
-  <div class="sub">從認識自己開始，把大學四年走成一條路。三站，一條路。</div>
+<header class="hero">
+<div class="badge">4 ＋ 2 ＋ 1</div>
+<h1>會計人的學習地圖</h1>
+<p>四大專業打底、兩大工具放大能力，再用永續把不同資訊串起來。<br>點一下每一張卡，看看這項能力未來可以做什麼。</p>
+</header>
 
-  <div class="stations">
-    <div class="st">
-      <span class="no">第一站</span>
-      <h3>認識自己怎麼學</h3>
-      <p>十六個情境題，三分鐘測出你是視覺、聽覺、動手還是讀寫型，附四種學習工具建議。路要走得遠，先知道自己的走法。</p>
-      <a class="btn" href="learning-style-quiz.html">做學習風格小測驗 →</a>
-    </div>
-    <div class="st">
-      <span class="no">第二站</span>
-      <h3>看懂四年的路</h3>
-      <p>大一到大四，每一年該做什麼、證照跟著修課怎麼排，一張路線圖看完。</p>
-      <a class="btn o" href="#map">往下看路線圖 ↓</a>
-    </div>
-    <div class="st">
-      <span class="no">第三站</span>
-      <h3>挑你的證照</h3>
-      <p>會計、財金、永續、稽核、AI 五大書區，每張證照做成一本可翻閱的書，附考試時間、費用與館員小提醒。</p>
-      <a class="btn" href="cert-library.html">進證照圖書館 →</a>
-    </div>
-  </div>
+<div class="section-title"><span>4</span>四大專業｜會計人的基礎能力</div>
+<div class="section-sub">做資訊・懂規則・驗資訊・用資訊</div>
+<section class="grid4">
 
-  <h2 id="map">四年路線圖</h2>
-  <div class="plan">
-    <div class="yr"><h3>大一</h3><span class="theme">辦借書證：先拿最便宜的</span>
-      <ul><li>丙級會計事務技術士</li><li>TQC 生成式 AI 或資策會生成式 AI（暖身）</li><li>保險業務員</li></ul></div>
-    <div class="yr"><h3>大二</h3><span class="theme">開始借正書：國家級入門</span>
-      <ul><li><b>iPAS 淨零碳初級</b>（800 元，綠領第一章）</li><li><b>永續發展基礎能力測驗</b>（金融圈永續入門，一年六場）</li><li><b>iPAS AI 應用規劃師初級</b>（兩科 800 元）</li><li>證券商業務員、銀行內控、金融科技力</li><li>乙級會計事務、IAP 內部稽核實務家</li></ul></div>
-    <div class="yr"><h3>大三</h3><span class="theme">主戰場：修完課就上</span>
-      <ul><li><b>記帳士</b>（11 月，修完中會與稅法）</li><li>證券商高級業務員 → 投信投顧加考一科</li><li>FSA Level I（永續會計首推）</li><li>Azure AI-901 或 AWS AI Practitioner</li></ul></div>
-    <div class="yr"><h3>大四</h3><span class="theme">攻頂：應屆生的特權</span>
-      <ul><li><b>會計師首戰 2 至 3 科</b>（8 月，應屆可考）</li><li>高考三級會計（7 月）</li><li>CIA（大四在校生條款）、CISA</li><li>CFA Level 1、AFP（學生半價）</li><li>金融常識與職業道德（250 元，題庫公開；成績 5 年有效，畢業前考正好接職涯）</li></ul></div>
-    <div class="yr"><h3>畢業後</h3><span class="theme">進階閱覽室</span>
-      <ul><li>會計師收尾（單科效力 3 年）、USCPA</li><li>CFE（畢業即達應考點數）</li><li>TAISE 永續管理師（畢業才能領證）</li><li>AI 稽核線：CISA/CPA 之後接 ISACA AAIA</li></ul></div>
-  </div>
-  <div class="principle"><b>兩個原則</b>：先便宜後昂貴、證照跟著修課走。每一張證照的考試時間、費用、書單細節，都在<a href="cert-library.html" style="color:var(--accent);font-weight:700;">證照圖書館</a>裡。</div>
-
-  <div class="foot">走完三站，路就是你自己的了。回到 <a href="index.html">會計魔法教室首頁</a>。</div>
+<article class="flip-card c1"><div class="flip-inner">
+<div class="face front"><div><div class="n">01 · 財務會計</div><div class="icon">📘</div><div class="name">財務會計</div><div class="ability">衡量與表達能力</div><div class="tagline">把企業發生的事情，轉成看得懂的財務資訊。</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>財務會計｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>記錄、認列、衡量、結帳、財務報表編製與解讀。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">企業財會</span><span class="chip">財報編製</span><span class="chip">帳務管理</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">會計師 CPA</span><span class="cert">公職會計類科</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>把帳做出來，也把企業故事說清楚。</p></section>
 </div>
+</div>
+</div></article>
+
+<article class="flip-card c2"><div class="flip-inner">
+<div class="face front"><div><div class="n">02 · 法律／稅務</div><div class="icon">⚖️</div><div class="name">法律／稅務</div><div class="ability">規範判讀能力</div><div class="tagline">知道什麼可以做、怎麼做，並把規則轉成行動。</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>法律／稅務｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>法規辨識、稅務處理、申報、法遵與跨部門溝通。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">稅務</span><span class="chip">法遵</span><span class="chip">工商登記</span><span class="chip">稅務規劃</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">會計師 CPA</span><span class="cert">記帳士</span><span class="cert">公職財稅類科</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>把規則讀懂，才能走得穩、走得遠。</p></section>
+</div>
+</div>
+</div></article>
+
+<article class="flip-card c3"><div class="flip-inner">
+<div class="face front"><div><div class="n">03 · 審計</div><div class="icon">🔎</div><div class="name">審計</div><div class="ability">查核驗證能力</div><div class="tagline">從證據出發，判斷資訊到底可不可信。</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>審計｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>蒐集證據、風險評估、內控測試、查核與確信，並延伸至舞弊調查與鑑識分析。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">財報審計</span><span class="chip">內部稽核</span><span class="chip">內控</span><span class="chip">風險管理</span><span class="chip">鑑識會計</span><span class="chip">舞弊調查</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">會計師 CPA</span><span class="cert">CIA 國際內部稽核師</span><span class="cert">CFE 國際舞弊查核師</span><span class="cert">企業內部控制</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>把資訊查清楚，建立信任。</p></section>
+</div>
+</div>
+</div></article>
+
+<article class="flip-card c4"><div class="flip-inner">
+<div class="face front"><div><div class="n">04 · 成管會</div><div class="icon">⚙️</div><div class="name">成管會</div><div class="ability">分析決策能力</div><div class="tagline">用成本、預算與績效資訊，協助企業做決定。</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>成管會｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>成本分析、預算、績效衡量、管理控制與決策分析。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">成本會計</span><span class="chip">預算管理</span><span class="chip">經營分析</span><span class="chip">管理控制</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">會計師 CPA</span><span class="cert">CMA 管理會計師</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>拿數字做決定，讓企業走得更好。</p></section>
+</div>
+</div>
+</div></article>
+
+</section>
+
+<div class="section-title"><span>2</span>兩大工具｜把專業能力放大</div>
+<div class="section-sub">看懂價值・運用科技</div>
+<section class="grid2 big">
+
+<article class="flip-card c5"><div class="flip-inner">
+<div class="face front"><div><div class="n">05 · 財務金融</div><div class="icon">📈</div><div class="name">財務金融</div><div class="ability">價值判斷能力</div><div class="tagline">從財務資訊進一步思考：錢放哪裡，價值在哪裡？</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>財務金融｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>估值、投資、融資、資金管理與資源配置。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">財務分析</span><span class="chip">投資分析</span><span class="chip">企業財務</span><span class="chip">資金管理</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">證券商高級業務員</span><span class="cert">投信投顧業務員</span><span class="cert">CFA</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>看懂價值，讓資源放在對的地方。</p></section>
+</div>
+</div>
+</div></article>
+
+<article class="flip-card c6"><div class="flip-inner">
+<div class="face front"><div><div class="n">06 · 資訊／AI</div><div class="icon">🤖</div><div class="name">資訊／AI</div><div class="ability">數位應用能力</div><div class="tagline">用資料、系統與 AI，讓會計工作更快、更深、更聰明。</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>資訊／AI｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>資料處理、會計資訊系統、流程自動化、AI 協作與分析。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">會計資訊</span><span class="chip">數位審計</span><span class="chip">資料分析</span><span class="chip">AI應用</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">iPAS AI應用規劃師</span><span class="cert">ERP相關認證</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>讓科技成為會計人的新工具。</p></section>
+</div>
+</div>
+</div></article>
+
+</section>
+
+<div class="section-title"><span>1</span>一個整合｜把今天與未來串起來</div>
+<div class="section-sub">跨域整合・永續思考</div>
+<section class="grid1 integrate big">
+<article class="flip-card c7"><div class="flip-inner">
+<div class="face front"><div><div class="n">07 · 永續</div><div class="icon">🌱</div><div class="name">永續</div><div class="ability">整合管理能力</div><div class="tagline">把財務、治理、風險、環境、社會與科技重新串在一起。</div></div><div class="hint">點擊翻面 → 看對應職能</div></div>
+<div class="face back">
+<h3>永續｜對應職能</h3>
+<div class="back-grid">
+  <section class="block skill"><div class="label">核心職能</div><p>跨部門整合、ESG資訊管理、永續揭露、碳管理、風險辨識與永續確信。</p></section>
+  <section class="block jobs"><div class="label">可能工作</div><div class="chips"><span class="chip">永續會計</span><span class="chip">ESG揭露</span><span class="chip">碳管理</span><span class="chip">永續確信</span></div></section>
+  <section class="block certs"><div class="label">可探索證照／測驗</div><div class="chips"><span class="cert">永續發展基礎能力測驗</span><span class="cert">iPAS 淨零碳規劃管理師</span></div></section>
+  <section class="block note"><div class="label">一句話</div><p>把不同資訊串起來，看見企業更長期的價值。</p></section>
+</div>
+</div>
+</div></article>
+</section>
+
+<div class="formula"><div class="main">四大專業 × 兩大工具 × 一個整合 ＝ 會計人的七種能力</div><div class="small">你不需要現在決定最後要去哪裡。先認識每一扇門，再找到自己想走深的方向。</div><button onclick="document.querySelectorAll('.flip-card').forEach(c=>c.classList.remove('flipped'))">全部翻回正面</button></div>
+<div class="foot">點一下卡片即可翻面，再點一次回到正面。</div>
+
+<div class="next-steps">
+  <a class="ns" href="learning-style-quiz.html">
+    <div class="nk">接下來・認識自己</div>
+    <h3>學習風格小測驗</h3>
+    <p>十六個情境題，三分鐘測出你是視覺、聽覺、動手還是讀寫型，走地圖前先知道自己的走法。</p>
+    <span class="go">開始測驗 →</span>
+  </a>
+  <a class="ns" href="cert-library.html">
+    <div class="nk">接下來・挑證照</div>
+    <h3>證照圖書館</h3>
+    <p>五大書區、四年借書計畫，每張證照做成一本可翻閱的書，附考試時間、費用與館員小提醒。</p>
+    <span class="go">進圖書館 →</span>
+  </a>
+</div>
+</div>
+
+<footer>
+  <div class="footer-brand">佩佩老師的會計魔法教室</div>
+  <div class="footer-sub"><a href="mailto:lyipei@gmail.com">lyipei@gmail.com</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('.flip-card').forEach(card=>card.addEventListener('click',()=>card.classList.toggle('flipped')));
+</script>
 </body>
 </html>
