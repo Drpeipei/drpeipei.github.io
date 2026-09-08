@@ -178,6 +178,21 @@
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: rgba(31,41,55,0.3); background: rgba(31,41,55,0.04); }
 
+    /* ── AUDIENCE 分眾入口 ── */
+    .audience-section { border-bottom: 1px solid var(--border); }
+    .audience-inner { max-width: var(--max); margin: 0 auto; padding: 56px 32px; }
+    .aud-kicker { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .aud-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .aud-card { display: block; padding: 36px 32px; border: 1px solid var(--border); transition: transform 0.2s; }
+    .aud-card:hover { transform: translateY(-4px); }
+    .aud-num { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: rgba(31,41,55,0.6); margin-bottom: 14px; }
+    .aud-card h3 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .aud-card p { font-size: 0.92rem; color: rgba(31,41,55,0.75); line-height: 1.9; margin-bottom: 18px; max-width: 420px; }
+    .aud-go { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    @media (max-width: 760px) { .aud-cards { grid-template-columns: 1fr; } }
+
     /* ── SERVICE SECTIONS ── */
     .service-section { border-bottom: 1px solid var(--border); }
     .service-inner {
@@ -349,10 +364,6 @@
       </div>
     </a>
     <nav class="nav">
-      <a href="#services">服務項目</a>
-      <a href="#articles">觀點文章</a>
-      <a href="#foundation">課程</a>
-      <a href="#consulting">顧問輔導</a>
       <a href="about.html">關於佩佩</a>
       <a href="npo-finance.html">NPO 財務教室</a>
       <a href="news.html">永續新知</a>
@@ -420,6 +431,27 @@
   <div class="slider-controls">
     <button class="slider-btn" onclick="prevSlide()">←</button>
     <button class="slider-btn" onclick="nextSlide()" style="border-left:none">→</button>
+  </div>
+</div>
+
+<!-- AUDIENCE 分眾入口 -->
+<div class="audience-section">
+  <div class="audience-inner">
+    <div class="aud-kicker">Which Path｜你是誰？</div>
+    <div class="aud-cards">
+      <a class="aud-card" style="background:var(--blue)" href="#services">
+        <div class="aud-num">Path A</div>
+        <h3>我是企業或社會人士</h3>
+        <p>永續轉型、ESG 與 IFRS S1/S2 輔導、NPO 財務、每週更新的永續新知。往下看服務項目與顧問輔導。</p>
+        <span class="aud-go">看服務與輔導 →</span>
+      </a>
+      <a class="aud-card" style="background:var(--green)" href="accounting-learning-map.html">
+        <div class="aud-num">Path B</div>
+        <h3>我是大學生</h3>
+        <p>從認識自己怎麼學開始：學習風格小測驗、四年路線圖、證照圖書館，把大學走成一條路。</p>
+        <span class="aud-go">走會計人的學習地圖 →</span>
+      </a>
+    </div>
   </div>
 </div>
 
