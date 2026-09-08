@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>學習風格小測驗｜佩佩老師的會計魔法教室</title>
+  <meta name="description" content="十六個情境題，三分鐘測出你是視覺、聽覺、動手還是讀寫型，答完馬上看到自己的四型分布，附康乃爾筆記、心智圖、AI 對話學習、番茄鐘四種學習工具建議。" />
+  <link rel="canonical" href="https://drpeipei.com/learning-style-quiz.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="佩佩老師的會計魔法教室" />
+  <meta property="og:title" content="學習風格小測驗｜三分鐘，看見你怎麼學" />
+  <meta property="og:description" content="十六個情境題，測你是視覺、聽覺、動手還是讀寫型，答完馬上看到自己的分布與學習工具建議。" />
+  <meta property="og:url" content="https://drpeipei.com/learning-style-quiz.html" />
+  <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=LXGW+WenKai+TC:wght@700&display=swap">
+<style>
+:root{
+  --bg:#F7F8F5; --surface:#FFFFFF; --ink:#26302A; --muted:#5C6B60;
+  --accent:#2F6B3A; --accent-ink:#FFFFFF; --accent-soft:#E7F0E5;
+  --bar-muted:#C6D3C6; --line:#DCE4DC; --gold:#8A6D1B; --gold-soft:#F5EDD6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.75;font-size:16px;}
+.topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:10px 18px;font-size:14px;}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:700;}
+.topbar a:hover{text-decoration:underline;}
+.wrap{max-width:680px;margin:0 auto;padding:28px 18px 120px;}
+h1{font-family:"LXGW WenKai TC","Noto Sans TC","Microsoft JhengHei",serif;font-size:34px;margin:6px 0 4px;text-wrap:balance;color:var(--accent);}
+h2{font-family:"LXGW WenKai TC","Noto Sans TC","Microsoft JhengHei",serif;font-size:22px;margin:0 0 12px;color:var(--accent);}
+.lead{background:var(--surface);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;margin:18px 0 26px;font-size:15px;color:var(--ink);}
+.lead b{color:var(--accent);}
+.lead p{margin:6px 0;}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 16px 10px;margin-bottom:14px;}
+.qhead{display:flex;gap:10px;align-items:baseline;margin-bottom:10px;}
+.qnum{flex:none;background:var(--accent);color:var(--accent-ink);border-radius:8px;font-size:13px;font-weight:700;padding:1px 8px;font-variant-numeric:tabular-nums;}
+.qtext{font-weight:700;}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;margin:6px 0;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:border-color .12s, background .12s;}
+.opt input{margin-top:6px;accent-color:var(--accent);flex:none;}
+.opt:hover{border-color:var(--accent);}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);}
+.opt:focus-within{outline:2px solid var(--accent);outline-offset:2px;}
+.stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:12px 18px;display:flex;gap:14px;align-items:center;justify-content:center;z-index:5;}
+.progress{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:96px;}
+.progress b{color:var(--accent);font-size:18px;}
+button.go{font:inherit;font-weight:700;background:var(--accent);color:var(--accent-ink);border:none;border-radius:10px;padding:10px 26px;cursor:pointer;}
+button.go:disabled{background:var(--bar-muted);color:var(--bg);cursor:not-allowed;}
+button.again{font:inherit;background:none;border:1.5px solid var(--line);color:var(--muted);border-radius:10px;padding:8px 18px;cursor:pointer;margin-top:14px;}
+#result{margin-top:8px;}
+.hero{background:var(--surface);border:1.5px solid var(--accent);border-radius:14px;padding:20px 20px 16px;margin-bottom:18px;}
+.hero .small{font-size:14px;color:var(--muted);margin-bottom:2px;}
+.hero .type{font-family:"LXGW WenKai TC","Noto Sans TC",serif;font-size:34px;font-weight:700;color:var(--accent);line-height:1.3;}
+.hero .mix{display:inline-block;background:var(--gold-soft);color:var(--gold);border-radius:8px;font-size:14px;font-weight:700;padding:2px 10px;margin-left:6px;vertical-align:middle;}
+.hero .say{margin-top:8px;font-size:16px;}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px;}
+.row{display:grid;grid-template-columns:112px 1fr 44px;gap:10px;align-items:center;margin:12px 0;}
+.rlabel{font-size:14px;font-weight:500;text-align:right;color:var(--ink);}
+.track{background:none;height:22px;position:relative;}
+.bar{height:22px;border-radius:0 4px 4px 0;background:var(--bar-muted);min-width:4px;transition:width .5s ease;}
+.bar.top{background:var(--accent);}
+.rval{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.rval b{color:var(--ink);font-size:16px;}
+.note{font-size:13.5px;color:var(--muted);margin-top:10px;}
+.cards{display:grid;gap:10px;margin-bottom:18px;}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px;}
+.tcard.hot{border-color:var(--accent);background:var(--accent-soft);}
+.tcard b{color:var(--accent);}
+.tcard .tool{display:block;font-size:13.5px;color:var(--muted);margin-top:2px;}
+.next{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px;}
+.next ol{margin:8px 0 0;padding-left:22px;}
+.next li{margin:8px 0;}
+.next b{color:var(--accent);}
+.src{font-size:12.5px;color:var(--muted);margin-top:24px;}
+@media (prefers-reduced-motion: reduce){.bar{transition:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← 佩佩老師的會計魔法教室</a></div>
+<div class="wrap">
+  <h1>學習風格小測驗</h1>
+  <div style="font-size:17px;color:var(--muted);margin-bottom:4px;">你平常都是怎麼吸收新東西的？</div>
+
+  <div class="lead">
+    <p><b>填之前先知道兩件事</b></p>
+    <p>這不是性向測驗，沒有好壞，也不會決定你適合什麼。它只想讓你停下來想一想：我平常都是怎麼學習新東西的。想過這件事，比測出什麼結果重要。</p>
+    <p>十六個情境，每題選一個最接近你的答案。<b>沒有正確答案，選你真的會做的那個。</b></p>
+  </div>
+
+  <form id="quiz"></form>
+
+  <section id="result" hidden>
+    <div class="hero">
+      <div class="small">你目前比較習慣的方式是</div>
+      <div class="type" id="rtype"></div>
+      <div class="say" id="rsay"></div>
+    </div>
+
+    <div class="chart">
+      <h2>你的十六題，分別站在哪裡</h2>
+      <div id="bars"></div>
+      <div class="note">選最多的那一項，是你目前比較習慣的方式。如果幾項差不多，那很正常，多數人本來就是混合型。這只是你「目前的習慣」，不是你的極限。四種方式都可以練，練了都會變強。</div>
+    </div>
+
+    <div class="cards" id="tcards"></div>
+
+    <div class="next">
+      <h2>接下來做三件事</h2>
+      <ol>
+        <li><b>截圖這一頁的結果</b>，上傳到玩課雲（課堂產出）。</li>
+        <li>到玩課雲回答「<b>我的學習風格登記</b>」那一題，把上面的型別登記進去（混合型就選混合型）。</li>
+        <li>翻開學生手冊 p.26，接著寫手冊上的「想一想」。</li>
+      </ol>
+    </div>
+
+    <button class="again" id="again">重新作答</button>
+  </section>
+
+  <div class="stickybar" id="bar">
+    <div class="progress">已答 <b id="done">0</b> / 16</div>
+    <button class="go" id="go" disabled>看我的結果</button>
+  </div>
+
+  <div class="src">題目與解讀出自「成為靜宜人—大學入門」學生手冊 p.24~26，原文照登。測驗沒有對錯，結果只給你自己看。</div>
+</div>
+
+<script>
+const Q = [
+ ["老師在課堂上講了一個新概念，你最容易記住的是：","他畫在白板上的那張圖","他講的那個例子和語氣","我們當場動手做的那個練習","我抄下來的筆記和課本上的段落"],
+ ["要去一個沒去過的地方，你會：","先看一次地圖，記住路線的樣子","問人怎麼走，聽他講一次","直接出發，邊走邊找","把地址和轉乘方式寫下來或存起來"],
+ ["買了一個新的電子產品，你會：","看包裝上的圖示和示意圖","問已經有的人怎麼用","直接打開來按按看","把說明書從頭讀一遍"],
+ ["準備考試的時候，你最常做的是：","畫重點、做表格或圖","念出聲音，或跟同學互相講解","一直做題目、一直練習","重看課本和筆記，整理成文字"],
+ ["小組討論的時候，你比較習慣：","在紙上畫出大家講的東西","用講的把想法說出來","直接動手做做看再說","先把大家的意見寫下來整理"],
+ ["要學會一個新的軟體或 APP，你會：","看教學影片的畫面示範","聽別人講解一遍","自己亂點，點到會為止","搜尋圖文教學，一步一步照著讀"],
+ ["看完一部電影，你印象最深的通常是：","某個畫面或色調","某一句台詞或配樂","某個動作場面或讓你身體有反應的段落","劇情的走向和邏輯"],
+ ["有人跟你解釋一件複雜的事，你會希望他：","畫給我看","講給我聽就好","帶我做一次","寫下來給我，我自己讀"],
+ ["你的筆記通常長什麼樣子：","有箭頭、方框、顏色，像一張圖","我很少寫筆記，用聽的記","我筆記很少，但練習本很滿","整齊的條列，字很多"],
+ ["要記住一串資訊（例如報告的流程），你會：","在腦中想像它排列的樣子","念幾遍，讓自己聽熟","實際跑過一次流程","寫成清單，反覆看"],
+ ["上課如果太久沒有互動，你最容易：","開始在紙上塗鴉","放空但還聽得進去","坐不住，想動一動","自己往下讀課本"],
+ ["你覺得自己「真的學會」一件事，通常是在：","腦中出現清楚的畫面之後","能講給別人聽之後","自己做出來之後","能寫出來、整理出來之後"],
+ ["上課的時候，最能幫你進入狀況的是：","投影片上的圖表或影片","老師講的語氣和舉的例子，用聽的就懂","老師讓我們動手做一段","手上有一份講義，我可以自己讀"],
+ ["要學一道沒做過的菜，你會：","找一支有畫面的食譜影片來看","問會做的人，聽他講一遍","憑感覺先做做看，不對再調整","找一份寫清楚份量和步驟的文字食譜"],
+ ["一篇文章讀了兩次還是不太懂，你接下來會：","把它畫成圖或表，看看它的結構","唸出聲音，或找人討論","先照它說的做一次，做過就懂了","一句一句重讀，把重點標出來、寫成摘要"],
+ ["開學認識一堆新同學，你記住他們的方式通常是：","記臉、記他坐的位置或穿的衣服","記名字的發音、記他說話的聲音","記一起做過什麼事，例如同一組活動","把名字存進手機或寫下來"]
+];
+const TYPES = [
+ {key:"A", name:"看的（視覺）", say:"圖、影像、空間關係，對你來說最好懂",
+  tool:"推薦先試：心智圖。把概念之間的關係畫出來，正合你的路。"},
+ {key:"B", name:"聽的（聽覺）", say:"講和聽是你最順的管道，說出來就記住了",
+  tool:"推薦先試：AI 對話學習。自己先講給 AI 聽，說出來就記住了。"},
+ {key:"C", name:"動手（實作）", say:"做過一次，勝過看十次",
+  tool:"推薦先試：番茄鐘＋做中學。先做一次，用固定的專注段練習。"},
+ {key:"D", name:"讀寫（文字）", say:"文字是你的主場，寫下來就整理好了",
+  tool:"推薦先試：康乃爾筆記法。寫下來就整理好了。"}
+];
+const LS = "quiz_styles_v1";
+const form = document.getElementById("quiz");
+let answers = {};
+try{ answers = JSON.parse(localStorage.getItem(LS) || "{}") || {}; }catch(e){ answers = {}; }
+
+Q.forEach((q, i) => {
+  const card = document.createElement("div");
+  card.className = "q";
+  const opts = q.slice(1).map((t, j) =>
+    `<label class="opt"><input type="radio" name="q${i}" value="${j}"><span>${t}</span></label>`).join("");
+  card.innerHTML = `<div class="qhead"><span class="qnum">${i+1}</span><span class="qtext">${q[0]}</span></div>${opts}`;
+  form.appendChild(card);
+});
+
+function refresh(){
+  const n = Object.keys(answers).length;
+  document.getElementById("done").textContent = n;
+  document.getElementById("go").disabled = n < 16;
+  document.querySelectorAll(".opt").forEach(o => {
+    const inp = o.querySelector("input");
+    o.classList.toggle("sel", answers[inp.name] !== undefined && String(answers[inp.name]) === inp.value);
+  });
+}
+form.addEventListener("change", e => {
+  if(e.target.name){
+    answers[e.target.name] = Number(e.target.value);
+    try{ localStorage.setItem(LS, JSON.stringify(answers)); }catch(err){}
+    refresh();
+  }
+});
+Object.entries(answers).forEach(([k, v]) => {
+  const inp = form.querySelector(`input[name="${k}"][value="${v}"]`);
+  if(inp) inp.checked = true;
+});
+refresh();
+
+document.getElementById("go").addEventListener("click", e => {
+  e.preventDefault();
+  const counts = [0,0,0,0];
+  Object.values(answers).forEach(v => counts[v]++);
+  const max = Math.max(...counts);
+  const near = TYPES.filter((t, i) => counts[i] >= max - 1);
+  const tops = TYPES.filter((t, i) => counts[i] === max);
+  const isMix = near.length >= 2;
+
+  const rtype = document.getElementById("rtype");
+  if(tops.length === 1 && !isMix){
+    rtype.innerHTML = tops[0].name;
+    document.getElementById("rsay").textContent = tops[0].say;
+  }else{
+    rtype.innerHTML = near.map(t => t.name.slice(0, 2)).join("＋") + '<span class="mix">混合型</span>';
+    document.getElementById("rsay").textContent = "幾項差不多，那很正常，多數人本來就是混合型。登記玩課雲時選「混合型」就好。";
+  }
+
+  const bars = document.getElementById("bars");
+  bars.innerHTML = "";
+  TYPES.forEach((t, i) => {
+    const w = max ? Math.max(6, counts[i] / max * 100) : 6;
+    bars.insertAdjacentHTML("beforeend",
+      `<div class="row"><div class="rlabel">${t.name}</div>
+       <div class="track"><div class="bar${counts[i] === max ? " top" : ""}" style="width:${w}%"></div></div>
+       <div class="rval"><b>${counts[i]}</b> 題</div></div>`);
+  });
+
+  const tc = document.getElementById("tcards");
+  tc.innerHTML = "";
+  TYPES.forEach((t, i) => {
+    tc.insertAdjacentHTML("beforeend",
+      `<div class="tcard${counts[i] === max ? " hot" : ""}"><b>${t.name}</b>｜${t.say}<span class="tool">${t.tool}</span></div>`);
+  });
+
+  document.getElementById("result").hidden = false;
+  document.getElementById("bar").hidden = true;
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById("again").addEventListener("click", () => {
+  answers = {};
+  try{ localStorage.removeItem(LS); }catch(e){}
+  form.querySelectorAll("input").forEach(i => i.checked = false);
+  document.getElementById("result").hidden = true;
+  document.getElementById("bar").hidden = false;
+  refresh();
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+</script>
+</body>
+</html>
