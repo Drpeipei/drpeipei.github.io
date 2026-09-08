@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文章總覽｜佩佩老師的會計魔法教室</title>
+  <meta name="description" content="佩佩老師的文章都在這裡：生活對話、會計知識、永續ESG 的觀點文章，加上 NPO 財務教室與每週二更新的永續新知，一頁翻完、分類查找。" />
+  <link rel="canonical" href="https://drpeipei.com/articles.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="佩佩老師的會計魔法教室" />
+  <meta property="og:title" content="文章總覽｜佩佩老師的會計魔法教室" />
+  <meta property="og:description" content="觀點文章、NPO 財務教室、永續新知，一頁翻完、分類查找。" />
+  <meta property="og:url" content="https://drpeipei.com/articles.html" />
+  <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef; --text: #1f2937; --muted: #6b7280;
+      --border: rgba(31,41,55,0.1);
+      --yellow: #f1e45c; --blue: #b7d8f3; --orange: #f3c89a; --lavender: #d9dced; --green: #c9e8c5;
+      --max: 1320px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Microsoft JhengHei", "Noto Sans TC", "PingFang TC", sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header { position: sticky; top: 0; z-index: 100;
+      background: rgba(246,244,239,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: stretch; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; color: var(--text); }
+    .brand-stripe { width: 4px; height: 36px; flex-shrink: 0; display: flex; flex-direction: column; }
+    .brand-stripe span { flex: 1; }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .brand-name { font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1; }
+    .brand-tagline { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); line-height: 1; }
+    .nav { display: flex; }
+    .nav a { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); padding: 18px 20px; border-left: 1px solid var(--border);
+      display: flex; align-items: center; transition: color 0.2s; }
+    .nav a:hover { color: var(--text); }
+    .nav a.active { color: var(--text); font-weight: 700; }
+
+    .page-hero { border-bottom: 1px solid var(--border); background: var(--orange); }
+    .hero-inner { max-width: var(--max); margin: 0 auto; padding: 64px 32px 48px;
+      display: flex; flex-direction: column; }
+    .hero-num { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(31,41,55,0.55); margin-bottom: 14px; }
+    .page-hero h1 { font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; }
+    .hero-bottom { margin-top: 32px; padding-top: 22px; border-top: 1px solid rgba(31,41,55,0.18);
+      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
+    .hero-desc { max-width: 560px; font-size: 0.95rem; color: rgba(31,41,55,0.75); line-height: 1.9; }
+    .hero-stats { display: flex; gap: 28px; }
+    .hs { text-align: right; }
+    .hs .num { font-size: 1.9rem; font-weight: 900; line-height: 1.1; font-variant-numeric: tabular-nums; }
+    .hs .lbl { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(31,41,55,0.6); text-transform: uppercase; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 48px 32px 120px; }
+
+    .guide-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 56px; }
+    .gc { display: block; padding: 26px 24px 22px; border: 1px solid var(--border); transition: transform 0.2s; }
+    .gc:hover { transform: translateY(-4px); }
+    .gc .gk { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(31,41,55,0.6); margin-bottom: 10px; }
+    .gc h3 { font-size: 1.25rem; font-weight: 900; margin-bottom: 8px; }
+    .gc p { font-size: 0.88rem; color: rgba(31,41,55,0.72); line-height: 1.8; margin-bottom: 14px; }
+    .gc .go { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    @media (max-width: 860px) { .guide-cards { grid-template-columns: 1fr; } }
+
+    .list-top { display: flex; justify-content: space-between; align-items: flex-end;
+      padding-bottom: 18px; border-bottom: 1px solid var(--border); margin-bottom: 14px; flex-wrap: wrap; gap: 14px; }
+    .list-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 900; letter-spacing: -0.01em; }
+    .search-input { font-family: inherit; font-size: 0.9rem; padding: 10px 16px; min-width: 240px;
+      border: 1px solid var(--border); background: #fff; color: var(--text); }
+    .search-input:focus { outline: 2px solid var(--text); }
+
+    .cat-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .cat-tab { font-family: inherit; font-size: 0.82rem; font-weight: 700; padding: 8px 16px;
+      border: 1px solid var(--border); background: #fff; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+    .cat-tab:hover { color: var(--text); }
+    .cat-tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+    .post-row { display: grid; grid-template-columns: 96px 96px 1fr 28px; gap: 18px; align-items: center;
+      padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }
+    .post-row:hover { background: rgba(31,41,55,0.025); }
+    .post-date { font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .badge { font-size: 0.7rem; font-weight: 700; text-align: center; padding: 4px 6px; letter-spacing: 0.04em; }
+    .b-life { background: var(--lavender); } .b-acc { background: var(--yellow); } .b-esg { background: var(--green); }
+    .b-npo { background: var(--orange); } .b-news { background: var(--blue); }
+    .post-title { font-size: 1rem; font-weight: 700; line-height: 1.5; margin-bottom: 2px; }
+    .post-excerpt { font-size: 0.82rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .post-arrow { font-size: 0.9rem; color: var(--muted); text-align: right; transition: transform 0.2s; }
+    .post-row:hover .post-arrow { transform: translateX(3px); color: var(--text); }
+    .no-results { padding: 48px 0; color: var(--muted); text-align: center; }
+    @media (max-width: 680px) {
+      .post-row { grid-template-columns: 84px 1fr 20px; }
+      .post-date { display: none; }
+    }
+
+    .post-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: var(--bg); overflow-y: auto; }
+    .post-overlay.open { display: block; }
+    .overlay-nav { position: sticky; top: 0; background: rgba(246,244,239,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border); padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between; }
+    .overlay-back { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      background: none; border: none; font-family: inherit; padding: 18px 0; cursor: pointer; transition: color 0.2s; }
+    .overlay-back:hover { color: var(--text); }
+    .overlay-body { max-width: 720px; margin: 0 auto; padding: 64px 32px 120px; }
+    .overlay-meta { display: flex; gap: 14px; align-items: center; margin-bottom: 28px; flex-wrap: wrap; }
+    .overlay-cat { font-size: 0.7rem; font-weight: 700; padding: 4px 10px; }
+    .overlay-date { font-size: 0.85rem; color: var(--muted); }
+    .overlay-title { font-size: clamp(1.7rem, 3.4vw, 2.8rem); font-weight: 900; line-height: 1.2;
+      letter-spacing: -0.01em; margin-bottom: 40px; }
+    .overlay-text { font-size: 1.05rem; line-height: 2.05; color: rgba(31,41,55,0.85);
+      white-space: pre-wrap; word-break: break-word; }
+    .overlay-source { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--muted); line-height: 1.9; }
+    .overlay-source a { text-decoration: underline; }
+
+    footer { background: var(--text); color: rgba(246,244,239,0.85); padding: 36px 32px; text-align: center; }
+    .footer-brand { font-weight: 900; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .footer-sub { font-size: 0.85rem; color: rgba(246,244,239,0.6); }
+    .footer-sub a { text-decoration: underline; color: inherit; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-stripe"><span style="background:var(--yellow)"></span><span style="background:var(--blue)"></span><span style="background:var(--orange)"></span><span style="background:var(--lavender)"></span></div>
+      <div class="brand-text"><span class="brand-name">Dr. Peipei</span><span class="brand-tagline">會計能夠救地球 Accounting Can Save the Earth</span></div>
+    </a>
+    <nav class="nav">
+      <a href="about.html">關於佩佩</a>
+      <a href="articles.html" class="active">觀點文章</a>
+      <a href="npo-finance.html">NPO 財務教室</a>
+      <a href="news.html">永續新知</a>
+      <a href="accounting-learning-map.html">會計人的學習地圖</a>
+      <a href="cert-library.html">證照圖書館</a>
+      <a href="books.html">著作</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-num">Articles｜佩佩老師的文章總覽</div>
+    <h1>文章都在這裡</h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">生活對話、會計知識、永續 ESG 的觀點文章，加上 NPO 財務教室與每週更新的永續新知。往下用分類籤翻，或先看看哪一區是為你準備的。</p>
+      <div class="hero-stats">
+        <div class="hs"><div class="num" id="statAll">0</div><div class="lbl">篇文章</div></div>
+        <div class="hs"><div class="num" id="statZones">3</div><div class="lbl">個專區</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="guide-cards">
+    <a class="gc" style="background:var(--lavender)" href="#list">
+      <div class="gk">想認識佩佩老師</div>
+      <h3>觀點文章</h3>
+      <p>老師的親筆文：生活對話、會計知識、永續 ESG。就在下面，點分類籤慢慢翻。</p>
+      <span class="go">往下翻 ↓</span>
+    </a>
+    <a class="gc" style="background:var(--orange)" href="npo-finance.html">
+      <div class="gk">NPO 夥伴查財務</div>
+      <h3>NPO 財務教室</h3>
+      <p>協會的帳怎麼記、核銷怎麼做，照 Unit 主題編排的教室，帶著問題來查最快。</p>
+      <span class="go">進教室查主題 →</span>
+    </a>
+    <a class="gc" style="background:var(--blue)" href="news.html">
+      <div class="gk">追永續時事</div>
+      <h3>永續新知</h3>
+      <p>IFRS S1 S2、金管會接軌、碳管理最新動態，每週二一篇，用聽得懂的話解讀。</p>
+      <span class="go">看本週新知 →</span>
+    </a>
+  </div>
+
+  <div class="list-top" id="list">
+    <div class="list-heading">全部文章</div>
+    <input class="search-input" type="text" id="searchInput" placeholder="搜尋關鍵字…" oninput="renderPosts()">
+  </div>
+  <div class="cat-tabs" id="catTabs"></div>
+  <div id="postsList"></div>
+</div>
+
+<div class="post-overlay" id="postOverlay">
+  <div class="overlay-nav">
+    <button class="overlay-back" onclick="closePost()">← 回文章列表</button>
+  </div>
+  <div class="overlay-body">
+    <div class="overlay-meta">
+      <span class="overlay-cat" id="overlayCat"></span>
+      <span class="overlay-date" id="overlayDate"></span>
+    </div>
+    <h1 class="overlay-title" id="overlayTitle"></h1>
+    <div class="overlay-text" id="overlayText"></div>
+    <div class="overlay-source" id="overlaySource"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">佩佩老師的會計魔法教室</div>
+  <div class="footer-sub"><a href="mailto:lyipei@gmail.com">lyipei@gmail.com</a></div>
+</footer>
+
+<script src="posts_data.js"></script>
+<script src="npo_data.js"></script>
+<script src="news_data.js"></script>
+<script>
+const CATS = ['全部', '生活對話', '會計知識', '永續ESG', 'NPO 財務', '永續新知'];
+const BADGE = { '生活對話':'b-life', '會計知識':'b-acc', '永續ESG':'b-esg', 'NPO 財務':'b-npo', '永續新知':'b-news' };
+
+const ALL = [];
+POSTS_DATA.forEach(p => ALL.push({ cat: p.category, title: p.title, date: p.date, timestamp: p.timestamp, text: p.text,
+  source: '' }));
+NPO_DATA.forEach(p => ALL.push({ cat: 'NPO 財務', title: p.title, date: p.date, timestamp: p.timestamp, text: p.text,
+  source: (p.unit ? p.unit + '｜' : '') + '完整教室：NPO 財務教室', sourceHref: 'npo-finance.html' }));
+NEWS_DATA.forEach(p => ALL.push({ cat: '永續新知', title: p.title, date: p.date, timestamp: p.timestamp, text: p.text,
+  source: (p.source ? '資料來源：' + p.source + '｜' : '') + '更多新知：永續新知專區', sourceHref: 'news.html', srcUrl: p.sourceUrl || '' }));
+
+document.getElementById('statAll').textContent = ALL.length;
+
+let currentCat = '全部';
+let filtered = [];
+
+const tabs = document.getElementById('catTabs');
+tabs.innerHTML = CATS.map(c =>
+  `<button class="cat-tab${c === '全部' ? ' active' : ''}" data-cat="${c}" onclick="setCat(this)">${c}</button>`).join('');
+
+function setCat(el) {
+  document.querySelectorAll('.cat-tab').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  currentCat = el.dataset.cat;
+  renderPosts();
+}
+
+function renderPosts() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let posts = ALL;
+  if (currentCat !== '全部') posts = posts.filter(p => p.cat === currentCat);
+  if (q) posts = posts.filter(p => (p.text + p.title).toLowerCase().includes(q));
+  filtered = [...posts].sort((a, b) => b.timestamp - a.timestamp);
+
+  const list = document.getElementById('postsList');
+  if (!filtered.length) { list.innerHTML = '<div class="no-results">找不到相關文章</div>'; return; }
+  list.innerHTML = filtered.map((p, i) => {
+    const excerpt = p.text.replace(/\n/g, ' ').substring(0, 80);
+    return `<div class="post-row" onclick="openPost(${i})">
+      <div class="post-date">${p.date}</div>
+      <div class="badge ${BADGE[p.cat] || 'b-life'}">${p.cat}</div>
+      <div><div class="post-title"></div><div class="post-excerpt"></div></div>
+      <div class="post-arrow">→</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.post-row').forEach((row, i) => {
+    row.querySelector('.post-title').textContent = filtered[i].title;
+    row.querySelector('.post-excerpt').textContent = filtered[i].text.replace(/\n/g, ' ').substring(0, 80);
+  });
+}
+
+function openPost(i) {
+  const p = filtered[i];
+  document.getElementById('overlayCat').textContent = p.cat;
+  document.getElementById('overlayCat').className = 'overlay-cat ' + (BADGE[p.cat] || 'b-life');
+  document.getElementById('overlayDate').textContent = p.date;
+  document.getElementById('overlayTitle').textContent = p.title;
+  document.getElementById('overlayText').textContent = p.text;
+  const src = document.getElementById('overlaySource');
+  if (p.source) {
+    src.hidden = false;
+    src.textContent = '';
+    const span = document.createElement('span'); span.textContent = p.source + '　';
+    src.appendChild(span);
+    if (p.sourceHref) {
+      const a = document.createElement('a'); a.href = p.sourceHref; a.textContent = '前往專區 →';
+      src.appendChild(a);
+    }
+    if (p.srcUrl) {
+      const a2 = document.createElement('a'); a2.href = p.srcUrl; a2.target = '_blank'; a2.rel = 'noopener';
+      a2.textContent = '　原始來源'; src.appendChild(a2);
+    }
+  } else { src.hidden = true; }
+  document.getElementById('postOverlay').classList.add('open');
+  document.getElementById('postOverlay').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closePost() {
+  document.getElementById('postOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePost(); });
+
+renderPosts();
+</script>
+</body>
+</html>
