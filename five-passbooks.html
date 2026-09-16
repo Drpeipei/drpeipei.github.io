@@ -319,7 +319,7 @@ function addOrg(){
 function del(kind,id){if(confirm("確定刪除這筆紀錄？")){state[kind]=state[kind].filter(x=>x.id!==id);saveAll();render()}}
 
 function render(){
- depositList.innerHTML=state.deposits.length?state.deposits.slice().reverse().map(d=>`<div class="entry"><h4>${d.title}</h4><span class="pill">${d.book}存摺</span>${d.human?`<span class="pill">人文 ${d.human}</span>`:""}<div class="small">${d.date||"未填日期"}</div><p>佐證：${d.evidence?linkify(d.evidence):""}${d.evidenceName?` ${d.evidenceName}`:""}</p>${d.photo?`<img src="${d.photo}" alt="存款佐證照片" style="max-width:260px;max-height:200px;border-radius:10px;border:1px solid var(--line);display:block;margin:8px 0">`:"<p class='small'>尚無照片佐證</p>"}<p>反思：${d.reflection||"—"}</p><button class="danger" onclick="del('deposits',${d.id})">刪除</button></div>`).join(""):"<p class='small'>還沒有存款。第一筆，等你存進來。</p>";
+ depositList.innerHTML=state.deposits.length?state.deposits.slice().reverse().map(d=>`<div class="entry"><h4>${d.title}</h4><span class="pill">${d.book}存摺</span>${d.human?`<span class="pill">人文 ${d.human}</span>`:""}<div class="small">${d.date||"未填日期"}</div><p>佐證：${d.evidence?linkify(d.evidence):""}${d.evidenceName?` ${d.evidenceName}`:""}</p>${d.photo?`<img src="${d.photo}" alt="存款佐證照片" style="max-width:260px;max-height:200px;border-radius:10px;border:1px solid var(--line);display:block;margin:8px 0">`:"<p class='small'>尚無照片佐證</p>"}<p>反思：${d.reflection||""}</p><button class="danger" onclick="del('deposits',${d.id})">刪除</button></div>`).join(""):"<p class='small'>還沒有存款。第一筆，等你存進來。</p>";
  let humanCounts={};
  state.deposits.forEach(d=>{if(d.human && (d.photo || d.evidence)){humanCounts[d.human]=(humanCounts[d.human]||0)+1}});
  let completed=HUMAN.filter(h=>(humanCounts[h[0]]||0)>0).length;
@@ -328,11 +328,11 @@ function render(){
    const n=humanCounts[h[0]]||0;
    return `<tr><td>${h[0]}</td><td>${h[1]}</td><td>${h[2]}</td><td>${n}</td><td class="${n?'ok':'pending'}">${n?'✓ 已有佐證':'尚未完成'}</td></tr>`;
  }).join("");
- orgList.innerHTML=state.org.length?state.org.slice().reverse().map(o=>`<div class="entry"><h4>${o.title}</h4><span class="pill">${o.book}存摺</span><span class="pill">${o.leadRole||"未填角色"}</span><div class="small">${o.date||""}${o.deadline?`｜截止：${o.deadline}`:""}</div><p><b>使命連結：</b>${o.missionLink||"—"}<br><b>協作：</b>${o.partners||"—"}<br><b>實際完成：</b>${o.did||"—"}<br><b>佐證：</b>${linkify(o.evidence)||"—"}<br><b>價值觀檢核：</b>${o.valueCheck||"—"}${o.adjust?`<br><b>下次調整：</b>${o.adjust}`:""}</p><button class="danger" onclick="del('org',${o.id})">刪除</button></div>`).join(""):"<p class='small'>還沒有任務卡。組織從第一件真正一起完成的事開始。</p>";
+ orgList.innerHTML=state.org.length?state.org.slice().reverse().map(o=>`<div class="entry"><h4>${o.title}</h4><span class="pill">${o.book}存摺</span><span class="pill">${o.leadRole||"未填角色"}</span><div class="small">${o.date||""}${o.deadline?`｜截止：${o.deadline}`:""}</div><p><b>使命連結：</b>${o.missionLink||""}<br><b>協作：</b>${o.partners||""}<br><b>實際完成：</b>${o.did||""}<br><b>佐證：</b>${linkify(o.evidence)||""}<br><b>價值觀檢核：</b>${o.valueCheck||""}${o.adjust?`<br><b>下次調整：</b>${o.adjust}`:""}</p><button class="danger" onclick="del('org',${o.id})">刪除</button></div>`).join(""):"<p class='small'>還沒有任務卡。組織從第一件真正一起完成的事開始。</p>";
  const oo=state.organization||{};
  orgBlueprint.innerHTML=`<b>${oo.name||"我們的組織"}</b><br>我們想成為：${oo.vision||"＿＿＿＿"}<br>因此我們的使命是：${oo.mission||"＿＿＿＿"}<br>我們共同相信：${oo.values||"＿＿＿＿"}<br>我的角色：${(oo.roles||[]).join("、")||"尚未選擇"}`;
- orgOneSummary.innerHTML=`<b>願景：</b>${oo.vision||"—"}<br><b>使命：</b>${oo.mission||"—"}<br><b>價值觀：</b>${oo.values||"—"}<br><b>我的角色：</b>${(oo.roles||[]).join("、")||"—"}`;
- orgTwoSummary.innerHTML=`<b>運作後的發現：</b>${oo.learning||"—"}<br><b>角色反思：</b>${oo.roleReflection||"—"}<br><b>想調整：</b>${oo.revision||"—"}`;
+ orgOneSummary.innerHTML=`<b>願景：</b>${oo.vision||""}<br><b>使命：</b>${oo.mission||""}<br><b>價值觀：</b>${oo.values||""}<br><b>我的角色：</b>${(oo.roles||[]).join("、")||""}`;
+ orgTwoSummary.innerHTML=`<b>運作後的發現：</b>${oo.learning||""}<br><b>角色反思：</b>${oo.roleReflection||""}<br><b>想調整：</b>${oo.revision||""}`;
  bookSummary.innerHTML=BOOKS.map(b=>`<div><b>${b}</b><br><span class="big">${state.deposits.filter(d=>d.book===b).length+state.org.filter(o=>o.book===b).length}</span><br><span class="small">筆紀錄</span></div>`).join("");
 }
 function linkify(s){if(!s)return "";let esc=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");return /^https?:\/\//i.test(s)?`<a href="${esc}" target="_blank">查看佐證</a>`:esc}
