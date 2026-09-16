@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>證照圖書館｜大學四年考照書單｜佩佩老師的會計魔法教室</title>
-  <meta name="description" content="給會計系、財金系、企管系大學生的證照學習地圖：會計、財金、永續、稽核、AI 五大書區，每張證照做成一本可翻閱的書，附四年借書計畫、考試時間、費用與館員小提醒。" />
+  <meta name="description" content="給會計系、財金系、企管系大學生的證照學習地圖：會計、財金、永續、稽核、AI、企業評價六大書區，每張證照做成一本可翻閱的書，附六條路線導覽、四年借書計畫、考試時間、費用與館員小提醒。" />
   <link rel="canonical" href="https://drpeipei.com/cert-library.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_TW" />
   <meta property="og:site_name" content="佩佩老師的會計魔法教室" />
   <meta property="og:title" content="證照圖書館｜大學四年考照書單" />
-  <meta property="og:description" content="會計、財金、永續、稽核、AI 五大書區，47 張證照做成一本本可翻閱的書，附四年借書計畫與館員公告。" />
+  <meta property="og:description" content="會計、財金、永續、稽核、AI、企業評價六大書區，67 張證照做成一本本可翻閱的書，附六條路線導覽、四年借書計畫與館員公告。" />
   <meta property="og:url" content="https://drpeipei.com/cert-library.html" />
   <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg" />
   <meta name="twitter:card" content="summary" />
@@ -22,7 +22,7 @@
       --paper:#EFF1E9; --card:#FBFAF3; --ink:#24332A; --ink-soft:#5C6B5E;
       --wood:#7A5936; --wood-dark:#5C4128; --wood-hi:#96744C;
       --stamp:#A8402C; --line:#D8DACC;
-      --c-acc:#9A4A38; --c-fin:#33567D; --c-esg:#4A7A52; --c-aud:#9A7326; --c-ai:#6B4F8C;
+      --c-acc:#9A4A38; --c-fin:#33567D; --c-esg:#4A7A52; --c-aud:#9A7326; --c-ai:#6B4F8C; --c-val:#2F6F73;
       --shelf-bg:#E6E8DD;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,6 +81,21 @@
     .plan .yr li{margin:5px 0}
     .plan .yr li b{font-weight:800}
     @media(max-width:900px){.plan{grid-template-columns:repeat(2,1fr)}.plan .yr:last-child{grid-column:span 2}}
+
+    /* 六條路線導覽 */
+    .routes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .route{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px 12px}
+    .route h3{margin:0 0 2px;font-size:16px}
+    .route .rk{font-size:12px;color:var(--stamp);font-weight:800;letter-spacing:.08em;margin-bottom:8px}
+    .route .chips{display:flex;flex-wrap:wrap;gap:6px}
+    .chip{appearance:none;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink);
+      background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 10px;transition:background .15s}
+    .chip:hover,.chip:focus-visible{background:#fff;border-color:var(--wood)}
+    .chip.first::before{content:'⭐ ';font-size:11px}
+    .chip.zone{background:transparent;border-style:dashed;color:var(--ink-soft)}
+    .routes-note{font-size:13px;color:var(--ink-soft);margin:10px 2px 0}
+    @media(max-width:900px){.routes{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.routes{grid-template-columns:1fr}}
 
     /* 書架 */
     .shelf-wrap{background:var(--shelf-bg);border:1px solid var(--line);border-bottom:none;border-radius:10px 10px 0 0;
@@ -198,7 +213,7 @@
 <header class="gate">
   <div class="plaque">自 修 專 區</div>
   <h1>證照圖書館</h1>
-  <p class="sub">給會計系、財金系、企管系的你：大學四年，每一年該借哪幾本「書」。<br>每本書都是一張證照，點開看借閱卡：什麼時候考、考什麼、要花多少錢。</p>
+  <p class="sub">給會計系、財金系、企管系的你：大學四年，每一年該借哪幾本「書」。<br>每本書都是一張證照，點開看借閱卡：什麼時候考、考什麼、要花多少錢。六大書區之外，還有六條路線導覽，先挑一條線再走進書架。</p>
   <div class="rule3">
     <span><b>①</b> 先看樓層導覽，找到自己年級的書單</span>
     <span><b>②</b> 走到書架，點開有興趣的書</span>
@@ -218,14 +233,37 @@
     <div class="yr"><h3>大一</h3><div class="theme">辦借書證：先拿最便宜的</div>
       <ul><li>丙級會計事務技術士</li><li>TQC 生成式 AI 或資策會生成式 AI（暖身）</li><li>保險業務員</li></ul></div>
     <div class="yr"><h3>大二</h3><div class="theme">開始借正書：國家級入門</div>
-      <ul><li><b>iPAS 淨零碳初級</b>（800 元，綠領第一章）</li><li><b>永續發展基礎能力測驗</b>（金融圈永續入門，一年六場）</li><li><b>iPAS AI 應用規劃師初級</b>（兩科 800 元）</li><li>證券商業務員、銀行內控、金融科技力</li><li>乙級會計事務、IAP 內部稽核實務家</li></ul></div>
+      <ul><li><b>iPAS 淨零碳初級</b>（800 元，綠領第一章）</li><li><b>永續發展基礎能力測驗</b>（金融圈永續入門，一年六場）</li><li><b>iPAS AI 應用規劃師初級</b>（兩科 800 元）</li><li>證券商業務員、銀行內控、金融科技力</li><li>乙級會計事務、IAP 內部稽核實務家</li><li><b>企業內部控制基本能力測驗</b>（筆試 440 元，修完內控課就考）、工商倫理測驗</li></ul></div>
     <div class="yr"><h3>大三</h3><div class="theme">主戰場：修完課就上</div>
-      <ul><li><b>記帳士</b>（11 月，修完中會與稅法）</li><li>證券商高級業務員 → 投信投顧加考一科</li><li>FSA Level I（永續會計首推）</li><li>Azure AI-901 或 AWS AI Practitioner</li></ul></div>
+      <ul><li><b>記帳士</b>（11 月，修完中會與稅法）</li><li>證券商高級業務員 → 投信投顧加考一科</li><li>FSA Level I（永續會計首推）</li><li>Azure AI-901 或 AWS AI Practitioner</li><li><b>iPAS 無形資產評價管理師初級</b>（新考生每科 800 元，官方建議大三以上）</li><li>公司治理基本能力測驗、票券商業務人員（在學可考）</li></ul></div>
     <div class="yr"><h3>大四</h3><div class="theme">攻頂：應屆生的特權</div>
-      <ul><li><b>會計師首戰 2 至 3 科</b>（8 月，應屆可考）</li><li>高考三級會計（7 月）</li><li>CIA（大四在校生條款）、CISA</li><li>CFA Level 1、AFP（學生半價）</li><li>金融常識與職業道德（250 元，題庫公開；成績 5 年有效，畢業前考正好接職涯）</li></ul></div>
+      <ul><li><b>會計師首戰 2 至 3 科</b>（8 月，應屆可考）</li><li>高考三級會計（7 月）</li><li>CIA（大四在校生條款）、CISA</li><li>CFA Level 1、AFP（學生半價）</li><li>金融常識與職業道德（250 元，題庫公開；成績 5 年有效，畢業前考正好接職涯）</li><li>CMA Part 1（學生會員價，在校可先考）、iPAS 無形資產中級</li><li>債券人員、股務人員（先有普業再報）</li></ul></div>
     <div class="yr"><h3>畢業後</h3><div class="theme">進階閱覽室</div>
-      <ul><li>會計師收尾（單科效力 3 年）、USCPA</li><li>CFE（畢業即達應考點數）</li><li>TAISE 永續管理師（畢業才能領證）</li><li>AI 稽核線：CISA/CPA 之後接 ISACA AAIA</li></ul></div>
+      <ul><li>會計師收尾（單科效力 3 年）、USCPA</li><li>CFE（畢業即達應考點數）</li><li>TAISE 永續管理師（畢業才能領證）</li><li>AI 稽核線：CISA/CPA 之後接 ISACA AAIA</li><li>證券投資分析人員、期貨交易分析人員（要畢業加年資）</li><li>企業評價線：iPAS 無形資產高級、CVA</li></ul></div>
   </div>
+</section>
+
+<section id="routes">
+  <div class="zone-head" style="--zc:var(--wood)">
+    <span class="code">路線</span>
+    <h2>六條路線導覽</h2>
+    <span class="hint">先挑一條線，點證照名就能翻開那本書</span>
+  </div>
+  <div class="routes">
+    <div class="route"><h3>路線一：會計 × 治理</h3><div class="rk">內控、公司治理、倫理一路讀到內部稽核</div>
+      <div class="chips"><button class="chip first" data-book="企業內部控制基本能力測驗">企業內部控制基本能力測驗</button><button class="chip first" data-book="公司治理基本能力測驗">公司治理基本能力測驗</button><button class="chip" data-book="工商倫理測驗">工商倫理測驗</button><button class="chip" data-book="CIA 國際內部稽核師">CIA 國際內部稽核師（跨領域）</button></div></div>
+    <div class="route"><h3>路線二：企業評價 × 無形資產</h3><div class="rk">國家鑑定打底，畢業後接國際證照</div>
+      <div class="chips"><button class="chip first" data-book="iPAS 無形資產評價管理師（初級）">iPAS 無形資產 初級</button><button class="chip first" data-book="iPAS 無形資產評價管理師（中級）">iPAS 無形資產 中級</button><button class="chip" data-book="iPAS 無形資產評價管理師（高級）">iPAS 無形資產 高級</button><button class="chip first" data-book="CVA 國際企業評價分析師">CVA 國際企業評價分析師</button><button class="chip" data-book="MAFF 財務鑑識分析師">MAFF 財務鑑識分析師</button></div></div>
+    <div class="route"><h3>路線三：永續 × ESG</h3><div class="rk">從金融圈的永續入門到碳管理、永續揭露</div>
+      <div class="chips"><button class="chip" data-book="永續發展基礎能力測驗">永續發展基礎能力測驗</button><button class="chip" data-book="iPAS 淨零碳規劃管理師（初級）">iPAS 淨零碳 初級</button><button class="chip" data-book="FSA Credential">FSA Credential</button><a class="chip zone" href="#zone-esg">整個 C 區 →</a></div></div>
+    <div class="route"><h3>路線四：金融 × 證券市場</h3><div class="rk">從業務員資格到分析人員</div>
+      <div class="chips"><button class="chip" data-book="金融市場常識與職業道德">金融市場常識與職業道德</button><button class="chip" data-book="證券商業務員（普業）">證券商業務員</button><button class="chip" data-book="證券商高級業務員">證券商高級業務員</button><button class="chip" data-book="證券投資分析人員">證券投資分析人員</button><button class="chip" data-book="投信投顧業務員">投信投顧業務員</button><button class="chip" data-book="期貨商業務員">期貨商業務員</button><button class="chip" data-book="期貨交易分析人員">期貨交易分析人員</button></div></div>
+    <div class="route"><h3>路線五：金融專業能力</h3><div class="rk">證券化、債券、股務、票券、法遵的專門測驗</div>
+      <div class="chips"><button class="chip" data-book="資產證券化基本能力測驗">資產證券化基本能力測驗</button><button class="chip" data-book="債券人員專業能力測驗">債券人員能力測驗</button><button class="chip" data-book="股務人員專業能力測驗">股務人員能力測驗</button><button class="chip" data-book="票券商業務人員">票券商業務人員</button><button class="chip" data-book="防制洗錢與打擊資恐專業人員測驗">防制洗錢與打擊資恐專業人員測驗</button></div></div>
+    <div class="route"><h3>路線六：國際財會 × 投資</h3><div class="rk">走向外商與國際市場的四本大書</div>
+      <div class="chips"><button class="chip" data-book="CMA 美國管理會計師">CMA 美國管理會計師</button><button class="chip" data-book="CFA 特許金融分析師">CFA 特許金融分析師</button><button class="chip" data-book="AFP / CFP 理財規劃顧問">CFP 理財規劃顧問</button><button class="chip" data-book="CIA 國際內部稽核師">CIA 國際內部稽核師（跨領域）</button></div></div>
+  </div>
+  <p class="routes-note">⭐＝這條線建議先讀的書。CIA 同時出現在路線一與路線六：它橫跨會計、內控與治理，是一本跨領域的書。</p>
 </section>
 
 <section id="zone-acc">
@@ -261,7 +299,7 @@
     <span class="hint">冷門但值錢：台灣 CISA 持照者只有三百多人</span>
   </div>
   <div class="shelf-wrap"><div class="shelf-row" data-zone="aud"></div><div class="shelf-board"></div></div>
-  <p class="zone-note">學生限定：<b>IAP</b> 學生價約 210 美元、繁體中文應試，還能折抵 CIA 第一科。</p>
+  <p class="zone-note">學生限定：<b>IAP</b> 學生價約 210 美元、繁體中文應試，還能折抵 CIA 第一科。最便宜的入門書是 <b>企業內部控制基本能力測驗</b>（筆試 440 元）；<b>CIA</b> 橫跨會計、內控與治理，是這一區的跨領域大書。</p>
 </section>
 
 <section id="zone-ai">
@@ -271,6 +309,15 @@
   </div>
   <div class="shelf-wrap"><div class="shelf-row" data-zone="ai"></div><div class="shelf-board"></div></div>
   <p class="zone-note">三條讀法：素養（iPAS AI）、國際章（Azure、AWS）、治理稽核（會計系的隱藏路線，畢業後接 <b>AAIA</b>）。</p>
+</section>
+
+<section id="zone-val">
+  <div class="zone-head" style="--zc:var(--c-val)">
+    <span class="code">F 區</span><h2>企業評價書區</h2>
+    <span class="hint">新開書區：把無形資產「算出價格」的人</span>
+  </div>
+  <div class="shelf-wrap"><div class="shelf-row" data-zone="val"></div><div class="shelf-board"></div></div>
+  <p class="zone-note">讀法：先讀國家鑑定 <b>iPAS 無形資產評價管理師</b>（初級大三就能考、不必先有初級也能報中級），畢業後再接國際的 <b>CVA</b>；<b>MAFF</b> 走鑑識會計，和 D 區的 CFE 是同一條路的兩本書。</p>
 </section>
 
 <section id="notice">
@@ -318,10 +365,11 @@
       <h3>公告二：學生限定的學習資源</h3>
       <h4>常見學生優惠</h4>
       <ul>
-        <li>iPAS：政府補助方案（依年度公告為準）</li>
+        <li>iPAS（淨零碳、AI 應用規劃師、無形資產評價管理師）：新考生與團報優惠方案（依年度簡章為準）</li>
         <li>IIA IAP：學生優惠方案</li>
         <li>ISACA：學生會員價</li>
         <li>AFP：學生體驗價</li>
+        <li>IMA CMA：學生會員方案（限全日制在學）</li>
         <li>ISO 14064-1：部分年度有補助班</li>
         <li>校內證照獎勵：請向系辦或學務單位確認</li>
       </ul>
@@ -355,7 +403,7 @@
 
 <footer class="lib-foot">
   <div class="colophon">佩 佩 老 師 研 究 室 ・ 選 書</div>
-  ※ 各項考試、補助及認證資訊可能因年度調整，請以主辦單位及官方公告為準（本頁資料查證日 2026-07-29）。<br>
+  ※ 各項考試、補助及認證資訊可能因年度調整，請以主辦單位及官方公告為準（本頁資料查證日 2026-09-16）。<br>
   費用幣別：未標示者為新台幣；美元、英鎊、歐元均已標明。祝你四年借好借滿。
 </footer>
 
@@ -401,7 +449,12 @@ const Z = {
      when:"大四或研究所", time:"線上隨時",
      what:"IFRS 準則綜合觀念", how:"線上 60 題、120 分鐘，通過即發證",
      price:"約 285 英鎊（依官網）", book:"官方線上教材（報名含）",
-     say:"想在履歷寫「懂 IFRS」的最快路徑，全英文，適合準備出國或外商的你。"}
+     say:"想在履歷寫「懂 IFRS」的最快路徑，全英文，適合準備出國或外商的你。"},
+    {t:"CMA 美國管理會計師", pub:"IMA（美國管理會計師協會）", lv:3, size:"tall",
+     when:"大四可先考（在校生先考，畢業後 7 年內補 2 年經歷換證）", time:"英文機考每年三個窗口：1 至 2 月、5 至 6 月、9 至 10 月（Prometric 考場）；另有簡體中文紙筆考場次",
+     what:"Part 1 財務規劃、績效與分析；Part 2 策略財務管理", how:"每科 100 題選擇題（3 小時）＋2 題情境題（1 小時），500 分量表 360 分及格",
+     price:"學生會員：年費 49 美元＋入門費 225 美元＋每科 370 美元（兩科合計約 1,014 美元）；一般會員兩科合計約 1,585 美元（依 IMA 當年公告）", book:"IMA Learning Series 官方教材；Gleim、HOCK、Wiley 為認可供應商",
+     say:"管理會計路線的國際證照，成本、預算、績效管理職缺常見。學生會員價比一般價省三成多，在校先考、畢業再補經歷，是這本書的正確讀法。費用以 IMA 官網當期公告為準，報名前再確認一次。"}
   ]},
   fin:{code:"B", color:"var(--c-fin)", books:[
     {t:"金融市場常識與職業道德", pub:"證基會等共同辦理", lv:1, size:"short",
@@ -479,6 +532,41 @@ const Z = {
      what:"兩科：公司治理理論與基本規範、股東會董事會及功能委員會運作實務", how:"各科 70 分及格；2025 年起發電子證書",
      price:"依證基會簡章公告", book:"證基會《公司治理理論與實務》",
      say:"內容和會計系的課高度重疊：想走股務與公司治理路線的同學，順著課程考最省力。"},
+    {t:"工商倫理測驗", pub:"證基會", lv:1, size:"short",
+     when:"大二大三", time:"電腦應試全年常態（台北、新竹、台中、高雄、台南、嘉義）",
+     what:"一科 50 題單選：工商倫理概論（含企業社會責任報告書）、領導、生產、行銷、科技與資訊、金融、競爭、社區與環境、勞資、組織行為", how:"60 分鐘，70 分及格",
+     price:"電腦應試 840 元；電子證書免費", book:"證基會《工商倫理》",
+     say:"不限資格、通過率八成多的入門書，內容和 ESG 的 S 與 G 直接相關。它是基本能力認定，不對接特定執業資格，當成企業倫理的自學檢核最合適。"},
+    {t:"票券商業務人員", pub:"票券金融商業同業公會（證基會辦理）", lv:1, size:"short",
+     when:"大二大三（在學可考）", time:"電腦應試全年常態",
+     what:"票券金融法規 50 題＋票券金融實務 50 題", how:"單選題，各 60 分鐘；兩科合計 140 分且單科不低於 60",
+     price:"電腦應試 1,130 元", book:"簡章指定：金融研訓院《台灣貨幣市場新論》、《票券金融管理法相關法令彙編》",
+     say:"票券金融公司業務人員的法定資格，高中職以上就能報、學生證註冊過就能考，通過率約七成。想走貨幣市場路線的第一本。"},
+    {t:"債券人員專業能力測驗", pub:"證基會", lv:2, size:"short",
+     when:"大三大四（先考取證券商業務員再報）", time:"電腦應試全年常態",
+     what:"債券市場理論與實務（含債券法規、永續發展債券實務），兩節各 50 題", how:"單選題，每節 60 分鐘；兩節合計 140 分及格",
+     price:"電腦應試 1,130 元", book:"簡章未指定；證基會《債券市場理論與創新》可參考",
+     say:"報考要大學畢業或先有普業：在學的走法是先拿普業，再用資格報名。這是證券商債券部門的能力證明，不能替代業務員登記。"},
+    {t:"股務人員專業能力測驗", pub:"證基會（金管會指定機構）", lv:2, size:"short",
+     when:"大四（已有普業）或畢業後", time:"電腦應試全年常態",
+     what:"股務作業法規 50 題＋股務作業實務 50 題（另須具備金融市場常識與職業道德）", how:"單選題，各 60 分鐘；合計 140 分及格",
+     price:"電腦應試 1,130 元", book:"證基會《股務管理法規與實務》",
+     say:"公開發行股票公司股務處理準則明定的股務人員資格途徑之一，通過率四成多。專科以上畢業、已有業務員資格、或有一年股務工作經驗才能報，和公司治理測驗是同一條路線上的兩本書。"},
+    {t:"資產證券化基本能力測驗", pub:"證基會", lv:2, size:"short",
+     when:"大四（已有普業）或畢業後", time:"電腦應試全年常態",
+     what:"資產證券化理論與實務（含相關法規），兩節各 50 題", how:"單選題，每節 60 分鐘；合計 140 分及格",
+     price:"電腦應試 1,130 元", book:"簡章未指定用書",
+     say:"大學畢業或已有普業才能報。金融資產證券化、不動產投資信託相關業務的能力證明，通過率約八成，先有普業的大四生可以順手拿。"},
+    {t:"證券投資分析人員", pub:"投信投顧公會（證基會辦理）", lv:3, size:"tall",
+     when:"畢業後：專科以上畢業＋證券相關工作 2 年，或已有高業／投信投顧業務員資格＋證券相關工作 1 年（取得證照前後的年資都算）", time:"筆試每年三次：2026 為 4/12、8/2、12/6",
+     what:"四科：證券交易相關法規與實務、投資學、會計及財務分析、總體經濟及金融市場", how:"每科 90 分鐘，選擇題 70%＋申論或計算題 30%；各科 60 分及格，及格科目保留 2 年",
+     price:"筆試 1,230 元", book:"證基會《證券投資分析人員資格測驗題庫》（一年一版，買最新版）",
+     say:"俗稱證券分析師，投顧法規明定的分析人員資格，各科通過率兩三成。在學不能報：大學先拿高業，畢業後累積一年年資就能上。"},
+    {t:"期貨交易分析人員", pub:"期貨公會（證基會辦理）", lv:3, size:"tall",
+     when:"畢業後：專科以上畢業＋期貨相關工作 2 年，或已有期貨商業務員資格＋取得證照「後」的期貨相關工作 1 年", time:"筆試每年三次：2026 為 4/12、8/2、12/6",
+     what:"四科：期貨法規與自律規範、衍生性商品之風險管理、期貨選擇權與其他衍生性商品、總體經濟及金融市場", how:"每科 90 分鐘，選擇題 70%＋申論或計算題 30%；各科 60 分及格，保留 2 年",
+     price:"筆試 1,230 元", book:"簡章只列測驗範圍，未指定用書",
+     say:"期貨經理與顧問事業法規明定的資格。注意年資規則和證券投資分析人員不同：這張只算取得期貨商業務員證照之後的年資。「總體經濟及金融市場」兩張兩年內互相抵免，一起規劃最省力。"},
     {t:"防制洗錢與打擊資恐專業人員測驗", pub:"金融研訓院（三機構聯合規劃）", lv:2, size:"",
      when:"大四（法遵與稽核路線）", time:"一年 2 次筆試：2026 為 3/14、12/6",
      what:"一科 80 題：60 題單選＋20 題複選（複選錯一個選項不給分）", how:"70 分及格；證書效期 3 年，以在職訓練換發",
@@ -543,6 +631,11 @@ const Z = {
      say:"用「選課」換證照的一本：現在開始排課表，畢業直接領。"}
   ]},
   aud:{code:"D", color:"var(--c-aud)", books:[
+    {t:"企業內部控制基本能力測驗", pub:"證基會", lv:1, size:"short",
+     when:"大二大三（修完內控課就考）", time:"2026 筆試三場：4/12、8/2、12/6，另有電腦應試全年常態",
+     what:"企業內部控制理論與實務（含相關法規）一科 80 題單選，理論實務 75%、法規 25%", how:"90 分鐘，70 分及格",
+     price:"筆試 440 元、電腦應試 840 元；電子證書免費", book:"證基會《企業內部控制模擬試題與解析》＋《企業內部控制導論與應用》",
+     say:"稽核書區最便宜的入門書，不限資格，修完內控課就能考。通過率兩種方式不同：筆試約七成、電腦應試約四成七。它是基本能力認定，公開發行公司內部稽核人員的資格條件另有規定，報考前可以先看清楚。"},
     {t:"IAP 內部稽核實務家", pub:"IIA（國際內部稽核協會）", lv:2, size:"",
      when:"大二大三，修過內控或審計就能挑戰", time:"全年電腦測驗（Pearson VUE）",
      what:"內部稽核基礎，與 CIA 第一科同一份考卷", how:"125 題 150 分鐘，繁體中文可選",
@@ -557,7 +650,7 @@ const Z = {
      when:"大四（在校生條款：憑大四上成績單先報考）", time:"全年電腦測驗，繁體中文可選",
      what:"三科：稽核基礎、稽核實務、稽核職能", how:"每科 100 至 125 題，量尺 600/750 及格",
      price:"會員每科 280 至 310 美元；學生會員免會費", book:"Gleim CIA 繁中版（三民經銷）＋IIA 官方題庫",
-     say:"內部稽核的鎮館之寶，全球通用。大四就能先考，經驗畢業後再補。"},
+     say:"內部稽核的鎮館之寶，全球通用，也是一本橫跨會計、內控與治理的跨領域書。大四就能先考，經驗畢業後再補。"},
     {t:"CISA 國際電腦稽核師", pub:"ISACA", lv:3, size:"tall",
      when:"大四或研究所（先考後補經歷）", time:"全年電腦測驗",
      what:"五大領域：稽核流程、IT 治理、系統開發、營運韌性、資產保護", how:"150 題 240 分鐘（無繁中）",
@@ -635,12 +728,54 @@ const Z = {
      what:"AI 管理系統稽核", how:"上課＋課後考試",
      price:"民間班約 34,000 至 55,000 元", book:"機構講義＋ISO 42001 標準",
      say:"企業開始導入 AI 管理系統驗證後的新需求，放在職涯書單裡先認識。"}
+  ]},
+  val:{code:"F", color:"var(--c-val)", books:[
+    {t:"iPAS 無形資產評價管理師（初級）", pub:"經濟部（國家能力鑑定）", lv:1, size:"",
+     when:"大三以上（官方建議修過會計學、財報分析、智慧財產權法、財務管理）", time:"2026 兩場：5/23、11/14（第二次報名至 9/22）",
+     what:"無形資產評價概論（一）＋智慧財產概論及評價職業道德", how:"電腦測驗，各 50 題單選 75 分鐘；每科 70 分及格（全科同時報考者平均 70 且單科不低於 60）；初級證書永久有效",
+     price:"新考生每科 800 元（原價 1,200 元；團報 600 元）", book:"官網免費學習指引（初級兩科）＋歷屆考題；金融研訓院《無形資產評價之基礎知識》",
+     say:"會計系走企業評價路線的第一本：國家發的、不限資格、教育部證照名錄有收，系上獎勵可以援引。單科及格保留三個年度，分次考也行。"},
+    {t:"iPAS 無形資產評價管理師（中級）", pub:"經濟部（國家能力鑑定）", lv:2, size:"",
+     when:"大四或研究所", time:"2026 一場：8/22",
+     what:"評價概論及評價準則、智慧財產權法、無形資產評價概論（二）三科", how:"電腦測驗，各 50 題單選 75 分鐘；每科 70 分及格；證書效期 5 年，換證需 48 小時訓練",
+     price:"新考生每科 1,000 元（三科 3,000 元；原價每科 1,500 元）", book:"金融研訓院《無形資產評價管理師中高級能力鑑定：無形資產評價》、《無形資產評價教材（合訂版）》",
+     say:"不必先有初級就能報。三科都是選擇題、沒有實作，修過智財法的同學可以直接挑戰。"},
+    {t:"iPAS 無形資產評價管理師（高級）", pub:"經濟部（國家能力鑑定）", lv:3, size:"tall",
+     when:"畢業後（實務工作者）", time:"2026：8/21 實作、8/22 筆試（另有口試申請場次）；每梯 20 人",
+     what:"無形資產評價實作（2 題 300 分鐘）、智慧財產權法、無形資產評價方法之整合應用", how:"術科實作＋電腦與紙筆測驗；每科 70 分及格；證書效期 5 年，換證需 48 小時訓練",
+     price:"新考生三科合計 7,300 元（原價 10,500 元）", book:"同中級，另加評價準則公報與實作案例",
+     say:"經濟部評價人員登錄應檢附的證書（另需近兩年五件評價案件與 20 小時訓練），每梯只收 20 人：這是這條線的頂點，放在職涯書單裡先認識。"},
+    {t:"CVA 國際企業評價分析師", pub:"NACVA（美國評價分析師協會；台灣由 NACVA 台灣分會與工研院產業學院合辦輔導班）", lv:3, size:"tall",
+     when:"畢業後（商學學位；通過筆試但經驗不足者可登記為 Candidate CVA，3 年內補足）", time:"工研院 2026 秋季班 10/16 至 12/19 共 96 小時（報名截止 10/23）；CVA 線上考試 2027/1/16",
+     what:"企業評價與無形資產評價（NACVA 授權教材）", how:"5 小時英文選擇題約 400 題＋英文評價個案報告審查；及格線採標準設定制不公布",
+     price:"NACVA 考試費 625 美元＋申請費 100 美元；工研院班定價 86,400 元（含教材、入會費、考試費；案例審核費另計 8,800 元）", book:"NACVA 授權教材＋Candidate Handbook",
+     say:"企業評價報告簽署的國際資歷，課程時數還能登錄經濟部評價人員的教育時數。投入近九萬元，方向確定再借；報名前確認辦理單位是 NACVA 授權的台灣分會。"},
+    {t:"MAFF 財務鑑識分析師", pub:"NACVA（美國評價分析師協會）", lv:3, size:"short",
+     when:"畢業後（商學學士＋2,000 小時鑑識經驗，或持 CVA、CPA、CFA、CFE 等）", time:"全年，每月一次、每年最多三次；台灣目前尚無代辦機構",
+     what:"財務鑑識知識體系：舞弊調查、損害計算、訴訟支援", how:"5 小時選擇題約 400 題，英文；及格線採標準設定制",
+     price:"考試費 625 美元＋申請費 100 美元", book:"NACVA 官方手冊",
+     say:"和 D 區的 CFE 是鑑識會計的兩條路。台灣還沒有代辦單位，放在職涯書單先認識。"}
   ]}
 };
 
 const dlg=document.getElementById('card');
 const el=id=>document.getElementById(id);
 function stars(n){return '難度 '+'★'.repeat(n)+'☆'.repeat(3-n)}
+function openCard(zone,b,i){
+  el('card-no').textContent=zone.code+'-'+String(i+1).padStart(2,'0');
+  el('card-no').style.setProperty('--bc2',zone.color);
+  el('card-stars').textContent=stars(b.lv);
+  el('card-title').textContent=b.t;
+  el('card-pub').textContent='發證單位：'+b.pub;
+  el('card-when').textContent=b.when;
+  el('card-time').textContent=b.time;
+  el('card-what').textContent=b.what;
+  el('card-how').textContent=b.how;
+  el('card-price').textContent=b.price;
+  el('card-book').textContent=b.book;
+  el('card-say').textContent=b.say;
+  dlg.showModal();
+}
 Object.entries(Z).forEach(([key,zone])=>{
   const row=document.querySelector('.shelf-row[data-zone="'+key+'"]');
   zone.books.forEach((b,i)=>{
@@ -649,22 +784,18 @@ Object.entries(Z).forEach(([key,zone])=>{
     btn.style.setProperty('--bc',zone.color);
     btn.setAttribute('aria-haspopup','dialog');
     btn.innerHTML='<span class="band"></span><span class="spine">'+b.t+'</span><span class="lv">'+('★'.repeat(b.lv))+'</span>';
-    btn.addEventListener('click',()=>{
-      el('card-no').textContent=zone.code+'-'+String(i+1).padStart(2,'0');
-      el('card-no').style.setProperty('--bc2',zone.color);
-      el('card-stars').textContent=stars(b.lv);
-      el('card-title').textContent=b.t;
-      el('card-pub').textContent='發證單位：'+b.pub;
-      el('card-when').textContent=b.when;
-      el('card-time').textContent=b.time;
-      el('card-what').textContent=b.what;
-      el('card-how').textContent=b.how;
-      el('card-price').textContent=b.price;
-      el('card-book').textContent=b.book;
-      el('card-say').textContent=b.say;
-      dlg.showModal();
-    });
+    btn.addEventListener('click',()=>openCard(zone,b,i));
     row.appendChild(btn);
+  });
+});
+document.querySelectorAll('.chip[data-book]').forEach(chip=>{
+  chip.setAttribute('aria-haspopup','dialog');
+  chip.addEventListener('click',()=>{
+    const key=chip.dataset.book;
+    for(const zone of Object.values(Z)){
+      const i=zone.books.findIndex(b=>b.t.indexOf(key)===0);
+      if(i>=0){openCard(zone,zone.books[i],i);return;}
+    }
   });
 });
 document.getElementById('card-close').addEventListener('click',()=>dlg.close());
