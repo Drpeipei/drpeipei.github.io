@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>我的大學五本存摺｜開帳・存款・結帳｜佩佩老師的會計魔法教室</title>
+<meta name="description" content="我的大學五本存摺：健康、學習、關係、心靈、世界。開帳看見現在的自己，存款留下佐證，期末結帳看見一學期走過的痕跡。大學入門課程工具。"/>
+<link rel="canonical" href="https://drpeipei.com/five-passbooks.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="zh_TW"/>
+<meta property="og:site_name" content="佩佩老師的會計魔法教室"/>
+<meta property="og:title" content="我的大學五本存摺｜開帳・存款・結帳"/>
+<meta property="og:description" content="健康、學習、關係、心靈、世界五本存摺：開帳、存款、人文素養佐證、組織活動、期末結帳。"/>
+<meta property="og:url" content="https://drpeipei.com/five-passbooks.html"/>
+<meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg"/>
+<link rel="icon" type="image/jpeg" href="peipei-mascot.jpg"/>
+
+<style>
+:root{--bg:#f7f4ee;--card:#fff;--ink:#27312f;--muted:#6f7774;--line:#dedbd2;--accent:#496f66;--soft:#eaf1ee;--warn:#8a633d}
+*{box-sizing:border-box} body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:28px 20px 18px;text-align:center;background:linear-gradient(180deg,#eef4f1,#f7f4ee)}
+h1{margin:0;font-size:clamp(26px,5vw,42px)} header p{color:var(--muted);margin:8px auto;max-width:760px}
+.wrap{max-width:1100px;margin:auto;padding:16px}.tabs{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;padding:10px 0;background:rgba(247,244,238,.95);z-index:5}
+button,.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer;background:var(--accent);color:white}
+.tabs button{background:#fff;color:var(--ink);border:1px solid var(--line)}.tabs button.active{background:var(--accent);color:white}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 5px 18px rgba(0,0,0,.04)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.five{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:760px){.grid,.five{grid-template-columns:1fr}.tabs{position:static}}
+label{font-weight:700;display:block;margin:8px 0 5px}input,select,textarea{width:100%;padding:10px;border:1px solid #cbc8bf;border-radius:10px;background:#fff;font:inherit}
+textarea{min-height:80px;resize:vertical}.small{font-size:13px;color:var(--muted)}.big{font-size:24px;font-weight:800}.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:var(--soft);margin:3px;font-size:13px}
+.section{display:none}.section.active{display:block}.scoreRow{display:grid;grid-template-columns:1fr 105px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--line)}
+canvas{max-width:100%;height:auto}.chartbox{max-width:560px;margin:auto}.progress{height:16px;background:#ece9e1;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:var(--accent)}
+.entry{border-left:5px solid var(--accent);padding:12px 14px;background:#fafbf9;border-radius:12px;margin:10px 0}.entry h4{margin:0 0 5px}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.ghost{background:#fff;color:var(--accent);border:1px solid var(--accent)}
+.danger{background:#8b4d4d}.notice{padding:12px;border-radius:12px;background:#fff7e9;color:#684b2f}.checklist label{font-weight:500;padding:8px;border-bottom:1px solid var(--line)}
+.roleGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 16px}
+.roleGrid label{font-weight:600;background:var(--soft);padding:10px;border-radius:10px}
+.roleGrid input{width:auto;margin-right:6px}
+@media(max-width:700px){.roleGrid{grid-template-columns:repeat(2,1fr)}}
+.hand{position:relative;width:min(520px,100%);aspect-ratio:1/1;margin:10px auto}.hand svg{width:100%;height:100%}.hand .chartOverlay{position:absolute;left:22%;top:28%;width:56%;height:56%}
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center}.summary div{padding:12px 5px;background:var(--soft);border-radius:12px}
+@media(max-width:650px){.summary{grid-template-columns:repeat(2,1fr)}}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.statTable{width:100%;border-collapse:collapse;margin-top:12px;background:#fff}
+.statTable th,.statTable td{border:1px solid var(--line);padding:10px;text-align:left}
+.statTable th{background:var(--soft)}
+.ok{font-weight:800;color:#496f66}.pending{color:#8a633d;font-weight:700}
+@media print{header,.tabs,.noPrint{display:none!important}.section{display:none!important}.section.printme{display:block!important}.card{box-shadow:none;break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="noPrint" style="max-width:1100px;margin:auto;padding:10px 20px 0;font-size:14px"><a href="index.html" style="color:#496f66;font-weight:700;text-decoration:none">← 佩佩老師的會計魔法教室</a>　<a href="accounting-learning-map.html" style="color:#6f7774;text-decoration:none">會計人的學習地圖</a></div>
+<header>
+<h1>🖐️ 我的⼤學五本存摺</h1>
+<p>開帳，看見現在的自己；存款，把經驗留下來；結帳，看見一學期走過的痕跡。</p>
+</header>
+<div class="wrap">
+<div class="tabs noPrint">
+<button data-tab="open" class="active">① 開帳</button>
+<button data-tab="deposit">② 我的存款</button>
+<button data-tab="human">③ 人文素養佐證</button>
+<button data-tab="org">④ 組織活動</button>
+<button data-tab="close">⑤ 期末結帳</button>
+<button data-tab="data">資料管理</button>
+</div>
+
+<section id="open" class="section active">
+<div class="card">
+<h2>我的大學工作底稿｜期初開帳</h2>
+<div class="grid"><div><label>姓名</label><input id="name"></div><div><label>學號</label><input id="sid"></div><div><label>開帳日期</label><input type="date" id="openDate"></div></div>
+<p class="small">請依「現在的自己」評估 1～5 分。沒有好壞，只是先記下今天的期初餘額。</p>
+<div id="openQuestions"></div>
+</div>
+<div class="card">
+<h3>期初餘額｜Opening Balance</h3>
+<div class="chartbox"><canvas id="openChart" width="520" height="420"></canvas></div>
+</div>
+<div class="card">
+<h3>100 點資源配置</h3>
+<p>如果這學期只有 100 點的時間、金錢與注意力，你想怎麼分配？</p>
+<div id="allocFields" class="five"></div>
+<p>目前合計：<span id="allocTotal" class="big">0</span> / 100</p>
+<div class="progress"><div id="allocBar" style="width:0%"></div></div>
+<label>我為什麼這樣分配？</label><textarea id="allocWhy" placeholder="寫下一句話就好……"></textarea>
+</div>
+<div class="card noPrint"><button onclick="saveAll();alert('已儲存在這台裝置的瀏覽器中。')">💾 儲存開帳資料</button> <button class="ghost" onclick="printSection('open')">📸 截圖／另存 PDF</button></div>
+</section>
+
+<section id="deposit" class="section">
+<div class="card"><h2>我的存款</h2><p>每一次真正做過的事，都可以是一筆存款。重點不是「打卡」，而是留下能說明這段經驗的佐證。</p>
+<div class="grid">
+<div><label>日期</label><input type="date" id="depDate"></div>
+<div><label>存入哪本存摺？</label><select id="depBook"></select></div>
+<div><label>這筆存款是什麼？</label><input id="depTitle" placeholder="例如：第一次主動去系辦問事情"></div>
+<div><label>上傳佐證照片</label><input type="file" id="depEvidenceFile" accept="image/*"><div id="depEvidencePreview" class="small">尚未選擇照片</div></div>
+<div><label>佐證補充（選填）</label><input id="depEvidence" placeholder="活動名稱、說明或雲端連結…"></div>
+<div><label>可對應人文素養嗎？</label><select id="depHuman"></select></div>
+<div><label>一句反思</label><input id="depReflection" placeholder="這件事讓我發現……"></div>
+</div><p class="small">佐證照片會先縮小後儲存在這台裝置的瀏覽器中。請保留原始照片；換裝置前也請匯出備份。</p>
+<button onclick="addDeposit()">＋ 存入一筆</button></div>
+<div class="card"><h3>存摺紀錄</h3><div id="depositList"></div></div>
+</section>
+
+<section id="human" class="section">
+<div class="card">
+<h2>人文素養｜八項統計表</h2>
+<p>這裡不重複上傳資料；系統直接從「我的存款」統計已留下佐證的人文素養項目。給學長姐核對時，截這一頁即可。</p>
+<div id="humanProgress"></div>
+<div style="overflow-x:auto">
+<table class="statTable">
+<thead><tr><th>項次</th><th>人文素養</th><th>存摺</th><th>佐證筆數</th><th>狀態</th></tr></thead>
+<tbody id="humanStatsBody"></tbody>
+</table>
+</div>
+</div>
+<div class="card noPrint"><button class="ghost" onclick="printSection('human')">📸 截圖／另存 PDF</button></div>
+</section>
+
+<section id="org" class="section">
+<div class="card">
+<h2>🏫 我們的組織實驗室</h2>
+<p>先學會經營自己，再練習和別人一起經營一個組織。這裡不是只有「掛職稱」，而是把願景變成每天真的有人負責的工作。</p>
+<div class="grid">
+<div><label>組名／小組名字</label><input id="orgName" placeholder="幫你們的組織取一個名字"></div>
+<div><label>我是誰？</label><input id="orgMemberName" placeholder="姓名"></div>
+</div>
+<hr>
+<h3>我的角色｜可複選</h3>
+<div id="roleChecks" class="roleGrid"></div>
+<label>我的角色要為這個組織負責什麼？</label>
+<textarea id="roleResponsibility" placeholder="用自己的話寫，不用抄職稱說明。"></textarea>
+<label>這學期，我想用這個角色完成什麼？</label>
+<textarea id="roleGoal" placeholder="寫一件你真的想完成的事。"></textarea>
+</div>
+
+<div class="card">
+<h2>🌱 組織 1.0｜我們先說好，要成為什麼樣的組織</h2>
+<label>🌟 願景 Vision｜四年後，我們希望這個班／系變成什麼樣子？</label>
+<textarea id="vision"></textarea>
+<label>🎯 使命 Mission｜為了走到那裡，我們現在要一起做什麼？</label>
+<textarea id="mission"></textarea>
+<label>❤️ 價值觀 Values｜我們一起做事時，哪些原則不能丟？</label>
+<textarea id="values" placeholder="例如：尊重、負責、互助。請寫你們真正願意遵守的。"></textarea>
+<div class="notice" id="orgBlueprint" style="margin-top:14px"></div>
+</div>
+
+<div class="card">
+<h2>⚙️ 組織開始運作｜任務卡</h2>
+<div class="grid">
+<div><label>日期</label><input type="date" id="orgDate"></div>
+<div><label>任務／活動名稱</label><input id="orgTitle" placeholder="這次要完成什麼？"></div>
+<div><label>這次對應哪一個使命？</label><input id="orgMissionLink" placeholder="它為什麼值得做？"></div>
+<div><label>主要負責角色</label><select id="orgLeadRole"></select></div>
+<div><label>協作角色／同學</label><input id="orgPartners" placeholder="誰一起完成？"></div>
+<div><label>截止日期</label><input type="date" id="orgDeadline"></div>
+<div><label>這次存進我的哪本存摺？</label><select id="orgBook"></select></div>
+<div><label>成果佐證</label><input id="orgEvidence" placeholder="照片檔名、連結、會議紀錄、作品…"></div>
+</div>
+<label>實際做了什麼？</label><textarea id="orgDid"></textarea>
+<label>這次有符合我們寫下的價值觀嗎？</label>
+<select id="orgValueCheck"><option>有做到</option><option>有一點落差</option><option>完全忘記了 😆</option></select>
+<label>如果有落差，下次怎麼調整？</label><textarea id="orgAdjust"></textarea>
+<button onclick="addOrg()">＋ 完成一張組織任務卡</button>
+</div>
+
+<div class="card">
+<h3>組織運作紀錄</h3>
+<div id="orgList"></div>
+</div>
+
+<div class="card">
+<h2>🌿 組織 2.0｜做過以後，我們現在怎麼想？</h2>
+<label>我們現在知道：一個組織真正要運作，需要什麼？</label>
+<textarea id="orgLearning"></textarea>
+<label>我原本以為自己的角色是……實際做過以後，我發現……</label>
+<textarea id="roleReflection"></textarea>
+<label>如果重新調整願景、使命或價值觀，我們最想改哪一件事？為什麼？</label>
+<textarea id="orgRevision"></textarea>
+<div class="grid compareOrg">
+<div><h3>組織 1.0</h3><div id="orgOneSummary" class="notice"></div></div>
+<div><h3>組織 2.0</h3><div id="orgTwoSummary" class="notice"></div></div>
+</div>
+</div>
+<div class="card noPrint"><button onclick="saveAll();render();alert('組織資料已儲存。')">💾 儲存組織資料</button></div>
+</section>
+
+<section id="close" class="section">
+<div class="card"><h2>期末結帳｜Closing Balance</h2><p>請重新回答和期初完全相同的五題。先看現在的自己，不要急著迎合期初分數。</p><div id="closeQuestions"></div></div>
+<div class="card">
+<h3>期初 vs. 期末</h3><div class="chartbox"><canvas id="compareChart" width="520" height="420"></canvas></div>
+<div id="bookSummary" class="summary"></div>
+</div>
+<div class="card">
+<h3>看圖分析</h3>
+<label>1. 哪一本存摺的變化最讓你有感？為什麼？</label><textarea id="r1"></textarea>
+<label>2. 哪些「存款」讓你產生這個變化？請用自己的紀錄說明。</label><textarea id="r2"></textarea>
+<label>3. 哪一本幾乎沒有變？你怎麼理解它？</label><textarea id="r3"></textarea>
+<label>4. 如果再給自己一學期，你最想往哪一本存摺繼續存？第一筆會存什麼？</label><textarea id="r4"></textarea>
+</div>
+<div class="card noPrint"><button onclick="saveAll();alert('期末資料已儲存。')">💾 儲存結帳資料</button> <button class="ghost" onclick="printSection('close')">📸 截圖／另存 PDF</button></div>
+</section>
+
+<section id="data" class="section">
+<div class="card">
+<h2>輸出與繳交</h2>
+<p>每一個主要頁面都可以直接截圖；需要檔案時，按「另存 PDF」，在瀏覽器列印視窗選擇「另存為 PDF」即可。</p>
+<div class="actions">
+<button onclick="printSection('open')">期初開帳 → PDF</button>
+<button onclick="printSection('deposit')">我的存款 → PDF</button>
+<button onclick="printSection('human')">人文素養統計 → PDF</button>
+<button onclick="printSection('org')">組織實驗室 → PDF</button>
+<button onclick="printSection('close')">期末結帳 → PDF</button>
+</div>
+<div class="notice" style="margin-top:15px">建議繳交：期初雷達圖、期末比較雷達圖與看圖分析；人文素養統計表可直接提供學長姐核對。</div>
+</div>
+</section>
+</div>
+
+<script>
+const BOOKS=["健康","學習","關係","心靈","世界"];
+const ROLES=["會長","副會長","秘書","公關","活動","總務","體康","服務","美資（美宣／資材）","監事","組員"];
+const QUESTIONS={
+健康:"我的身體撐得住我的人生嗎？",
+學習:"我知道自己怎麼學，也知道想累積什麼能力嗎？",
+關係:"我身邊有人可以連結、合作，需要時也知道向誰求助嗎？",
+心靈:"我知道自己在乎什麼，也正在想自己想成為誰嗎？",
+世界:"我看得見校園與世界提供給我的資源與機會嗎？"
+};
+const HUMAN=[
+["02","成為學習的主人","學習"],["03","健康存摺ABC","健康"],["06","心靈教育","心靈"],["07","寰宇學習","世界"],
+["09","藝術展覽","心靈"],["10","藝術表演","心靈"],["11","校史與我（圖書館與我）","世界"],["16","新聞講看嘜","學習"]
+];
+let state={name:"",sid:"",openDate:"",open:{},close:{},alloc:{},allocWhy:"",deposits:[],humanRegistered:{},org:[],reflections:{},organization:{name:"",memberName:"",roles:[],responsibility:"",goal:"",vision:"",mission:"",values:"",learning:"",roleReflection:"",revision:""}};
+try{state=Object.assign(state,JSON.parse(localStorage.getItem("fivePassbooks")||"{}"))}catch(e){}
+
+function scoreHTML(prefix){
+ return BOOKS.map(b=>`<div class="scoreRow"><div><b>${b}</b><div class="small">${QUESTIONS[b]}</div></div>
+ <select id="${prefix}_${b}" onchange="saveAll();drawCharts()">${[1,2,3,4,5].map(x=>`<option value="${x}">${x} 分</option>`).join("")}</select></div>`).join("");
+}
+openQuestions.innerHTML=scoreHTML("open"); closeQuestions.innerHTML=scoreHTML("close");
+allocFields.innerHTML=BOOKS.map(b=>`<div><label>${b}</label><input type="number" min="0" max="100" id="alloc_${b}" oninput="saveAll();updateAlloc()"></div>`).join("");
+depBook.innerHTML=orgBook.innerHTML=BOOKS.map(b=>`<option>${b}</option>`).join("");
+roleChecks.innerHTML=ROLES.map((r,i)=>`<label><input type="checkbox" id="role_${i}" value="${r}" onchange="saveAll();render()"> ${r}</label>`).join("");
+orgLeadRole.innerHTML=ROLES.map(r=>`<option>${r}</option>`).join("");
+depHuman.innerHTML=`<option value="">不對應</option>`+HUMAN.map(h=>`<option value="${h[0]}">${h[0]} ${h[1]}</option>`).join("");
+
+document.querySelectorAll(".tabs button").forEach(btn=>btn.onclick=()=>{
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");
+ document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));document.getElementById(btn.dataset.tab).classList.add("active");drawCharts();render();
+});
+
+function load(){
+ name.value=state.name||"";sid.value=state.sid||"";openDate.value=state.openDate||"";allocWhy.value=state.allocWhy||"";
+ BOOKS.forEach(b=>{document.getElementById("open_"+b).value=state.open?.[b]||3;document.getElementById("close_"+b).value=state.close?.[b]||3;document.getElementById("alloc_"+b).value=state.alloc?.[b]??20});
+ ["r1","r2","r3","r4"].forEach(k=>document.getElementById(k).value=state.reflections?.[k]||"");
+ const o=state.organization||{};
+ orgName.value=o.name||""; orgMemberName.value=o.memberName||"";
+ roleResponsibility.value=o.responsibility||""; roleGoal.value=o.goal||"";
+ vision.value=o.vision||""; mission.value=o.mission||""; values.value=o.values||"";
+ orgLearning.value=o.learning||""; roleReflection.value=o.roleReflection||""; orgRevision.value=o.revision||"";
+ ROLES.forEach((r,i)=>document.getElementById("role_"+i).checked=(o.roles||[]).includes(r));
+ updateAlloc();render();drawCharts();
+}
+function saveAll(){
+ state.name=name.value;state.sid=sid.value;state.openDate=openDate.value;state.allocWhy=allocWhy.value;
+ BOOKS.forEach(b=>{state.open[b]=+document.getElementById("open_"+b).value;state.close[b]=+document.getElementById("close_"+b).value;state.alloc[b]=+document.getElementById("alloc_"+b).value||0});
+ ["r1","r2","r3","r4"].forEach(k=>state.reflections[k]=document.getElementById(k).value);
+ state.organization=state.organization||{};
+ state.organization.name=orgName?.value||""; state.organization.memberName=orgMemberName?.value||"";
+ state.organization.roles=ROLES.filter((r,i)=>document.getElementById("role_"+i)?.checked);
+ state.organization.responsibility=roleResponsibility?.value||""; state.organization.goal=roleGoal?.value||"";
+ state.organization.vision=vision?.value||""; state.organization.mission=mission?.value||""; state.organization.values=values?.value||"";
+ state.organization.learning=orgLearning?.value||""; state.organization.roleReflection=roleReflection?.value||""; state.organization.revision=orgRevision?.value||"";
+ localStorage.setItem("fivePassbooks",JSON.stringify(state));
+}
+document.addEventListener("input",e=>{if(["name","sid","openDate","allocWhy","r1","r2","r3","r4","orgName","orgMemberName","roleResponsibility","roleGoal","vision","mission","values","orgLearning","roleReflection","orgRevision"].includes(e.target.id))saveAll()});
+
+function updateAlloc(){let t=BOOKS.reduce((s,b)=>s+(+document.getElementById("alloc_"+b).value||0),0);allocTotal.textContent=t;allocBar.style.width=Math.min(100,t)+"%";allocTotal.style.color=t===100?"#496f66":"#8a633d"}
+
+function radar(canvas,datasets){
+ const ctx=canvas.getContext("2d"),w=canvas.width,h=canvas.height,cx=w/2,cy=h/2,R=Math.min(w,h)*.35,n=5;
+ ctx.clearRect(0,0,w,h);ctx.font="bold 14px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";
+ for(let level=1;level<=5;level++){ctx.beginPath();for(let i=0;i<n;i++){let a=-Math.PI/2+i*2*Math.PI/n,r=R*level/5,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.closePath();ctx.strokeStyle="#d8d8d2";ctx.stroke()}
+ BOOKS.forEach((b,i)=>{let a=-Math.PI/2+i*2*Math.PI/n,x=cx+Math.cos(a)*(R+24),y=cy+Math.sin(a)*(R+24);ctx.fillStyle="#384541";ctx.fillText(b,x,y)});
+ datasets.forEach((d,di)=>{ctx.beginPath();d.values.forEach((v,i)=>{let a=-Math.PI/2+i*2*Math.PI/n,r=R*v/5,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();ctx.globalAlpha=.18;ctx.fillStyle=di?"#9b7453":"#496f66";ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=di?"#9b7453":"#496f66";ctx.lineWidth=3;ctx.stroke()});
+ if(datasets.length>1){ctx.font="13px sans-serif";ctx.fillStyle="#496f66";ctx.fillText("● 期初",55,h-20);ctx.fillStyle="#9b7453";ctx.fillText("● 期末",130,h-20)}
+}
+function drawCharts(){saveAll();radar(openChart,[{values:BOOKS.map(b=>state.open[b]||3)}]);radar(compareChart,[{values:BOOKS.map(b=>state.open[b]||3)},{values:BOOKS.map(b=>state.close[b]||3)}])}
+
+async function addDeposit(){
+ if(!depTitle.value.trim()){alert("請先寫這筆存款是什麼。");return}
+ const file=depEvidenceFile.files[0];
+ if(!file){alert("請上傳一張佐證照片，這筆存款才可以入帳。");return}
+ let photo="";
+ try{photo=await compressImage(file)}catch(e){alert("照片讀取失敗，請換一張照片再試。");return}
+ state.deposits.push({id:Date.now(),date:depDate.value,book:depBook.value,title:depTitle.value,evidence:depEvidence.value,evidenceName:file.name,photo:photo,human:depHuman.value,reflection:depReflection.value});
+ ["depTitle","depEvidence","depReflection"].forEach(x=>document.getElementById(x).value="");
+ depEvidenceFile.value="";depEvidencePreview.textContent="尚未選擇照片";depHuman.value="";saveAll();render()
+}
+function compressImage(file){
+ return new Promise((resolve,reject)=>{
+  const r=new FileReader(); r.onerror=reject;
+  r.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{
+   const max=1100,scale=Math.min(1,max/Math.max(img.width,img.height));
+   const c=document.createElement("canvas");c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);
+   c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+   resolve(c.toDataURL("image/jpeg",.72));
+  };img.src=r.result};r.readAsDataURL(file)
+ })
+}
+depEvidenceFile.addEventListener("change",()=>{
+ const f=depEvidenceFile.files[0];depEvidencePreview.textContent=f?("已選擇："+f.name):"尚未選擇照片";
+});
+function addOrg(){
+ if(!orgTitle.value.trim()){alert("請先填任務／活動名稱。");return}
+ state.org.push({id:Date.now(),date:orgDate.value,title:orgTitle.value,missionLink:orgMissionLink.value,leadRole:orgLeadRole.value,partners:orgPartners.value,deadline:orgDeadline.value,book:orgBook.value,did:orgDid.value,evidence:orgEvidence.value,valueCheck:orgValueCheck.value,adjust:orgAdjust.value});
+ ["orgTitle","orgMissionLink","orgPartners","orgDid","orgEvidence","orgAdjust"].forEach(x=>document.getElementById(x).value="");
+ orgDeadline.value=""; saveAll();render()
+}
+function del(kind,id){if(confirm("確定刪除這筆紀錄？")){state[kind]=state[kind].filter(x=>x.id!==id);saveAll();render()}}
+
+function render(){
+ depositList.innerHTML=state.deposits.length?state.deposits.slice().reverse().map(d=>`<div class="entry"><h4>${d.title}</h4><span class="pill">${d.book}存摺</span>${d.human?`<span class="pill">人文 ${d.human}</span>`:""}<div class="small">${d.date||"未填日期"}</div><p>佐證：${d.evidence?linkify(d.evidence):""}${d.evidenceName?` ${d.evidenceName}`:""}</p>${d.photo?`<img src="${d.photo}" alt="存款佐證照片" style="max-width:260px;max-height:200px;border-radius:10px;border:1px solid var(--line);display:block;margin:8px 0">`:"<p class='small'>尚無照片佐證</p>"}<p>反思：${d.reflection||"—"}</p><button class="danger" onclick="del('deposits',${d.id})">刪除</button></div>`).join(""):"<p class='small'>還沒有存款。第一筆，等你存進來。</p>";
+ let humanCounts={};
+ state.deposits.forEach(d=>{if(d.human && (d.photo || d.evidence)){humanCounts[d.human]=(humanCounts[d.human]||0)+1}});
+ let completed=HUMAN.filter(h=>(humanCounts[h[0]]||0)>0).length;
+ humanProgress.innerHTML=`<p class="big">${completed} / 8 已有佐證</p><div class="progress"><div style="width:${completed/8*100}%"></div></div>`;
+ humanStatsBody.innerHTML=HUMAN.map(h=>{
+   const n=humanCounts[h[0]]||0;
+   return `<tr><td>${h[0]}</td><td>${h[1]}</td><td>${h[2]}</td><td>${n}</td><td class="${n?'ok':'pending'}">${n?'✓ 已有佐證':'尚未完成'}</td></tr>`;
+ }).join("");
+ orgList.innerHTML=state.org.length?state.org.slice().reverse().map(o=>`<div class="entry"><h4>${o.title}</h4><span class="pill">${o.book}存摺</span><span class="pill">${o.leadRole||"未填角色"}</span><div class="small">${o.date||""}${o.deadline?`｜截止：${o.deadline}`:""}</div><p><b>使命連結：</b>${o.missionLink||"—"}<br><b>協作：</b>${o.partners||"—"}<br><b>實際完成：</b>${o.did||"—"}<br><b>佐證：</b>${linkify(o.evidence)||"—"}<br><b>價值觀檢核：</b>${o.valueCheck||"—"}${o.adjust?`<br><b>下次調整：</b>${o.adjust}`:""}</p><button class="danger" onclick="del('org',${o.id})">刪除</button></div>`).join(""):"<p class='small'>還沒有任務卡。組織從第一件真正一起完成的事開始。</p>";
+ const oo=state.organization||{};
+ orgBlueprint.innerHTML=`<b>${oo.name||"我們的組織"}</b><br>我們想成為：${oo.vision||"＿＿＿＿"}<br>因此我們的使命是：${oo.mission||"＿＿＿＿"}<br>我們共同相信：${oo.values||"＿＿＿＿"}<br>我的角色：${(oo.roles||[]).join("、")||"尚未選擇"}`;
+ orgOneSummary.innerHTML=`<b>願景：</b>${oo.vision||"—"}<br><b>使命：</b>${oo.mission||"—"}<br><b>價值觀：</b>${oo.values||"—"}<br><b>我的角色：</b>${(oo.roles||[]).join("、")||"—"}`;
+ orgTwoSummary.innerHTML=`<b>運作後的發現：</b>${oo.learning||"—"}<br><b>角色反思：</b>${oo.roleReflection||"—"}<br><b>想調整：</b>${oo.revision||"—"}`;
+ bookSummary.innerHTML=BOOKS.map(b=>`<div><b>${b}</b><br><span class="big">${state.deposits.filter(d=>d.book===b).length+state.org.filter(o=>o.book===b).length}</span><br><span class="small">筆紀錄</span></div>`).join("");
+}
+function linkify(s){if(!s)return "";let esc=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");return /^https?:\/\//i.test(s)?`<a href="${esc}" target="_blank">查看佐證</a>`:esc}
+function printSection(id){
+ document.querySelectorAll(".section").forEach(x=>x.classList.remove("printme"));
+ document.getElementById(id).classList.add("printme");
+ saveAll();drawCharts();render();
+ setTimeout(()=>window.print(),150);
+}
+load();
+</script>
+</body></html>
