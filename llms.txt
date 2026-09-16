@@ -16,7 +16,7 @@
 - 會計人的學習地圖：https://drpeipei.com/accounting-learning-map.html
 - 學習風格小測驗：https://drpeipei.com/learning-style-quiz.html
 - 證照圖書館：https://drpeipei.com/cert-library.html
-- 我的大學五本存摺（大學入門課程工具）：https://drpeipei.com/five-passbooks.html
+- 我的五大存摺：https://drpeipei.com/five-passbooks.html
 - 著作《永續方程式：認識 ESG》：https://drpeipei.com/books.html
 - 全部文章索引（每篇有獨立網址）：https://drpeipei.com/p/index.html
 - 網站地圖：https://drpeipei.com/sitemap.xml

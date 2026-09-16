@@ -211,7 +211,7 @@ PAGE_LD = {
  "accounting-learning-map.html": ("WebPage", "會計人的學習地圖：學習風格小測驗、四年路線圖、證照圖書館"),
  "cert-library.html": ("WebPage", "證照圖書館：會計與永續相關證照的考試時間、科目與教材"),
  "learning-style-quiz.html": ("WebApplication", "學習風格小測驗：十六題測視覺、聽覺、動手、讀寫型"),
- "five-passbooks.html": ("WebApplication", "我的大學五本存摺：開帳、存款、人文素養佐證、組織活動、期末結帳"),
+ "five-passbooks.html": ("WebApplication", "我的五大存摺：開帳、存款、人文素養佐證、組織活動、期末結帳"),
  "books.html": ("WebPage", "著作：永續方程式 認識 ESG"),
  "s2-workshop.html": ("WebPage", "IFRS S2 工作坊"),
 }
@@ -322,7 +322,7 @@ def build_llms(arts):
       "## 主要頁面", f"- 首頁：{SITE}/", f"- 關於佩佩（含常見問題）：{SITE}/about.html", f"- 觀點文章（生活對話、會計知識、永續 ESG，{n['fb']} 篇）：{SITE}/articles.html",
       f"- NPO 財務教室（{n['npo']} 篇，每週一更新）：{SITE}/npo-finance.html", f"- 永續新知（{n['news']} 篇，每週二更新）：{SITE}/news.html",
       f"- 會計人的學習地圖：{SITE}/accounting-learning-map.html", f"- 學習風格小測驗：{SITE}/learning-style-quiz.html", f"- 證照圖書館：{SITE}/cert-library.html",
-      f"- 我的大學五本存摺（大學入門課程工具）：{SITE}/five-passbooks.html", f"- 著作《永續方程式：認識 ESG》：{SITE}/books.html",
+      f"- 我的五大存摺：{SITE}/five-passbooks.html", f"- 著作《永續方程式：認識 ESG》：{SITE}/books.html",
       f"- 全部文章索引（每篇有獨立網址）：{SITE}/p/index.html", f"- 網站地圖：{SITE}/sitemap.xml", "",
       "## 最新文章"] + [f"- [{a['title']}]({a['url']})（{a['date']}，{a['cat']}）" for a in latest] + ["",
       "## 引用建議", "引用本站文章請標示作者「劉沂佩（佩佩老師）」與文章網址。本站文章皆為作者原創，永續新知頁另附官方資料來源連結。"]
