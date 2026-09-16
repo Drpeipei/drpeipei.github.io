@@ -268,12 +268,21 @@ def inject_pages():
         wr(f, s); print("injected", f)
 
 # ---------- 4. sitemap / robots / llms ----------
+def git_lastmod(f):
+    """CI 環境 checkout 的 mtime 不可靠，改用 git 最後修改日期。"""
+    try:
+        import subprocess
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", f], capture_output=True, text=True, timeout=20).stdout.strip()
+        return out if len(out) == 10 else ""
+    except Exception:
+        return ""
+
 def build_sitemap(arts):
     rows = []
     def add(loc, lastmod, freq, pri): rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{pri}</priority>\n  </url>")
     add(SITE+"/", TODAY, "weekly", "1.0")
     for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","books.html","s2-workshop.html"]:
-        lm = datetime.date.fromtimestamp(os.path.getmtime(f)).isoformat()
+        lm = git_lastmod(f) or datetime.date.fromtimestamp(os.path.getmtime(f)).isoformat()
         add(f"{SITE}/{f}", lm, "weekly" if f in ("articles.html","npo-finance.html","news.html") else "monthly", "0.8")
     add(f"{SITE}/p/index.html", TODAY, "weekly", "0.7")
     for a in sorted(arts, key=lambda x: -x["ts"]): add(a["url"], a["date"], "yearly", "0.6")
