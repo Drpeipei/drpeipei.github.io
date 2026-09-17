@@ -20,7 +20,7 @@ BRAND = "佩佩老師的會計魔法教室"
 AUTHOR = "劉沂佩"
 FB = "https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/"
 NAV = [("about.html","關於佩佩"),("articles.html","觀點文章"),("npo-finance.html","NPO 財務教室"),("news.html","永續新知"),
-       ("accounting-learning-map.html","會計人的學習地圖"),("cert-library.html","證照圖書館"),("five-passbooks.html","五大存摺"),("books.html","著作")]
+       ("accounting-learning-map.html","會計人的學習地圖"),("cert-library.html","證照圖書館"),("five-passbooks.html","五大存摺"),("carbon-goro.html","碳五郎"),("books.html","著作")]
 
 def rd(p): return io.open(p, encoding="utf-8").read()
 def wr(p, s):
@@ -212,6 +212,7 @@ PAGE_LD = {
  "cert-library.html": ("WebPage", "證照圖書館：會計與永續相關證照的考試時間、科目與教材"),
  "learning-style-quiz.html": ("WebApplication", "學習風格小測驗：十六題測視覺、聽覺、動手、讀寫型"),
  "five-passbooks.html": ("WebApplication", "我的五大存摺：開帳、存款、人文素養佐證、組織活動、期末結帳"),
+ "carbon-goro.html": ("WebApplication", "碳五郎：找碳、算碳、記碳、管碳、查碳，GHG Protocol 學習系統"),
  "books.html": ("WebPage", "著作：永續方程式 認識 ESG"),
  "s2-workshop.html": ("WebPage", "IFRS S2 工作坊"),
 }
@@ -281,7 +282,7 @@ def build_sitemap(arts):
     rows = []
     def add(loc, lastmod, freq, pri): rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{pri}</priority>\n  </url>")
     add(SITE+"/", TODAY, "weekly", "1.0")
-    for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","books.html","s2-workshop.html"]:
+    for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","carbon-goro.html","books.html","s2-workshop.html"]:
         lm = git_lastmod(f) or datetime.date.fromtimestamp(os.path.getmtime(f)).isoformat()
         add(f"{SITE}/{f}", lm, "weekly" if f in ("articles.html","npo-finance.html","news.html") else "monthly", "0.8")
     add(f"{SITE}/p/index.html", TODAY, "weekly", "0.7")
@@ -322,7 +323,7 @@ def build_llms(arts):
       "## 主要頁面", f"- 首頁：{SITE}/", f"- 關於佩佩（含常見問題）：{SITE}/about.html", f"- 觀點文章（生活對話、會計知識、永續 ESG，{n['fb']} 篇）：{SITE}/articles.html",
       f"- NPO 財務教室（{n['npo']} 篇，每週一更新）：{SITE}/npo-finance.html", f"- 永續新知（{n['news']} 篇，每週二更新）：{SITE}/news.html",
       f"- 會計人的學習地圖：{SITE}/accounting-learning-map.html", f"- 學習風格小測驗：{SITE}/learning-style-quiz.html", f"- 證照圖書館：{SITE}/cert-library.html",
-      f"- 我的五大存摺：{SITE}/five-passbooks.html", f"- 著作《永續方程式：認識 ESG》：{SITE}/books.html",
+      f"- 我的五大存摺：{SITE}/five-passbooks.html", f"- 碳五郎 GHG Protocol 學習系統：{SITE}/carbon-goro.html", f"- 著作《永續方程式：認識 ESG》：{SITE}/books.html",
       f"- 全部文章索引（每篇有獨立網址）：{SITE}/p/index.html", f"- 網站地圖：{SITE}/sitemap.xml", "",
       "## 最新文章"] + [f"- [{a['title']}]({a['url']})（{a['date']}，{a['cat']}）" for a in latest] + ["",
       "## 引用建議", "引用本站文章請標示作者「劉沂佩（佩佩老師）」與文章網址。本站文章皆為作者原創，永續新知頁另附官方資料來源連結。"]

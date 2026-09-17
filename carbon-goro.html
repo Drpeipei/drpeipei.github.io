@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>碳五郎｜GHG Protocol 學習系統｜佩佩老師的會計魔法教室</title>
+<meta name="description" content="碳五郎：找碳、算碳、記碳、管碳、查碳。用 GHG Protocol 判斷 Scope、活動數據乘排放係數、建立碳帳工作底稿、找出排放熱點，再換一雙查核員的眼睛。"/>
+<link rel="canonical" href="https://drpeipei.com/carbon-goro.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="zh_TW"/>
+<meta property="og:site_name" content="佩佩老師的會計魔法教室"/>
+<meta property="og:title" content="碳五郎｜GHG Protocol 學習系統"/>
+<meta property="og:description" content="找碳、算碳、記碳、管碳、查碳：五關走完一次碳盤查。"/>
+<meta property="og:url" content="https://drpeipei.com/carbon-goro.html"/>
+<meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg"/>
+<link rel="icon" type="image/jpeg" href="peipei-mascot.jpg"/>
+<style>@media print{.siteTop{display:none!important}}</style>
+<style>
+:root{--g:#315d2a;--g2:#eaf2e7;--ink:#243224;--mut:#6c786b;--line:#d7dfd3;--paper:#fbfcf9;--warn:#9a6b16}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;background:#f5f7f2;color:var(--ink)}
+header{background:linear-gradient(135deg,#244b21,#3d7134);color:white;padding:28px 6vw}header h1{margin:0;font-size:clamp(28px,5vw,48px)}header p{margin:8px 0 0;opacity:.9}.wrap{max-width:1180px;margin:auto;padding:24px}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:-12px 0 22px}.step{border:1px solid var(--line);background:white;padding:15px;border-radius:16px;cursor:pointer;text-align:left}.step b{display:block;font-size:18px}.step small{color:var(--mut)}.step.active{background:var(--g);color:white}.step.active small{color:#e9f2e6}.panel{display:none;background:white;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 30px #1c32150d}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.full{grid-column:1/-1}label{font-weight:700;display:block;margin-bottom:6px}input,select,textarea{width:100%;padding:12px;border:1px solid #bcc9b8;border-radius:10px;font:inherit;background:#fff}textarea{min-height:88px}.hint{font-size:13px;color:var(--mut);margin-top:5px}.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}button{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}.primary{background:var(--g);color:white}.secondary{background:var(--g2);color:var(--g)}.danger{background:#f7e9e7;color:#8b342b}.card{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:14px;background:var(--paper)}.badge{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--g2);color:var(--g);font-size:12px;font-weight:800}table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#f1f5ee}.metric{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric div{background:var(--g2);padding:14px;border-radius:14px}.metric strong{font-size:25px;display:block}.quiz{border-left:4px solid var(--g);padding-left:14px}.note{background:#fff8e7;border:1px solid #ead8a7;padding:12px;border-radius:12px;color:#67511d}.empty{color:var(--mut);text-align:center;padding:28px}.footer{color:var(--mut);font-size:12px;text-align:center;padding:25px}.check label{font-weight:500;margin:8px 0}.check input{width:auto;margin-right:8px}@media(max-width:760px){.steps,.metric{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.full{grid-column:auto}table{display:block;overflow:auto}}
+@media print{header,.steps,.btns,.footer{display:none!important}.panel{display:none!important;box-shadow:none;border:0}.panel.printme{display:block!important}.wrap{padding:0}}
+</style>
+<!-- seo:auto -->
+<meta name="author" content="劉沂佩（佩佩老師）">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="alternate" hreflang="zh-Hant" href="https://drpeipei.com/carbon-goro.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://drpeipei.com/#org", "name": "佩佩老師的會計魔法教室", "alternateName": "Dr. Peipei", "url": "https://drpeipei.com/", "logo": "https://drpeipei.com/peipei-mascot.jpg", "image": "https://drpeipei.com/peipei-photo.jpg", "email": "lyipei@gmail.com", "founder": {"@type": "Person", "name": "劉沂佩", "alternateName": "佩佩老師", "url": "https://drpeipei.com/about.html"}, "sameAs": ["https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/"], "areaServed": "TW", "knowsAbout": ["永續會計", "ESG", "IFRS S1", "IFRS S2", "SASB", "GRI", "永續報告書", "內部控制", "碳盤查", "ISO 14064-1", "ISO 14067", "CBAM", "非營利組織財務", "會計教育"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://drpeipei.com/"}, {"@type": "ListItem", "position": 2, "name": "碳五郎", "item": "https://drpeipei.com/carbon-goro.html"}]}, {"@type": "WebApplication", "name": "碳五郎｜GHG Protocol 學習系統｜佩佩老師的會計魔法教室", "description": "碳五郎：找碳、算碳、記碳、管碳、查碳，GHG Protocol 學習系統", "url": "https://drpeipei.com/carbon-goro.html", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "佩佩老師的會計魔法教室", "url": "https://drpeipei.com/"}, "author": {"@type": "Person", "name": "劉沂佩", "url": "https://drpeipei.com/about.html"}, "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TWD"}}]}</script>
+<!-- /seo:auto -->
+</head><body>
+<div class="siteTop" style="max-width:1180px;margin:auto;padding:10px 24px 0;font-size:14px"><a href="index.html" style="color:#315d2a;font-weight:700;text-decoration:none">← 佩佩老師的會計魔法教室</a></div>
+<header><h1>🌱 碳五郎</h1><p>找碳 → 算碳 → 記碳 → 管碳 → 查碳｜GHG Protocol 學習系統</p></header>
+<div class="wrap">
+<div class="steps">
+<button class="step active" data-p="find"><b>🔍 1 找碳</b><small>辨識活動・Scope・邊界</small></button>
+<button class="step" data-p="calc"><b>🧮 2 算碳</b><small>活動數據 × 排放係數</small></button>
+<button class="step" data-p="ledger"><b>📒 3 記碳</b><small>建立碳帳與工作底稿</small></button>
+<button class="step" data-p="manage"><b>🌿 4 管碳</b><small>找熱點・提出行動</small></button>
+<button class="step" data-p="audit"><b>🔎 5 查碳</b><small>證據・完整性・合理性</small></button>
+</div>
+
+<section id="find" class="panel active">
+<h2>第一關｜找碳：先看見碳，再計算碳</h2><p>請先做自己的判斷。系統不替你選 Scope，因為「為什麼」比按對答案更重要。</p>
+<div class="grid">
+<div><label>組別／姓名</label><input id="owner" placeholder="例：第3組／王小明"></div>
+<div><label>盤查場域</label><input id="place" placeholder="例：教學大樓 3F、系辦、校園通勤"></div>
+<div><label>排放活動</label><input id="activity" placeholder="例：冷氣使用外購電力"></div>
+<div><label>排放源／造成排放的原因</label><input id="source" placeholder="例：購買電力的間接排放"></div>
+<div><label>GHG Protocol 分類</label><select id="scope"><option value="">請先判斷</option><option>Scope 1</option><option>Scope 2</option><option>Scope 3</option></select></div>
+<div><label>活動類型</label><select id="category"><option>固定燃燒</option><option>移動燃燒</option><option>逸散排放</option><option>外購電力</option><option>外購能源</option><option>採購商品與服務</option><option>資本財</option><option>燃料與能源相關活動</option><option>運輸與配送</option><option>營運廢棄物</option><option>商務旅行</option><option>員工通勤</option><option>其他 Scope 3</option></select></div>
+<div class="full"><label>你為什麼判斷是這個 Scope？</label><textarea id="reason" placeholder="請用自己的話說明組織邊界、控制或價值鏈關係。"></textarea></div>
+<div><label>證據說明</label><input id="evidence" placeholder="例：電費單 2026/09、設備銘牌、加油紀錄"></div>
+<div><label>證據檔案（僅顯示檔名，本機不外傳）</label><input id="file" type="file"></div>
+</div>
+<div class="btns"><button class="primary" onclick="addCarbon()">＋ 找到一個碳</button><button class="secondary" onclick="scopeHint()">給我判斷提示</button></div>
+<div id="hint" class="card quiz" style="display:none"></div><div id="findList"></div>
+</section>
+
+<section id="calc" class="panel">
+<h2>第二關｜算碳：數字從哪裡來？</h2><div class="note">建議係數優先使用環境部官方資料；請留下「來源、年度、單位」，不要只留下最後答案。</div>
+<div class="grid" style="margin-top:16px">
+<div><label>選擇已找到的碳</label><select id="calcItem"></select></div>
+<div><label>活動數據</label><input id="amount" type="number" step="any" placeholder="例：12500"></div>
+<div><label>活動數據單位</label><input id="unit" placeholder="例：kWh、L、kg"></div>
+<div><label>排放係數</label><input id="factor" type="number" step="any" placeholder="例：kgCO₂e / kWh"></div>
+<div><label>係數單位</label><input id="factorUnit" placeholder="例：kgCO₂e/kWh"></div>
+<div><label>係數年度</label><input id="factorYear" placeholder="例：2025"></div>
+<div class="full"><label>排放係數來源</label><input id="factorSource" placeholder="例：環境部溫室氣體排放係數管理表（請記錄版本/頁面）"></div>
+</div>
+<div class="btns"><button class="primary" onclick="calculate()">計算並存入碳帳</button></div><div id="calcResult"></div>
+</section>
+
+<section id="ledger" class="panel printme"><h2>第三關｜記碳：Carbon Ledger 碳帳</h2><div id="ledgerTable"></div><div class="btns"><button class="secondary" onclick="window.print()">列印／另存 PDF</button><button class="secondary" onclick="exportCSV()">匯出 CSV</button></div></section>
+
+<section id="manage" class="panel"><h2>第四關｜管碳：從數字走向決策</h2><div id="metrics" class="metric"></div><div id="hotspots"></div>
+<div class="grid" style="margin-top:18px"><div class="full"><label>① 最大的碳在哪裡？你看到什麼？</label><textarea id="m1"></textarea></div><div class="full"><label>② 哪些排放是組織比較能控制或影響的？</label><textarea id="m2"></textarea></div><div class="full"><label>③ 如果只能先做一件事，你會做什麼？為什麼？</label><textarea id="m3"></textarea></div></div><div class="btns"><button class="primary" onclick="saveReflection()">儲存管理判斷</button></div></section>
+
+<section id="audit" class="panel"><h2>第五關｜查碳：換一雙查核員的眼睛</h2><p>請交換個案或回頭查自己的底稿。勾選不是目的，找出「證據夠不夠」才是。</p>
+<div class="check card"><label><input type="checkbox">Scope 1／2／3 的判斷有理由與邊界依據</label><label><input type="checkbox">活動數據有來源或佐證</label><label><input type="checkbox">排放係數有官方／可信來源、年度與單位</label><label><input type="checkbox">計算單位一致，轉換過程可重算</label><label><input type="checkbox">重要排放活動沒有明顯遺漏</label><label><input type="checkbox">底稿能讓另一個人重新理解與重算</label></div>
+<div class="grid"><div class="full"><label>我查到的問題</label><textarea id="a1" placeholder="至少寫一個可能錯誤、缺漏或需要補證據的地方"></textarea></div><div class="full"><label>我的修正建議</label><textarea id="a2"></textarea></div></div>
+<div class="btns"><button class="primary" onclick="saveAudit()">完成查碳</button><button class="secondary" onclick="summary()">查看修煉紀錄</button></div><div id="summary"></div></section>
+</div><div class="footer">碳五郎教學原型｜資料儲存在此瀏覽器 localStorage，可重複開啟練習。</div>
+<script>
+const KEY='carbonGoroV1';let db=JSON.parse(localStorage.getItem(KEY)||'{"items":[],"management":{},"audit":{}}');
+const $=id=>document.getElementById(id);function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+document.querySelectorAll('.step').forEach(b=>b.onclick=()=>{document.querySelectorAll('.step,.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.p).classList.add('active');render()});
+function scopeHint(){$('hint').style.display='block';$('hint').innerHTML='<b>先不要找答案，問三件事：</b><br>① 排放是否來自組織擁有或控制的來源？→ 想 Scope 1<br>② 是否來自購買的電力／能源？→ 想 Scope 2<br>③ 是否發生在價值鏈、但不屬於前兩者？→ 再判斷 Scope 3。<br><span class="hint">提示只是方向；仍要依 GHG Protocol 的組織與營運邊界判斷。</span>'}
+function addCarbon(){let f=$('file').files[0];let o={id:Date.now(),owner:$('owner').value,place:$('place').value,activity:$('activity').value,source:$('source').value,scope:$('scope').value,category:$('category').value,reason:$('reason').value,evidence:$('evidence').value,file:f?f.name:'',calc:null};if(!o.activity||!o.scope||!o.reason)return alert('請至少完成：排放活動、Scope 與判斷理由。');db.items.push(o);save();['activity','source','reason','evidence'].forEach(x=>$(x).value='');$('scope').value='';$('file').value=''}
+function calculate(){let it=db.items.find(x=>x.id==$('calcItem').value);if(!it)return alert('請先在「找碳」建立一筆活動。');let a=+$('amount').value,f=+$('factor').value;if(!a||!f)return alert('請輸入活動數據與排放係數。');it.calc={amount:a,unit:$('unit').value,factor:f,factorUnit:$('factorUnit').value,year:$('factorYear').value,source:$('factorSource').value,kg:a*f,t:a*f/1000};save();$('calcResult').innerHTML=`<div class="card"><span class="badge">計算完成</span><h3>${it.activity}</h3><b>${a} × ${f} = ${(a*f).toLocaleString()} kgCO₂e = ${(a*f/1000).toFixed(4)} tCO₂e</b><p class="hint">請確認係數單位與活動數據單位可以直接相乘；系統不會替你判斷單位是否合理。</p></div>`}
+function render(){let sel=$('calcItem');sel.innerHTML=db.items.length?db.items.map(x=>`<option value="${x.id}">${x.scope}｜${esc(x.activity)}</option>`).join(''):'<option>請先完成找碳</option>';$('findList').innerHTML=db.items.length?'<h3>目前找到的碳</h3>'+db.items.map((x,i)=>`<div class="card"><span class="badge">${x.scope}</span> <b>#${i+1} ${esc(x.activity)}</b><br><span class="hint">${esc(x.place)}｜${esc(x.category)}｜理由：${esc(x.reason)}</span> <button class="danger" style="float:right;padding:5px 8px" onclick="del(${x.id})">刪除</button></div>`).join(''):'';renderLedger();renderManage()}
+function renderLedger(){let rows=db.items.map((x,i)=>`<tr><td>C${String(i+1).padStart(3,'0')}</td><td>${esc(x.activity)}</td><td>${x.scope}</td><td>${x.calc?x.calc.amount+' '+esc(x.calc.unit):'—'}</td><td>${x.calc?x.calc.factor+' '+esc(x.calc.factorUnit):'—'}</td><td>${x.calc?x.calc.t.toFixed(4):'—'}</td><td>${esc(x.evidence||x.file||'—')}</td><td>${x.calc?'✓':'待算'}</td></tr>`).join('');$('ledgerTable').innerHTML=db.items.length?`<table><thead><tr><th>編號</th><th>排放活動</th><th>Scope</th><th>活動數據</th><th>係數</th><th>tCO₂e</th><th>證據</th><th>狀態</th></tr></thead><tbody>${rows}</tbody></table>`:'<div class="empty">還沒有碳帳資料。</div>'}
+function renderManage(){let c=db.items.filter(x=>x.calc),tot=c.reduce((s,x)=>s+x.calc.t,0),s1=c.filter(x=>x.scope==='Scope 1').reduce((s,x)=>s+x.calc.t,0),s2=c.filter(x=>x.scope==='Scope 2').reduce((s,x)=>s+x.calc.t,0),s3=c.filter(x=>x.scope==='Scope 3').reduce((s,x)=>s+x.calc.t,0);$('metrics').innerHTML=`<div><strong>${c.length}</strong>已計算</div><div><strong>${tot.toFixed(2)}</strong>總 tCO₂e</div><div><strong>${s1.toFixed(2)}</strong>Scope 1</div><div><strong>${s2.toFixed(2)}</strong>Scope 2</div><div><strong>${s3.toFixed(2)}</strong>Scope 3</div>`;let top=[...c].sort((a,b)=>b.calc.t-a.calc.t);$('hotspots').innerHTML=top.length?'<h3>排放熱點排行</h3>'+top.slice(0,5).map((x,i)=>`<div class="card"><b>${i+1}. ${esc(x.activity)}</b>｜${x.scope}<span style="float:right">${x.calc.t.toFixed(4)} tCO₂e</span></div>`).join(''):''}
+function saveReflection(){db.management={m1:$('m1').value,m2:$('m2').value,m3:$('m3').value};save();alert('管理判斷已儲存。')};function saveAudit(){db.audit={a1:$('a1').value,a2:$('a2').value};save();alert('查碳紀錄已儲存。')}
+function summary(){let c=db.items.filter(x=>x.calc);$('summary').innerHTML=`<div class="card"><h3>🌏 我的碳五郎修煉紀錄</h3><p><b>找碳：</b>${db.items.length} 筆　｜　<b>算碳：</b>${c.length} 筆　｜　<b>記碳：</b>${c.length} 筆入帳</p><p><b>管碳：</b>${db.management.m3?'已提出行動':'尚未完成'}　｜　<b>查碳：</b>${db.audit.a1?'已留下查核發現':'尚未完成'}</p><p class="hint">真正的過關不是數字漂亮，而是別人能沿著你的證據與判斷重新走一次。</p></div>`}
+function del(id){if(confirm('刪除這筆找碳紀錄？')){db.items=db.items.filter(x=>x.id!==id);save()}}function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function exportCSV(){let h=['編號','活動','Scope','類型','活動數據','活動單位','排放係數','係數單位','係數年度','係數來源','tCO2e','證據'];let r=db.items.map((x,i)=>[i+1,x.activity,x.scope,x.category,x.calc?.amount||'',x.calc?.unit||'',x.calc?.factor||'',x.calc?.factorUnit||'',x.calc?.year||'',x.calc?.source||'',x.calc?.t||'',x.evidence||x.file||'']);let csv='\ufeff'+[h,...r].map(a=>a.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='碳五郎_碳帳.csv';a.click()}
+render();
+</script></body></html>
