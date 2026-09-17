@@ -182,7 +182,10 @@
       .overlay-body { padding: 48px 20px 80px; }
       .overlay-nav { padding: 0 20px; }
     }
-  </style>
+      /* 導覽列標籤兩行 2026-09-17 老師指示 */
+    .nav a { text-align: center; line-height: 1.35; justify-content: center; }
+    @media (max-width: 640px) { .nav { flex-wrap: wrap; } .nav a { white-space: nowrap; } .nav a br { display: none; } }
+</style>
 <script src="permalinks.js"></script>
 <!-- seo:auto -->
 <meta name="author" content="劉沂佩（佩佩老師）">
@@ -209,13 +212,13 @@
       </div>
     </a>
     <nav class="nav">
-      <a href="about.html">關於佩佩</a>
-      <a href="articles.html">觀點文章</a>
-      <a href="npo-finance.html">NPO 財務教室</a>
-      <a href="news.html" class="active">永續新知</a>
-      <a href="accounting-learning-map.html">會計人的學習地圖</a>
-      <a href="cert-library.html">證照圖書館</a>
-      <a href="five-passbooks.html">五大存摺</a>
+      <a href="about.html">關於<br>佩佩</a>
+      <a href="articles.html">觀點<br>文章</a>
+      <a href="npo-finance.html">NPO<br>財務教室</a>
+      <a href="news.html" class="active">永續<br>新知</a>
+      <a href="accounting-learning-map.html">會計人的<br>學習地圖</a>
+      <a href="cert-library.html">證照<br>圖書館</a>
+      <a href="five-passbooks.html">五大<br>存摺</a>
       <a href="carbon-goro.html">碳五郎</a>
       <a href="books.html">著作</a>
     </nav>
