@@ -4,13 +4,13 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>我的五大存摺｜開帳・存款・結帳｜佩佩老師的會計魔法教室</title>
-<meta name="description" content="我的五大存摺：健康、學習、關係、承諾、世界。開帳看見現在的自己，存款留下佐證，期末結帳看見一學期走過的痕跡。"/>
+<meta name="description" content="我的五大存摺：健康、學習、關係、承諾、連結。開帳看見現在的自己，存款留下佐證，期末結帳看見一學期走過的痕跡。"/>
 <link rel="canonical" href="https://drpeipei.com/five-passbooks.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="zh_TW"/>
 <meta property="og:site_name" content="佩佩老師的會計魔法教室"/>
 <meta property="og:title" content="我的五大存摺｜開帳・存款・結帳"/>
-<meta property="og:description" content="健康、學習、關係、承諾、世界五大存摺：開帳、存款、人文素養佐證、組織活動、期末結帳。"/>
+<meta property="og:description" content="健康、學習、關係、承諾、連結五大存摺：開帳、存款、人文素養佐證、組織活動、期末結帳。"/>
 <meta property="og:url" content="https://drpeipei.com/five-passbooks.html"/>
 <meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg"/>
 <link rel="icon" type="image/jpeg" href="peipei-mascot.jpg"/>
@@ -222,22 +222,22 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
 </div>
 
 <script>
-const BOOKS=["健康","學習","關係","承諾","世界"];
+const BOOKS=["健康","學習","關係","承諾","連結"];
 const ROLES=["會長","副會長","秘書","公關","活動","總務","體康","服務","美資（美宣／資材）","監事","組員"];
 const QUESTIONS={
 健康:"我的身體撐得住我的人生嗎？",
 學習:"我知道自己怎麼學，也知道想累積什麼能力嗎？",
 關係:"我身邊有人可以連結、合作，需要時也知道向誰求助嗎？",
 承諾:"我知道自己在乎什麼，也正在想自己想成為誰嗎？",
-世界:"我看得見校園與世界提供給我的資源與機會嗎？"
+連結:"我看得見校園與世界提供給我的資源與機會嗎？"
 };
 const HUMAN=[
-["02","成為學習的主人","學習"],["03","健康存摺ABC","健康"],["06","心靈教育","承諾"],["07","寰宇學習","世界"],
-["09","藝術展覽","承諾"],["10","藝術表演","承諾"],["11","校史與我（圖書館與我）","世界"],["16","新聞講看嘜","學習"]
+["02","成為學習的主人","學習"],["03","健康存摺ABC","健康"],["06","心靈教育","承諾"],["07","寰宇學習","連結"],
+["09","藝術展覽","承諾"],["10","藝術表演","承諾"],["11","校史與我（圖書館與我）","連結"],["16","新聞講看嘜","學習"]
 ];
 let state={name:"",sid:"",openDate:"",open:{},close:{},alloc:{},allocWhy:"",deposits:[],humanRegistered:{},org:[],reflections:{},organization:{name:"",memberName:"",roles:[],responsibility:"",goal:"",vision:"",mission:"",values:"",learning:"",roleReflection:"",revision:""}};
 try{state=Object.assign(state,JSON.parse(localStorage.getItem("fivePassbooks")||"{}"))}catch(e){}
-function migrateBooks(){const m=o=>{if(o&&o["心靈"]!==undefined){if(o["承諾"]===undefined)o["承諾"]=o["心靈"];delete o["心靈"]}};m(state.open);m(state.close);m(state.alloc);(state.deposits||[]).forEach(d=>{if(d.book==="心靈")d.book="承諾"});(state.org||[]).forEach(o=>{if(o.book==="心靈")o.book="承諾"})}
+function migrateBooks(){const REN={"心靈":"承諾","世界":"連結"};const m=o=>{if(!o)return;Object.keys(REN).forEach(a=>{const b=REN[a];if(o[a]!==undefined){if(o[b]===undefined)o[b]=o[a];delete o[a]}})};m(state.open);m(state.close);m(state.alloc);(state.deposits||[]).forEach(d=>{if(REN[d.book])d.book=REN[d.book]});(state.org||[]).forEach(x=>{if(REN[x.book])x.book=REN[x.book]})}
 migrateBooks();
 
 function scoreHTML(prefix){
