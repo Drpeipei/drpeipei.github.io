@@ -203,6 +203,7 @@ def build_article_pages(arts):
 
 # ---------- 3. 站頁注入 ----------
 PAGE_LD = {
+ "health-passbook.html": ("WebApplication", "健康存摺：吃、睡、動的一個月健康挑戰"),
  "index.html": ("WebPage", "佩佩老師的會計魔法教室：永續會計、ESG 課程、企業輔導"),
  "about.html": (None, None),  # 已有 ProfilePage，另加 FAQ
  "articles.html": ("CollectionPage", "觀點文章：生活對話、會計知識、永續 ESG"),
@@ -282,7 +283,7 @@ def build_sitemap(arts):
     rows = []
     def add(loc, lastmod, freq, pri): rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{pri}</priority>\n  </url>")
     add(SITE+"/", TODAY, "weekly", "1.0")
-    for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","carbon-goro.html","books.html","s2-workshop.html"]:
+    for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","health-passbook.html","carbon-goro.html","books.html","s2-workshop.html"]:
         lm = git_lastmod(f) or datetime.date.fromtimestamp(os.path.getmtime(f)).isoformat()
         add(f"{SITE}/{f}", lm, "weekly" if f in ("articles.html","npo-finance.html","news.html") else "monthly", "0.8")
     add(f"{SITE}/p/index.html", TODAY, "weekly", "0.7")

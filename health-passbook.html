@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的健康存摺｜吃・睡・動</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;
+  background:#f5f5ef;
+  color:#333;
+  line-height:1.7;
+}
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:25px;
+}
+.hero{
+  text-align:center;
+  padding:35px 15px;
+}
+.hero h1{
+  margin:0;
+  font-size:36px;
+}
+.hero p{
+  color:#666;
+  margin-top:8px;
+}
+.path{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:15px 0 30px;
+}
+.path span{
+  background:#fff;
+  border-radius:20px;
+  padding:8px 15px;
+  box-shadow:0 2px 6px rgba(0,0,0,.05);
+}
+.card{
+  background:white;
+  border-radius:18px;
+  padding:26px;
+  margin-bottom:22px;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+h2{margin-top:0}
+.subtitle{
+  color:#777;
+  margin-top:-5px;
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+label{font-weight:bold}
+input[type=text],
+input[type=date],
+textarea{
+  width:100%;
+  padding:11px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  margin-top:5px;
+  font-size:16px;
+  font-family:inherit;
+}
+textarea{min-height:75px}
+
+.category-title{
+  font-size:21px;
+  font-weight:bold;
+  margin-top:25px;
+}
+.question{
+  padding:14px 0;
+  border-bottom:1px solid #eee;
+}
+.question-text{margin-bottom:8px}
+.scale{
+  display:flex;
+  gap:7px;
+}
+.scale label{
+  flex:1;
+  text-align:center;
+  background:#f4f4f4;
+  padding:8px 3px;
+  border-radius:8px;
+  font-weight:normal;
+  cursor:pointer;
+}
+.scale-note{
+  display:flex;
+  justify-content:space-between;
+  color:#999;
+  font-size:12px;
+}
+
+.challenge-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+.challenge{
+  background:#fafaf7;
+  border:2px solid #eee;
+  border-radius:15px;
+  padding:18px;
+}
+.challenge h3{
+  margin-top:0;
+}
+.type-options{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  margin:10px 0;
+}
+.type-options label{
+  background:#eee;
+  border-radius:10px;
+  padding:7px 10px;
+  font-weight:normal;
+  cursor:pointer;
+}
+
+.friend-box{
+  background:#f5f8f3;
+  border-radius:15px;
+  padding:20px;
+  margin-top:20px;
+}
+.verify-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+.verify-table th,
+.verify-table td{
+  border-bottom:1px solid #ddd;
+  padding:12px;
+  text-align:left;
+}
+
+.status-options label{
+  display:inline-block;
+  background:#f2f2f2;
+  padding:7px 10px;
+  border-radius:9px;
+  margin:3px;
+  font-weight:normal;
+}
+
+button{
+  border:0;
+  border-radius:11px;
+  padding:13px 22px;
+  margin:5px;
+  font-size:16px;
+  cursor:pointer;
+}
+.primary{background:#333;color:white}
+.secondary{background:#e5e5e5}
+.buttons{
+  text-align:center;
+  margin:22px 0;
+}
+
+.result{
+  display:none;
+  text-align:center;
+}
+.scores{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.score{
+  background:#f3f3f3;
+  padding:14px;
+  min-width:130px;
+  border-radius:12px;
+}
+.score strong{
+  display:block;
+  font-size:27px;
+}
+canvas{
+  width:100%;
+  max-width:550px;
+}
+
+.reflection textarea{
+  margin-bottom:15px;
+}
+
+.certification{
+  background:#fff8dc;
+  border:2px solid #eadca6;
+}
+.checklist{
+  background:white;
+  border-radius:12px;
+  padding:15px;
+  margin:15px 0;
+}
+.check-item{
+  padding:8px 0;
+  border-bottom:1px dashed #ddd;
+}
+.check-item:last-child{border:0}
+
+.final-badge{
+  text-align:center;
+  font-size:22px;
+  padding:18px;
+  background:#f2f7ef;
+  border-radius:15px;
+  margin:20px 0;
+}
+
+@media(max-width:750px){
+  .info-grid,
+  .challenge-grid{
+    grid-template-columns:1fr;
+  }
+}
+@media print{
+  body{background:white}
+  .buttons{display:none}
+  .card{
+    box-shadow:none;
+    border:1px solid #ddd;
+  }
+}
+</style>
+<meta name="description" content="健康存摺：吃、睡、動的期初盤點、三項挑戰、好友驗證與期末回顧。">
+<link rel="canonical" href="https://drpeipei.com/health-passbook.html">
+</head>
+
+<body>
+
+<div class="container">
+<nav class="buttons" style="text-align:left"><a href="five-passbooks.html" style="color:#496f59">← 回五大存摺</a></nav>
+<p style="color:#666;font-size:14px">填寫後請按「儲存健康存摺」。資料只保存在目前的瀏覽器，不會上傳；下次請使用同一台裝置與瀏覽器開啟。可列印或另存 PDF 留存。</p>
+
+<div class="hero">
+  <h1>🌱 我的健康存摺</h1>
+  <p>吃・睡・動｜一個月健康挑戰</p>
+  <strong>每一次小小的改變，都是替自己的身體存下一筆。</strong>
+</div>
+
+<div class="path">
+  <span>① 期初盤點</span>
+  <span>→</span>
+  <span>② 三項挑戰</span>
+  <span>→</span>
+  <span>③ 好友驗證</span>
+  <span>→</span>
+  <span>④ 期末盤點</span>
+  <span>→</span>
+  <span>⑤ 人文素養認證</span>
+</div>
+
+<!-- 基本資料 -->
+<div class="card">
+<h2>👤 我的資料</h2>
+
+<div class="info-grid">
+
+<div>
+<label>姓名</label>
+<input type="text" id="name">
+</div>
+
+<div>
+<label>學號</label>
+<input type="text" id="studentId">
+</div>
+
+<div>
+<label>班級</label>
+<input type="text" id="className">
+</div>
+
+<div>
+<label>期初填寫日期</label>
+<input type="date" id="startDate">
+</div>
+
+<div>
+<label>挑戰開始日期</label>
+<input type="date" id="challengeStart">
+</div>
+
+<div>
+<label>預計完成日期</label>
+<input type="date" id="challengeEnd">
+</div>
+
+</div>
+</div>
+
+
+<!-- 期初 -->
+<div class="card">
+
+<h2>🌱 第一步｜現在的我</h2>
+<p class="subtitle">
+想想最近一週的自己。這不是考試，只是看看現在的生活。
+</p>
+
+<div id="preQuestions"></div>
+
+<div class="buttons">
+<button class="primary" onclick="showPreRadar()">
+看看現在的我
+</button>
+</div>
+
+<div class="result" id="preResult">
+
+<div class="scores">
+<div class="score">🍚 吃<strong id="preEat">0</strong></div>
+<div class="score">😴 睡<strong id="preSleep">0</strong></div>
+<div class="score">🚶 動<strong id="preMove">0</strong></div>
+</div>
+
+<canvas id="preRadar" width="550" height="450"></canvas>
+
+</div>
+</div>
+
+
+<!-- 三項挑戰 -->
+<div class="card">
+
+<h2>✨ 第二步｜我的三個健康挑戰</h2>
+
+<p class="subtitle">
+一次選好三件想改變的小事。挑戰過的事情，不是做完就丟掉，而是試著把它留下來。
+</p>
+
+<div class="challenge-grid">
+
+<!-- 1 -->
+<div class="challenge">
+<h3>🌱 挑戰 1</h3>
+
+<div class="type-options">
+<label><input type="radio" name="type1" value="吃"> 🍚吃</label>
+<label><input type="radio" name="type1" value="睡"> 😴睡</label>
+<label><input type="radio" name="type1" value="動"> 🚶動</label>
+</div>
+
+<label>我要挑戰</label>
+<textarea id="challenge1"
+placeholder="例如：每天喝1500ml水"></textarea>
+
+<label>我的佐證</label>
+<textarea id="evidence1"
+placeholder="照片、截圖、APP紀錄……"></textarea>
+</div>
+
+<!-- 2 -->
+<div class="challenge">
+<h3>🌱 挑戰 2</h3>
+
+<div class="type-options">
+<label><input type="radio" name="type2" value="吃"> 🍚吃</label>
+<label><input type="radio" name="type2" value="睡"> 😴睡</label>
+<label><input type="radio" name="type2" value="動"> 🚶動</label>
+</div>
+
+<label>我要挑戰</label>
+<textarea id="challenge2"
+placeholder="例如：晚上12點以前睡"></textarea>
+
+<label>我的佐證</label>
+<textarea id="evidence2"></textarea>
+</div>
+
+<!-- 3 -->
+<div class="challenge">
+<h3>🌱 挑戰 3</h3>
+
+<div class="type-options">
+<label><input type="radio" name="type3" value="吃"> 🍚吃</label>
+<label><input type="radio" name="type3" value="睡"> 😴睡</label>
+<label><input type="radio" name="type3" value="動"> 🚶動</label>
+</div>
+
+<label>我要挑戰</label>
+<textarea id="challenge3"
+placeholder="例如：每天走6000步"></textarea>
+
+<label>我的佐證</label>
+<textarea id="evidence3"></textarea>
+</div>
+
+</div>
+
+
+<div class="friend-box">
+
+<h3>🤝 健康好朋友驗證</h3>
+
+<p>
+我有看過好朋友的健康挑戰與紀錄，
+確認這些挑戰真的有實踐過。
+</p>
+
+<table class="verify-table">
+
+<tr>
+<th>健康挑戰</th>
+<th>好朋友確認</th>
+</tr>
+
+<tr>
+<td>挑戰 1</td>
+<td><label><input type="checkbox" id="friend1"> 我有看到</label></td>
+</tr>
+
+<tr>
+<td>挑戰 2</td>
+<td><label><input type="checkbox" id="friend2"> 我有看到</label></td>
+</tr>
+
+<tr>
+<td>挑戰 3</td>
+<td><label><input type="checkbox" id="friend3"> 我有看到</label></td>
+</tr>
+
+</table>
+
+<div class="info-grid" style="margin-top:15px">
+
+<div>
+<label>好朋友姓名</label>
+<input type="text" id="friendName">
+</div>
+
+<div>
+<label>驗證日期</label>
+<input type="date" id="friendDate">
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- 一個月後 -->
+<div class="card">
+
+<h2>🌳 第三步｜一個月後的我</h2>
+
+<div style="margin-bottom:15px">
+<label>期末填寫日期</label>
+<input type="date" id="endDate">
+</div>
+
+<p class="subtitle">
+再回答一次相同的12題，看看有什麼改變留下來了。
+</p>
+
+<div id="postQuestions"></div>
+
+<h3>🌱 三筆健康存款，現在還在嗎？</h3>
+
+<div class="verify-table">
+
+<div>
+<strong>挑戰 1</strong>
+<div class="status-options">
+<label><input type="radio" name="keep1" value="持續"> 😊 有持續</label>
+<label><input type="radio" name="keep1" value="偶爾"> 🙂 偶爾做到</label>
+<label><input type="radio" name="keep1" value="努力"> 🌱 還在努力</label>
+</div>
+</div>
+
+<div>
+<strong>挑戰 2</strong>
+<div class="status-options">
+<label><input type="radio" name="keep2" value="持續"> 😊 有持續</label>
+<label><input type="radio" name="keep2" value="偶爾"> 🙂 偶爾做到</label>
+<label><input type="radio" name="keep2" value="努力"> 🌱 還在努力</label>
+</div>
+</div>
+
+<div>
+<strong>挑戰 3</strong>
+<div class="status-options">
+<label><input type="radio" name="keep3" value="持續"> 😊 有持續</label>
+<label><input type="radio" name="keep3" value="偶爾"> 🙂 偶爾做到</label>
+<label><input type="radio" name="keep3" value="努力"> 🌱 還在努力</label>
+</div>
+</div>
+
+</div>
+
+
+<div class="reflection">
+
+<h3>💭 回頭看看這一個月</h3>
+
+<label>1. 我最大的改變是什麼？</label>
+<textarea id="reflection1"></textarea>
+
+<label>2. 哪一件事真的留下來了？</label>
+<textarea id="reflection2"></textarea>
+
+<label>3. 接下來，我還想繼續什麼？</label>
+<textarea id="reflection3"></textarea>
+
+</div>
+
+
+<div class="buttons">
+<button class="primary" onclick="compareRadar()">
+看看一個月前後的我
+</button>
+</div>
+
+<div class="result" id="compareResult">
+
+<h2>我的健康雷達圖</h2>
+
+<div class="scores">
+
+<div class="score">
+🍚 吃
+<strong id="changeEat">－</strong>
+</div>
+
+<div class="score">
+😴 睡
+<strong id="changeSleep">－</strong>
+</div>
+
+<div class="score">
+🚶 動
+<strong id="changeMove">－</strong>
+</div>
+
+</div>
+
+<canvas id="compareRadar" width="550" height="450"></canvas>
+
+<p>
+灰色＝一個月前　｜　綠色＝一個月後
+</p>
+
+</div>
+</div>
+
+
+<!-- 領頭羊 -->
+<div class="card certification">
+
+<h2>🐑 第四步｜人文素養認證</h2>
+
+<p>
+這裡由<strong>人文素養領頭羊</strong>查看完整學習歷程。
+不是評斷誰比較健康，而是確認這一次學習歷程是否完整。
+</p>
+
+<div class="checklist">
+
+<div class="check-item">
+<label><input type="checkbox" id="leaderCheck1">
+ 已完成期初健康盤點</label>
+</div>
+
+<div class="check-item">
+<label><input type="checkbox" id="leaderCheck2">
+ 已設定三項健康挑戰</label>
+</div>
+
+<div class="check-item">
+<label><input type="checkbox" id="leaderCheck3">
+ 三項挑戰皆有佐證／紀錄</label>
+</div>
+
+<div class="check-item">
+<label><input type="checkbox" id="leaderCheck4">
+ 已完成好朋友驗證</label>
+</div>
+
+<div class="check-item">
+<label><input type="checkbox" id="leaderCheck5">
+ 已完成期末健康盤點</label>
+</div>
+
+<div class="check-item">
+<label><input type="checkbox" id="leaderCheck6">
+ 已完成一個月反思</label>
+</div>
+
+</div>
+
+
+<h3>領頭羊認證結果</h3>
+
+<div class="status-options">
+
+<label>
+<input type="radio"
+name="certResult"
+value="通過">
+✓ 通過認證
+</label>
+
+<label>
+<input type="radio"
+name="certResult"
+value="補件">
+△ 資料待補
+</label>
+
+</div>
+
+<div class="info-grid" style="margin-top:15px">
+
+<div>
+<label>認證人</label>
+<input type="text" id="leaderName">
+</div>
+
+<div>
+<label>認證日期</label>
+<input type="date" id="certDate">
+</div>
+
+</div>
+
+<div class="final-badge">
+🌱 <strong>健康存摺｜人文素養認證</strong>
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<button class="primary" onclick="saveAll()">
+💾 儲存健康存摺
+</button>
+
+<button class="secondary" onclick="window.print()">
+📄 列印／另存PDF
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ===== 12題 ===== */
+
+const questions={
+
+eat:[
+"我有好好吃飯。",
+"我有吃蛋白質（肉、蛋、豆、魚）。",
+"我有吃蔬菜水果。",
+"我有喝足夠的水。"
+],
+
+sleep:[
+"我白天有接觸陽光。",
+"我大多在固定時間睡覺。",
+"我有睡飽。",
+"我起床時心情是舒服的。"
+],
+
+move:[
+"我每天有走路。",
+"我不會一直坐著，會起來活動。",
+"我會做不同方向的動作。",
+"我有讓自己流汗或喘一下。"
+]
+
+};
+
+
+function createQuestions(prefix,container){
+
+const box=document.getElementById(container);
+
+const names={
+eat:"🍚 吃",
+sleep:"😴 睡",
+move:"🚶 動"
+};
+
+Object.keys(questions).forEach(type=>{
+
+const title=document.createElement("div");
+title.className="category-title";
+title.textContent=names[type];
+box.appendChild(title);
+
+questions[type].forEach((q,i)=>{
+
+const div=document.createElement("div");
+div.className="question";
+
+let html=`
+<div class="question-text">${i+1}. ${q}</div>
+<div class="scale">
+`;
+
+for(let n=1;n<=5;n++){
+
+html+=`
+<label>
+<input type="radio"
+name="${prefix}_${type}_${i}"
+value="${n}">
+<br>${n}
+</label>
+`;
+
+}
+
+html+=`
+</div>
+<div class="scale-note">
+<span>幾乎沒有</span>
+<span>幾乎每天</span>
+</div>
+`;
+
+div.innerHTML=html;
+box.appendChild(div);
+
+});
+
+});
+
+}
+
+createQuestions("pre","preQuestions");
+createQuestions("post","postQuestions");
+
+
+/* ===== 計算 ===== */
+
+function average(prefix,type){
+
+let total=0;
+
+for(let i=0;i<4;i++){
+
+const r=document.querySelector(
+`input[name="${prefix}_${type}_${i}"]:checked`
+);
+
+if(!r)return null;
+
+total+=Number(r.value);
+
+}
+
+return total/4;
+
+}
+
+
+function showPreRadar(){
+
+const data=[
+average("pre","eat"),
+average("pre","sleep"),
+average("pre","move")
+];
+
+if(data.includes(null)){
+alert("請先完成12題喔！");
+return;
+}
+
+document.getElementById("preEat").textContent=data[0].toFixed(1);
+document.getElementById("preSleep").textContent=data[1].toFixed(1);
+document.getElementById("preMove").textContent=data[2].toFixed(1);
+
+document.getElementById("preResult").style.display="block";
+
+drawRadar("preRadar",data,null);
+
+}
+
+
+function compareRadar(){
+
+const pre=[
+average("pre","eat"),
+average("pre","sleep"),
+average("pre","move")
+];
+
+const post=[
+average("post","eat"),
+average("post","sleep"),
+average("post","move")
+];
+
+if(pre.includes(null)||post.includes(null)){
+alert("請先完成期初與期末問卷！");
+return;
+}
+
+document.getElementById("changeEat").textContent=
+pre[0].toFixed(1)+" → "+post[0].toFixed(1);
+
+document.getElementById("changeSleep").textContent=
+pre[1].toFixed(1)+" → "+post[1].toFixed(1);
+
+document.getElementById("changeMove").textContent=
+pre[2].toFixed(1)+" → "+post[2].toFixed(1);
+
+document.getElementById("compareResult").style.display="block";
+
+drawRadar("compareRadar",pre,post);
+
+}
+
+
+/* ===== 雷達圖 ===== */
+
+function drawRadar(id,before,after){
+
+const canvas=document.getElementById(id);
+const ctx=canvas.getContext("2d");
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+const cx=canvas.width/2;
+const cy=220;
+const radius=145;
+
+const angles=[
+-Math.PI/2,
+-Math.PI/2+2*Math.PI/3,
+-Math.PI/2+4*Math.PI/3
+];
+
+
+/* 網格 */
+
+for(let level=1;level<=5;level++){
+
+ctx.beginPath();
+
+angles.forEach((a,i)=>{
+
+const r=radius*level/5;
+
+const x=cx+Math.cos(a)*r;
+const y=cy+Math.sin(a)*r;
+
+if(i===0)ctx.moveTo(x,y);
+else ctx.lineTo(x,y);
+
+});
+
+ctx.closePath();
+ctx.strokeStyle="#ccc";
+ctx.stroke();
+
+}
+
+
+/* 軸 */
+
+angles.forEach(a=>{
+
+ctx.beginPath();
+ctx.moveTo(cx,cy);
+
+ctx.lineTo(
+cx+Math.cos(a)*radius,
+cy+Math.sin(a)*radius
+);
+
+ctx.strokeStyle="#ddd";
+ctx.stroke();
+
+});
+
+
+function shape(data,fill,stroke){
+
+ctx.beginPath();
+
+data.forEach((v,i)=>{
+
+const r=radius*v/5;
+
+const x=cx+Math.cos(angles[i])*r;
+const y=cy+Math.sin(angles[i])*r;
+
+if(i===0)ctx.moveTo(x,y);
+else ctx.lineTo(x,y);
+
+});
+
+ctx.closePath();
+
+ctx.fillStyle=fill;
+ctx.fill();
+
+ctx.strokeStyle=stroke;
+ctx.lineWidth=3;
+ctx.stroke();
+
+}
+
+shape(before,"rgba(100,100,100,.15)","#777");
+
+if(after){
+shape(after,"rgba(80,130,90,.22)","#477653");
+}
+
+
+/* 標籤 */
+
+const labels=["🍚 吃","😴 睡","🚶 動"];
+
+ctx.font="bold 20px Microsoft JhengHei";
+ctx.fillStyle="#333";
+ctx.textAlign="center";
+
+labels.forEach((label,i)=>{
+
+const r=radius+40;
+
+ctx.fillText(
+label,
+cx+Math.cos(angles[i])*r,
+cy+Math.sin(angles[i])*r+6
+);
+
+});
+
+}
+
+
+/* ===== 儲存 ===== */
+
+function radio(name){
+
+return document.querySelector(
+`input[name="${name}"]:checked`
+)?.value || "";
+
+}
+
+
+function collectQuestions(prefix){
+
+const result={};
+
+["eat","sleep","move"].forEach(type=>{
+
+result[type]=[];
+
+for(let i=0;i<4;i++){
+
+result[type].push(
+radio(`${prefix}_${type}_${i}`)
+);
+
+}
+
+});
+
+return result;
+
+}
+
+
+function saveAll(){
+
+const data={
+
+student:{
+name:document.getElementById("name").value,
+studentId:document.getElementById("studentId").value,
+className:document.getElementById("className").value
+},
+
+dates:{
+start:document.getElementById("startDate").value,
+challengeStart:document.getElementById("challengeStart").value,
+challengeEnd:document.getElementById("challengeEnd").value,
+end:document.getElementById("endDate").value
+},
+
+pre:collectQuestions("pre"),
+
+challenges:[
+
+{
+type:radio("type1"),
+challenge:document.getElementById("challenge1").value,
+evidence:document.getElementById("evidence1").value,
+keep:radio("keep1")
+},
+
+{
+type:radio("type2"),
+challenge:document.getElementById("challenge2").value,
+evidence:document.getElementById("evidence2").value,
+keep:radio("keep2")
+},
+
+{
+type:radio("type3"),
+challenge:document.getElementById("challenge3").value,
+evidence:document.getElementById("evidence3").value,
+keep:radio("keep3")
+}
+
+],
+
+friendVerification:{
+challenge1:document.getElementById("friend1").checked,
+challenge2:document.getElementById("friend2").checked,
+challenge3:document.getElementById("friend3").checked,
+name:document.getElementById("friendName").value,
+date:document.getElementById("friendDate").value
+},
+
+post:collectQuestions("post"),
+
+reflection:{
+change:document.getElementById("reflection1").value,
+remained:document.getElementById("reflection2").value,
+continue:document.getElementById("reflection3").value
+},
+
+certification:{
+
+checks:[
+document.getElementById("leaderCheck1").checked,
+document.getElementById("leaderCheck2").checked,
+document.getElementById("leaderCheck3").checked,
+document.getElementById("leaderCheck4").checked,
+document.getElementById("leaderCheck5").checked,
+document.getElementById("leaderCheck6").checked
+],
+
+result:radio("certResult"),
+
+leader:document.getElementById("leaderName").value,
+
+date:document.getElementById("certDate").value
+
+}
+
+};
+
+try {
+localStorage.setItem("healthPassbookFinal", JSON.stringify(data));
+} catch (error) {
+alert("儲存未成功，請先列印或另存 PDF 留存，再檢查瀏覽器的儲存設定。");
+return;
+}
+
+alert("🌱 健康存摺已儲存在這台裝置！");
+
+}
+
+
+/* ===== 今天日期 ===== */
+
+const now=new Date();
+const today=[now.getFullYear(),String(now.getMonth()+1).padStart(2,"0"),String(now.getDate()).padStart(2,"0")].join("-");
+
+document.getElementById("startDate").value=today;
+document.getElementById("challengeStart").value=today;
+
+
+function restoreSavedPassbook(){
+  try {
+    const raw=localStorage.getItem("healthPassbookFinal");
+    if(!raw)return;
+    const d=JSON.parse(raw);
+    const put=(id,v)=>{document.getElementById(id).value=v??"";};
+    const check=(id,v)=>{document.getElementById(id).checked=v===true;};
+    const select=(name,v)=>{document.querySelectorAll('input[type="radio"]').forEach(el=>{if(el.name===name)el.checked=el.value===String(v);});};
+    ["name","studentId","className"].forEach(id=>put(id,d.student?.[id]));
+    Object.entries({startDate:"start",challengeStart:"challengeStart",challengeEnd:"challengeEnd",endDate:"end"}).forEach(([id,k])=>put(id,d.dates?.[k]));
+    ["pre","post"].forEach(prefix=>["eat","sleep","move"].forEach(type=>{for(let i=0;i<4;i++)select(`${prefix}_${type}_${i}`,d[prefix]?.[type]?.[i]??"");}));
+    for(let i=1;i<=3;i++){
+      const c=d.challenges?.[i-1]??{};
+      select("type"+i,c.type);select("keep"+i,c.keep);
+      put("challenge"+i,c.challenge);put("evidence"+i,c.evidence);
+      check("friend"+i,d.friendVerification?.["challenge"+i]);
+    }
+    put("friendName",d.friendVerification?.name);put("friendDate",d.friendVerification?.date);
+    ["change","remained","continue"].forEach((k,i)=>put("reflection"+(i+1),d.reflection?.[k]));
+    for(let i=1;i<=6;i++)check("leaderCheck"+i,d.certification?.checks?.[i-1]);
+    select("certResult",d.certification?.result);put("leaderName",d.certification?.leader);put("certDate",d.certification?.date);
+    if(["eat","sleep","move"].every(t=>average("pre",t)!==null)){
+      showPreRadar();
+      if(["eat","sleep","move"].every(t=>average("post",t)!==null))compareRadar();
+    }
+  } catch(error){alert("無法讀取已存資料，請檢查瀏覽器設定或先前留存的 PDF。");}
+}
+restoreSavedPassbook();
+
+</script>
+
+</body>
+</html>

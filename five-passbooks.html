@@ -45,6 +45,15 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
 .statTable th{background:var(--soft)}
 .ok{font-weight:800;color:#496f66}.pending{color:#8a633d;font-weight:700}
 @media print{header,.tabs,.noPrint{display:none!important}.section{display:none!important}.section.printme{display:block!important}.card{box-shadow:none;break-inside:avoid}body{background:#fff}}
+
+.passbook-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;padding:24px 4px 32px}
+.passbook{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:238px;padding:26px 14px 26px 23px;border-radius:5px 17px 17px 5px;background:var(--cover);color:#fff;text-align:center;text-decoration:none;box-shadow:inset 9px 0 0 #0002,inset 12px 0 0 #ffffff15,3px 5px 0 #e5dfd3,3px 8px 0 #fff,3px 10px 0 #d8d0c2,0 14px 22px #27312f18}
+.passbook:after{content:'';position:absolute;inset:13px 11px 15px 22px;border:1px solid #ffffff55;border-radius:2px 9px 9px 2px;pointer-events:none}
+.passbook .book-number{font-size:12px;letter-spacing:3px;opacity:.85}.passbook strong{font-size:25px;letter-spacing:3px;margin:18px 0 12px}.passbook .book-rule{width:35px;border-top:2px solid #ffffff99;margin-bottom:16px}.passbook small{font-size:12px;line-height:1.8}.passbook .book-action{margin-top:18px;font-size:13px;padding:5px 12px;border-radius:20px;background:#ffffff20}
+a.passbook{transition:transform .2s}a.passbook:hover{transform:translateY(-6px)}a.passbook:focus-visible{outline:3px solid #27312f;outline-offset:7px}
+@media(max-width:800px){.passbook-shelf{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:500px){.passbook-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.passbook{min-height:225px}.passbook strong{font-size:23px}}
+@media(prefers-reduced-motion:reduce){a.passbook{transition:none}}
 </style>
 <!-- seo:auto -->
 <meta name="author" content="劉沂佩（佩佩老師）">
@@ -60,6 +69,7 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
 <p>開帳，看見現在的自己；存款，把經驗留下來；結帳，看見一學期走過的痕跡。</p>
 </header>
 <div class="wrap">
+<section class="noPrint" aria-label="五大存摺入口"><div class="passbook-shelf"><a class="passbook" style="--cover:#496f59" href="health-passbook.html" aria-label="開啟健康存摺：吃・睡・動"><span class="book-number">PASSBOOK 01</span><strong>健康存摺</strong><span class="book-rule"></span><small>吃・睡・動<br>一個月健康挑戰</small><span class="book-action">開啟存摺 →</span></a><div class="passbook" style="--cover:#456780"><span class="book-number">PASSBOOK 02</span><strong>學習存摺</strong><span class="book-rule"></span><small>累積每一次學習<br>&nbsp;</small><span class="book-action">專頁尚未開放</span></div><div class="passbook" style="--cover:#a85b56"><span class="book-number">PASSBOOK 03</span><strong>關係存摺</strong><span class="book-rule"></span><small>珍惜每一段關係<br>&nbsp;</small><span class="book-action">專頁尚未開放</span></div><div class="passbook" style="--cover:#836c9b"><span class="book-number">PASSBOOK 04</span><strong>承諾存摺</strong><span class="book-rule"></span><small>實踐對自己的承諾<br>&nbsp;</small><span class="book-action">專頁尚未開放</span></div><div class="passbook" style="--cover:#856b35"><span class="book-number">PASSBOOK 05</span><strong>連結存摺</strong><span class="book-rule"></span><small>與更大的世界連結<br>&nbsp;</small><span class="book-action">專頁尚未開放</span></div></div></section>
 <div class="tabs noPrint">
 <button data-tab="open" class="active">① 開帳</button>
 <button data-tab="deposit">② 我的存款</button>
@@ -257,7 +267,7 @@ document.querySelectorAll(".tabs button").forEach(btn=>btn.onclick=()=>{
 });
 
 function load(){
- name.value=state.name||"";sid.value=state.sid||"";openDate.value=state.openDate||"";allocWhy.value=state.allocWhy||"";
+ document.getElementById("name").value=state.name||"";sid.value=state.sid||"";openDate.value=state.openDate||"";allocWhy.value=state.allocWhy||"";
  BOOKS.forEach(b=>{document.getElementById("open_"+b).value=state.open?.[b]||3;document.getElementById("close_"+b).value=state.close?.[b]||3;document.getElementById("alloc_"+b).value=state.alloc?.[b]??20});
  ["r1","r2","r3","r4"].forEach(k=>document.getElementById(k).value=state.reflections?.[k]||"");
  const o=state.organization||{};
@@ -269,7 +279,7 @@ function load(){
  updateAlloc();render();drawCharts();
 }
 function saveAll(){
- state.name=name.value;state.sid=sid.value;state.openDate=openDate.value;state.allocWhy=allocWhy.value;
+ state.name=document.getElementById("name").value;state.sid=sid.value;state.openDate=openDate.value;state.allocWhy=allocWhy.value;
  BOOKS.forEach(b=>{state.open[b]=+document.getElementById("open_"+b).value;state.close[b]=+document.getElementById("close_"+b).value;state.alloc[b]=+document.getElementById("alloc_"+b).value||0});
  ["r1","r2","r3","r4"].forEach(k=>state.reflections[k]=document.getElementById(k).value);
  state.organization=state.organization||{};
