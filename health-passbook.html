@@ -370,6 +370,15 @@ placeholder="例如：每天喝1500ml水"></textarea>
 <label>我的佐證</label>
 <textarea id="evidence1"
 placeholder="照片、截圖、APP紀錄……"></textarea>
+<div class="friend-box">
+<h4>挑戰 1｜好友認證</h4>
+<label><input type="checkbox" id="friend1"> 我已看過這項挑戰的佐證，確認有實踐</label>
+<label for="friendName1">好友姓名</label>
+<input type="text" id="friendName1">
+<label for="friendDate1">認證日期</label>
+<input type="date" id="friendDate1">
+</div>
+
 </div>
 
 <!-- 2 -->
@@ -388,6 +397,15 @@ placeholder="例如：晚上12點以前睡"></textarea>
 
 <label>我的佐證</label>
 <textarea id="evidence2"></textarea>
+<div class="friend-box">
+<h4>挑戰 2｜好友認證</h4>
+<label><input type="checkbox" id="friend2"> 我已看過這項挑戰的佐證，確認有實踐</label>
+<label for="friendName2">好友姓名</label>
+<input type="text" id="friendName2">
+<label for="friendDate2">認證日期</label>
+<input type="date" id="friendDate2">
+</div>
+
 </div>
 
 <!-- 3 -->
@@ -406,61 +424,21 @@ placeholder="例如：每天走6000步"></textarea>
 
 <label>我的佐證</label>
 <textarea id="evidence3"></textarea>
-</div>
-
-</div>
-
-
 <div class="friend-box">
-
-<h3>🤝 健康好朋友驗證</h3>
-
-<p>
-我有看過好朋友的健康挑戰與紀錄，
-確認這些挑戰真的有實踐過。
-</p>
-
-<table class="verify-table">
-
-<tr>
-<th>健康挑戰</th>
-<th>好朋友確認</th>
-</tr>
-
-<tr>
-<td>挑戰 1</td>
-<td><label><input type="checkbox" id="friend1"> 我有看到</label></td>
-</tr>
-
-<tr>
-<td>挑戰 2</td>
-<td><label><input type="checkbox" id="friend2"> 我有看到</label></td>
-</tr>
-
-<tr>
-<td>挑戰 3</td>
-<td><label><input type="checkbox" id="friend3"> 我有看到</label></td>
-</tr>
-
-</table>
-
-<div class="info-grid" style="margin-top:15px">
-
-<div>
-<label>好朋友姓名</label>
-<input type="text" id="friendName">
-</div>
-
-<div>
-<label>驗證日期</label>
-<input type="date" id="friendDate">
+<h4>挑戰 3｜好友認證</h4>
+<label><input type="checkbox" id="friend3"> 我已看過這項挑戰的佐證，確認有實踐</label>
+<label for="friendName3">好友姓名</label>
+<input type="text" id="friendName3">
+<label for="friendDate3">認證日期</label>
+<input type="date" id="friendDate3">
 </div>
 
 </div>
 
 </div>
-</div>
 
+
+</div>
 
 <!-- 一個月後 -->
 <div class="card">
@@ -1040,11 +1018,12 @@ keep:radio("keep3")
 ],
 
 friendVerification:{
-challenge1:document.getElementById("friend1").checked,
-challenge2:document.getElementById("friend2").checked,
-challenge3:document.getElementById("friend3").checked,
-name:document.getElementById("friendName").value,
-date:document.getElementById("friendDate").value
+version:2,
+items:[1,2,3].map(i=>({
+confirmed:document.getElementById("friend"+i).checked,
+name:document.getElementById("friendName"+i).value,
+date:document.getElementById("friendDate"+i).value
+}))
 },
 
 post:collectQuestions("post"),
@@ -1112,9 +1091,16 @@ function restoreSavedPassbook(){
       const c=d.challenges?.[i-1]??{};
       select("type"+i,c.type);select("keep"+i,c.keep);
       put("challenge"+i,c.challenge);put("evidence"+i,c.evidence);
-      check("friend"+i,d.friendVerification?.["challenge"+i]);
+      const verification=d.friendVerification;
+      const legacyConfirmed=verification?.["challenge"+i]===true;
+      const friend=verification?.version===2 ? verification.items?.[i-1] : {
+        confirmed:legacyConfirmed,
+        name:legacyConfirmed ? verification?.name : "",
+        date:legacyConfirmed ? verification?.date : ""
+      };
+      check("friend"+i,friend?.confirmed);
+      put("friendName"+i,friend?.name);put("friendDate"+i,friend?.date);
     }
-    put("friendName",d.friendVerification?.name);put("friendDate",d.friendVerification?.date);
     ["change","remained","continue"].forEach((k,i)=>put("reflection"+(i+1),d.reflection?.[k]));
     for(let i=1;i<=6;i++)check("leaderCheck"+i,d.certification?.checks?.[i-1]);
     select("certResult",d.certification?.result);put("leaderName",d.certification?.leader);put("certDate",d.certification?.date);
