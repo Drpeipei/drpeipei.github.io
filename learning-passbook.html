@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的學習存摺｜輸入・思維・輸出</title>
+<style>
+:root{
+  --bg:#f7f4ee; --paper:#fff; --ink:#27312f; --muted:#626e77;
+  --line:#dbe2e6; --soft:#edf3f7; --accent:#456780;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.65}
+.wrap{max-width:1050px;margin:auto;padding:28px 18px 70px}
+header{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px}
+h1{margin:0;font-size:32px}.sub{color:var(--muted);margin-top:6px}
+.model{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.model div{background:var(--soft);padding:18px;border-radius:16px;text-align:center}
+.model b{font-size:21px;display:block}
+section{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:25px;margin-top:18px}
+h2{margin-top:0;font-size:23px} h3{margin:22px 0 8px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+label{display:block;font-weight:700;margin-bottom:5px}
+input[type=text],input[type=date],input[type=number],textarea,select{
+ width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:white;font:inherit
+}
+textarea{min-height:82px;resize:vertical}
+.note{color:var(--muted);font-size:14px}
+.q{padding:14px 0;border-bottom:1px dashed var(--line)}
+.scale{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
+.scale label{font-weight:400;background:var(--soft);padding:5px 10px;border-radius:9px}
+.challenge{border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:14px}
+.checks label{font-weight:400;margin:6px 0}
+button{border:0;border-radius:12px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer;margin:6px 6px 0 0}
+.primary{background:var(--accent);color:white}.secondary{background:var(--soft);color:var(--ink)}
+.result{background:var(--soft);padding:15px;border-radius:13px;margin-top:14px}
+.radarWrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+canvas{width:100%;max-width:420px;height:auto;margin:auto;display:block}
+.badge{display:inline-block;padding:5px 10px;border-radius:99px;background:var(--soft);margin:3px}
+@media(max-width:720px){.model,.grid,.radarWrap{grid-template-columns:1fr}h1{font-size:27px}}
+@media print{
+ body{background:white}.wrap{max-width:none;padding:0}button{display:none}
+ section,header{break-inside:avoid;box-shadow:none}.note.screenOnly{display:none}
+}
+
+.site-nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 24px;font-size:14px}
+a{color:var(--accent);text-underline-offset:4px}.site-nav a{text-decoration:none;font-weight:700}
+header{position:relative;background:linear-gradient(135deg,#edf3f7,#fff 70%);border-top:5px solid var(--accent);padding:38px;border-radius:6px 22px 22px 6px;box-shadow:inset 8px 0 0 #45678012,0 8px 24px #27312f08}
+.eyebrow{font-size:12px;letter-spacing:3px;color:var(--accent);font-weight:700;margin-bottom:12px}
+h1{font-size:clamp(28px,5vw,40px);letter-spacing:2px}.sub{max-width:700px;margin-top:12px}
+.model div{background:#ffffffb8;border:1px solid var(--line);padding:20px 14px}.model b{color:var(--accent);margin-bottom:5px}
+.journey{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}.journey a{background:white;border:1px solid var(--line);border-radius:24px;text-decoration:none;padding:8px 13px;font-size:14px}
+section{box-shadow:0 5px 18px #27312f06;scroll-margin-top:20px}h2{color:var(--accent);font-size:clamp(20px,3vw,24px);border-bottom:1px solid var(--line);padding-bottom:14px}h3{color:var(--accent)}
+.challenge{padding:24px;border-top:4px solid var(--accent);background:#fbfcfd;margin-top:24px}.challenge h3{margin-top:0}.challenge .result{margin-top:24px;border:1px solid #d7e5ee}
+label{margin-top:12px}.grid>div{min-width:0}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;margin:10px 0 18px}.checks label{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:white;margin:0}
+input[type=radio],input[type=checkbox]{accent-color:var(--accent);width:18px;height:18px;vertical-align:middle;margin-right:5px}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:520px}.scale label{display:flex;align-items:center;justify-content:center;gap:4px;margin:0;padding:10px 5px;cursor:pointer;border:1px solid transparent}.scale label:has(input:checked){border-color:var(--accent);background:#dce9f2;color:#294a63;font-weight:700}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #7296b0;outline-offset:3px}
+input[readonly]{background:var(--soft);font-weight:700}button{min-height:44px}.primary:hover{background:#34566f}.save-panel{border-top:4px solid var(--accent)}#saveMsg{min-height:24px;margin-top:12px;color:var(--accent)}
+.radarWrap{margin-top:18px}.q b{font-weight:600}.badge{font-size:14px;padding:8px 12px}.page-footer{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+@media(max-width:720px){header{padding:26px 20px}.wrap{padding:18px 14px 40px}section{padding:20px 16px}.challenge{padding:18px 14px}.model{gap:8px}.model div{padding:14px}.checks{grid-template-columns:1fr}.grid{gap:10px}.journey a{font-size:13px}button{margin-top:10px}}
+@media print{.site-nav,.journey,.page-footer,.screenOnly{display:none!important}header{background:white;border-top:2px solid #456780}section{break-inside:auto}.challenge,.radarWrap,.q{break-inside:avoid}.scale{max-width:520px}}
+</style>
+<meta name="description" content="我的學習存摺：透過輸入、思維、輸出三個挑戰，記錄學習方法、好友認證與期初期末變化。">
+<link rel="canonical" href="https://drpeipei.com/learning-passbook.html">
+<link rel="icon" type="image/jpeg" href="peipei-mascot.jpg">
+<meta property="og:title" content="我的學習存摺｜輸入・思維・輸出">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://drpeipei.com/learning-passbook.html">
+<!-- seo:auto -->
+<meta name="author" content="劉沂佩（佩佩老師）">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="alternate" hreflang="zh-Hant" href="https://drpeipei.com/learning-passbook.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://drpeipei.com/#org", "name": "佩佩老師的會計魔法教室", "alternateName": "Dr. Peipei", "url": "https://drpeipei.com/", "logo": "https://drpeipei.com/peipei-mascot.jpg", "image": "https://drpeipei.com/peipei-photo.jpg", "email": "lyipei@gmail.com", "founder": {"@type": "Person", "name": "劉沂佩", "alternateName": "佩佩老師", "url": "https://drpeipei.com/about.html"}, "sameAs": ["https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/"], "areaServed": "TW", "knowsAbout": ["永續會計", "ESG", "IFRS S1", "IFRS S2", "SASB", "GRI", "永續報告書", "內部控制", "碳盤查", "ISO 14064-1", "ISO 14067", "CBAM", "非營利組織財務", "會計教育"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://drpeipei.com/"}, {"@type": "ListItem", "position": 2, "name": "我的學習存摺", "item": "https://drpeipei.com/learning-passbook.html"}]}, {"@type": "WebApplication", "name": "我的學習存摺｜輸入・思維・輸出", "description": "學習存摺：輸入、思維、輸出三個挑戰", "url": "https://drpeipei.com/learning-passbook.html", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "佩佩老師的會計魔法教室", "url": "https://drpeipei.com/"}, "author": {"@type": "Person", "name": "劉沂佩", "url": "https://drpeipei.com/about.html"}, "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TWD"}}]}</script>
+<!-- /seo:auto -->
+</head>
+<body>
+<div class="wrap">
+<nav class="site-nav" aria-label="網站導覽"><a href="five-passbooks.html">← 回五大存摺</a><a href="index.html">佩佩老師的會計魔法教室</a></nav>
+<header><div class="eyebrow">PASSBOOK 02 · 學習存摺</div>
+  <h1>📘 我的學習存摺</h1>
+  <div class="sub">不是找出「我是哪一型」，而是透過挑戰，看見自己怎麼學會一件事。</div>
+  <div class="model">
+    <div>📥<b>輸入</b>我怎麼接收與取得資訊？</div>
+    <div>🧠<b>思維</b>我的腦袋怎麼整理、連結與理解？</div>
+    <div>📤<b>輸出</b>我要在哪個情境把它用出來？</div>
+  </div>
+<nav class="journey" aria-label="學習存摺章節"><a href="#profile">我的資料</a><a href="#opening">① 期初盤點</a><a href="#challenges">② 三個挑戰</a><a href="#closing">③ 期末回顧</a><a href="#certification">④ 人文素養認證</a><a href="#records">儲存紀錄</a></nav></header>
+
+<form id="book">
+<section id="profile">
+<h2>0｜我的學習存摺</h2>
+<div class="grid">
+ <div><label for="field_name">姓名</label><input name="name" type="text" id="field_name"></div>
+ <div><label for="field_sid">學號</label><input name="sid" type="text" id="field_sid"></div>
+ <div><label for="field_class">班級</label><input name="class" type="text" id="field_class"></div>
+ <div><label for="field_start">開始日期</label><input name="start" type="date" id="field_start"></div>
+</div>
+</section>
+
+<section id="opening">
+<h2>1｜期初盤點：現在的我怎麼學？</h2>
+<p class="note">1＝很少做到　2＝偶爾　3＝有時　4＝常常　5＝很符合我。這不是能力測驗，只是先看見現在的自己。</p>
+<div id="preQuestions"></div>
+<button type="button" class="secondary" onclick="drawRadar('pre')">畫出我的期初學習雷達圖</button>
+<div class="radarWrap">
+ <canvas id="preRadar" width="420" height="420"></canvas>
+ <div class="result" id="preResult">完成12題後，看看自己的「輸入・思維・輸出」。</div>
+</div>
+</section>
+
+<section id="challenges">
+<h2>2｜三個學習挑戰</h2>
+<p>核心不是把自己貼上標籤，而是用三次挑戰驗證：<b>我怎麼輸入、我怎麼想懂、我要怎麼用。</b></p>
+
+<div class="challenge">
+<h3>📥 挑戰一｜換一種方法學</h3>
+<p>選一個會計主題，用不同來源學同一件事；其中至少一次使用圖書館資源。</p>
+<div class="grid">
+ <div><label for="field_input_topic">我要學的會計主題</label><input name="input_topic" type="text" placeholder="例如：會計基本假設" id="field_input_topic"></div>
+ <div><label for="field_input_old">我原本最常用的方式</label><input name="input_old" type="text" placeholder="例如：聽老師講、看中文書" id="field_input_old"></div>
+</div>
+<label>這次我使用哪些輸入來源？</label>
+<div class="checks">
+ <label><input type="checkbox" name="src_class"> 老師／課堂</label>
+ <label><input type="checkbox" name="src_chinese"> 中文書</label>
+ <label><input type="checkbox" name="src_english"> 原文書</label>
+ <label><input type="checkbox" name="src_chart"> 圖表／架構</label>
+ <label><input type="checkbox" name="src_video"> 影片</label>
+ <label><input type="checkbox" name="src_peer"> 同學／TA</label>
+ <label><input type="checkbox" name="src_ai"> AI</label>
+ <label><input type="checkbox" name="src_library"> 📚 圖書館資源</label>
+</div>
+<label for="field_library_resource">我在圖書館找到什麼？</label><input name="library_resource" type="text" placeholder="書名、電子書、資料庫或其他資源" id="field_library_resource">
+<label for="field_input_reflect">挑戰後：哪一種輸入最能幫助我理解？我怎麼知道？</label><textarea name="input_reflect" id="field_input_reflect"></textarea>
+<label for="field_input_evidence">佐證（照片／截圖／頁碼／連結說明）</label><textarea name="input_evidence" id="field_input_evidence"></textarea>
+<div class="result">
+  <b>👥 好友認證｜輸入挑戰</b>
+  <p class="note">好友只認證：我有看見你真的完成這次挑戰。</p>
+  <label><input type="checkbox" name="friend_input_ok"> 我確認他已完成「輸入」挑戰。</label>
+  <div class="grid">
+    <div><label for="field_friend_input_name">好友姓名</label><input name="friend_input_name" type="text" id="field_friend_input_name"></div>
+    <div><label for="field_friend_input_date">認證日期</label><input name="friend_input_date" type="date" id="field_friend_input_date"></div>
+  </div>
+</div>
+</div>
+
+<div class="challenge">
+<h3>🧠 挑戰二｜看見我的思維路徑</h3>
+<p>找一個原本不會的觀念或題目，記錄自己怎麼從「不懂」走到「比較懂」。</p>
+<label for="field_thinking_problem">我原本卡住的是什麼？</label><input name="thinking_problem" type="text" id="field_thinking_problem">
+<label for="field_thinking_path">我的思考路徑</label><textarea name="thinking_path" placeholder="例如：看題目 → 找關鍵字 → 判斷題型 → 找定義 → 看例題 → 自己再做一次" id="field_thinking_path"></textarea>
+<label>我發現自己常用哪些思維動作？</label>
+<div class="checks">
+ <label><input type="checkbox" name="think_classify"> 分類</label>
+ <label><input type="checkbox" name="think_compare"> 比較</label>
+ <label><input type="checkbox" name="think_connect"> 連結</label>
+ <label><input type="checkbox" name="think_example"> 舉例</label>
+ <label><input type="checkbox" name="think_reason"> 推理</label>
+ <label><input type="checkbox" name="think_draw"> 畫圖／建構架構</label>
+ <label><input type="checkbox" name="think_explain"> 用自己的話解釋</label>
+ <label><input type="checkbox" name="think_correct"> 做錯後修正</label>
+</div>
+<label for="field_thinking_reflect">挑戰後：原來我的腦袋是怎麼把事情想懂的？</label><textarea name="thinking_reflect" id="field_thinking_reflect"></textarea>
+<div class="result">
+  <b>👥 好友認證｜思維挑戰</b>
+  <p class="note">好友只認證：我有看見你真的完成這次挑戰。</p>
+  <label><input type="checkbox" name="friend_thinking_ok"> 我確認他已完成「思維」挑戰。</label>
+  <div class="grid">
+    <div><label for="field_friend_thinking_name">好友姓名</label><input name="friend_thinking_name" type="text" id="field_friend_thinking_name"></div>
+    <div><label for="field_friend_thinking_date">認證日期</label><input name="friend_thinking_date" type="date" id="field_friend_thinking_date"></div>
+  </div>
+</div>
+</div>
+
+<div class="challenge">
+<h3>📤 挑戰三｜先想怎麼用，再決定怎麼學</h3>
+<label for="field_output_context">這次我要把會計用在哪個情境？</label><select name="output_context" id="field_output_context">
+ <option value="">請選擇</option>
+ <option>通過考試</option><option>獨立解題</option><option>講給別人聽</option>
+ <option>看懂公司資料／財務報表</option><option>未來工作使用</option><option>其他</option>
+</select>
+<label for="field_output_goal">我的具體輸出目標</label><textarea name="output_goal" placeholder="例如：我希望可以不看答案，獨立完成交易分析題。" id="field_output_goal"></textarea>
+<div class="grid">
+ <div><label for="field_practice_type">我要練的題型</label><select name="practice_type" id="field_practice_type"><option value="">請選擇</option><option>Quick Study</option><option>Exercise</option><option>Problem A</option><option>Problem B</option><option>其他</option></select></div>
+ <div><label for="targetCount">目標題數</label><input name="target_count" id="targetCount" type="number" min="0"></div>
+ <div><label for="doneCount">實際完成題數</label><input name="done_count" id="doneCount" type="number" min="0"></div>
+ <div><label for="rate">達成率</label><input id="rate" type="text" readonly></div>
+</div>
+<label for="field_output_reflect">挑戰後：我設定的輸出情境，真的做到了嗎？</label><textarea name="output_reflect" id="field_output_reflect"></textarea>
+<div class="result">
+  <b>👥 好友認證｜輸出挑戰</b>
+  <p class="note">好友只認證：我有看見你真的完成這次挑戰。</p>
+  <label><input type="checkbox" name="friend_output_ok"> 我確認他已完成「輸出」挑戰。</label>
+  <div class="grid">
+    <div><label for="field_friend_output_name">好友姓名</label><input name="friend_output_name" type="text" id="field_friend_output_name"></div>
+    <div><label for="field_friend_output_date">認證日期</label><input name="friend_output_date" type="date" id="field_friend_output_date"></div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<section id="closing">
+<h2>3｜期末盤點：挑戰後的我</h2>
+<div id="postQuestions"></div>
+<button type="button" class="secondary" onclick="drawCompare()">比較我的前後變化</button>
+<div class="radarWrap">
+ <canvas id="compareRadar" width="420" height="420"></canvas>
+ <div class="result" id="postResult">完成期末12題後，比較自己哪一個面向有變化。</div>
+</div>
+<h3>我的學習反思</h3>
+<label for="field_final1">1. 我現在更知道什麼方式能幫助我學進去了嗎？</label><textarea name="final1" id="field_final1"></textarea>
+<label for="field_final2">2. 我現在更看得見自己的思考方式了嗎？</label><textarea name="final2" id="field_final2"></textarea>
+<label for="field_final3">3. 下一次學一個新東西，我會怎麼設定「使用情境」？</label><textarea name="final3" id="field_final3"></textarea>
+</section>
+
+<section id="certification">
+<h2>4｜領頭羊・人文素養認證</h2>
+<p class="note">領頭羊看總結果，不逐筆評判學生的方法好不好。</p>
+<div class="checks">
+ <label><input type="checkbox" name="cert_pre"> 已完成期初盤點</label>
+ <label><input type="checkbox" name="cert_input"> 已完成輸入挑戰（含圖書館資源）</label>
+ <label><input type="checkbox" name="cert_thinking"> 已完成思維挑戰</label>
+ <label><input type="checkbox" name="cert_output"> 已完成輸出挑戰</label>
+ <label><input type="checkbox" name="cert_friend"> 三個挑戰皆已完成好友認證</label>
+ <label><input type="checkbox" name="cert_post"> 已完成期末盤點與反思</label>
+</div>
+<h3>「成為學習的主人」人文素養認證</h3>
+<label><input type="radio" name="cert_result" value="通過"> 通過認證</label>
+<label><input type="radio" name="cert_result" value="待補"> 資料待補</label>
+<div class="grid">
+ <div><label for="field_certifier">領頭羊／認證人</label><input name="certifier" type="text" id="field_certifier"></div>
+ <div><label for="field_cert_date">認證日期</label><input name="cert_date" type="date" id="field_cert_date"></div>
+</div>
+</section>
+
+<section id="records" class="save-panel">
+<h2>我的學習存摺紀錄</h2>
+<span class="badge">📥 輸入：我怎麼接收資訊</span>
+<span class="badge">🧠 思維：我怎麼把它想懂</span>
+<span class="badge">📤 輸出：我要怎麼使用</span>
+<p class="note screenOnly">資料只儲存在目前這台瀏覽器。可按「儲存」後下次繼續填寫，也可以列印／另存 PDF。</p>
+<button type="button" class="primary" onclick="saveForm()">💾 儲存</button>
+<button type="button" class="secondary" onclick="loadForm()">↩️ 讀取上次紀錄</button>
+<button type="button" class="secondary" onclick="window.print()">📄 列印／另存 PDF</button>
+<button type="button" class="secondary" onclick="clearForm()">清除重填</button>
+<div id="saveMsg" class="note" role="status" aria-live="polite"></div>
+</section>
+</form><footer class="page-footer">佩佩老師的會計魔法教室 · 五大存摺<br>每一次學會，都是替自己存下一筆。</footer>
+</div>
+
+<script>
+const groups = {
+ input:[
+  "我知道自己在什麼情況下比較容易專心接收資訊。",
+  "遇到不懂的內容，我會換不同來源或方式再看一次。",
+  "我會利用課本的大綱、小標、圖表或關鍵詞幫助自己閱讀。",
+  "我知道除了老師之外，還可以去哪裡找到學習資源。"
+ ],
+ thinking:[
+  "遇到不懂的內容，我會試著找出自己到底卡在哪裡。",
+  "我會把新知識和已經知道的事情連在一起。",
+  "我會用分類、比較、舉例、畫圖或自己的話整理觀念。",
+  "做錯題目時，我會回頭找原因，而不只是看答案。"
+ ],
+ output:[
+  "開始學習前，我會先想這個知識將來要拿來做什麼。",
+  "我會依照使用情境，決定自己需要學到什麼程度。",
+  "我會替自己設定具體可完成的練習目標。",
+  "完成後，我會檢查自己是否真的能把學到的東西用出來。"
+ ]
+};
+const titles={input:"📥 輸入",thinking:"🧠 思維",output:"📤 輸出"};
+
+function makeQuestions(container,prefix){
+ let html="";
+ Object.entries(groups).forEach(([g,qs])=>{
+   html+=`<h3>${titles[g]}</h3>`;
+   qs.forEach((q,i)=>{
+     let name=`${prefix}_${g}_${i}`;
+     html+=`<div class="q"><b>${q}</b><div class="scale">`;
+     for(let n=1;n<=5;n++) html+=`<label><input type="radio" name="${name}" value="${n}"> ${n}</label>`;
+     html+=`</div></div>`;
+   });
+ });
+ document.getElementById(container).innerHTML=html;
+}
+makeQuestions("preQuestions","pre");
+makeQuestions("postQuestions","post");
+
+function score(prefix){
+ return ["input","thinking","output"].map(g=>{
+   let vals=groups[g].map((_,i)=>{
+     let x=document.querySelector(`input[name="${prefix}_${g}_${i}"]:checked`);
+     return x?+x.value:0;
+   });
+   if(vals.some(v=>v===0)) return null;
+   return vals.reduce((a,b)=>a+b,0)/vals.length;
+ });
+}
+function radar(canvasId, datasets){
+ const c=document.getElementById(canvasId),ctx=c.getContext("2d"),W=c.width,H=c.height,cx=W/2,cy=H/2,R=145;
+ ctx.clearRect(0,0,W,H); ctx.font="16px sans-serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
+ const ang=[-Math.PI/2, -Math.PI/2+2*Math.PI/3, -Math.PI/2+4*Math.PI/3];
+ for(let level=1;level<=5;level++){
+  ctx.beginPath();
+  ang.forEach((a,i)=>{let r=R*level/5,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});
+  ctx.closePath();ctx.strokeStyle="#dbe2e6";ctx.stroke();
+ }
+ ang.forEach((a,i)=>{
+  ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.strokeStyle="#dbe2e6";ctx.stroke();
+  const labels=["輸入","思維","輸出"];ctx.fillStyle="#27312f";ctx.fillText(labels[i],cx+Math.cos(a)*(R+35),cy+Math.sin(a)*(R+35));
+ });
+ datasets.forEach((d,di)=>{
+  ctx.beginPath();
+  d.values.forEach((v,i)=>{let r=R*v/5,x=cx+Math.cos(ang[i])*r,y=cy+Math.sin(ang[i])*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});
+  ctx.closePath();ctx.globalAlpha=.14;ctx.fillStyle=di===0?"#456780":"#aa753f";ctx.fill();ctx.globalAlpha=1;
+  ctx.strokeStyle=di===0?"#456780":"#aa753f";ctx.lineWidth=3;ctx.stroke();
+ });
+}
+function drawRadar(prefix){
+ const s=score(prefix); if(s.some(v=>v===null)){alert("請先完成12題盤點。");return}
+ radar(prefix==="pre"?"preRadar":"compareRadar",[{values:s}]);
+ document.getElementById("preResult").innerHTML=`輸入 ${s[0].toFixed(1)}　｜　思維 ${s[1].toFixed(1)}　｜　輸出 ${s[2].toFixed(1)}<br><span class="note">分數不是排名，只是你的期初觀察。</span>`;
+}
+function drawCompare(){
+ const a=score("pre"),b=score("post");if([...a,...b].some(v=>v===null)){alert("請先完成期初與期末12題。");return}
+ radar("compareRadar",[{values:a},{values:b}]);
+ document.getElementById("postResult").innerHTML=`期初 → 期末<br>輸入 ${a[0].toFixed(1)} → ${b[0].toFixed(1)}<br>思維 ${a[1].toFixed(1)} → ${b[1].toFixed(1)}<br>輸出 ${a[2].toFixed(1)} → ${b[2].toFixed(1)}<br><span class="note">藍色＝期初，棕色＝期末。雷達圖用來看變化，不用來和別人比較。</span>`;
+}
+function updateRate(){
+ const t=+document.getElementById("targetCount").value,d=+document.getElementById("doneCount").value;
+ document.getElementById("rate").value=t>0?Math.round(d/t*100)+"%":"";
+}
+document.getElementById("targetCount").addEventListener("input",updateRate);
+document.getElementById("doneCount").addEventListener("input",updateRate);
+
+function message(text){document.getElementById("saveMsg").textContent=text;}
+function resetCharts(){
+ ["preRadar","compareRadar"].forEach(id=>document.getElementById(id).getContext("2d").clearRect(0,0,420,420));
+ document.getElementById("preResult").textContent="完成12題後，看看自己的「輸入・思維・輸出」。";
+ document.getElementById("postResult").textContent="完成期末12題後，比較自己哪一個面向有變化。";
+}
+function saveForm(){
+ const data={};new FormData(document.getElementById("book")).forEach((v,k)=>{data[k]=v;});
+ document.querySelectorAll('#book input[type="checkbox"]').forEach(x=>data[x.name]=x.checked);
+ try{localStorage.setItem("learningPassbook2026",JSON.stringify(data));message("已儲存在目前的瀏覽器，下次開啟會自動載入。");}
+ catch(e){message("儲存未成功，請檢查瀏覽器設定，或先列印／另存 PDF 留存。");}
+}
+function loadForm(silent=false){
+ try{
+ const raw=localStorage.getItem("learningPassbook2026");
+ if(!raw){if(!silent)message("目前沒有已儲存紀錄。");return;}
+ const data=JSON.parse(raw),f=document.getElementById("book");
+ if(!data||typeof data!=="object"||Array.isArray(data))throw new Error("Invalid saved data");
+ f.reset();resetCharts();
+ Object.entries(data).forEach(([k,v])=>{
+  f.querySelectorAll(`[name="${CSS.escape(k)}"]`).forEach(el=>{
+   if(el.type==="checkbox")el.checked=v===true;
+   else if(el.type==="radio")el.checked=(el.value===v || (Array.isArray(v)&&v.includes(el.value)));
+   else el.value=Array.isArray(v)?v[0]:v;
+  });
+ });
+ updateRate();
+ if(score("pre").every(v=>v!==null)){
+   drawRadar("pre");
+   if(score("post").every(v=>v!==null))drawCompare();
+ }
+ message("已讀取上次紀錄。");
+ }catch(e){message("無法讀取已存紀錄，請檢查瀏覽器設定或先前留存的 PDF。");}
+}
+function clearForm(){
+ if(!confirm("確定要清除目前內容與已儲存紀錄嗎？"))return;
+ try{localStorage.removeItem("learningPassbook2026");}
+ catch(e){message("未能清除已存紀錄，請檢查瀏覽器設定。");return;}
+ document.getElementById("book").reset();resetCharts();updateRate();message("已清除目前內容與已儲存紀錄。");
+}
+document.getElementById("book").addEventListener("submit",event=>event.preventDefault());
+loadForm(true);
+</script>
+</body>
+</html>
