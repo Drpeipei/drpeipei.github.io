@@ -203,6 +203,7 @@ def build_article_pages(arts):
 
 # ---------- 3. 站頁注入 ----------
 PAGE_LD = {
+ "learning-passbook.html": ("WebApplication", "學習存摺：輸入、思維、輸出三個挑戰"),
  "health-passbook.html": ("WebApplication", "健康存摺：吃、睡、動的一個月健康挑戰"),
  "index.html": ("WebPage", "佩佩老師的會計魔法教室：永續會計、ESG 課程、企業輔導"),
  "about.html": (None, None),  # 已有 ProfilePage，另加 FAQ
@@ -283,7 +284,7 @@ def build_sitemap(arts):
     rows = []
     def add(loc, lastmod, freq, pri): rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{pri}</priority>\n  </url>")
     add(SITE+"/", TODAY, "weekly", "1.0")
-    for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","health-passbook.html","carbon-goro.html","books.html","s2-workshop.html"]:
+    for f in ["about.html","articles.html","npo-finance.html","news.html","accounting-learning-map.html","cert-library.html","learning-style-quiz.html","five-passbooks.html","health-passbook.html","learning-passbook.html","carbon-goro.html","books.html","s2-workshop.html"]:
         lm = git_lastmod(f) or datetime.date.fromtimestamp(os.path.getmtime(f)).isoformat()
         add(f"{SITE}/{f}", lm, "weekly" if f in ("articles.html","npo-finance.html","news.html") else "monthly", "0.8")
     add(f"{SITE}/p/index.html", TODAY, "weekly", "0.7")
@@ -324,7 +325,7 @@ def build_llms(arts):
       "## 主要頁面", f"- 首頁：{SITE}/", f"- 關於佩佩（含常見問題）：{SITE}/about.html", f"- 觀點文章（生活對話、會計知識、永續 ESG，{n['fb']} 篇）：{SITE}/articles.html",
       f"- NPO 財務教室（{n['npo']} 篇，每週一更新）：{SITE}/npo-finance.html", f"- 永續新知（{n['news']} 篇，每週二更新）：{SITE}/news.html",
       f"- 會計人的學習地圖：{SITE}/accounting-learning-map.html", f"- 學習風格小測驗：{SITE}/learning-style-quiz.html", f"- 證照圖書館：{SITE}/cert-library.html",
-      f"- 我的五大存摺：{SITE}/five-passbooks.html", f"- 碳五郎 GHG Protocol 學習系統：{SITE}/carbon-goro.html", f"- 著作《永續方程式：認識 ESG》：{SITE}/books.html",
+      f"- 我的五大存摺：{SITE}/five-passbooks.html", f"- 學習存摺：{SITE}/learning-passbook.html", f"- 碳五郎 GHG Protocol 學習系統：{SITE}/carbon-goro.html", f"- 著作《永續方程式：認識 ESG》：{SITE}/books.html",
       f"- 全部文章索引（每篇有獨立網址）：{SITE}/p/index.html", f"- 網站地圖：{SITE}/sitemap.xml", "",
       "## 最新文章"] + [f"- [{a['title']}]({a['url']})（{a['date']}，{a['cat']}）" for a in latest] + ["",
       "## 引用建議", "引用本站文章請標示作者「劉沂佩（佩佩老師）」與文章網址。本站文章皆為作者原創，永續新知頁另附官方資料來源連結。"]
