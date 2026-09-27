@@ -1,0 +1,25 @@
+/* Shared navigation, isolated from worksheet styles. Updated 2026-09-27. */
+.pp-shell,.pp-shell *{box-sizing:border-box}
+.pp-shell *{margin:0;padding:0;font-family:inherit;letter-spacing:normal}
+.pp-shell.brand-header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;max-width:none;margin:0;padding:16px max(24px,calc((100vw - 1200px)/2));border:0;border-bottom:1px solid #dce3dd;border-radius:0;background:#fffefa;color:#183f36;text-align:left;font:14px/1.6 "Noto Sans TC","Microsoft JhengHei",sans-serif;box-shadow:none}
+.pp-shell a{color:inherit;text-decoration:none;border-radius:0;background:none;box-shadow:none;transform:none}
+.pp-shell .brand{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;line-height:1.5;flex-shrink:0;padding:0;border:0}
+.pp-shell .brand>span{display:block}.pp-shell .brand small{display:block;font-size:11px;font-weight:400;letter-spacing:2px;color:#64746e}
+.pp-shell .brand .brand-mark{display:grid;place-content:center;width:36px;height:42px;border:1px solid #b69a60;font:28px/1 Georgia,serif;position:relative;color:#183f36}.pp-shell .brand-mark span{position:absolute;right:2px;bottom:0;color:#b69a60}
+.pp-shell #main-nav{display:flex;align-items:center;gap:22px;position:static;width:auto;max-width:none;margin:0;padding:0;background:none;border:0;white-space:nowrap;font-size:14px}
+.pp-shell #main-nav>a,.pp-shell summary{display:block;padding:10px 0;line-height:1.5;min-height:42px;font-size:14px;font-weight:500}
+.pp-shell #main-nav details{position:relative;margin:0;border:0;padding:0;background:none;border-radius:0}
+.pp-shell summary{cursor:pointer;list-style:none;color:#183f36}.pp-shell summary::-webkit-details-marker{display:none}.pp-shell summary:after{content:'⌄';margin-left:6px;color:#806b42}
+.pp-shell .dropdown{position:absolute;top:100%;left:-14px;min-width:215px;padding:10px;background:#fff;border:1px solid #dce3dd;box-shadow:0 10px 24px #183f3617;z-index:1}
+.pp-shell .dropdown a{display:block;padding:10px 12px;font-size:14px;line-height:1.5;white-space:normal;border:0}.pp-shell .dropdown a:hover,.pp-shell .dropdown a[aria-current=page]{background:#f0f3ee;color:#183f36}
+.pp-shell a[aria-current=page],.pp-shell details:has(a[aria-current=page])>summary{font-weight:700;text-decoration:underline;text-underline-offset:6px}
+.pp-shell #main-nav .nav-contact{padding:10px 14px;border:1px solid #183f36}
+.pp-shell .menu-toggle{display:none;background:#fff;border:1px solid #dce3dd;color:#183f36;border-radius:0;padding:8px 12px;line-height:1.5;font:inherit;cursor:pointer}
+.pp-shell a:focus-visible,.pp-shell summary:focus-visible,.pp-shell button:focus-visible{outline:3px solid #b69a60;outline-offset:3px}
+.pp-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:8px;max-width:1200px;margin:0 auto;padding:14px 24px;background:none;color:#64746e;font:13px/1.6 "Microsoft JhengHei",sans-serif;text-align:left;position:static;border:0}.pp-breadcrumb a{color:#183f36;text-decoration:none;padding:3px 0}.pp-breadcrumb a:hover{text-decoration:underline}
+html{scroll-padding-top:110px}body:has(.pp-shell){margin-top:0;padding-top:0}body:has(.pp-shell) .tabs{top:76px}
+@media(max-width:1100px){.pp-shell.brand-header{padding:12px 20px}.pp-shell .menu-toggle{display:block}.pp-shell #main-nav{display:none;position:absolute;top:100%;left:0;right:0;width:100%;max-height:calc(100dvh - 74px);overflow-y:auto;overscroll-behavior:contain;padding:16px 24px;background:#fffefa;border-bottom:1px solid #dce3dd;white-space:normal}.pp-shell #main-nav.is-open{display:flex;flex-direction:column;align-items:stretch;gap:4px}.pp-shell .dropdown{position:static;box-shadow:none;border:0;border-left:2px solid #b69a60;margin:0 0 10px;padding:0 8px}.pp-shell #main-nav .nav-contact{margin-top:10px;text-align:center}.pp-shell #main-nav>a,.pp-shell summary{min-height:44px}.pp-shell .dropdown a{min-height:44px}}
+@media(max-width:700px){.pp-shell.brand-header{padding:12px 14px;gap:8px}.pp-shell .brand{font-size:13px;gap:8px;min-width:0}.pp-shell .brand small{font-size:10px;letter-spacing:1px}.pp-shell .brand .brand-mark{width:28px;height:34px;font-size:24px}.pp-shell .menu-toggle{font-size:12px;padding:7px 8px;white-space:nowrap}.pp-breadcrumb{padding:10px 16px;font-size:12px}.pp-shell #main-nav{max-height:calc(100dvh - 64px)}body:has(.pp-shell) .tabs{top:60px}}
+/* Long excerpts must shrink inside the article and news grids. */
+body:has(.pp-shell) .post-row>div{min-width:0}
+@media print{.pp-shell.brand-header,.pp-breadcrumb{display:none!important}}
