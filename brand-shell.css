@@ -23,3 +23,50 @@ html{scroll-padding-top:110px}body:has(.pp-shell){margin-top:0;padding-top:0}bod
 /* Long excerpts must shrink inside the article and news grids. */
 body:has(.pp-shell) .post-row>div{min-width:0}
 @media print{.pp-shell.brand-header,.pp-breadcrumb{display:none!important}}
+
+/* Content system, 2026-09-27. Shared typography, surfaces and spacing. */
+body.pp-site{--bg:#f7f5ef;--paper:#fffefa;--text:#253c35;--ink:#253c35;--muted:#62726b;--mut:#62726b;--line:#dce3dd;--border:#dce3dd;--accent:#183f36;--soft:#eef2ec;--accent-soft:#eef2ec;--g:#183f36;--g2:#eef2ec;--surface:#fff;--site-text:#253c35;--site-border:#dce3dd;--yellow:#eee8d7;--blue:#e8eeea;--orange:#eee7da;--lavender:#eceae4;--green:#e4ece2;--sgreen:#e4ece2;--max:1200px;background:#f7f5ef;color:#253c35;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.8}
+.pp-site h1,.pp-site h2,.pp-site h3{font-family:inherit;letter-spacing:.01em}
+.pp-site .page-hero{background:#eef2ec;border-color:#dce3dd}
+.pp-site .page-hero .hero-inner{min-height:0;padding:40px 28px;gap:32px;align-items:center}
+.pp-site .page-hero h1{font-size:clamp(30px,3.6vw,46px);font-weight:700;line-height:1.4;letter-spacing:.01em}
+.pp-site .page-hero h1 em{color:#527061}
+.pp-site .hero-tag{border-radius:4px;background:#183f36;color:#fffefa;letter-spacing:1px}
+.pp-site .hero-bottom{margin-top:22px;padding-top:18px;border-color:#dce3dd}
+.pp-site .hero-desc{color:#53685e;line-height:1.9}
+.pp-site[data-page=about] .hero-photo{max-width:250px;margin-right:0}
+.pp-site[data-page=about] .hero-photo:before{display:none}
+.pp-site[data-page=about] .hero-photo img{border:0;border-radius:8px 8px 0 0}
+.pp-site .btn-dark,.pp-site .button.primary{background:#183f36;color:white;border-color:#183f36;border-radius:6px}
+.pp-site .btn-light,.pp-site .button{border-radius:6px}
+.pp-site .guide-card,.pp-site .resource-card,.pp-site .service-card{border-radius:8px}
+.pp-site .cta-section{background:#183f36}
+.pp-site .page-hero .hero-num{margin-bottom:10px}
+.pp-site[data-page=accounting-learning-map] .hero,.pp-site[data-page=cert-library] .gate{max-width:1200px;margin:auto;padding:36px 28px;text-align:left}
+.pp-site[data-page=accounting-learning-map] .hero h1,.pp-site[data-page=cert-library] .gate h1{font-size:clamp(28px,3.5vw,42px);line-height:1.4;font-weight:700;letter-spacing:.01em}
+.pp-site[data-page=accounting-learning-map] .front{background:#eef2ec;border:1px solid #dce3dd;border-top:4px solid #527061}
+.pp-site[data-page=accounting-learning-map] .formula{background:#183f36;border-radius:8px;box-shadow:none}
+.pp-site[data-page=learning-passbook] .wrap>header{background:#eef2ec;border:1px solid #dce3dd;border-top:3px solid #b69a60;border-radius:8px;box-shadow:none;padding:28px}
+.pp-site[data-page=learning-passbook] section,.pp-site[data-page=health-passbook] .card,.pp-site[data-page=five-passbooks] .card,.pp-site[data-page=carbon-goro] .panel{border-radius:8px;border-color:#dce3dd;box-shadow:none}
+.pp-site[data-page=learning-passbook] .challenge,.pp-site[data-page=health-passbook] .challenge{border-radius:8px;border-top:3px solid #b69a60;background:#fafbf8}
+.pp-site[data-page=learning-passbook] .scale label:has(input:checked){background:#e2ede4;color:#183f36;border-color:#183f36}
+.pp-site[data-page=five-passbooks]>header:not(.pp-shell),.pp-site[data-page=carbon-goro]>header:not(.pp-shell){background:#eef2ec;color:#253c35;text-align:left;padding:32px max(24px,calc((100vw - 1144px)/2))}
+.pp-site[data-page=five-passbooks] h1,.pp-site[data-page=carbon-goro] h1,.pp-site[data-page=health-passbook] .hero h1,.pp-site[data-page=learning-passbook] h1{font-size:clamp(28px,3.5vw,40px);line-height:1.4;font-weight:700}
+.pp-site .journey a,.pp-site .path a{border-radius:5px;color:#183f36}
+.pp-site .pp-footer{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;background:#102d27;color:#e4ece7;margin:48px 0 0;padding:40px max(24px,calc((100vw - 1144px)/2));border:0;text-align:left;font:14px/1.8 "Microsoft JhengHei",sans-serif}
+.pp-site .pp-footer b{font-size:17px}.pp-site .pp-footer p{margin:12px 0}.pp-site .pp-footer a{display:block;margin-bottom:8px;color:#e4ece7;text-decoration:none}.pp-site .pp-footer small{color:#bacbc1}.pp-site .pp-footer span{display:block;margin-bottom:12px;color:#cfba8c}
+.pp-site[data-page=health-passbook] .pp-footer,.pp-site[data-page=learning-style-quiz] .pp-footer{padding-bottom:100px}
+.pp-site[data-page=learning-passbook] .wrap .pp-footer{margin-top:36px;padding:28px;border-radius:8px}
+.pp-site[data-page=article] main{background:#fffefa;border:1px solid #dce3dd;border-radius:8px;margin:28px auto;padding:28px 28px 48px}
+.pp-site[data-page=article] .pp-footer{max-width:none}
+.pp-site[data-page=index] .home-intro{padding:40px 0 24px;max-width:850px}
+.pp-site .home-intro h1{font-size:clamp(32px,4vw,46px);line-height:1.4;margin:10px 0;color:#183f36;font-weight:700}
+.pp-site .home-tagline{font-size:17px;margin:8px 0;color:#53685e}.pp-site .home-english{font:15px/1.8 Georgia,serif;color:#806b42;margin:6px 0}
+.pp-site .home-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:0 0 36px}
+.pp-site .home-paths>a{display:flex;flex-direction:column;padding:24px;background:#fffefa;border:1px solid #dce3dd;border-top:3px solid #527061;border-radius:8px;transition:background .15s}
+.pp-site .home-paths>a:hover{background:#eef2ec;border-color:#b69a60}
+.pp-site .path-number{font-size:12px;letter-spacing:1px;color:#62726b}.pp-site .home-paths h2{font-size:22px;line-height:1.5;margin:12px 0}.pp-site .home-paths p{font-size:14px;color:#62726b;margin:0 0 18px}.pp-site .path-link{font-size:14px;font-weight:700;margin-top:auto;color:#183f36}
+.pp-site .home-passbooks{padding:0 0 42px}.pp-site .home-passbooks .section-heading{margin:0;align-items:center}.pp-site .home-passbooks h2{font-size:26px;margin:8px 0}.pp-site .home-passbooks .books{margin-top:18px}.pp-site .home-passbooks .book{padding-top:18px;padding-bottom:18px}.pp-site .home-passbooks .book strong{margin:16px 0}
+.pp-site[data-page=index] .green-band{background:#eef2ec;color:#253c35;border-block:1px solid #dce3dd}.pp-site[data-page=index] .green-band .eyebrow{color:#62726b}.pp-site[data-page=index] .green-band .section-heading p{color:#62726b}.pp-site[data-page=index] .service-card{background:#fffefa;border:1px solid #dce3dd}.pp-site[data-page=index] .service-card p{color:#62726b}.pp-site[data-page=index] .service-card .text-link{color:#183f36}.pp-site[data-page=index] .service-card .number{color:#806b42}
+@media(max-width:700px){.pp-site .page-hero .hero-inner{padding:28px 20px;gap:24px}.pp-site .page-hero h1{font-size:30px}.pp-site .pp-footer{grid-template-columns:1fr;gap:20px;padding:30px 20px}.pp-site .home-intro{padding:28px 0 20px}.pp-site .home-paths{grid-template-columns:1fr;gap:12px;margin-bottom:28px}.pp-site .home-paths>a{padding:18px 20px}.pp-site .home-paths h2{font-size:21px;margin:6px 0}.pp-site .home-paths p{margin-bottom:10px}.pp-site .home-passbooks .section-heading{display:block}.pp-site[data-page=article] main{margin:12px;padding:20px 16px 32px}.pp-site[data-page=learning-passbook] .wrap>header{padding:24px 18px}}
+@media print{.pp-site .pp-footer{display:none!important}.pp-site[data-page=article] main{border:0;margin:0;max-width:none}.pp-site{background:white}}

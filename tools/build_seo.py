@@ -107,11 +107,12 @@ def para_html(text):
     return "\n".join(f"<p>{linkify(p)}</p>" for p in parts if p.strip())
 
 def header_html(prefix):
-    nav = "".join(f'<a href="{prefix}{h}">{t}</a>' for h, t in NAV)
-    return (f'<header><div class="nw"><a class="brand" href="{prefix}index.html">Dr. Peipei｜{BRAND}<small>會計能夠救地球 Accounting Can Save the Earth</small></a>'
-            f'<nav>{nav}</nav></div></header>')
-FOOT = ('<footer>{b}｜<a href="mailto:lyipei@gmail.com">lyipei@gmail.com</a>｜<a href="{p}p/index.html">全部文章索引</a>｜<a href="{p}sitemap.xml">網站地圖</a>'
-        '<br>會計能夠救地球 Accounting Can Save the Earth</footer>')
+    header = re.search(r'<header class="brand-header pp-shell">.*?</header>', rd("index.html"), re.S).group()
+    return re.sub(r'href="(?!https?:|mailto:|#)([^"]*)"', lambda m: 'href="'+prefix+m.group(1)+'"', header)
+FOOT = re.search(r'<footer class="pp-footer">.*?</footer>', rd("index.html"), re.S).group()
+FOOT = re.sub(r'href="(?!https?:|mailto:|#)([^"]*)"', lambda m: 'href="{p}'+m.group(1)+'"', FOOT)
+FOOT += '<script src="{p}brand.js?v=20260927"></script>'
+
 
 def article_ld(a, desc):
     d = {"@context":"https://schema.org","@type":"BlogPosting","headline":a["title"][:110],"description":desc,
@@ -158,8 +159,8 @@ def build_article_pages(arts):
 <script type="application/ld+json">{ld}</script>
 <script type="application/ld+json">{bc}</script>
 <style>{CSS}</style>
-</head>
-<body>
+<link rel="stylesheet" href="../brand-shell.css?v=20260927b"></head>
+<body class="pp-site" data-page="article">
 {header_html("../")}
 <main>
 <div class="crumb"><a href="../index.html">首頁</a> › <a href="../{a["back"]}">{a["section"]}</a> › {esc(a["cat"])}</div>
@@ -194,8 +195,8 @@ def build_article_pages(arts):
 <title>全部文章索引｜{BRAND}</title><meta name="description" content="佩佩老師（劉沂佩）全部文章的靜態索引：NPO 財務教室、永續新知、觀點文章（生活對話、會計知識、永續 ESG），共 {len(arts)} 篇，依日期排列。">
 <meta name="author" content="{AUTHOR}（佩佩老師）"><meta name="robots" content="index,follow"><link rel="canonical" href="{SITE}/p/index.html">
 <meta property="og:type" content="website"><meta property="og:title" content="全部文章索引｜{BRAND}"><meta property="og:url" content="{SITE}/p/index.html"><meta property="og:image" content="{SITE}/peipei-photo.jpg">
-<link rel="icon" type="image/jpeg" href="../peipei-mascot.jpg"><script type="application/ld+json">{ld}</script><style>{CSS} main{{max-width:900px}} li{{margin:4px 0}} small{{color:var(--muted)}}</style></head>
-<body>{header_html("../")}<main><div class="crumb"><a href="../index.html">首頁</a> › 全部文章索引</div><h1>全部文章索引</h1><p class="meta">共 {len(arts)} 篇，每篇都有獨立網址可以分享。更新日期 {TODAY}。</p>{body}</main>{FOOT.format(b=BRAND, p="../")}</body></html>
+<link rel="icon" type="image/jpeg" href="../peipei-mascot.jpg"><script type="application/ld+json">{ld}</script><style>{CSS} main{{max-width:900px}} li{{margin:4px 0}} small{{color:var(--muted)}}</style><link rel="stylesheet" href="../brand-shell.css?v=20260927b"></head>
+<body class="pp-site" data-page="article">{header_html("../")}<main><div class="crumb"><a href="../index.html">首頁</a> › 全部文章索引</div><h1>全部文章索引</h1><p class="meta">共 {len(arts)} 篇，每篇都有獨立網址可以分享。更新日期 {TODAY}。</p>{body}</main>{FOOT.format(b=BRAND, p="../")}</body></html>
 """)
     # permalinks.js
     mp = {f'{a["ts"]}|{a["title"]}': f'p/{a["slug"]}.html' for a in arts}
