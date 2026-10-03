@@ -159,7 +159,7 @@ def build_article_pages(arts):
 <script type="application/ld+json">{ld}</script>
 <script type="application/ld+json">{bc}</script>
 <style>{CSS}</style>
-<link rel="stylesheet" href="../brand-shell.css?v=20260927b"></head>
+<link rel="stylesheet" href="../brand-shell.css?v=20261003"></head>
 <body class="pp-site" data-page="article">
 {header_html("../")}
 <main>
@@ -195,7 +195,7 @@ def build_article_pages(arts):
 <title>全部文章索引｜{BRAND}</title><meta name="description" content="佩佩老師（劉沂佩）全部文章的靜態索引：NPO 財務教室、永續新知、觀點文章（生活對話、會計知識、永續 ESG），共 {len(arts)} 篇，依日期排列。">
 <meta name="author" content="{AUTHOR}（佩佩老師）"><meta name="robots" content="index,follow"><link rel="canonical" href="{SITE}/p/index.html">
 <meta property="og:type" content="website"><meta property="og:title" content="全部文章索引｜{BRAND}"><meta property="og:url" content="{SITE}/p/index.html"><meta property="og:image" content="{SITE}/peipei-photo.jpg">
-<link rel="icon" type="image/jpeg" href="../peipei-mascot.jpg"><script type="application/ld+json">{ld}</script><style>{CSS} main{{max-width:900px}} li{{margin:4px 0}} small{{color:var(--muted)}}</style><link rel="stylesheet" href="../brand-shell.css?v=20260927b"></head>
+<link rel="icon" type="image/jpeg" href="../peipei-mascot.jpg"><script type="application/ld+json">{ld}</script><style>{CSS} main{{max-width:900px}} li{{margin:4px 0}} small{{color:var(--muted)}}</style><link rel="stylesheet" href="../brand-shell.css?v=20261003"></head>
 <body class="pp-site" data-page="article">{header_html("../")}<main><div class="crumb"><a href="../index.html">首頁</a> › 全部文章索引</div><h1>全部文章索引</h1><p class="meta">共 {len(arts)} 篇，每篇都有獨立網址可以分享。更新日期 {TODAY}。</p>{body}</main>{FOOT.format(b=BRAND, p="../")}</body></html>
 """)
     # permalinks.js
