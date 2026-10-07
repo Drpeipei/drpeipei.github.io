@@ -204,7 +204,7 @@ def build_article_pages(arts):
 
 # ---------- 3. 站頁注入 ----------
 PAGE_LD = {
- "learning-passbook.html": ("WebApplication", "學習存摺：輸入、思維、輸出三個挑戰"),
+ "learning-passbook.html": ("WebApplication", "學習存摺：自選三種學習方式，記錄行動、收穫與佐證"),
  "health-passbook.html": ("WebApplication", "健康存摺：吃、睡、動的一個月健康挑戰"),
  "index.html": ("WebPage", "佩佩老師的會計魔法教室：永續會計、ESG 課程、企業輔導"),
  "about.html": (None, None),  # 已有 ProfilePage，另加 FAQ
