@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>我的承諾存摺｜我想成為什麼樣的大學生</title><meta name="description" content="寫下四年後想成為的大學生樣子，練習設三個看得見、有期限的目標，做成一張承諾卡截圖留下來。"><!-- site-only --><link rel="stylesheet" href="brand-shell.css?v=20261003"><!-- /site-only -->
+<style>
+:root{--ink:#2d2438;--line:#e0d9e6;--paper:#fffefa;--muted:#625a6b;--cover:#836c9b;--cover-dark:#5e4a73;--soft:#f3eff7;--gold:#b69a60}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f4ee;color:var(--ink);font-family:"Microsoft JhengHei",sans-serif;line-height:1.7}
+.wrap{max-width:920px;margin:auto;padding:28px 18px 60px}
+.wrap>header,section{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px;margin-bottom:22px}
+.wrap>header{background:var(--soft);border-top:5px solid var(--cover)}
+h1{font-size:clamp(27px,5vw,38px);margin:8px 0}
+h2{font-size:23px;margin:0 0 16px;color:var(--cover-dark)}
+h3{font-size:18px;margin:0 0 10px}
+.eyebrow,.note,.page-footer{color:var(--muted)}
+.eyebrow{letter-spacing:2px;font-size:14px;margin:0}
+.note{font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-weight:700;margin:16px 0 6px}
+input:not([type=file]),textarea,select{width:100%;font:inherit;padding:12px;border:1px solid #c4b8d0;border-radius:7px;background:white;color:var(--ink)}
+textarea{min-height:95px;resize:vertical}
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.guide div{background:var(--soft);border-radius:8px;padding:14px;border-top:4px solid var(--cover)}
+.guide b{display:block;font-size:17px;margin-bottom:4px;color:var(--cover-dark)}
+.example{padding:12px 14px;background:var(--soft);border-left:4px solid var(--cover);border-radius:6px;font-size:15px}
+.example s{color:#8a7a95}
+.goal{border-top:5px solid var(--card-accent,var(--cover));background:var(--card-soft,var(--soft))}
+.goal h3{color:var(--card-accent,var(--cover-dark))}
+.goal.g1{--card-accent:#326789;--card-soft:#edf5fb}
+.goal.g2{--card-accent:#377052;--card-soft:#eff7f0}
+.goal.g3{--card-accent:#78558e;--card-soft:#f6f0fa}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.actions button{font:inherit;padding:10px 16px;min-height:44px;border:0;border-radius:6px;cursor:pointer;background:var(--cover-dark);color:white}
+.actions .secondary{background:var(--soft);color:var(--ink)}
+a{color:var(--cover-dark);text-underline-offset:3px}
+#status{min-height:28px;font-weight:700}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.page-footer{text-align:center;font-size:13px}
+
+/* 承諾卡 */
+.card-stage{display:flex;justify-content:center;padding:6px 0 4px}
+.card{width:100%;max-width:420px;aspect-ratio:4/5;background:linear-gradient(160deg,#8f78a8,#6a5583 70%,#5a4670);color:#fff;border-radius:6px 18px 18px 6px;padding:26px 24px 22px 32px;position:relative;box-shadow:inset 10px 0 0 #0002,inset 13px 0 0 #ffffff14,0 14px 24px #2d243826;display:flex;flex-direction:column;font-size:15px;line-height:1.55;overflow:hidden}
+.card:after{content:'';position:absolute;inset:12px 11px 12px 22px;border:1px solid #ffffff55;border-radius:2px 10px 10px 2px;pointer-events:none}
+.card .c-head{font-size:11px;letter-spacing:3px;opacity:.85}
+.card .c-name{font-size:20px;font-weight:700;margin:6px 0 0;min-height:1.4em}
+.card .c-label{font-size:11px;letter-spacing:2px;opacity:.8;margin-top:12px}
+.card .c-rule{width:36px;border-top:2px solid #ffffff99;margin:6px 0 8px}
+.card .c-vision{font-size:17px;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
+.card ol{margin:4px 0 0;padding:0 0 0 1.4em}
+.card li{margin:4px 0;overflow-wrap:anywhere}
+.card li .tag{display:inline-block;font-size:11px;padding:0 7px;border-radius:10px;background:#ffffff26;margin-right:5px;vertical-align:1px}
+.card li small{display:block;opacity:.85;font-size:12.5px}
+.card .c-promise{margin-top:auto;padding-top:10px;font-size:15px;font-style:italic;overflow-wrap:anywhere}
+.card .c-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:10px;font-size:11px;letter-spacing:1px;opacity:.85;border-top:1px solid #ffffff44;padding-top:8px}
+.card .empty{opacity:.55}
+.card.small .c-vision{font-size:15px}.card.small li{font-size:13.5px}.card.small .c-promise{font-size:13.5px}
+
+/* 截圖模式 */
+.fullscreen{position:fixed;inset:0;background:#2d2438;z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.fullscreen.on{display:flex}
+.fullscreen .card{max-width:min(420px,calc((100vh - 110px) * .8));width:min(100%,calc((100vh - 110px) * .8))}
+.fullscreen .tip{color:#e4ddea;font-size:14px;margin:14px 0 0;text-align:center}
+.fullscreen .close{font:inherit;margin-top:10px;padding:10px 22px;border:0;border-radius:6px;background:#fff;color:var(--ink);cursor:pointer;min-height:44px}
+body.locked{overflow:hidden}
+
+@media(max-width:600px){.grid,.guide{grid-template-columns:1fr}.wrap{padding:18px 12px}section,.wrap>header{padding:20px 16px}.actions>*{flex:1 1 140px}}
+@media print{.brand-header,.pp-breadcrumb,.pp-nav,.howto,#book,.actions,.note,.fullscreen,#status,.controls h2,.controls p{display:none!important}body{background:white}.wrap{padding:0}.card{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<!-- seo:auto -->
+<meta name="author" content="劉沂佩（佩佩老師）">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="alternate" hreflang="zh-Hant" href="https://drpeipei.com/commitment-passbook.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://drpeipei.com/#org", "name": "佩佩老師的會計魔法教室", "alternateName": "Dr. Peipei", "url": "https://drpeipei.com/", "logo": "https://drpeipei.com/peipei-mascot.jpg", "image": "https://drpeipei.com/peipei-photo.jpg", "email": "lyipei@gmail.com", "founder": {"@type": "Person", "name": "劉沂佩", "alternateName": "佩佩老師", "url": "https://drpeipei.com/about.html"}, "sameAs": ["https://www.facebook.com/p/%E4%BD%A9%E4%BD%A9%E8%80%81%E5%B8%AB%E7%9A%84%E6%9C%83%E8%A8%88%E9%AD%94%E6%B3%95%E6%95%99%E5%AE%A4-100063655793258/"], "areaServed": "TW", "knowsAbout": ["永續會計", "ESG", "IFRS S1", "IFRS S2", "SASB", "GRI", "永續報告書", "內部控制", "碳盤查", "ISO 14064-1", "ISO 14067", "CBAM", "非營利組織財務", "會計教育"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://drpeipei.com/"}, {"@type": "ListItem", "position": 2, "name": "我的承諾存摺", "item": "https://drpeipei.com/commitment-passbook.html"}]}, {"@type": "WebApplication", "name": "我的承諾存摺｜我想成為什麼樣的大學生", "description": "承諾存摺：寫下想成為的大學生，設三個目標，做成承諾卡截圖", "url": "https://drpeipei.com/commitment-passbook.html", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "佩佩老師的會計魔法教室", "url": "https://drpeipei.com/"}, "author": {"@type": "Person", "name": "劉沂佩", "url": "https://drpeipei.com/about.html"}, "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TWD"}}]}</script>
+<!-- /seo:auto -->
+</head><body class="pp-site" data-page="commitment-passbook"><!-- site-only --><header class="brand-header pp-shell"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P<span>·</span></span><span>佩佩老師的會計魔法教室<small>會計能夠救地球</small></span></a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">選單 ☰</button>
+<nav id="main-nav" aria-label="主要導覽"><a href="about.html">認識佩佩</a><details><summary>企業合作</summary><div class="dropdown"><a href="index.html#business">課程與輔導</a><a href="s2-workshop.html">IFRS S2 工作坊</a><a href="npo-finance.html">NPO 財務教室</a></div></details><details><summary>學生學習</summary><div class="dropdown"><a href="index.html#learning">學習資源總覽</a><a href="accounting-learning-map.html">會計人的學習地圖</a><a href="cert-library.html">證照圖書館</a><a href="five-passbooks.html">五大存摺</a><a href="health-passbook.html">健康存摺</a><a href="learning-passbook.html">學習存摺</a><a href="commitment-passbook.html">承諾存摺</a><a href="carbon-goro.html">碳五郎</a></div></details><details><summary>觀點與著作</summary><div class="dropdown"><a href="articles.html">觀點文章</a><a href="news.html">永續新知</a><a href="books.html">著作</a></div></details><a class="nav-contact" href="index.html#contact">聯絡合作 ↗</a></nav></header><nav class="pp-breadcrumb" aria-label="所在位置"><a href="index.html">首頁</a> <span aria-hidden="true">/</span> <a href="five-passbooks.html">五大存摺</a> <span aria-hidden="true">/</span> <span aria-current="page">承諾存摺</span></nav><!-- /site-only -->
+<main class="wrap"><header><p class="eyebrow">PASSBOOK 04 · 我的承諾存摺</p><h1>我想成為什麼樣的大學生？</h1><p>寫下四年後的樣子 → 設三個目標 → 做成一張承諾卡，截圖留下來</p><p class="note">承諾存摺問的是：我在乎什麼？我想成為怎樣的人？這一頁不是要你寫得多漂亮，而是把心裡的樣子說清楚，再拆成做得到的目標。</p></header>
+
+<section class="howto"><h2>(1) 先學會設目標</h2><p>「我要變得更好」不是目標，是願望。一個可以用的目標，要過三關：</p><div class="guide"><div><b>① 具體</b>做什麼、做多少，一看就知道要去做哪件事。</div><div><b>② 看得見</b>怎麼知道自己做到了？要有一個可以拿出來給別人看的證據。</div><div><b>③ 有期限</b>什麼時候以前完成？沒有日期的目標會一直往後挪。</div></div><p class="example"><s>英文變好</s>　→　每週背 50 個會計英文單字，期中考前把第一章到第四章的英文習題寫完，用學習存摺留下紀錄。</p><p class="example"><s>要多運動</s>　→　每週二、四晚上去學校操場跑 30 分鐘，持續到 12 月底，用健康存摺記錄。</p><p class="note">目標寫不出來的時候，先回頭看第 (3) 題：四年後你想成為的那個人，他現在每週會做什麼？</p></section>
+
+<form id="book">
+<section><h2>(2) 我是誰</h2><div class="grid"><div><label for="name">姓名</label><input id="name" name="name" autocomplete="name"></div><div><label for="class">班級／學號（可不填）</label><input id="class" name="class"></div></div><label for="date">寫下承諾的日期</label><input id="date" name="date" type="date"></section>
+
+<section><h2>(3) 四年後，我想成為什麼樣的大學生？</h2><label for="vision">用一兩句話，寫出畢業那天你希望自己是什麼樣子</label><textarea id="vision" name="vision" maxlength="120" placeholder="例：一個敢上台講話、看得懂英文會計教材、每週固定運動，身邊有一群可以一起討論問題的朋友的人。"></textarea><p class="note">最多 120 字，會印在承諾卡上。</p><label for="why">為什麼這對我重要？（我在乎什麼）</label><textarea id="why" name="why" placeholder="例：高中三年我都是被安排的，大學我想自己決定要變成什麼樣子。"></textarea></section>
+
+<section class="goal g1"><h3>目標 1</h3><div class="grid"><div><label for="book0">這個目標存進哪一本存摺？</label><select id="book0" name="book0"><option value="">請選擇</option><option>健康</option><option>學習</option><option>關係</option><option>承諾</option><option>連結</option></select></div><div><label for="due0">期限</label><input id="due0" name="due0" placeholder="例：期中考前／12 月 31 日／大一結束前"></div></div><label for="goal0">目標（具體：做什麼、做多少）</label><input id="goal0" name="goal0" maxlength="60" placeholder="例：每週背 50 個會計英文單字"><label for="proof0">怎麼知道做到了？（看得見的證據）</label><input id="proof0" name="proof0" maxlength="60" placeholder="例：單字本累積 600 個字，期中英文題全部寫完"><label for="step0">這一週的第一步</label><input id="step0" name="step0" placeholder="例：今晚先整理第一章 50 個單字"></section>
+
+<section class="goal g2"><h3>目標 2</h3><div class="grid"><div><label for="book1">這個目標存進哪一本存摺？</label><select id="book1" name="book1"><option value="">請選擇</option><option>健康</option><option>學習</option><option>關係</option><option>承諾</option><option>連結</option></select></div><div><label for="due1">期限</label><input id="due1" name="due1" placeholder="例：期中考前／12 月 31 日／大一結束前"></div></div><label for="goal1">目標（具體：做什麼、做多少）</label><input id="goal1" name="goal1" maxlength="60" placeholder="例：每週二、四晚上跑步 30 分鐘"><label for="proof1">怎麼知道做到了？（看得見的證據）</label><input id="proof1" name="proof1" maxlength="60" placeholder="例：健康存摺上有 16 次跑步紀錄"><label for="step1">這一週的第一步</label><input id="step1" name="step1" placeholder="例：週二晚上七點約室友一起去操場"></section>
+
+<section class="goal g3"><h3>目標 3</h3><div class="grid"><div><label for="book2">這個目標存進哪一本存摺？</label><select id="book2" name="book2"><option value="">請選擇</option><option>健康</option><option>學習</option><option>關係</option><option>承諾</option><option>連結</option></select></div><div><label for="due2">期限</label><input id="due2" name="due2" placeholder="例：期中考前／12 月 31 日／大一結束前"></div></div><label for="goal2">目標（具體：做什麼、做多少）</label><input id="goal2" name="goal2" maxlength="60" placeholder="例：這學期在課堂上主動發言 5 次"><label for="proof2">怎麼知道做到了？（看得見的證據）</label><input id="proof2" name="proof2" maxlength="60" placeholder="例：工作底稿記下 5 次發言的日期與內容"><label for="step2">這一週的第一步</label><input id="step2" name="step2" placeholder="例：下週大學入門課，老師問問題時舉一次手"></section>
+
+<section><h2>(4) 我的承諾</h2><label for="promise">用一句話，對自己承諾</label><textarea id="promise" name="promise" maxlength="80" placeholder="例：我承諾這學期每週都打開三本存摺記一筆，不讓今天寫的目標只停在這張卡上。"></textarea><p class="note">最多 80 字，會印在承諾卡最下面。</p></section>
+</form>
+
+<section class="controls"><h2>(5) 承諾卡：截圖留下來</h2><p>右邊這張卡會跟著你上面寫的內容一起變。寫完按「截圖模式」，整個畫面只剩這張卡，直接用手機截圖，依老師指定的方式繳交。</p><div class="card-stage"><div class="card" id="card"></div></div><div class="actions"><button id="shot" type="button">截圖模式（全畫面只看卡）</button><button id="download" type="button">下載承諾卡圖片</button><button id="print" type="button" class="secondary">列印／存成 PDF</button><button id="clear" type="button" class="secondary">清除重寫</button></div><p id="status" role="status" aria-live="polite">正在載入…</p><p class="note">內容會自動儲存在這台裝置的這個瀏覽器，沒有傳送給老師。換裝置不會帶著走，截圖是你的證據。</p></section>
+<footer class="page-footer">承諾存摺 v01，更新日期：2026/10/29</footer></main>
+
+<div class="fullscreen" id="full" role="dialog" aria-modal="true" aria-label="承諾卡截圖模式"><div class="card" id="cardFull"></div><p class="tip">現在截圖吧。手機：同時按電源鍵與音量鍵。</p><button class="close" id="close" type="button">回到填寫頁</button></div>
+
+<script>
+'use strict';
+const KEY='commitmentPassbook2026';
+const $=id=>document.getElementById(id);
+const msg=s=>$('status').textContent=s;
+const FIELDS=['name','class','date','vision','why','promise','book0','due0','goal0','proof0','step0','book1','due1','goal1','proof1','step1','book2','due2','goal2','proof2','step2'];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function data(){const o={};FIELDS.forEach(k=>o[k]=$(k).value);return o;}
+function fmtDate(v){if(!v)return '';const [y,m,d]=v.split('-');return y&&m&&d?`${y} 年 ${+m} 月 ${+d} 日`:v;}
+function renderCard(el){
+ const d=data();
+ const goals=[0,1,2].map(i=>({book:d['book'+i],goal:d['goal'+i].trim(),proof:d['proof'+i].trim(),due:d['due'+i].trim()})).filter(g=>g.goal);
+ const long=(d.vision.length>60)||goals.some(g=>g.goal.length>30)||d.promise.length>50;
+ el.classList.toggle('small',long);
+ el.innerHTML=`<div class="c-head">PASSBOOK 04 · 承諾存摺</div><div class="c-name">${d.name.trim()?esc(d.name.trim()):'<span class="empty">（姓名）</span>'}</div><div class="c-label">四年後，我想成為</div><div class="c-rule"></div><div class="c-vision">${d.vision.trim()?esc(d.vision.trim()):'<span class="empty">還沒寫下想成為的樣子</span>'}</div><div class="c-label">我的三個目標</div><div class="c-rule"></div>${goals.length?`<ol>${goals.map(g=>`<li>${g.book?`<span class="tag">${esc(g.book)}</span>`:''}${esc(g.goal)}${g.proof||g.due?`<small>${esc(g.proof)}${g.proof&&g.due?'｜':''}${g.due?esc(g.due):''}</small>`:''}</li>`).join('')}</ol>`:'<div class="empty">還沒寫目標</div>'}<div class="c-promise">${d.promise.trim()?'「'+esc(d.promise.trim())+'」':'<span class="empty">我的承諾一句話</span>'}</div><div class="c-foot"><span>${esc(fmtDate(d.date))}</span><span>佩佩老師的會計魔法教室</span></div>`;
+}
+function render(){renderCard($('card'));if($('full').classList.contains('on'))renderCard($('cardFull'));}
+let timer;
+function save(){try{localStorage.setItem(KEY,JSON.stringify({version:1,fields:data(),saved:new Date().toISOString()}));msg('已自動儲存在這台裝置，尚未傳送給老師。');}catch(e){msg('這個瀏覽器無法儲存，請寫完立刻截圖。');}}
+$('book').addEventListener('input',()=>{render();clearTimeout(timer);timer=setTimeout(save,400);});
+$('book').addEventListener('submit',e=>e.preventDefault());
+$('shot').onclick=()=>{renderCard($('cardFull'));$('full').classList.add('on');document.body.classList.add('locked');$('close').focus();};
+$('close').onclick=()=>{$('full').classList.remove('on');document.body.classList.remove('locked');$('shot').focus();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('full').classList.contains('on'))$('close').click();});
+$('print').onclick=()=>window.print();
+$('clear').onclick=()=>{if(!confirm('清除這張承諾卡的所有內容，重新寫？'))return;$('book').reset();$('date').value=today();try{localStorage.removeItem(KEY);}catch(e){}render();msg('已清除，可以重新寫。');};
+function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+
+/* 下載 PNG：用 canvas 自己畫一張 1080×1350 的卡 */
+function wrapText(ctx,text,maxW){const out=[];for(const para of String(text).split('\n')){let line='';for(const ch of para){const t=line+ch;if(ctx.measureText(t).width>maxW&&line){out.push(line);line=ch;}else line=t;}out.push(line);}return out;}
+$('download').onclick=()=>{
+ const d=data();const W=1080,H=1350,L=90,R=W-70,maxW=R-L;
+ const c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+ const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#8f78a8');g.addColorStop(.7,'#6a5583');g.addColorStop(1,'#5a4670');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.fillStyle='rgba(0,0,0,.13)';x.fillRect(0,0,28,H);x.fillStyle='rgba(255,255,255,.08)';x.fillRect(28,0,8,H);
+ x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=2;x.strokeRect(58,30,W-88,H-60);
+ x.fillStyle='#fff';x.textBaseline='top';const F='"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif';
+ let y=86;const line=(txt,size,weight,lh,alpha=1,italic=false)=>{x.globalAlpha=alpha;x.font=`${italic?'italic ':''}${weight} ${size}px ${F}`;for(const l of wrapText(x,txt,maxW)){x.fillText(l,L,y);y+=lh;}x.globalAlpha=1;};
+ const rule=()=>{x.fillStyle='rgba(255,255,255,.6)';x.fillRect(L,y-6,70,3);x.fillStyle='#fff';y+=16;};
+ line('PASSBOOK 04 · 承諾存摺',26,'400',40,.85);
+ line(d.name.trim()||'（姓名）',50,'700',70);
+ y+=20;line('四年後，我想成為',24,'400',40,.8);rule();
+ const vision=d.vision.trim()||'還沒寫下想成為的樣子';line(vision,vision.length>60?36:42,'700',vision.length>60?52:60);
+ y+=22;line('我的三個目標',24,'400',40,.8);rule();
+ const goals=[0,1,2].map(i=>({book:d['book'+i],goal:d['goal'+i].trim(),proof:d['proof'+i].trim(),due:d['due'+i].trim()})).filter(g=>g.goal);
+ if(!goals.length)line('還沒寫目標',30,'400',44,.6);
+ goals.forEach((gl,i)=>{const head=`${i+1}. ${gl.book?'【'+gl.book+'】':''}${gl.goal}`;line(head,32,'700',46);const sub=[gl.proof,gl.due].filter(Boolean).join('｜');if(sub)line('    '+sub,26,'400',38,.85);y+=8;});
+ const promise=d.promise.trim();const pLines=promise?wrapText(x,'「'+promise+'」',maxW).length:1;
+ const footY=H-120;const pSize=promise.length>50?30:34,pLh=pSize+12;
+ let py=y+46;
+ if(py+pLines*pLh>footY-24){py=footY-24-pLines*pLh;}
+ y=py;line(promise?'「'+promise+'」':'我的承諾一句話',pSize,'400',pLh,promise?1:.6,true);
+ x.fillStyle='rgba(255,255,255,.35)';x.fillRect(L,footY-10,maxW,2);x.fillStyle='#fff';
+ x.globalAlpha=.85;x.font=`400 24px ${F}`;x.textAlign='left';x.fillText(fmtDate(d.date),L,footY+14);x.textAlign='right';x.fillText('佩佩老師的會計魔法教室 · drpeipei.com',R,footY+14);x.textAlign='left';x.globalAlpha=1;
+ c.toBlob(b=>{const url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download=`承諾存摺_${d.name.trim()||'我'}_${d.date||today()}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);msg('承諾卡圖片已下載。');},'image/png');
+};
+
+(function load(){
+ let saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){}
+ if(saved&&saved.fields){FIELDS.forEach(k=>{if(typeof saved.fields[k]==='string')$(k).value=saved.fields[k];});msg('已載入這台裝置上的承諾卡。');}
+ else msg('從第 (2) 題開始寫，內容會自動儲存。');
+ if(!$('date').value)$('date').value=today();
+ render();
+})();
+</script><!-- site-only --><script src="brand.js?v=20260927"></script><!-- /site-only --></body></html>
