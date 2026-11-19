@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大學生的學習地圖｜佩佩老師的會計魔法教室</title>
+<meta name="description" content="大學生的 3＋2＋5：課業、社群、人際三大任務，學習風格小測驗與自製雷達圖了解自己，再用五大存摺把四年做過的事存下來。">
+<link rel="canonical" href="https://drpeipei.com/college-learning-map.html">
+<meta property="og:type" content="website"><meta property="og:title" content="大學生的學習地圖｜3＋2＋5"><meta property="og:description" content="大學生的 3＋2＋5：課業、社群、人際三大任務，學習風格小測驗與自製雷達圖了解自己，再用五大存摺把四年做過的事存下來。"><meta property="og:url" content="https://drpeipei.com/college-learning-map.html"><meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg">
+<link rel="icon" type="image/jpeg" href="peipei-mascot.jpg">
+<!-- site-only --><link rel="stylesheet" href="brand-shell.css?v=20261003"><!-- /site-only -->
+<style>
+:root{color-scheme:light;--ink:#183b32;--muted:#435b52;--paper:#f7f5ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 system-ui,"Microsoft JhengHei",sans-serif}
+body.pp-site[data-page=college-learning-map]{--ink:#183b32;--muted:#435b52;--paper:#f7f5ee;background:#f7f5ee;color:#183b32;font:1rem/1.65 system-ui,"Microsoft JhengHei",sans-serif}
+.wrap{width:min(1080px,calc(100% - 32px));margin-inline:auto}
+main.wrap{padding:clamp(30px,6vw,68px) 0 40px}
+main a{color:inherit;text-underline-offset:4px}
+main h1,main h2,main h3,main p{margin:0}
+h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.2;letter-spacing:.02em}
+.formula{display:inline-block;margin-bottom:10px;color:#70501c;font-weight:800;letter-spacing:.12em}
+.intro{margin-top:12px;color:var(--muted)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.jump a{padding:5px 12px;border:1px solid #a9bba9;border-radius:20px;background:#fffdf8;text-decoration:none;font-weight:700;font-size:.93rem}
+.map-section{margin-top:36px;scroll-margin-top:110px}
+.section-title{display:flex;align-items:flex-start;gap:10px;font-size:1.55rem;margin-bottom:6px}
+.section-title small{font-size:.78em;color:var(--muted)}
+.section-count{display:inline-grid;place-items:center;width:35px;height:35px;flex:none;border:1px solid #a9bba9;border-radius:9px;font-size:1rem}
+.section-guide{color:var(--muted);margin:6px 0 14px}
+.tone-1{--card-bg:#e2eee1;--card-border:#a2bba2;--card-ink:#24503a}
+.tone-2{--card-bg:#dfebf7;--card-border:#a4bbd1;--card-ink:#284e74}
+.tone-5{--card-bg:#f6ebce;--card-border:#c8b27c;--card-ink:#6c4c19}
+.tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.task{display:flex;flex-direction:column;gap:10px;padding:18px;border:1px solid var(--card-border);border-radius:14px;background:var(--card-bg)}
+.task-head{display:flex;align-items:center;gap:10px}
+.task-icon{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#fffdf8;font-size:1.35rem}
+.task h3{font-size:1.3rem;color:var(--card-ink)}
+.goal{color:var(--card-ink);font-weight:700}
+.items{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--card-border);display:grid;gap:10px}
+.items li{display:grid;grid-template-columns:28px 1fr;gap:6px;align-items:start}
+.items .i{font-size:1.15rem;line-height:1.5}
+.items b{display:block;color:var(--card-ink)}
+.self{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:14px;align-items:start}
+.tool{padding:18px;border:1px solid #d3dcd0;border-radius:14px;background:#fffdf8}
+.tool h3{display:flex;align-items:center;gap:10px;font-size:1.2rem;margin-bottom:8px}
+.tool p{color:var(--muted)}
+.btn{display:inline-block;margin-top:14px;padding:6px 14px;border:1px solid #2d614a;border-radius:20px;background:#2d614a;color:#fff!important;text-decoration:none;font-weight:700}
+.radar{display:grid;grid-template-columns:minmax(130px,1fr) minmax(0,1.4fr);gap:14px;align-items:center;margin-top:10px}
+.sliders{display:grid;gap:6px}
+.sliders label{display:grid;grid-template-columns:1fr auto;gap:2px;font-weight:700;color:var(--c)}
+.sliders input{grid-column:1/-1;width:100%;margin:0;accent-color:var(--c)}
+#radar{display:block;width:100%;height:auto}
+#radar text{font:700 13px system-ui,sans-serif}
+.tool button{font:inherit;color:var(--ink);background:#e8efe2;border:1px solid #a9bba9;border-radius:8px;padding:4px 12px;cursor:pointer;margin-top:10px}
+.footnote{margin-top:8px;font-size:.88rem}
+.passbook-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;padding:12px 4px 24px}
+.passbook{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:250px;padding:26px 14px 26px 23px;border-radius:5px 17px 17px 5px;background:var(--cover);color:#fff!important;text-align:center;text-decoration:none;box-shadow:inset 9px 0 0 #0002,inset 12px 0 0 #ffffff15,3px 5px 0 #e5dfd3,3px 8px 0 #fff,3px 10px 0 #d8d0c2,0 14px 22px #27312f18}
+.passbook:after{content:'';position:absolute;inset:13px 11px 15px 22px;border:1px solid #ffffff55;border-radius:2px 9px 9px 2px;pointer-events:none}
+.passbook .book-icon{font-size:1.6rem;line-height:1;margin-bottom:8px}
+.passbook .book-number{font-size:12px;letter-spacing:3px;opacity:.85}.passbook strong{font-size:25px;letter-spacing:3px;margin:14px 0 12px}.passbook .book-rule{width:35px;border-top:2px solid #ffffff99;margin-bottom:16px}.passbook small{font-size:12px;line-height:1.8}.passbook .book-action{margin-top:18px;font-size:13px;padding:5px 12px;border-radius:20px;background:#ffffff20}
+a.passbook{transition:transform .2s}a.passbook:hover{transform:translateY(-6px)}a.passbook:focus-visible{outline:3px solid #27312f;outline-offset:7px}
+.more{display:inline-block;margin-top:8px;font-weight:700}
+main a:focus-visible,main button:focus-visible,main input:focus-visible{outline:3px solid #70501c;outline-offset:3px}
+@media(max-width:860px){.tasks,.self{grid-template-columns:1fr}}
+@media(max-width:800px){.passbook-shelf{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.passbook{padding:24px 10px 24px 20px}.passbook strong{font-size:21px;letter-spacing:1px;white-space:nowrap}}
+@media(max-width:500px){.passbook-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.passbook{min-height:225px}.passbook strong{font-size:22px}.radar{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){a.passbook{transition:none}}
+@media print{.pp-shell.brand-header,.pp-breadcrumb,.pp-footer,.jump{display:none!important}.passbook,.task{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body class="pp-site" data-page="college-learning-map">
+<!-- site-only --><header class="brand-header pp-shell"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P<span>·</span></span><span>佩佩老師的會計魔法教室<small>會計能夠救地球</small></span></a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">選單 ☰</button>
+<nav id="main-nav" aria-label="主要導覽"><a href="about.html">認識佩佩</a><details><summary>企業合作</summary><div class="dropdown"><a href="index.html#business">課程與輔導</a><a href="s2-workshop.html">IFRS S2 工作坊</a><a href="npo-finance.html">NPO 財務教室</a></div></details><details><summary>學生學習</summary><div class="dropdown"><a href="index.html#learning">學習資源總覽</a><a href="college-learning-map.html">大學生的學習地圖</a><a href="accounting-learning-map.html">會計人的學習地圖</a><a href="sustainability-learning-map.html">永續人的學習地圖</a><a href="cert-library.html">證照圖書館</a><a href="five-passbooks.html">五大存摺</a><a href="health-passbook.html">健康存摺</a><a href="learning-passbook.html">學習存摺</a><a href="commitment-passbook.html">承諾存摺</a><a href="carbon-goro.html">碳五郎</a></div></details><a href="sustainability-transformation-map.html">永續轉型地圖</a><details><summary>觀點與著作</summary><div class="dropdown"><a href="articles.html">觀點文章</a><a href="news.html">永續新知</a><a href="books.html">著作</a></div></details><a class="nav-contact" href="index.html#contact">聯絡合作 ↗</a></nav></header><nav class="pp-breadcrumb" aria-label="所在位置"><a href="index.html">首頁</a> <span aria-hidden="true">/</span> <span aria-current="page">大學生的學習地圖</span></nav><!-- /site-only -->
+<main class="wrap">
+  <p class="formula">3 ＋ 2 ＋ 5</p>
+  <h1>大學生的學習地圖</h1>
+  <p class="intro">看懂大學裡有哪些路，認識自己的走法，把四年裡做過的事存下來。</p>
+  <nav class="jump" aria-label="頁內導覽"><a href="#tasks">三大任務</a><a href="#self">了解自己</a><a href="#passbooks">五大存摺</a></nav>
+
+  <section class="map-section" id="tasks" aria-labelledby="tasks-title">
+    <h2 class="section-title" id="tasks-title"><span class="section-count">3</span><span>三大任務<small>｜課業、社群、人際</small></span></h2>
+    <p class="section-guide">大學不只修課，也在練習和人一起做事、好好相處。</p>
+    <div class="tasks"><article class="task tone-1"><div class="task-head"><span class="task-icon" aria-hidden="true">📚</span><h3>課業</h3></div><p class="goal">看懂畢業路線，規劃想學的專業。</p><ul class="items"><li><span class="i" aria-hidden="true">🎓</span><span><b>學分</b>對照入學年度，核對必修、選修與畢業學分。想多學：輔系、雙主修、跨校選修、交換。</span></li><li><span class="i" aria-hidden="true">🗣️</span><span><b>語言</b>確認英文畢業門檻，安排檢定或校內認列。</span></li><li><span class="i" aria-hidden="true">🎭</span><span><b>人文素養</b>查清楚要完成的活動與佐證，存進五大存摺。</span></li></ul></article><article class="task tone-2"><div class="task-head"><span class="task-icon" aria-hidden="true">🤝</span><h3>社群</h3></div><p class="goal">找到想參與的組織，練習和別人一起做事。</p><ul class="items"><li><span class="i" aria-hidden="true">🏫</span><span><b>系上</b>參與系學會，從幫忙活動到負責一項任務。</span></li><li><span class="i" aria-hidden="true">🏛️</span><span><b>全校</b>探索學生會與社團，認識不同科系的人。</span></li><li><span class="i" aria-hidden="true">🌍</span><span><b>校外</b>社群、志工或打工，看別的團隊怎麼合作。</span></li></ul></article><article class="task tone-5"><div class="task-head"><span class="task-icon" aria-hidden="true">💬</span><h3>人際</h3></div><p class="goal">建立互相尊重、真誠相處的關係。</p><ul class="items"><li><span class="i" aria-hidden="true">👋</span><span><b>友情</b>主動認識新朋友，也練習維繫關係。</span></li><li><span class="i" aria-hidden="true">🧩</span><span><b>同儕</b>聆聽、表達需求、處理意見不合。</span></li><li><span class="i" aria-hidden="true">💗</span><span><b>愛情</b>慢慢認識彼此，尊重對方的步調與界線。</span></li></ul></article></div>
+  </section>
+
+  <section class="map-section" id="self" aria-labelledby="self-title">
+    <h2 class="section-title" id="self-title"><span class="section-count">2</span><span>了解自己<small>｜先知道自己的走法</small></span></h2>
+    <p class="section-guide">一個小測驗看學習習慣，一張雷達圖看五本存摺的起點。</p>
+    <div class="self">
+      <article class="tool">
+        <h3><span class="task-icon" aria-hidden="true">🧭</span>學習風格小測驗</h3>
+        <p>16 個情境，看見自己的學習習慣。測完挑一招試一週，例如把課整理成圖，再講給同學聽。</p>
+        <a class="btn" href="learning-style-quiz.html">開始測驗 →</a>
+      </article>
+      <article class="tool">
+        <h3><span class="task-icon" aria-hidden="true">📊</span>自製雷達圖</h3>
+        <p>五本存摺各打 1～5 分：1 分剛起步，5 分做得穩定。</p>
+        <div class="radar">
+          <div class="sliders" id="scores"><label style="--c:#496f59"><span><span aria-hidden="true">🌱</span> 健康</span><output for="health">3</output><input id="health" aria-label="健康" type="range" min="1" max="5" value="3"></label><label style="--c:#456780"><span><span aria-hidden="true">📘</span> 學習</span><output for="learning">3</output><input id="learning" aria-label="學習" type="range" min="1" max="5" value="3"></label><label style="--c:#a85b56"><span><span aria-hidden="true">🤝</span> 關係</span><output for="relationship">3</output><input id="relationship" aria-label="關係" type="range" min="1" max="5" value="3"></label><label style="--c:#836c9b"><span><span aria-hidden="true">🎯</span> 承諾</span><output for="commitment">3</output><input id="commitment" aria-label="承諾" type="range" min="1" max="5" value="3"></label><label style="--c:#856b35"><span><span aria-hidden="true">🌏</span> 連結</span><output for="connection">3</output><input id="connection" aria-label="連結" type="range" min="1" max="5" value="3"></label></div>
+          <svg id="radar" viewBox="0 0 260 246" role="img" aria-labelledby="chart-title">
+            <title id="chart-title">五大存摺自評雷達圖</title>
+            <g id="chart-grid" fill="none" stroke="#9fae9f"></g>
+            <polygon id="chart-values" fill="#6caa82" fill-opacity=".45" stroke="#2d614a" stroke-width="2"></polygon>
+            <g text-anchor="middle"><text x="130" y="25" fill="#496f59">健康</text><text x="230" y="94" fill="#456780">學習</text><text x="194" y="213" fill="#a85b56">關係</text><text x="66" y="213" fill="#836c9b">承諾</text><text x="30" y="94" fill="#856b35">連結</text></g>
+          </svg>
+        </div>
+        <button id="reset" type="button">重設分數</button>
+        <p class="footnote">調好後截圖留存，期末再做一次比比看。分數不會儲存，重新開啟會回到 3 分。</p>
+        <noscript><p>開啟 JavaScript 即可產生雷達圖。</p></noscript>
+      </article>
+    </div>
+  </section>
+
+  <section class="map-section" id="passbooks" aria-labelledby="pb-title">
+    <h2 class="section-title" id="pb-title"><span class="section-count">5</span><span>五大存摺<small>｜把四年做過的事存下來</small></span></h2>
+    <p class="section-guide">期初開帳，學期中留下行動與佐證，期末回頭看自己的變化。</p>
+    <div class="passbook-shelf"><a class="passbook" style="--cover:#496f59" href="health-passbook.html"><span class="book-icon" aria-hidden="true">🌱</span><span class="book-number">PASSBOOK 01</span><strong>健康存摺</strong><span class="book-rule"></span><small>吃・睡・動<br>一個月健康挑戰</small><span class="book-action">開啟存摺 →</span></a><a class="passbook" style="--cover:#456780" href="learning-passbook.html"><span class="book-icon" aria-hidden="true">📘</span><span class="book-number">PASSBOOK 02</span><strong>學習存摺</strong><span class="book-rule"></span><small>自選三種學習方式<br>留下行動與佐證</small><span class="book-action">開啟存摺 →</span></a><div class="passbook" style="--cover:#a85b56"><span class="book-icon" aria-hidden="true">🤝</span><span class="book-number">PASSBOOK 03</span><strong>關係存摺</strong><span class="book-rule"></span><small>珍惜每一段關係<br>&nbsp;</small><span class="book-action">專頁尚未開放</span></div><a class="passbook" style="--cover:#836c9b" href="commitment-passbook.html"><span class="book-icon" aria-hidden="true">🎯</span><span class="book-number">PASSBOOK 04</span><strong>承諾存摺</strong><span class="book-rule"></span><small>我想成為什麼樣的大學生<br>學習設目標，做成承諾卡</small><span class="book-action">開啟存摺 →</span></a><div class="passbook" style="--cover:#856b35"><span class="book-icon" aria-hidden="true">🌏</span><span class="book-number">PASSBOOK 05</span><strong>連結存摺</strong><span class="book-rule"></span><small>與更大的世界連結<br>&nbsp;</small><span class="book-action">專頁尚未開放</span></div></div>
+    <a class="more" href="five-passbooks.html">前往我的五大存摺：開帳、存款、結帳 →</a>
+  </section>
+</main>
+<!-- site-only --><footer class="pp-footer"><div><b>佩佩老師的會計魔法教室</b><p>會計能夠救地球<br><small>Accounting Can Save the Earth</small></p></div><div><a href="index.html#business">企業合作</a><a href="index.html#learning">學生學習</a><a href="articles.html">觀點文章</a><a href="books.html">著作</a></div><div><span>聯絡佩佩老師</span><a href="mailto:lyipei@gmail.com">lyipei@gmail.com ↗</a><small>劉沂佩 · 教學、實踐與永續</small></div></footer><script src="brand.js?v=20260927"></script><!-- /site-only -->
+<script>
+const inputs=[...document.querySelectorAll('#scores input')];
+const grid=document.querySelector('#chart-grid');const shape=document.querySelector('#chart-values');const title=document.querySelector('#chart-title');
+const ns='http://www.w3.org/2000/svg';
+function point(i,s){const a=i*2*Math.PI/inputs.length-Math.PI/2;const r=s*16;return[130+Math.cos(a)*r,120+Math.sin(a)*r];}
+function polygon(sc){return sc.map((s,i)=>point(i,s).join(',')).join(' ');}
+for(let l=1;l<=5;l+=1){const g=document.createElementNS(ns,'polygon');g.setAttribute('points',polygon(inputs.map(()=>l)));grid.append(g);}
+inputs.forEach((inp,i)=>{const ax=document.createElementNS(ns,'line');const[x,y]=point(i,5);ax.setAttribute('x1','130');ax.setAttribute('y1','120');ax.setAttribute('x2',x);ax.setAttribute('y2',y);grid.append(ax);});
+function updateChart(){shape.setAttribute('points',polygon(inputs.map(inp=>Number(inp.value))));inputs.forEach(inp=>{inp.labels[0].querySelector('output').value=inp.value;});
+title.textContent='五大存摺自評雷達圖。'+inputs.map(inp=>inp.getAttribute('aria-label')+' '+inp.value+' 分').join('、');}
+document.querySelector('#scores').addEventListener('input',updateChart);
+document.querySelector('#reset').addEventListener('click',()=>{inputs.forEach(inp=>{inp.value=inp.defaultValue;});updateChart();});
+updateChart();
+</script>
+</body>
+</html>
