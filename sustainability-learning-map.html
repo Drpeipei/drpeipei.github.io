@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="永續人的 5＋2＋1：五種能力、兩類工具、一個 E／S／G 整合任務，從看懂企業營運開始，練習做出改善、說清楚證據。">
+<link rel="canonical" href="https://drpeipei.com/sustainability-learning-map.html">
+<meta property="og:type" content="website"><meta property="og:title" content="永續人的學習地圖｜佩佩老師的會計魔法教室"><meta property="og:description" content="永續人的 5＋2＋1：五種能力、兩類工具、一個 E／S／G 整合任務，從看懂企業營運開始，練習做出改善、說清楚證據。"><meta property="og:url" content="https://drpeipei.com/sustainability-learning-map.html"><meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg">
+<link rel="icon" type="image/jpeg" href="peipei-mascot.jpg">
+<!-- site-only --><link rel="stylesheet" href="brand-shell.css?v=20261003"><!-- /site-only -->
+
+<title>永續人的學習地圖｜佩佩老師的會計魔法教室</title>
+<style>
+:root { color-scheme: light; --ink:#183b32; --muted:#435b52; --paper:#f7f5ee; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font:1rem/1.65 system-ui,"Microsoft JhengHei",sans-serif; }
+.wrap { width:min(1080px,calc(100% - 32px)); margin-inline:auto; }
+header { padding:16px 0; border-bottom:1px solid #d6ded3; background:#fffdf8; font-weight:700; }
+a { color:inherit; text-underline-offset:4px; }
+header a { text-decoration:none; }
+main { padding:clamp(30px,6vw,68px) 0 40px; }
+h1,h2,h3,p { margin:0; }
+h1 { font-size:clamp(2rem,5vw,3.6rem); line-height:1.2; letter-spacing:.02em; }
+.intro { margin-top:12px; color:var(--muted); }
+.cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:26px; }
+.card { display:flex; flex-direction:column; gap:12px; background:var(--card); border:1px solid var(--border); padding:20px; border-radius:16px; }
+.environment { --card:#e7f1e5; --border:#9ebc9c; --accent:#215b3b; }
+.social { --card:#e6eef7; --border:#a7bad2; --accent:#254d76; }
+.governance { --card:#f3ebda; --border:#c9b689; --accent:#70501c; }
+h2 { display:flex; align-items:center; gap:10px; font-size:1.08rem; color:var(--accent); }
+.letter { display:grid; place-items:center; width:36px; height:36px; border-radius:9px; color:white; background:var(--accent); }
+h3 { font-size:1.27rem; line-height:1.4; }
+.question { color:var(--accent); font-weight:700; }
+.more { margin-top:auto; padding-top:12px; border-top:1px solid var(--border); font-size:.93rem; }
+.note { margin-top:22px; padding:16px 0; border-block:1px solid #d6ded3; }
+.back { display:inline-block; margin-top:18px; }
+a:focus-visible { outline:3px solid #70501c; outline-offset:4px; }
+@media(max-width:760px) { .cards { grid-template-columns:1fr; } }
+
+.map-section { margin-top:36px; }
+.section-title { color:var(--ink); font-size:1.55rem; margin-bottom:10px; }
+.abilities { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,275px),1fr)); gap:12px; }
+.tools { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:12px; }
+.formula { display:inline-block; margin-bottom:10px; color:#70501c; font-weight:800; letter-spacing:.12em; }
+.guide,.section-guide { color:var(--muted); margin-top:6px; }
+.section-guide { margin-bottom:14px; }
+.section-title { align-items:flex-start; }
+.section-title small { font-size:.78em; color:var(--muted); }
+.section-count { display:inline-grid; place-items:center; width:35px; height:35px; flex:none; border:1px solid #a9bba9; border-radius:9px; font-size:1rem; }
+.ability { border:1px solid var(--card-border); border-radius:14px; background:var(--card-bg); }
+.ability summary { display:block; cursor:pointer; list-style:none; padding:16px; }
+.ability summary::-webkit-details-marker { display:none; }
+.face-front { display:flex; min-height:174px; flex-direction:column; align-items:flex-start; gap:6px; }
+.card-no,.action { color:var(--card-ink); font-size:.82rem; font-weight:700; }
+.card-icon { font-size:1.55rem; line-height:1.2; }
+.face-front strong { font-size:1.12rem; }
+.tagline { color:var(--muted); }
+.face-front .action { margin-top:auto; }
+.face-back { display:none; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.ability[open] .face-front { display:none; }
+.ability[open] .face-back { display:flex; }
+.ability > div { margin:0 16px 16px; padding-top:12px; border-top:1px solid var(--card-border); }
+.controls { margin-top:22px; }
+.controls button { font:inherit; color:var(--ink); background:#fffdf8; border:1px solid #a9bba9; border-radius:8px; padding:5px 12px; cursor:pointer; }
+summary:focus-visible,button:focus-visible { outline:3px solid #70501c; outline-offset:3px; }
+.flow { display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); list-style:none; gap:6px; padding:0; margin:10px 0 0; }
+.flow li { padding:6px 8px; border-radius:6px; font-size:.85rem; font-weight:700; }
+.flow li:nth-child(1) { background:#DCEEDC; }
+.flow li:nth-child(2) { background:#DDEAF7; }
+.flow li:nth-child(3) { background:#F7E7BA; }
+.flow li:nth-child(4) { background:#E9E0F4; }
+.tone-1 { --card-bg:#e2eee1; --card-border:#a2bba2; --card-ink:#24503a; }
+.tone-2 { --card-bg:#dfebf7; --card-border:#a4bbd1; --card-ink:#284e74; }
+.tone-3 { --card-bg:#ddefeb; --card-border:#a0beb7; --card-ink:#21584e; }
+.tone-4 { --card-bg:#ede4f5; --card-border:#baa6cc; --card-ink:#583c71; }
+.tone-5 { --card-bg:#f6ebce; --card-border:#c8b27c; --card-ink:#6c4c19; }
+.tone-6 { --card-bg:#edf0e5; --card-border:#b4bfaa; --card-ink:#415633; }
+.tone-7 { --card-bg:#e7edf6; --card-border:#b3bfd1; --card-ink:#324b6b; }
+
+/* site: 本頁沿用老師原檔色票與字體，不被全站色票覆蓋 */
+body.pp-site[data-page=sustainability-learning-map]{--ink:#183b32;--muted:#435b52;--paper:#f7f5ee;background:#f7f5ee;color:#183b32;font:1rem/1.65 system-ui,"Microsoft JhengHei",sans-serif}
+@media print{.pp-shell.brand-header,.pp-breadcrumb,.pp-footer,.controls{display:none!important}}
+</style>
+</head>
+<body class="pp-site" data-page="sustainability-learning-map">
+<!-- site-only --><header class="brand-header pp-shell"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P<span>·</span></span><span>佩佩老師的會計魔法教室<small>會計能夠救地球</small></span></a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">選單 ☰</button>
+<nav id="main-nav" aria-label="主要導覽"><a href="about.html">認識佩佩</a><details><summary>企業合作</summary><div class="dropdown"><a href="index.html#business">課程與輔導</a><a href="s2-workshop.html">IFRS S2 工作坊</a><a href="npo-finance.html">NPO 財務教室</a></div></details><details><summary>學生學習</summary><div class="dropdown"><a href="index.html#learning">學習資源總覽</a><a href="accounting-learning-map.html">會計人的學習地圖</a><a href="sustainability-learning-map.html">永續人的學習地圖</a><a href="cert-library.html">證照圖書館</a><a href="five-passbooks.html">五大存摺</a><a href="health-passbook.html">健康存摺</a><a href="learning-passbook.html">學習存摺</a><a href="commitment-passbook.html">承諾存摺</a><a href="carbon-goro.html">碳五郎</a></div></details><a href="sustainability-transformation-map.html">永續轉型地圖</a><details><summary>觀點與著作</summary><div class="dropdown"><a href="articles.html">觀點文章</a><a href="news.html">永續新知</a><a href="books.html">著作</a></div></details><a class="nav-contact" href="index.html#contact">聯絡合作 ↗</a></nav></header><nav class="pp-breadcrumb" aria-label="所在位置"><a href="index.html">首頁</a> <span aria-hidden="true">/</span> <span aria-current="page">永續人的學習地圖</span></nav><!-- /site-only -->
+<main class="wrap">
+  <p class="formula">5 ＋ 2 ＋ 1</p>
+  <h1>永續人的學習地圖</h1>
+  <p class="intro">從看懂企業怎麼運作開始，練習做出改善、說清楚證據，讓資訊幫助企業做下一個決定。</p>
+  <p class="guide">點一下卡片，看看這項能力可以怎麼用。</p>
+  <section class="map-section" aria-labelledby="abilities-title">
+    <h2 class="section-title" id="abilities-title"><span class="section-count">5</span><span>五種能力<small>｜永續人的基本功</small></span></h2>
+    <p class="section-guide">懂營運、會檢測、設計循環、管資訊、評估轉型</p>
+    <div class="abilities">
+      <details class="ability tone-1">
+        <summary><span class="face-front"><span class="card-no">01</span><span class="card-icon" aria-hidden="true">🏭</span><strong>看懂營運與商業模式</strong><span class="tagline">畫得出企業怎麼運作。</span><span class="action">點擊翻面 · 看實作 →</span></span><span class="face-back"><strong>看懂營運與商業模式</strong><span class="action">翻回正面 ↶</span></span></summary>
+        <div><p><strong>動手做</strong>　比較一次性包材與周轉箱的流程，標出材料去了哪裡、哪些工作要重新安排。</p></div>
+      </details>
+      <details class="ability tone-2">
+        <summary><span class="face-front"><span class="card-no">02</span><span class="card-icon" aria-hidden="true">🔬</span><strong>檢測與驗證</strong><span class="tagline">測得出新做法有沒有效。</span><span class="action">點擊翻面 · 看實作 →</span></span><span class="face-back"><strong>檢測與驗證</strong><span class="action">翻回正面 ↶</span></span></summary>
+        <div><p><strong>動手做</strong>　設計一個耐用測試，寫出要測什麼、在什麼條件下測，以及結果能支持什麼判斷。</p></div>
+      </details>
+      <details class="ability tone-3">
+        <summary><span class="face-front"><span class="card-no">03</span><span class="card-icon" aria-hidden="true">♻</span><strong>設計循環與供應鏈流程</strong><span class="tagline">讓用過的東西回得來。</span><span class="action">點擊翻面 · 看實作 →</span></span><span class="face-back"><strong>設計循環與供應鏈流程</strong><span class="action">翻回正面 ↶</span></span></summary>
+        <div><p><strong>動手做</strong>　安排誰收回箱子、誰清洗維修、誰記錄遺失，畫出一張回收流程圖。</p></div>
+      </details>
+      <details class="ability tone-4">
+        <summary><span class="face-front"><span class="card-no">04</span><span class="card-icon" aria-hidden="true">📋</span><strong>管理與判讀永續資訊</strong><span class="tagline">讓數字找得到來源、說得清楚。</span><span class="action">點擊翻面 · 看實作 →</span></span><span class="face-back"><strong>管理與判讀永續資訊</strong><span class="action">翻回正面 ↶</span></span></summary>
+        <div><p><strong>動手做</strong>　選一項 ESG 指標，追到原始紀錄，設計覆核步驟，練習寫一段揭露，再判讀確信涵蓋的範圍。</p><ol class="flow" aria-label="永續資訊四步驟"><li>ESG 資訊</li><li>內部控制與稽核</li><li>揭露 ESG 報告書</li><li>確信 ESG 報告書</li></ol></div>
+      </details>
+      <details class="ability tone-5">
+        <summary><span class="face-front"><span class="card-no">05</span><span class="card-icon" aria-hidden="true">📈</span><strong>評估轉型與永續金融</strong><span class="tagline">拿出證據，說明方案值不值得做。</span><span class="action">點擊翻面 · 看實作 →</span></span><span class="face-back"><strong>評估轉型與永續金融</strong><span class="action">翻回正面 ↶</span></span></summary>
+        <div><p><strong>動手做</strong>　比較成本與環境成效，判斷活動適用哪些永續認定條件，再寫出資金要用在哪裡、還缺什麼證據。</p></div>
+      </details>
+    </div>
+  </section>
+  <section class="map-section" aria-labelledby="tools-title">
+    <h2 class="section-title" id="tools-title"><span class="section-count">2</span><span>兩類工具<small>｜把專業能力用在現場</small></span></h2>
+    <p class="section-guide">量測評估、數據與 AI</p>
+    <div class="tools">
+      <details class="ability tone-6"><summary><span class="face-front"><span class="card-no">06</span><span class="card-icon" aria-hidden="true">📏</span><strong>量測與評估工具</strong><span class="tagline">把現場的變化量出來。</span><span class="action">點擊翻面 · 看工具 →</span></span><span class="face-back"><strong>量測與評估工具</strong><span class="action">翻回正面 ↶</span></span></summary><div><p>用採樣、檢測、碳盤查和成本試算，把現場的變化做成可以比較的資料。</p></div></details>
+      <details class="ability tone-7"><summary><span class="face-front"><span class="card-no">07</span><span class="card-icon" aria-hidden="true">💻</span><strong>數據與 AI 工具</strong><span class="tagline">讓資料幫你看見差異。</span><span class="action">點擊翻面 · 看工具 →</span></span><span class="face-back"><strong>數據與 AI 工具</strong><span class="action">翻回正面 ↶</span></span></summary><div><p>用試算表、資料庫、程式、AI 或碳管理系統，整理資料、發現異常、比較方案。</p></div></details>
+    </div>
+  </section>
+  <section class="map-section" aria-labelledby="practice-title">
+    <h2 class="section-title" id="practice-title"><span class="section-count">1</span><span>一個整合任務<small>｜從資料做出判斷</small></span></h2>
+    <p class="section-guide">環境、社會、治理</p>
+    <p>從 E、S、G 選一個議題，從原始資料出發，做出有證據的判斷。</p>
+  <div class="cards">
+    <article class="card environment">
+      <h2><span class="letter">E</span>環境</h2>
+      <h3>碳五郎</h3>
+      <p class="question">一噸碳是怎麼算出來的？</p>
+      <p><strong>動手做</strong>　找一筆用電資料，試算排放量，標出據點、期間與原始紀錄。</p>
+      <p class="output"><strong>交出成果</strong>　一份標示據點、期間與資料來源，能追溯到電費單的排放試算。</p><p class="more"><strong>還可以學</strong>　能源、水資源、材料循環與自然。</p>
+    </article>
+    <article class="card social">
+      <h2><span class="letter">S</span>社會</h2>
+      <h3>DEI｜多元、公平與共融</h3>
+      <p class="question">誰有機會進來、留下來、往上走？</p>
+      <p><strong>動手做</strong>　比較員工與主管的性別組成，寫下你觀察到的差異，以及還想查的招募、升遷或留任資料。</p>
+      <p class="output"><strong>交出成果</strong>　一張員工與主管組成比較表，寫明資料支持哪些判斷，還需要查什麼。</p><p class="more"><strong>還可以學</strong>　勞動條件、職業安全與供應鏈人權。</p>
+    </article>
+    <article class="card governance">
+      <h2><span class="letter">G</span>治理</h2>
+      <h3>董監事與股權結構</h3>
+      <p class="question">誰持股？誰參與決策？誰負責監督？</p>
+      <p><strong>動手做</strong>　對照年報的主要股東及董事名單，畫出兩者的關係，再找一筆公開資訊，說明誰負責監督永續目標。</p>
+      <p class="output"><strong>交出成果</strong>　一張標明來源與基準日的股東、董事席次與獨立董事關係圖。</p><p class="more"><strong>還可以學</strong>　風險管理、誠信經營與責任分工。</p>
+    </article>
+  </div>
+  <p class="note"><strong>三張卡都有同一個練習</strong>　資料從哪裡來？誰確認過？它能支持什麼判斷？</p>
+  </section>
+  <div class="controls"><button type="button" id="reset-cards" hidden>全部翻回正面</button></div>
+  <a class="back" href="accounting-learning-map.html">前往會計人的學習地圖 →</a>
+</main>
+<!-- site-only --><footer class="pp-footer"><div><b>佩佩老師的會計魔法教室</b><p>會計能夠救地球<br><small>Accounting Can Save the Earth</small></p></div><div><a href="index.html#business">企業合作</a><a href="index.html#learning">學生學習</a><a href="articles.html">觀點文章</a><a href="books.html">著作</a></div><div><span>聯絡佩佩老師</span><a href="mailto:lyipei@gmail.com">lyipei@gmail.com ↗</a><small>劉沂佩 · 教學、實踐與永續</small></div></footer><script src="brand.js?v=20260927"></script><!-- /site-only -->
+<script>
+const resetButton = document.querySelector('#reset-cards');
+resetButton.hidden = false;
+resetButton.addEventListener('click', () => {
+  document.querySelectorAll('details.ability[open]').forEach(card => {
+    card.open = false;
+  });
+});
+</script>
+</body>
+</html>
