@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="從線性走向循環，跟著一只周轉箱看懂營運流程、轉型需要的五種人才，以及永續資訊如何從現場紀錄走到揭露與確信。">
+<link rel="canonical" href="https://drpeipei.com/sustainability-transformation-map.html">
+<meta property="og:type" content="website"><meta property="og:title" content="永續轉型地圖｜佩佩老師的會計魔法教室"><meta property="og:description" content="從線性走向循環，跟著一只周轉箱看懂營運流程、轉型需要的五種人才，以及永續資訊如何從現場紀錄走到揭露與確信。"><meta property="og:url" content="https://drpeipei.com/sustainability-transformation-map.html"><meta property="og:image" content="https://drpeipei.com/peipei-photo.jpg">
+<link rel="icon" type="image/jpeg" href="peipei-mascot.jpg">
+<!-- site-only --><link rel="stylesheet" href="brand-shell.css?v=20261003"><!-- /site-only -->
+
+<title>永續轉型地圖｜佩佩老師的會計魔法教室</title>
+<style>
+:root { color-scheme: light; --ink:#183b32; --muted:#466157; --paper:#f7f5ee; --line:#d3dcd0; --green:#e7efe3; --gold:#8a652e; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font:1rem/1.75 system-ui,"Noto Sans TC","Microsoft JhengHei",sans-serif; }
+header { background:#fffdf8; border-bottom:1px solid var(--line); }
+.wrap { width:min(1080px,calc(100% - 36px)); margin:auto; }
+.brand { display:inline-block; padding:16px 0; color:inherit; text-decoration:none; font-weight:700; }
+.hero { background:var(--green); padding:clamp(36px,7vw,78px) 0 38px; }
+h1,h2,h3,p { margin:0; }
+h1 { font-size:clamp(2.1rem,6vw,4.3rem); line-height:1.15; letter-spacing:.035em; margin-bottom:14px; }
+h2 { font-size:clamp(1.45rem,3.5vw,2.2rem); line-height:1.3; margin-bottom:12px; }
+h3 { font-size:1.25rem; }
+p + p { margin-top:10px; }
+.intro { max-width:47rem; color:var(--muted); font-size:1.1rem; }
+.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+ .models { display:grid; gap:12px; margin-top:26px; }
+.card { border:1px solid var(--line); border-radius:16px; background:#fffdf8; padding:20px; }
+.diagram-row { display:grid; grid-template-columns:195px minmax(0,1fr); align-items:center; gap:20px; }
+.diagram-row h2 { font-size:1.45rem; margin-bottom:6px; }
+.diagram-row p { color:var(--muted); font-size:.92rem; }
+.circular { background:#f3faef; border-color:#a9c0a6; }
+.diagram { width:100%; height:auto; display:block; }
+.diagram text { font-family:inherit; fill:var(--ink); text-anchor:middle; font-weight:700; font-size:21px; }
+.diagram .loop-label { font-size:17px; font-weight:600; }
+.diagram .badge { font-size:26px; }
+@media(max-width:700px) {
+  .diagram-row { grid-template-columns:1fr; gap:8px; padding:14px; }
+}
+section { padding:32px 0; }
+section + section { border-top:1px solid var(--line); }
+.lead { margin-bottom:16px; color:var(--muted); }
+.choices { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0; }
+.choices a,.link { color:var(--ink); text-underline-offset:4px; }
+.choices a { padding:5px 12px; border:1px solid #7c9a85; border-radius:20px; background:#fffdf8; }
+a:focus-visible,summary:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
+details { border:1px solid var(--line); background:#fffdf8; border-radius:12px; margin:10px 0; }
+summary { cursor:pointer; font-weight:700; padding:13px 17px; }
+details > div { padding:0 17px 15px; }
+dl { margin:0; }
+dt { font-weight:700; }
+dd { margin:0 0 8px; color:var(--muted); }
+dd:last-child { margin-bottom:0; }
+.note { background:var(--green); border-radius:14px; padding:18px; margin-top:18px; }
+footer { padding:22px 0 36px; color:var(--muted); }
+@media(max-width:660px) { .grid { grid-template-columns:1fr; } }
+
+.topic-icon { display:inline-grid; place-items:center; width:38px; height:38px; flex:none; border-radius:10px; background:#e7efe3; color:#285f48; }
+.topic-icon svg { width:23px; height:23px; }
+#talent summary,.info-flow summary { display:flex; align-items:center; gap:11px; list-style:none; }
+#talent summary::-webkit-details-marker,.info-flow summary::-webkit-details-marker { display:none; }
+#talent summary::after,.info-flow summary::after { content:"＋"; margin-left:auto; color:var(--gold); }
+#talent details[open] summary::after,.info-flow details[open] summary::after { content:"−"; }
+.info-flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; align-items:start; padding:0; margin:0; list-style:none; }
+.info-flow li { position:relative; }
+.info-flow li + li::before { content:"→"; position:absolute; color:var(--gold); left:-21px; top:43px; font-weight:700; }
+.info-flow details { margin:0; }
+.info-flow summary { min-height:106px; flex-direction:column; justify-content:center; text-align:center; gap:4px; padding:10px; }
+.step-copy { display:grid; gap:2px; }
+.step-copy small { color:var(--muted); font-size:.84rem; font-weight:500; }
+.info-flow summary::after { margin-left:0; line-height:1; }
+.info-flow details > div { color:var(--muted); font-size:.94rem; }
+@media(max-width:720px) {
+  .info-flow { grid-template-columns:1fr; gap:24px; }
+  .info-flow summary { min-height:0; flex-direction:row; justify-content:flex-start; text-align:left; gap:11px; }
+  .info-flow summary::after { margin-left:auto; }
+  .info-flow li + li::before { content:"↓"; top:-25px; left:50%; }
+}
+
+.talent-number { color:var(--gold); font-variant-numeric:tabular-nums; font-size:.85rem; flex:none; }
+.info-flow li:nth-child(1) { --step-bg:#DCEEDC; --step-ink:#285f48; }
+.info-flow li:nth-child(2) { --step-bg:#DDEAF7; --step-ink:#254d76; }
+.info-flow li:nth-child(3) { --step-bg:#F7E7BA; --step-ink:#745018; }
+.info-flow li:nth-child(4) { --step-bg:#E9E0F4; --step-ink:#624177; }
+.info-flow details { background:var(--step-bg); }
+.info-flow .topic-icon { background:#fffdf8; color:var(--step-ink); }
+
+/* site: 本頁沿用老師原檔色票與字體，不被全站色票覆蓋 */
+body.pp-site[data-page=sustainability-transformation-map]{--ink:#183b32;--muted:#466157;--paper:#f7f5ee;--line:#d3dcd0;--green:#e7efe3;--gold:#8a652e;background:#f7f5ee;color:#183b32;font:1rem/1.75 system-ui,"Noto Sans TC","Microsoft JhengHei",sans-serif}
+@media print{.pp-shell.brand-header,.pp-breadcrumb,.pp-footer{display:none!important}details>div{display:block}}
+</style>
+</head>
+<body class="pp-site" data-page="sustainability-transformation-map">
+<!-- site-only --><header class="brand-header pp-shell"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P<span>·</span></span><span>佩佩老師的會計魔法教室<small>會計能夠救地球</small></span></a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">選單 ☰</button>
+<nav id="main-nav" aria-label="主要導覽"><a href="about.html">認識佩佩</a><details><summary>企業合作</summary><div class="dropdown"><a href="index.html#business">課程與輔導</a><a href="s2-workshop.html">IFRS S2 工作坊</a><a href="npo-finance.html">NPO 財務教室</a></div></details><details><summary>學生學習</summary><div class="dropdown"><a href="index.html#learning">學習資源總覽</a><a href="accounting-learning-map.html">會計人的學習地圖</a><a href="cert-library.html">證照圖書館</a><a href="five-passbooks.html">五大存摺</a><a href="health-passbook.html">健康存摺</a><a href="learning-passbook.html">學習存摺</a><a href="commitment-passbook.html">承諾存摺</a><a href="carbon-goro.html">碳五郎</a><a href="sustainability-transformation-map.html">永續轉型地圖</a></div></details><details><summary>觀點與著作</summary><div class="dropdown"><a href="articles.html">觀點文章</a><a href="news.html">永續新知</a><a href="books.html">著作</a></div></details><a class="nav-contact" href="index.html#contact">聯絡合作 ↗</a></nav></header><nav class="pp-breadcrumb" aria-label="所在位置"><a href="index.html">首頁</a> <span aria-hidden="true">/</span> <a href="accounting-learning-map.html">會計人的學習地圖</a> <span aria-hidden="true">/</span> <span aria-current="page">永續轉型地圖</span></nav><!-- /site-only -->
+<main>
+<div class="hero">
+  <div class="wrap">
+    <h1>永續轉型地圖</h1>
+    <p class="intro">從線性走向循環，一家公司要改哪些做法？又需要哪些人一起做？跟著一只周轉箱，看懂營運流程、專業分工與永續資訊如何接起來。</p>
+    <div class="models">
+      <article class="card diagram-row">
+        <div><h2>線性模式</h2><p>原料進入生產，產品用完後離開使用流程。</p></div>
+        <svg class="diagram" viewBox="0 0 680 106" role="img" aria-labelledby="linear-title">
+          <title id="linear-title">開採、製造、使用、丟棄。</title>
+          <defs><marker id="linear-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#8a652e"/></marker></defs>
+          <path d="M110 39 H215" fill="none" stroke="#8a652e" stroke-width="2.6" marker-end="url(#linear-arrow)"/>
+          <path d="M287 39 H392" fill="none" stroke="#8a652e" stroke-width="2.6" marker-end="url(#linear-arrow)"/>
+          <path d="M464 39 H569" fill="none" stroke="#8a652e" stroke-width="2.6" marker-end="url(#linear-arrow)"/>
+          <g transform="translate(76 39)"><circle r="22" fill="#f2e8d5"/><text class="badge" y="9">⛏</text><text y="50">開採</text></g>
+          <g transform="translate(253 39)"><circle r="22" fill="#f2e8d5"/><text class="badge" y="9">⚙</text><text y="50">製造</text></g>
+          <g transform="translate(430 39)"><circle r="22" fill="#f2e8d5"/><text class="badge" y="9">📦</text><text y="50">使用</text></g>
+          <g transform="translate(607 39)"><circle r="22" fill="#f2e8d5"/><text class="badge" y="9">🗑</text><text y="50">丟棄</text></g>
+        </svg>
+      </article>
+      <article class="card diagram-row circular">
+        <div><h2>循環模式</h2><p>從設計就考慮耐用、可維修與回收。</p></div>
+        <svg class="diagram" viewBox="0 0 680 215" role="img" aria-labelledby="circular-title">
+          <title id="circular-title">開採、製造、使用、收回。清洗維修後回到使用，材料再生後回到製造。</title>
+          <defs><marker id="circular-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#285f48"/></marker></defs>
+          <path d="M110 39 H215" fill="none" stroke="#285f48" stroke-width="2.6" marker-end="url(#circular-arrow)"/>
+          <path d="M287 39 H392" fill="none" stroke="#285f48" stroke-width="2.6" marker-end="url(#circular-arrow)"/>
+          <path d="M464 39 H569" fill="none" stroke="#285f48" stroke-width="2.6" marker-end="url(#circular-arrow)"/>
+          <path d="M632 39 H644 Q662 39 662 60 V113 Q662 134 641 134 H491 Q468 134 468 111 V65 Q468 51 455 51" fill="none" stroke="#285f48" stroke-width="2.6" marker-end="url(#circular-arrow)"/>
+          <path d="M644 134 Q662 134 662 155 V165 Q662 186 641 186 H312 Q290 186 290 164 V65 Q290 51 278 51" fill="none" stroke="#285f48" stroke-width="2.6" stroke-dasharray="7 5" marker-end="url(#circular-arrow)"/>
+          <rect x="478" y="119" width="165" height="30" rx="15" fill="#dcebdd"/>
+          <text class="loop-label" x="560" y="140">清洗維修 → 再使用</text>
+          <rect x="335" y="171" width="175" height="30" rx="15" fill="#dcebdd"/>
+          <text class="loop-label" x="422" y="192">材料再生 → 再製造</text>
+          <g transform="translate(76 39)"><circle r="22" fill="#dcebdd"/><text class="badge" y="9">⛏</text><text y="50">開採</text></g>
+          <g transform="translate(253 39)"><circle r="22" fill="#dcebdd"/><text class="badge" y="9">⚙</text><text y="50">製造</text></g>
+          <g transform="translate(430 39)"><circle r="22" fill="#dcebdd"/><text class="badge" y="9">📦</text><text y="50">使用</text></g>
+          <g transform="translate(607 39)"><circle r="22" fill="#dcebdd"/><text class="badge" y="9">↶</text><text y="50">收回</text></g>
+        </svg>
+      </article>
+    </div>
+    <nav class="choices" aria-label="頁面導覽"><a href="#talent">轉型需要哪些人才</a><a href="#information">永續資訊怎麼串起來</a></nav>
+  </div>
+</div>
+<div class="wrap">
+<section id="taxonomy">
+  <div class="card">
+    <h2>永續經濟活動判斷</h2>
+    <p><strong>看條件，拿證據。</strong> 用周轉箱的使用次數、回收率、清洗用水等紀錄，對照適用的永續分類標準，確認哪些條件已有證據，哪些還需要補資料。</p>
+  </div>
+</section>
+<section id="talent">
+  <h2>轉型需要哪些人才？</h2>
+  <p class="lead">點開每個環節，看看誰會參與、要用什麼能力，以及要交接哪些資料。</p>
+  <details open>
+    <summary><span class="talent-number">01</span><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V9l6 4V3h4l2 18H3zm4-3h2m3 0h2m3 0h2"/></svg></span><span>看懂現場｜製程、採購與營運人員</span></summary>
+    <div><dl><dt>需要的能力</dt><dd>畫出原料、出貨與廢棄物流，找出適合試辦的產品線與客戶。</dd><dt>要交接的資料</dt><dd>現有包材用量、採購成本、出貨頻率與廢棄量。</dd></dl></div>
+  </details>
+  <details>
+    <summary><span class="talent-number">02</span><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6m-5 0v7l-6 9a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2l-6-9V3M8 15h8"/></svg></span><span>設計與測試｜材料研發、檢測與品保人員</span></summary>
+    <div><dl><dt>需要的能力</dt><dd>設計可重複使用或維修的包裝，規劃測試，判斷材料和結構是否符合使用條件。</dd><dt>要交接的資料</dt><dd>耐洗次數、破損情形、測試條件與合格標準。</dd></dl></div>
+  </details>
+  <details>
+    <summary><span class="talent-number">03</span><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h11v12H3zm11 5h4l3 4v3h-7M9 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm11 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg></span><span>讓箱子回得來｜物流、倉儲與供應鏈人員</span></summary>
+    <div><dl><dt>需要的能力</dt><dd>安排回收路線、清洗與維修，和客戶及合作商談妥交還流程與責任。</dd><dt>要交接的資料</dt><dd>回收率、周轉次數、清洗用水、運輸里程與分工紀錄。</dd></dl></div>
+  </details>
+  <details>
+    <summary><span class="talent-number">04</span><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg></span><span>管理資料與揭露｜永續、財會、內控與確信人員</span></summary>
+    <div><dl><dt>需要的能力</dt><dd>訂定指標與計算口徑，建立資料覆核流程，編製永續資訊。需要外部確信時，由獨立確信人員依範圍取得證據並提出結論。</dd><dt>要交接的資料</dt><dd>指標定義、比較基準、原始紀錄、覆核證據與揭露內容。</dd></dl></div>
+  </details>
+  <details>
+    <summary><span class="talent-number">05</span><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 16l5-5 3 2 5-6m-4 0h4v4"/></svg></span><span>評估與找資金｜商業開發、永續金融與專案管理</span></summary>
+    <div><dl><dt>需要的能力</dt><dd>比較兩種模式的成本與效益，設計採購、共用、租用或押金機制，決定先試辦、調整或擴大。用成本、環境效益與試辦資料評估投資，並與銀行或投資人討論資金方案。</dd><dt>要交接的資料</dt><dd>每次出貨的總成本、環境影響、客戶採用意願、試辦結果與資金需求。</dd></dl></div>
+  </details>
+  <p class="note"><strong>跨階段工具</strong>　統計、試算表、資料庫、程式與 AI，可協助整理紀錄、找異常、比較方案與預測需求。</p>
+</section>
+<section id="information">
+  <h2>永續資訊怎麼串起來？</h2>
+  <p class="lead">點開任一步，看看周轉箱的資料如何從現場紀錄走到對外揭露與確信。</p>
+  <ol class="info-flow">
+    <li>
+      <details>
+        <summary><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v16H5zM9 3h6v4H9zM8 12h8m-8 4h8"/></svg></span><span class="step-copy"><span>ESG 資訊</span><small>把資料找齊</small></span></summary>
+        <div><p>從現場蒐集包材用量、清洗用水及運輸里程（E），也記錄員工訓練與作業安全（S）、責任分工與目標追蹤（G）。為重要指標記下資料來源、期間和計算口徑。</p></div>
+      </details>
+    </li>
+    <li>
+      <details>
+        <summary><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10a5 5 0 1 1-10 0 5 5 0 0 1 10 0zm-1 4 6 6m-12-10 1 1 2-2"/></svg></span><span class="step-copy"><span>內部控制與稽核</span><small>把數字查清楚</small></span></summary>
+        <div><p>先訂清楚誰填資料、誰覆核、如何留存證據。內部稽核再依風險抽查，檢視這些控制有沒有落實。例如抽查回收率能否追到出貨與回收紀錄，並追蹤發現的缺失。</p></div>
+      </details>
+    </li>
+    <li>
+      <details>
+        <summary><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg></span><span class="step-copy"><span>揭露 ESG 報告書</span><small>把成果說明白</small></span></summary>
+        <div><p>企業依適用的準則與框架，說明重大議題、管理作法和績效。例如揭露包材用量的變化，並交代比較期間、範圍和計算方法。</p></div>
+      </details>
+    </li>
+    <li>
+      <details>
+        <summary><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6zm-3 9 2 2 4-4"/></svg></span><span class="step-copy"><span>確信 ESG 報告書</span><small>用證據建立信任</small></span></summary>
+        <div><p>外部獨立確信人員就約定範圍內的資訊取得證據並提出結論。讀者可查閱確信報告，確認哪些指標納入、使用什麼準據，以及確信程度。</p></div>
+      </details>
+    </li>
+  </ol>
+  <p class="note"><strong>回到決策</strong>　包材用量少了，清洗用水與回收里程卻增加了。把資料換成每次出貨可比較的口徑，就能討論下一輪要調整箱子設計、回收流程，還是試辦規模。</p>
+</section>
+</div>
+</main>
+<footer class="wrap"><a class="link" href="accounting-learning-map.html">前往會計人的學習地圖 →</a></footer>
+<!-- site-only --><footer class="pp-footer"><div><b>佩佩老師的會計魔法教室</b><p>會計能夠救地球<br><small>Accounting Can Save the Earth</small></p></div><div><a href="index.html#business">企業合作</a><a href="index.html#learning">學生學習</a><a href="articles.html">觀點文章</a><a href="books.html">著作</a></div><div><span>聯絡佩佩老師</span><a href="mailto:lyipei@gmail.com">lyipei@gmail.com ↗</a><small>劉沂佩 · 教學、實踐與永續</small></div></footer><script src="brand.js?v=20260927"></script><!-- /site-only -->
+</body>
+</html>
