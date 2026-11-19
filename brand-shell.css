@@ -82,3 +82,6 @@ body.pp-site{--bg:#f7f5ef;--paper:#fffefa;--text:#253c35;--ink:#253c35;--muted:#
 .pp-site .pp-footer a:hover{text-decoration:underline;text-underline-offset:4px}
 .pp-site .section-heading p,.pp-site .resource-card p,.pp-site .content-card p{font-size:15px;line-height:1.85}
 @media(max-width:700px){.pp-site .body p,.pp-site .post-body,.pp-site .overlay-body{font-size:16px;line-height:1.9}.pp-site .post-row{gap:12px}}
+
+/* Dropdown groups, 2026-11-19. */
+.pp-shell .dropdown .dd-label{display:block;margin-top:6px;padding:8px 12px 2px;border-top:1px solid #e6ebe5;font-size:12px;font-weight:700;letter-spacing:1px;color:#806b42}
