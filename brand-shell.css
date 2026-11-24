@@ -128,5 +128,50 @@ body.pp-site .page-hero .btn-dark:hover{background:var(--pp-spark-dark);border-c
 .pp-site .pp-footer span{color:var(--pp-gold-light)}
 @media(prefers-reduced-motion:reduce){.pp-site[data-page=articles] .guide-cards .gc{transition:none}}
 
+/* Teacher pages color, 2026-11-24 晚：老師指示學習地圖、各本存摺、證照圖書館、永續轉型地圖的配色一併改成新風格；文字一字不動，只動 CSS。 */
+/* (1) 大學生／永續人／AI 人學習地圖：標題群沒有外框，用逐元素滿版底色拼成墨綠橫幅 */
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=sustainability-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap{padding-top:0}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=sustainability-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>:is(.formula,h1,.intro,.guide,.jump){background:var(--pp-pine);box-shadow:0 0 0 100vmax var(--pp-pine);clip-path:inset(0 -100vmax);margin:0 0 -1px;padding-bottom:1px;color:#fff;position:relative}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=sustainability-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>:first-child{padding-top:44px}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=sustainability-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>.formula{color:var(--pp-gold-light);letter-spacing:3px;padding-bottom:6px}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=sustainability-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>h1{padding:4px 0 10px;color:#fff}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=sustainability-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>:is(.intro,.guide){color:#d8e4dd;padding-bottom:8px}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>.jump,.pp-site[data-page=sustainability-learning-map] main.wrap>.guide{padding-bottom:40px;margin-bottom:36px}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>.jump a{background:#ffffff14;border-color:#ffffff60;color:#fff}
+:is(.pp-site[data-page=college-learning-map],.pp-site[data-page=ai-learning-map]) main.wrap>.jump a:hover{background:var(--pp-spark);border-color:var(--pp-spark)}
+/* (2) 會計人的學習地圖：頁首墨綠滿版，七張能力卡恢復各自顏色 */
+.pp-site[data-page=accounting-learning-map] header.hero{background:var(--pp-pine);box-shadow:0 0 0 100vmax var(--pp-pine);clip-path:inset(0 -100vmax);color:#fff;padding-top:44px;padding-bottom:44px}
+.pp-site[data-page=accounting-learning-map] header.hero h1{color:#fff}
+.pp-site[data-page=accounting-learning-map] header.hero p{color:#d8e4dd}
+.pp-site[data-page=accounting-learning-map] header.hero .badge{background:var(--pp-spark);color:#fff;border-radius:999px}
+.pp-site[data-page=accounting-learning-map] .wrap:has(>header.hero){padding-top:0}
+.pp-site[data-page=accounting-learning-map] .flip-card{--cc:var(--pp-c1)}
+.pp-site[data-page=accounting-learning-map] .flip-card.c2{--cc:var(--pp-c3)}
+.pp-site[data-page=accounting-learning-map] .flip-card.c3{--cc:var(--pp-c2)}
+.pp-site[data-page=accounting-learning-map] .flip-card.c4{--cc:var(--pp-c4)}
+.pp-site[data-page=accounting-learning-map] .flip-card.c5{--cc:var(--pp-c5)}
+.pp-site[data-page=accounting-learning-map] .flip-card.c6{--cc:#2f7470}
+.pp-site[data-page=accounting-learning-map] .flip-card.c7{--cc:#c46f22}
+.pp-site[data-page=accounting-learning-map] .flip-card .front{background:linear-gradient(160deg,color-mix(in srgb,var(--cc) 16%,#fff),color-mix(in srgb,var(--cc) 6%,#fffefa));border-color:color-mix(in srgb,var(--cc) 30%,#fff);border-top:6px solid var(--cc)}
+.pp-site[data-page=accounting-learning-map] .flip-card .front :is(.ability,.n){color:var(--cc)}
+/* (3) 證照圖書館：頁首墨綠滿版 */
+.pp-site[data-page=cert-library] header.gate{background:var(--pp-pine);box-shadow:0 0 0 100vmax var(--pp-pine);clip-path:inset(0 -100vmax);color:#fff;padding-top:44px;padding-bottom:44px;margin-bottom:40px}
+.pp-site[data-page=cert-library] header.gate h1{color:#fff}
+.pp-site[data-page=cert-library] header.gate>p{color:#d8e4dd}
+.pp-site[data-page=cert-library] header.gate>:first-child{border-color:var(--pp-gold-light);color:var(--pp-gold-light)}
+.pp-site[data-page=cert-library] header.gate .rule3>*{color:#253c35}
+/* (4) 永續轉型地圖：頁首改墨綠，圖解卡維持白底 */
+.pp-site[data-page=sustainability-transformation-map] main>.hero{background:radial-gradient(circle at 85% 20%,#2b5a4c 0,transparent 55%),linear-gradient(120deg,var(--pp-pine-deep),var(--pp-pine) 60%,#21503f);position:relative}
+.pp-site[data-page=sustainability-transformation-map] main>.hero:after{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--pp-rainbow)}
+.pp-site[data-page=sustainability-transformation-map] main>.hero .wrap>h1{color:#fff}
+.pp-site[data-page=sustainability-transformation-map] main>.hero .wrap>.intro{color:#d8e4dd}
+/* (5) 五本存摺：頁首卡改成該本封面色實底白字 */
+.pp-site[data-page=health-passbook]{--pb:var(--pp-c1)}.pp-site[data-page=learning-passbook]{--pb:var(--pp-c2)}.pp-site[data-page=relationship-passbook]{--pb:var(--pp-c3)}.pp-site[data-page=commitment-passbook]{--pb:var(--pp-c4)}.pp-site[data-page=connection-passbook]{--pb:var(--pp-c5)}
+:is(.pp-site[data-page=learning-passbook],.pp-site[data-page=relationship-passbook],.pp-site[data-page=commitment-passbook],.pp-site[data-page=connection-passbook]) .wrap>header,.pp-site[data-page=health-passbook] .container>.hero{background:linear-gradient(135deg,var(--pb),color-mix(in srgb,var(--pb) 78%,#000));border:0;border-radius:14px;box-shadow:inset 8px 0 #0000002e,0 10px 26px #183f3624;color:#fff;padding:30px 32px;position:relative;overflow:hidden}
+:is(.pp-site[data-page=learning-passbook],.pp-site[data-page=relationship-passbook],.pp-site[data-page=commitment-passbook],.pp-site[data-page=connection-passbook]) .wrap>header :is(h1,p,strong,span,small,b,div),.pp-site[data-page=health-passbook] .container>.hero :is(h1,p,strong,span,small,b,div){color:#fff}
+:is(.pp-site[data-page=learning-passbook],.pp-site[data-page=relationship-passbook],.pp-site[data-page=commitment-passbook],.pp-site[data-page=connection-passbook]) .wrap>header>p:not(:first-of-type),.pp-site[data-page=health-passbook] .container>.hero>p{color:#ffffffd9}
+:is(.pp-site[data-page=relationship-passbook],.pp-site[data-page=connection-passbook]) .wrap>header .steps li{background:#ffffff1f;border-color:#ffffff66;color:#fff}
+:is(.pp-site[data-page=learning-passbook],.pp-site[data-page=relationship-passbook],.pp-site[data-page=commitment-passbook],.pp-site[data-page=connection-passbook]) .wrap>header:after,.pp-site[data-page=health-passbook] .container>.hero:after{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--pp-rainbow)}
+
 /* Dropdown groups, 2026-11-19. */
 .pp-shell .dropdown .dd-label{display:block;margin-top:6px;padding:8px 12px 2px;border-top:1px solid #e6ebe5;font-size:12px;font-weight:700;letter-spacing:1px;color:#806b42}
