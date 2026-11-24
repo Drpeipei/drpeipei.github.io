@@ -83,5 +83,50 @@ body.pp-site{--bg:#f7f5ef;--paper:#fffefa;--text:#253c35;--ink:#253c35;--muted:#
 .pp-site .section-heading p,.pp-site .resource-card p,.pp-site .content-card p{font-size:15px;line-height:1.85}
 @media(max-width:700px){.pp-site .body p,.pp-site .post-body,.pp-site .overlay-body{font-size:16px;line-height:1.9}.pp-site .post-row{gap:12px}}
 
+/* Color system, 2026-11-24：首頁配色升級推到全站。五本存摺色＝全站色票，招牌橘金＝主按鈕與小點。
+   只動站台外框（標題列、頁首主視覺、頁尾、主按鈕）；老師原檔工具頁的內容與配色不動。 */
+body.pp-site{--pp-pine:#183f36;--pp-pine-deep:#0f2e27;--pp-spark:#e08a3c;--pp-spark-dark:#c46f22;--pp-gold-light:#e9c98f;
+  --pp-c1:#496f59;--pp-c2:#456780;--pp-c3:#a85b56;--pp-c4:#836c9b;--pp-c5:#856b35;
+  --pp-rainbow:linear-gradient(90deg,#496f59 0 20%,#456780 20% 40%,#a85b56 40% 60%,#836c9b 60% 80%,#856b35 80%)}
+/* (1) 標題列：底下一條五色彩帶，聯絡合作改實心 */
+.pp-site .pp-shell.brand-header{border-bottom:0}
+.pp-site .pp-shell.brand-header:after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--pp-rainbow)}
+.pp-site .pp-shell #main-nav .nav-contact{background:var(--pp-pine);color:#fff;border-color:var(--pp-pine);border-radius:6px}
+.pp-site .pp-shell #main-nav .nav-contact:hover{background:var(--pp-spark);border-color:var(--pp-spark)}
+/* (2) 站台頁首主視覺（關於、文章、新知、著作、NPO、工作坊）：墨綠滿版反白 */
+body.pp-site .page-hero{background:radial-gradient(circle at 85% 25%,#2b5a4c 0,transparent 55%),linear-gradient(120deg,var(--pp-pine-deep),var(--pp-pine) 60%,#21503f);border:0;color:#fffefa;position:relative}
+body.pp-site .page-hero:after{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--pp-rainbow)}
+body.pp-site .page-hero h1,body.pp-site .page-hero h2,body.pp-site .page-hero .hero-stats b,body.pp-site .page-hero .hero-stats strong,body.pp-site .page-hero .stat-num{color:#fff}
+body.pp-site .page-hero h1 em{color:var(--pp-gold-light)}
+body.pp-site .page-hero .hero-num{color:var(--pp-gold-light)}
+body.pp-site .page-hero .hero-tag{background:var(--pp-spark);color:#fff;border-radius:999px;padding-inline:14px}
+body.pp-site .page-hero .hero-desc,body.pp-site .page-hero p,body.pp-site .page-hero .hero-stats span,body.pp-site .page-hero .hero-stats small{color:#d8e4dd}
+body.pp-site .page-hero .hero-bottom{border-color:#ffffff30}
+body.pp-site .page-hero .hero-stats *{color:#d8e4dd}
+body.pp-site .page-hero .hero-stats .num{color:#fff}
+body.pp-site .page-hero .btn-dark{background:var(--pp-spark);border-color:var(--pp-spark);color:#fff}
+body.pp-site .page-hero .btn-dark:hover{background:var(--pp-spark-dark);border-color:var(--pp-spark-dark);color:#fff}
+/* 工具頁與地圖頁的頁首帶（五大存摺、碳五郎）：同樣改墨綠反白 */
+.pp-site[data-page=five-passbooks]>header:not(.pp-shell),.pp-site[data-page=carbon-goro]>header:not(.pp-shell){background:linear-gradient(120deg,var(--pp-pine-deep),var(--pp-pine) 60%,#21503f);color:#fffefa;position:relative}
+.pp-site[data-page=five-passbooks]>header:not(.pp-shell):after,.pp-site[data-page=carbon-goro]>header:not(.pp-shell):after{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--pp-rainbow)}
+.pp-site[data-page=five-passbooks]>header:not(.pp-shell) *,.pp-site[data-page=carbon-goro]>header:not(.pp-shell) *{color:inherit}
+.pp-site[data-page=five-passbooks]>header:not(.pp-shell) p,.pp-site[data-page=carbon-goro]>header:not(.pp-shell) p{color:#d8e4dd}
+/* (3) 主按鈕：橘金實心膠囊 */
+.pp-site .button.primary{background:var(--pp-spark);border-color:var(--pp-spark);color:#fff;border-radius:999px}
+.pp-site .button.primary:hover{background:var(--pp-spark-dark);border-color:var(--pp-spark-dark);color:#fff}
+/* (4) 文章總覽三張指路卡：各一色 */
+.pp-site[data-page=articles] .guide-cards .gc{border-top:5px solid var(--pp-c3);border-radius:10px;transition:transform .15s,box-shadow .15s}
+.pp-site[data-page=articles] .guide-cards .gc:nth-child(2){border-top-color:var(--pp-c5)}
+.pp-site[data-page=articles] .guide-cards .gc:nth-child(3){border-top-color:var(--pp-c1)}
+.pp-site[data-page=articles] .guide-cards .gc:nth-child(1) .gk,.pp-site[data-page=articles] .guide-cards .gc:nth-child(1) .go{color:var(--pp-c3)}
+.pp-site[data-page=articles] .guide-cards .gc:nth-child(2) .gk,.pp-site[data-page=articles] .guide-cards .gc:nth-child(2) .go{color:var(--pp-c5)}
+.pp-site[data-page=articles] .guide-cards .gc:nth-child(3) .gk,.pp-site[data-page=articles] .guide-cards .gc:nth-child(3) .go{color:var(--pp-c1)}
+.pp-site[data-page=articles] .guide-cards .gc:hover{transform:translateY(-3px);box-shadow:0 10px 24px #183f361a}
+/* (5) 頁尾：上緣五色彩帶 */
+.pp-site .pp-footer{position:relative;border-top:0}
+.pp-site .pp-footer:before{content:'';position:absolute;left:0;right:0;top:0;height:5px;background:var(--pp-rainbow)}
+.pp-site .pp-footer span{color:var(--pp-gold-light)}
+@media(prefers-reduced-motion:reduce){.pp-site[data-page=articles] .guide-cards .gc{transition:none}}
+
 /* Dropdown groups, 2026-11-19. */
 .pp-shell .dropdown .dd-label{display:block;margin-top:6px;padding:8px 12px 2px;border-top:1px solid #e6ebe5;font-size:12px;font-weight:700;letter-spacing:1px;color:#806b42}
